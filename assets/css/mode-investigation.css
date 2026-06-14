@@ -1,0 +1,56 @@
+/* ============================================================
+   MALINYX · MODE 02 — INVESTIGATION (cold)
+   For: zewm-excmon.html and future forensic / governance /
+   failure investigations.
+   Cold navy institutional ground. Semantic accents carry
+   meaning (blue=system, red=failure, amber=warning/shadow,
+   cyan=human adaptation, violet=governance). Orange is a
+   minimal brand/nav accent only — never page atmosphere.
+   Token values are canonical from the MALINYX Design Bible
+   (Visual System): BG.base #071018, TX.pri #E8EEF7, etc.
+   ============================================================ */
+
+:root{
+  /* ground / surfaces */
+  --bg:#071018;            /* BG.base — "never pure black, deep navy-black" */
+  --panel:#0b1520;         /* BG.deep — elevated panels */
+  --panel2:#101c29;        /* BG.section — nav bars, headers, raised cards */
+  --line:#1d2e3b;
+  --line-bright:#2a3f4f;
+
+  /* text */
+  --txt:#e8eef7;           /* TX.pri — never pure white */
+  --txt-dim:#afc3d9;       /* TX.sec */
+  --txt-faint:#4d6373;
+
+  /* brand accent — MINIMAL use only (nav, wordmark) */
+  --accent:#f25c2a;
+  --accent-dim:#a8431f;
+
+  /* semantic accents — carry institutional meaning */
+  --blue:#4da3ff;          /* AC.blue   — system refs, active states */
+  --red:#d94b4b;           /* AC.red    — incident / failure / CRITICAL */
+  --amber:#f0a43a;         /* AC.amber  — warning / degraded / shadow */
+  --cyan:#1ecece;          /* AC.cyan   — human adaptation / operational */
+  --violet:#8b5cf6;        /* AC.violet — governance / authority */
+
+  /* legacy aliases kept so existing ZEWM act-colors don't break.
+     ZEWM currently uses --signal/--warn and slightly different
+     hex for violet/blue/etc.; these map them onto the canonical
+     semantic set without touching ZEWM's inline markup. */
+  --signal:#1ecece;
+  --warn:#f0a43a;
+  --green:#5bb26a;
+
+  /* mode-specific grid — cool, can stay stronger (forensic atmosphere) */
+  --grid-line:rgba(29,46,59,.22);
+  --grid-size:48px;
+
+  /* grain over a cold ground reads at full studio strength */
+  --grain-opacity:.035;
+
+  /* typography */
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --maxw:1180px;
+}

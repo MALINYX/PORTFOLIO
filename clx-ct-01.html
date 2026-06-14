@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLX-CT-01 V2 Tapered Pro — Case Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- MALINYX shell: shared structure + STUDIO (warm) mode -->
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/mode-studio.css">
+<style>
+    :root{
+    /* CLX uses its own --ground/--ink names internally; alias them onto the
+       shared STUDIO warm tokens so all CLX rules inherit the warm shell
+       without rewriting them. */
+    --ground:#0b0d0c;
+    --ground-2:#12110f;
+    --ground-3:#181512;
+    --line:rgba(232,220,190,.12);
+    --line-soft:rgba(232,220,190,.06);
+    --ink:#e8e0d2;
+    --ink-dim:#a89f91;
+    --ink-faint:#6f675d;
+    --orange:#f25c2a;
+    /* LOCAL semantic evidence-badge colors — scoped to badges/diagrams only,
+       never page atmosphere (per two-mode rule for CLX). */
+    --teal:#36b3a8;
+    --green:#5bb26a;
+    --amber:#e0a93b;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --sans:'IBM Plex Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  /* blueprint grid + grain */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--line-soft) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse 120% 80% at 50% 0%,#000 35%,transparent 95%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ---------- STATUS BAR ---------- */
+  .statusbar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(7,16,24,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  }
+  .statusbar .inner{
+    max-width:1080px;margin:0 auto;padding:9px 28px;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+    color:var(--ink-dim);text-transform:uppercase;
+  }
+  .statusbar b{color:var(--ink);font-weight:600}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:6px}
+  .dot.draft{background:var(--amber);box-shadow:0 0 0 3px #e0a93b22}
+  .sb-right{margin-left:auto;color:var(--ink-faint)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:78px 0 56px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+  .hero h1{
+    font-family:var(--mono);font-weight:600;
+    font-size:clamp(30px,5.4vw,58px);line-height:1.02;letter-spacing:-.01em;
+    color:#fff;margin-bottom:8px;
+  }
+  .hero h1 .unit{color:var(--ink-dim)}
+  .thesis{
+    font-size:clamp(19px,2.6vw,27px);font-weight:500;line-height:1.32;
+    max-width:760px;margin:26px 0 0;color:var(--ink);
+  }
+  .thesis .neg{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:#f25c2a88;text-decoration-thickness:2px}
+  .thesis .pos{color:var(--teal)}
+  .hero-meta{
+    display:flex;gap:34px;flex-wrap:wrap;margin-top:40px;
+    font-family:var(--mono);font-size:12px;color:var(--ink-dim);
+  }
+  .hero-meta div span{display:block;color:var(--ink-faint);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .hero-meta div b{color:var(--ink);font-weight:500;font-size:13px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:32px}
+  .sec-num{font-family:var(--mono);font-size:13px;color:var(--orange);font-weight:600;letter-spacing:.05em;flex:none;padding-top:4px}
+  .sec-title{font-family:var(--mono);font-weight:600;font-size:clamp(20px,3vw,28px);color:#fff;letter-spacing:-.01em}
+  .sec-sub{font-size:14px;color:var(--ink-dim);margin-top:6px;max-width:640px}
+  .sec-head .col{flex:1}
+
+  p.body{color:var(--ink);max-width:720px;margin-bottom:14px}
+  p.body.dim{color:var(--ink-dim)}
+
+  /* ---------- BADGES ---------- */
+  .badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 8px;border-radius:3px;display:inline-flex;align-items:center;gap:5px;font-weight:500;white-space:nowrap}
+  .badge .b-dot{width:6px;height:6px;border-radius:50%}
+  .badge.verified{background:#5bb26a18;color:var(--green);border:1px solid #5bb26a44}
+  .badge.verified .b-dot{background:var(--green)}
+  .badge.pending{background:#e0a93b14;color:var(--amber);border:1px solid #e0a93b40}
+  .badge.pending .b-dot{background:var(--amber)}
+  .badge.frozen{background:#36b3a814;color:var(--teal);border:1px solid #36b3a840}
+  .badge.frozen .b-dot{background:var(--teal)}
+  .badge.cued{background:#7e98a614;color:var(--ink-dim);border:1px solid #7e98a63a}
+  .badge.cued .b-dot{background:var(--ink-dim)}
+
+  /* ---------- EVIDENCE METER ---------- */
+  .evgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .evcell{background:var(--ground-2);padding:18px 16px}
+  .evcell .n{font-family:var(--mono);font-size:30px;font-weight:600;color:#fff;line-height:1}
+  .evcell .n.green{color:var(--green)}
+  .evcell .n.amber{color:var(--amber)}
+  .evcell .l{font-size:11px;color:var(--ink-dim);margin-top:8px;letter-spacing:.03em}
+  .meter{height:8px;background:var(--ground-3);border:1px solid var(--line);border-radius:5px;overflow:hidden;margin:22px 0 10px;display:flex}
+  .meter i{display:block;height:100%}
+  .meter i.v{width:40%;background:var(--green)}
+  .meter i.p{width:60%;background:repeating-linear-gradient(45deg,#e0a93b33,#e0a93b33 6px,#e0a93b1a 6px,#e0a93b1a 12px)}
+  .meter-key{display:flex;gap:20px;font-family:var(--mono);font-size:11px;color:var(--ink-dim)}
+  .meter-key span{display:flex;align-items:center;gap:7px}
+  .meter-key i{width:10px;height:10px;border-radius:2px;display:inline-block}
+  .ev-products{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .chip{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--ground-2);border:1px solid var(--line);border-radius:4px;padding:6px 11px}
+  .chip span{color:var(--ink-faint)}
+
+  /* ---------- ARCH FLOW ---------- */
+  .flow{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .flow-row{display:grid;grid-template-columns:46px 1fr;background:var(--ground-2);border-bottom:1px solid var(--line)}
+  .flow-row:last-child{border-bottom:0}
+  .flow-row .k{font-family:var(--mono);font-size:12px;color:var(--orange);display:flex;align-items:center;justify-content:center;background:var(--ground-3);border-right:1px solid var(--line);font-weight:600}
+  .flow-row .v{padding:13px 16px}
+  .flow-row .v b{color:#fff;font-weight:600;font-size:14px;font-family:var(--mono)}
+  .flow-row .v p{color:var(--ink-dim);font-size:13px;margin-top:2px}
+  .flow-arrow{color:var(--ink-faint);font-family:var(--mono);text-align:center;padding:3px 0;font-size:12px;background:var(--ground)}
+
+  /* ---------- MODULES ---------- */
+  .modgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .mod{background:var(--ground-2);padding:18px 17px;position:relative;min-height:138px}
+  .mod .id{font-family:var(--mono);font-size:11px;color:var(--orange);font-weight:600;letter-spacing:.05em}
+  .mod h4{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;margin:9px 0 6px}
+  .mod p{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+  .mod .pill{margin-top:12px}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px;margin-top:6px}
+  .pillar{background:var(--ground-2);border:1px solid var(--line);border-left:2px solid var(--teal);border-radius:5px;padding:14px 14px}
+  .pillar .pn{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.1em}
+  .pillar h5{font-size:13.5px;font-weight:600;color:var(--ink);margin:6px 0 8px;line-height:1.25}
+  .pillar.absent{border-left-color:var(--amber)}
+
+  /* ---------- SPEC TABLE ---------- */
+  .spectable{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .spectable th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:11px 14px;background:var(--ground-3);border-bottom:1px solid var(--line);font-weight:500}
+  .spectable td{padding:11px 14px;border-bottom:1px solid var(--line-soft);color:var(--ink);background:var(--ground-2)}
+  .spectable tr:last-child td{border-bottom:0}
+  .spectable td.dim{font-family:var(--mono);font-size:12px;color:var(--ink-dim)}
+  .spectable td b{font-family:var(--mono);color:#fff;font-weight:500}
+
+  /* ---------- CALLOUT / DOCTRINE NOTE ---------- */
+  .callout{border:1px solid var(--line);border-left:2px solid var(--orange);background:var(--ground-2);border-radius:5px;padding:16px 18px;margin:18px 0}
+  .callout .ct{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;font-weight:600}
+  .callout p{font-size:13.5px;color:var(--ink);max-width:none}
+  .callout.amber{border-left-color:var(--amber)}
+  .callout.amber .ct{color:var(--amber)}
+  .callout.teal{border-left-color:var(--teal)}
+  .callout.teal .ct{color:var(--teal)}
+
+  /* ---------- BLOCKOUT REVIEW ---------- */
+  .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  .rev{background:var(--ground-2);border:1px solid var(--line);border-radius:6px;padding:16px 16px}
+  .rev h4{font-family:var(--mono);font-size:13px;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+  .rev ul{list-style:none}
+  .rev li{font-size:13px;color:var(--ink);padding:6px 0 6px 22px;position:relative;border-bottom:1px solid var(--line-soft)}
+  .rev li:last-child{border-bottom:0}
+  .rev li::before{position:absolute;left:0;top:6px;font-family:var(--mono);font-size:12px}
+  .rev li.ok::before{content:"✓";color:var(--green)}
+  .rev li.flag::before{content:"!";color:var(--amber);font-weight:700}
+  .rev li b{font-family:var(--mono);color:#fff;font-weight:500}
+
+  .verlog{font-family:var(--mono);font-size:12px;color:var(--ink-dim);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:18px}
+  .verlog div{padding:9px 14px;border-bottom:1px solid var(--line-soft);background:var(--ground-2);display:flex;gap:12px;align-items:center}
+  .verlog div:last-child{border-bottom:0}
+  .verlog .vtag{color:var(--orange);flex:none;width:56px}
+  .verlog .vst{margin-left:auto;flex:none}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0 64px;color:var(--ink-faint);font-family:var(--mono);font-size:11px;line-height:1.7}
+  footer b{color:var(--ink-dim);font-weight:500}
+  .foot-rule{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .foot-rule span{border:1px solid var(--line);border-radius:3px;padding:4px 9px}
+
+  a.anchor{color:inherit;text-decoration:none}
+
+  @media(max-width:720px){
+    .review-grid{grid-template-columns:1fr}
+    .sec-head{flex-direction:column;gap:6px}
+    .hero-meta{gap:20px}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+  }
+
+  /* shared-nav integration: thin draft sub-bar under the main statusbar */
+  .clx-substatus{border-bottom:1px solid var(--line);background:var(--ground-2)}
+  .clx-substatus .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    height:auto;padding-top:9px;padding-bottom:9px;font-family:var(--mono);font-size:10px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .clx-substatus b{color:var(--orange);font-weight:600}
+  .nav .live .dot.draft{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+</style>
+</head>
+<body>
+
+<div class="statusbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="name">B·ARIANEJAD</span><span class="mark">MALINYX</span></a>
+  <nav class="nav">
+    <a href="index.html">Index</a>
+    <a href="work.html" class="active">Work</a>
+    <a href="field-notes.html">Field Notes</a>
+    <a href="index.html#contact">Contact</a>
+    <span class="live hide-sm"><span class="dot draft"></span>V2.1 · refinement pending</span>
+  </nav>
+</div></div>
+<div class="clx-substatus"><div class="wrap">
+  <span><b>CLX-CT-01</b> · Creator-Tech Carry System</span>
+  <span>CAD BLOCKOUT · V2.1 REFINEMENT PENDING</span>
+</div></div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="eyebrow">Industrial Design · Process Portfolio</div>
+    <h1>CLX-CT-01 <span class="unit">/ Creator-Tech Carry System</span></h1>
+    <p class="thesis">
+      <span class="neg">Not a camera backpack.</span><br>
+      A <span class="pos">spine-centered creator workstation</span> — designed from review evidence outward, not from a silhouette inward.
+    </p>
+    <div class="hero-meta">
+      <div><span>Envelope</span><b>480 × 285 × 180→150 mm</b></div>
+      <div><span>Frozen pillars</span><b>6</b></div>
+      <div><span>Evidence verified</span><b>40% · 8 rows</b></div>
+      <div><span>Blockout state</span><b>V2.1 · refinement pending</b></div>
+    </div>
+  </header>
+
+  <!-- 01 THESIS -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div class="col">
+        <div class="sec-title">Thesis &amp; Doctrine</div>
+        <div class="sec-sub">The frozen position the whole project is accountable to.</div>
+      </div>
+    </div>
+    <p class="body">
+      The category default is a soft, top-loading camera bag that treats a laptop, audio kit, and cables as
+      afterthoughts stuffed around the camera core. CLX-CT-01 inverts that: the load is organized around the
+      spine first, with protected rapid access and independent compartments designed as primary structure rather
+      than as pockets. The reframing is deliberate — it changes what the product is measured against.
+    </p>
+    <div class="callout teal">
+      <div class="ct">Frozen doctrine</div>
+      <p>“CLX-CT-01 is not a camera backpack. It is a spine-centered creator workstation.” Six pillars hold this position. They are provisional in detail but frozen in intent — corrections may refine a pillar's spec, not remove the pillar.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="pn">PILLAR 01</div><h5>Protected rapid-access side hatch</h5><span class="badge frozen"><span class="b-dot"></span>Frozen</span></div>
+      <div class="pillar"><div class="pn">PILLAR 02</div><h5>Anti-spill retention</h5><span class="badge frozen"><span class="b-dot"></span>Frozen</span></div>
+      <div class="pillar"><div class="pn">PILLAR 03</div><h5>Semi-rigid frame</h5><span class="badge frozen"><span class="b-dot"></span>Frozen</span></div>
+      <div class="pillar"><div class="pn">PILLAR 04</div><h5>Spine-centered placement</h5><span class="badge frozen"><span class="b-dot"></span>Frozen</span></div>
+      <div class="pillar absent"><div class="pn">PILLAR 05</div><h5>Independent laptop tunnel</h5><span class="badge cued"><span class="b-dot"></span>Internal · not on exterior</span></div>
+      <div class="pillar absent"><div class="pn">PILLAR 06</div><h5>Removable cable / audio cassette</h5><span class="badge cued"><span class="b-dot"></span>Internal · not on exterior</span></div>
+    </div>
+  </section>
+
+  <!-- 02 EVIDENCE -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div class="col">
+        <div class="sec-title">Evidence Status</div>
+        <div class="sec-sub">What is actually verified versus what is still source-pending. Honesty over polish — thin evidence is labeled, not hidden.</div>
+      </div>
+    </div>
+    <div class="evgrid">
+      <div class="evcell"><div class="n green">8</div><div class="l">Verified review rows<br>(EV-V01 – EV-V08)</div></div>
+      <div class="evcell"><div class="n">4</div><div class="l">Products surveyed</div></div>
+      <div class="evcell"><div class="n amber">40%</div><div class="l">Corpus verified</div></div>
+      <div class="evcell"><div class="n">1</div><div class="l">Convergent tradeoff<br>across all 4 products</div></div>
+    </div>
+    <div class="meter"><i class="v"></i><i class="p"></i></div>
+    <div class="meter-key">
+      <span><i style="background:var(--green)"></i>Verified · 40%</span>
+      <span><i style="background:#e0a93b33"></i>Source pending · 60%</span>
+    </div>
+    <p class="body dim" style="margin-top:22px">
+      The one finding strong enough to act on: a <b style="color:var(--ink)">weight vs. protection/access</b> tradeoff
+      converged across all four products surveyed. Everything beyond that is treated as benchmark or source-pending and
+      is labeled as such wherever it appears downstream.
+    </p>
+    <div class="ev-products">
+      <div class="chip">Peak Design Everyday <span>V2</span></div>
+      <div class="chip">WANDRD PRVKE <span>21L</span></div>
+      <div class="chip">Shimoda Action <span>X25</span></div>
+      <div class="chip">Nomatic <span>McKinnon</span></div>
+    </div>
+    <div class="callout amber">
+      <div class="ct">Standing rule · evidence integrity</div>
+      <p>No unverified figure is asserted as fact. Fake precision (hand-assigned scores) was replaced with a real weighted model; overclaiming headlines were softened. Where a number is a target rather than a measurement, it carries a T-namespace ID and a “pending” flag.</p>
+    </div>
+  </section>
+
+  <!-- 03 SYSTEM ARCHITECTURE -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div class="col">
+        <div class="sec-title">System Architecture</div>
+        <div class="sec-sub">The evidence-to-design chain. Each stage is accountable to the one before it.</div>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="flow-row"><div class="k">A</div><div class="v"><b>Competitive review mining</b><p>4 products · 8 verified rows · complaint extraction</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-row"><div class="k">B</div><div class="v"><b>Complaint cluster scoring</b><p>weighted model · opportunity ranking</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-row"><div class="k">C</div><div class="v"><b>Requirement definition</b><p>R-series frozen reqs · T01–T05 provisional targets</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-row"><div class="k">D</div><div class="v"><b>System &amp; component architecture</b><p>8 modules · M01–M08</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-row"><div class="k">E</div><div class="v"><b>Form strategy &amp; silhouette</b><p>taper rationale · view logic</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-row"><div class="k">F</div><div class="v"><b>CAD blockout &amp; modeling plan</b><p>Blender blockout · V2.x refinement pending</p></div></div>
+    </div>
+    <div class="callout">
+      <div class="ct">Namespace discipline</div>
+      <p>Reference by descriptive cluster-name anchors, never by drifting requirement IDs. A duplicate-ID conflict (R12–R16) was resolved structurally by introducing the T01–T05 provisional-target namespace — a fix to logic and traceability, not cosmetics.</p>
+    </div>
+  </section>
+
+  <!-- 04 MODULES -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div class="col">
+        <div class="sec-title">Component Architecture · 8 Modules</div>
+        <div class="sec-sub">Authoritative M01–M08 mapping from the component architecture phase. The blockout may only cue some internal modules; the module IDs do not drift.</div>
+      </div>
+    </div>
+    <div class="modgrid">
+      <div class="mod"><div class="id">M01</div><h4>Back Panel + Frame Sheet</h4><p>Load-bearing spine datum, semi-rigid frame sheet, central spine channel, rear pad and harness-mount surface.</p><div class="pill"><span class="badge verified"><span class="b-dot"></span>Datum / frame</span></div></div>
+      <div class="mod"><div class="id">M02</div><h4>Camera Core / Divider Cassette</h4><p>Spine-close protected camera volume for body, primary lens, and modular dividers.</p><div class="pill"><span class="badge frozen"><span class="b-dot"></span>Core payload</span></div></div>
+      <div class="mod"><div class="id">M03</div><h4>Side Hatch + Retention Gate</h4><p>Protected +X side access with anti-spill partial-opening gate.</p><div class="pill"><span class="badge verified"><span class="b-dot"></span>Access path</span></div></div>
+      <div class="mod"><div class="id">M04</div><h4>Laptop Tunnel</h4><p>Independent 14–16 inch laptop path between the back plane and camera core.</p><div class="pill"><span class="badge cued"><span class="b-dot"></span>Internal · cued</span></div></div>
+      <div class="mod"><div class="id">M05</div><h4>Cable / Audio Cassette</h4><p>Removable front-mid organizer for lavs, SD cards, batteries, and cables.</p><div class="pill"><span class="badge cued"><span class="b-dot"></span>Internal · cued</span></div></div>
+      <div class="mod"><div class="id">M06</div><h4>Tripod Dock</h4><p>Exterior −X side dock channel, separated from the hatch side to avoid access conflict.</p><div class="pill"><span class="badge verified"><span class="b-dot"></span>Exterior channel</span></div></div>
+      <div class="mod"><div class="id">M07</div><h4>Harness / Load Transfer</h4><p>Rear-mounted shoulder/hip load interface; represented only by mount points in current blockout.</p><div class="pill"><span class="badge pending"><span class="b-dot"></span>Future detail</span></div></div>
+      <div class="mod"><div class="id">M08</div><h4>Outer Shell / Weather Layer</h4><p>Quiet tapered shell, weather layer, front restraint, and low-signal exterior surface.</p><div class="pill"><span class="badge verified"><span class="b-dot"></span>Envelope</span></div></div>
+    </div>
+    <p class="body dim" style="margin-top:16px;font-size:12.5px">
+      Module numbering is now locked to the component architecture. The current blockout establishes M01/M02/M03/M06/M08 externally, while M04 and M05 remain internal/cued until section cuts or exploded views prove them.
+    </p>
+  </section>
+
+  <!-- 05 FORM STRATEGY -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div class="col">
+        <div class="sec-title">Form Strategy</div>
+        <div class="sec-sub">Why the envelope tapers, and what the form has to telegraph.</div>
+      </div>
+    </div>
+    <p class="body">
+      The taper — 180 mm depth at the lower/mid body drawing to 150 mm at the shoulder — is not styling. It pulls mass
+      toward the wearer's center of gravity at the top of the carry, narrows the profile where the body leans into it,
+      and signals a worn workstation rather than a hard equipment case. Corner softening (22 mm radius) reads as a
+      molded semi-rigid shell, reinforcing the “workstation, not case” doctrine.
+    </p>
+    <table class="spectable">
+      <tr><th>Element</th><th>Spec</th><th>Role</th></tr>
+      <tr><td>Envelope</td><td><b>480 × 285 × 180→150</b></td><td class="dim">Frozen carry volume</td></tr>
+      <tr><td>Depth taper</td><td><b>180 → 150 mm</b></td><td class="dim">Center-of-gravity + worn read</td></tr>
+      <tr><td>Camera core</td><td><b>290 × 190 × 130</b></td><td class="dim">Protected payload</td></tr>
+      <tr><td>Side hatch</td><td><b>230 × 120</b></td><td class="dim">Rapid access, +X face</td></tr>
+      <tr><td>Spine channel</td><td><b>36 mm</b></td><td class="dim">Load centering, back plane</td></tr>
+      <tr><td>Laptop tunnel</td><td><b>28 deep · 390–420 H</b></td><td class="dim">Independent sleeve (internal)</td></tr>
+      <tr><td>Cassette</td><td><b>200 × 120 × 40</b></td><td class="dim">Removable organizer (internal)</td></tr>
+    </table>
+    <div class="callout amber">
+      <div class="ct">Portfolio note · lens honesty</div>
+      <p>Render at 35–40 mm, not 64 mm. The longer lens compresses depth and exaggerates verticality, making the 285 mm width read narrower than it is. The geometry is correct; the hero shot should not misrepresent the envelope. A lower camera height further corrects the read.</p>
+    </div>
+  </section>
+
+  <!-- 06 CAD BLOCKOUT GUIDE -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <div class="col">
+        <div class="sec-title">CAD Blockout Guide</div>
+        <div class="sec-sub">Coordinate doctrine and what the blockout is — and is not — meant to validate.</div>
+      </div>
+    </div>
+    <table class="spectable">
+      <tr><th>Axis</th><th>Direction</th><th>Carries</th></tr>
+      <tr><td><b>+Z</b></td><td>Up</td><td class="dim">Blender-native vertical axis</td></tr>
+      <tr><td><b>+Y</b></td><td>Front / depth</td><td class="dim">Toward front shell and cassette zone</td></tr>
+      <tr><td><b>+X</b></td><td>Hatch side</td><td class="dim">Protected rapid-access side hatch</td></tr>
+      <tr><td><b>−X</b></td><td>Tripod side</td><td class="dim">Tripod dock channel, opposite hatch</td></tr>
+      <tr><td><b>Origin</b></td><td>Base of flat back plane</td><td class="dim">Centered left-right; all module coordinates reference this datum</td></tr>
+    </table>
+    <div class="callout">
+      <div class="ct">Doctrine note · internal modules omitted from exterior</div>
+      <p>The laptop tunnel (M04) and cable/audio cassette (M05) are <b>internal modules</b>. They are intentionally excluded from the exterior blockout, which carries a clean service mark on the front face only. This keeps the six-pillar count honest against a five-things-visible model: two pillars live inside and are specified in the component architecture, not shown on the exterior shell. Recorded so a later diff of blockout-vs-pillars does not read the absence as drift.</p>
+    </div>
+    <div class="callout teal">
+      <div class="ct">Fidelity boundary</div>
+      <p>At blockout fidelity the model <b>establishes</b> envelope, taper, axis doctrine, hatch placement, and spine width as buildable geometry. It does <b>not</b> validate the laptop tunnel or cassette as sealed independent volumes — those are cued, not proven — and a blockout is not an engineering check. Downstream language must say “cued,” not “validated,” for M04 and M05, and must not treat the blockout as sign-off.</p>
+    </div>
+  </section>
+
+  <!-- 07 FIRST BLOCKOUT REVIEW -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">07</div>
+      <div class="col">
+        <div class="sec-title">First Blockout Review · V2.x</div>
+        <div class="sec-sub">Read from the generating script and cross-checked against viewport renders. This is a <b style="color:var(--amber)">visual/code review of a blockout</b>, not engineering validation — V2.1 refinement is pending.</div>
+      </div>
+    </div>
+    <div class="review-grid">
+      <div class="rev">
+        <h4><span class="badge verified"><span class="b-dot"></span>Matches spec in script</span></h4>
+        <ul>
+          <li class="ok">Envelope <b>480 × 285 × 180→150</b> built as a true tapered mesh</li>
+          <li class="ok">Depth taper present in geometry; reads in side render</li>
+          <li class="ok">Hatch on <b>+X</b> · recess dimensioned <b>230 × 120</b></li>
+          <li class="ok">Spine channel <b>36 mm</b> in script</li>
+          <li class="ok">Upright, Z-up, single assembled mass</li>
+          <li class="ok">Tripod dock, bands, contact pads, handle attached</li>
+        </ul>
+      </div>
+      <div class="rev">
+        <h4><span class="badge pending"><span class="b-dot"></span>Flagged / open</span></h4>
+        <ul>
+          <li class="flag">Front cues dropped → <b>clean service mark only</b> (intentional; now documented)</li>
+          <li class="flag">M05 / M06 cued as surface relief, <b>not validated</b> as sealed volumes</li>
+          <li class="flag">Hero render at <b>64 mm</b> exaggerates verticality — switch to 35–40 mm</li>
+          <li class="flag">Flat accessory boxes meet angled taper faces — check top-edge fit</li>
+          <li class="flag">Proportions still read tall/narrow vs. spec — needs V2.1 pass</li>
+        </ul>
+      </div>
+    </div>
+    <div class="verlog">
+      <div><span class="vtag">V2.8</span>First assembled lock · undersized envelope, no taper, hatch on front face<span class="vst"><span class="badge pending"><span class="b-dot"></span>Superseded</span></span></div>
+      <div><span class="vtag">V2.8B</span>Spec-locked envelope + true taper · hatch moved to +X · all pillars cued<span class="vst"><span class="badge cued"><span class="b-dot"></span>Superseded</span></span></div>
+      <div><span class="vtag">V2.x</span>Corrected upright blockout · taper reads in render · matches baseline envelope in script<span class="vst"><span class="badge verified"><span class="b-dot"></span>Current review state</span></span></div>
+      <div><span class="vtag">V2.1</span>Next refinement pass — flush hatch, recessed dock, softer backpack massing, clean off-object labels<span class="vst"><span class="badge pending"><span class="b-dot"></span>Pending</span></span></div>
+    </div>
+    <div class="callout amber" style="margin-top:18px">
+      <div class="ct">Status · refinement pending</div>
+      <p>The current blockout matches the baseline envelope <b>in script</b>, and the taper that earlier 3/4 renders hid now reads in the side view. It is not closed: a V2.1 pass is pending for proportion read, lens correction, and taper-face fit. This is a blockout under review, not a validated model.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="reveal">
+    <div><b>CLX-CT-01 · Creator-Tech Carry System</b> · Spine-centered creator workstation · MALINYX Studio</div>
+    <div>Consolidation draft built from project handoff, component architecture, and corrected upright Blender blockout. Per-topic deliverables govern where detail differs.</div>
+    <div class="foot-rule">
+      <span>DRAFT STATE</span>
+      <span>EVIDENCE 40% VERIFIED</span>
+      <span>CAD BLOCKOUT V2.1 REFINEMENT PENDING</span>
+      <span>HONESTY OVER POLISH</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    const els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+    const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -5% 0px'});
+    els.forEach(el=>obs.observe(el));
+    // fail-safe: anything still hidden after 2.5s reveals regardless
+    setTimeout(()=>els.forEach(e=>e.classList.add('in')),2500);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[build]
+  publish = "."
+
+# Static HTML site. No forced clean URLs.

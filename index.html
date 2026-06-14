@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MALINYX — Forensic Systems & Industrial Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- MALINYX shell: shared structure + STUDIO (warm) mode -->
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/mode-studio.css">
+
+<style>
+/* ============================================================
+   index.html — PAGE-SPECIFIC ONLY
+   Shell (body/grid/statusbar/footer/reveal/type/sections) now
+   lives in site.css; tokens in mode-studio.css. Keep only the
+   homepage hero + work-card rules here.
+   ============================================================ */
+
+/* ---- hero ---- */
+.hero{padding:120px 0 88px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:-10%;width:50%;height:100%;
+  background:radial-gradient(ellipse at top right,color-mix(in srgb,var(--accent) 9%,transparent),transparent 65%);
+  pointer-events:none}
+.hero .designer{font-family:var(--mono);font-size:13px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--txt-dim);margin-bottom:20px}
+.hero .designer b{color:var(--txt);font-weight:500}
+.hero .subtitle{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--txt-dim);
+  max-width:680px;line-height:1.5;margin-top:24px}
+.hero-meta{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.hero-meta div span{display:block;color:var(--txt-faint);margin-bottom:5px;font-size:10px}
+.hero-meta div b{color:var(--txt);font-weight:500;font-size:13px}
+
+/* ---- work index cards ---- */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line)}
+.work-card{background:var(--panel);padding:34px 30px;display:block;
+  transition:background .25s;position:relative;overflow:hidden}
+.work-card:hover{background:var(--panel2)}
+.work-card:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.work-card::before{content:"";position:absolute;top:0;left:0;width:2px;height:0;
+  background:var(--accent);transition:height .3s}
+.work-card:hover::before,.work-card:focus-visible::before{height:100%}
+.work-card .wc-code{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:18px}
+.work-card .wc-title{font-family:var(--mono);font-size:24px;font-weight:600;
+  color:var(--txt);line-height:1.1;margin-bottom:12px;letter-spacing:-.01em}
+.work-card .wc-desc{font-size:14px;color:var(--txt-dim);line-height:1.5;margin-bottom:22px}
+.work-card .wc-meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--txt-faint);display:flex;gap:18px}
+.work-card .wc-arrow{position:absolute;bottom:30px;right:30px;color:var(--txt-faint);
+  font-family:var(--mono);transition:color .25s,transform .25s}
+.work-card:hover .wc-arrow{color:var(--accent);transform:translateX(4px)}
+
+@media(max-width:760px){.work-grid{grid-template-columns:1fr}}
+
+/* ---- ECS WIREFRAME VIEWER · cold inspection chamber inside warm hero ---- */
+.hero-grid{display:grid;grid-template-columns:1fr 0.92fr;gap:56px;align-items:center}
+.hh-media{position:relative;aspect-ratio:4/3;border:1px solid #1d2630;
+  background:radial-gradient(120% 120% at 50% 42%, #11171e 0%, #0a0f14 64%, #070b0f 100%);
+  overflow:hidden;cursor:grab;touch-action:none}
+.hh-media.dragging{cursor:grabbing}
+.hh-media canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hh-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity .6s ease}
+.hh-media.live .hh-fallback{opacity:0}
+.hh-ovl{position:absolute;inset:0;z-index:3;pointer-events:none}
+.hh-ovl .lab{position:absolute;left:15px;top:13px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;color:#9aa7b4;background:rgba(10,15,20,.5);padding:3px 8px}
+.hh-ovl .lab b{color:var(--accent);font-weight:500}
+.hh-ovl .tick{position:absolute;width:13px;height:13px;border:1px solid rgba(230,236,242,.22)}
+.hh-ovl .tl{left:11px;top:11px;border-right:none;border-bottom:none}
+.hh-ovl .tr{right:11px;top:11px;border-left:none;border-bottom:none}
+.hh-ovl .bl{left:11px;bottom:11px;border-right:none;border-top:none}
+.hh-ovl .br{right:11px;bottom:11px;border-left:none;border-top:none}
+.hh-ovl .hint{position:absolute;left:15px;bottom:14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;color:#5e6975;text-transform:uppercase}
+.hh-ovl .seg{position:absolute;right:15px;bottom:14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#5e6975}
+.hh-media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 70px rgba(0,0,0,.5)}
+.hh-cap{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--txt-dim);margin-top:15px}
+.hh-subcap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--txt-faint);margin-top:6px}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:560px){
+  .hero{padding:48px 0 56px}
+  .hero h1{font-size:clamp(34px,11vw,46px)}
+  .hero .subtitle{margin-top:18px}
+  .hero-meta{gap:24px;margin-top:32px}
+  .hero-grid{gap:28px}
+  /* viewer appears sooner: copy block tightened above it */
+  .hero-copy .hero-meta{margin-top:26px}
+}
+
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="statusbar"><div class="wrap">
+  <a class="brand" href="index.html">
+    <span class="name">B·ARIANEJAD</span><span class="mark">MALINYX</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" class="active">Index</a>
+    <a href="work.html">Work</a>
+    <a href="field-notes.html">Field Notes</a>
+    <a href="#contact">Contact</a>
+    <span class="live hide-sm"><span class="dot"></span>Selected briefs</span>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap reveal">
+ <div class="hero-grid">
+  <div class="hero-copy">
+    <div class="designer">MALINYX / <b>B. Arianejad</b></div>
+    <h1>Industrial design,<br>mechanism logic.</h1>
+    <p class="subtitle">A technical archive of products, tools, and systems developed through evidence, prototypes, material decisions, and operational constraints.</p>
+    <div class="hero-meta">
+      <div><span>Method</span><b>Research → Prototype → System</b></div>
+      <div><span>Featured</span><b>ECS-MT-02-R1</b></div>
+      <div><span>Status</span><b>Selected briefs</b></div>
+    </div>
+  </div>
+
+  <!-- ============ ECS WIREFRAME HERO (cold inspection chamber) ============ -->
+  <div class="hero-viewer">
+    <div class="hh-media" id="ecsViewer" data-model="assets/models/ECS.glb" data-still="assets/hero/ECS_HERO_STILL.jpg">
+      <img class="hh-fallback" src="assets/hero/ECS_HERO_STILL.jpg"
+           alt="ECS-MT-02-R1 — ergonomic carry system, edge-extracted technical inspection model">
+      <div class="hh-ovl">
+        <span class="lab"><b>ECS-MT-02-R1</b> / 360° TECHNICAL INSPECTION</span>
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <span class="hint">Drag to inspect geometry</span>
+        <span class="seg" id="ecsSeg">EDGES / 25° · — SEGMENTS</span>
+      </div>
+    </div>
+    <p class="hh-cap">ECS-MT-02-R1 / dynamic load-transfer study</p>
+    <p class="hh-subcap">edge-extracted inspection model · 360° rotatable</p>
+  </div>
+  <!-- ============ /ECS WIREFRAME HERO ============ -->
+ </div>
+</div></header>
+
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Selected Work</span><span class="sec-line"></span></div>
+  <div class="work-grid">
+    <a class="work-card" href="ecs.html">
+      <div class="wc-code">ECS</div>
+      <div class="wc-title">Ergonomic<br>Carry System</div>
+      <div class="wc-desc">A validated-prototype wearable load-transfer system for urban e-bike commuters. A tension-shortening mechanism keeps the load's moment arm short precisely under forward lean.</div>
+      <div class="wc-meta"><span>Wearable / Systems</span><span>2026</span></div>
+      <div class="wc-arrow">&rarr;</div>
+    </a>
+
+    <a class="work-card" href="clx-ct-01.html">
+      <div class="wc-code">CLX-CT-01</div>
+      <div class="wc-title">Creator-Tech<br>Carry System</div>
+      <div class="wc-desc">A data-led industrial design project: a spine-centered creator workstation built from public review mining, teardown analysis, and traceable requirements. The object is the load path.</div>
+      <div class="wc-meta"><span>Industrial / Systems</span><span>2026</span></div>
+      <div class="wc-arrow">→</div>
+    </a>
+
+    <a class="work-card" href="zewm-excmon.html">
+      <div class="wc-code">ZEWM_EXCMON</div>
+      <div class="wc-title">Forensic Systems<br>Investigation</div>
+      <div class="wc-desc">A forensic investigation into cold-chain governance failure, reconstructing how repeated exception signals lost ownership across fragmented institutional systems.</div>
+      <div class="wc-meta"><span>Enterprise / Forensic</span><span>2026</span></div>
+      <div class="wc-arrow">→</div>
+    </a>
+
+    <a class="work-card" href="field-notes.html">
+      <div class="wc-code">FIELD NOTES</div>
+      <div class="wc-title">Research<br>Archive</div>
+      <div class="wc-desc">Small research fragments from forensic systems, industrial design, mechanisms, materials, and visual evidence.</div>
+      <div class="wc-meta"><span>Research / Archive</span><span>12 Entries</span></div>
+      <div class="wc-arrow">→</div>
+    </a>
+  </div>
+</div></section>
+
+<section class="reveal" id="contact"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Contact</span><span class="sec-line"></span></div>
+  <p class="lede">Available for <span class="em">systems design, industrial / product work, and portfolio collaborations</span>. Reach the studio directly.</p>
+  <div class="hero-meta" style="margin-top:36px">
+    <div><span>Email</span><b><a href="mailto:info@malinyx.com">info@malinyx.com</a></b></div>
+    <div><span>LinkedIn</span><b><a href="https://www.linkedin.com/in/bahareharianejad" target="_blank" rel="noopener">in/bahareharianejad</a></b></div>
+    <div><span>Studio</span><b>MALINYX</b></div>
+    <div><span>Status</span><b style="color:var(--signal)">Selected briefs</b></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>BAHAREH ARIANEJAD · MALINYX STUDIO</span>
+  <span><a href="https://www.linkedin.com/in/bahareharianejad" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:info@malinyx.com">info@malinyx.com</a></span>
+  <span>© 2026</span>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "./assets/js/vendor/three.module.js",
+  "three/addons/": "./assets/js/vendor/addons/"
+}}
+</script>
+<script type="module" src="assets/js/ecs-viewer.js"></script>
+</body>
+</html>

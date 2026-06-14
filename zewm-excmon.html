@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEWM_EXCMON · Forensic Systems Investigation — MALINYX</title>
+<meta name="description" content="ZEWM_EXCMON — forensic systems investigation into cold-chain governance failure, recurrence, and unresolved ownership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- MALINYX shell: shared structure + INVESTIGATION (cold) mode -->
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/mode-investigation.css">
+<style>
+:root{--bg:#071018;--panel:#0b1822;--panel2:#0e1b26;--line:#1d2e3b;--line-bright:#2a3f4f;--txt:#dce5eb;--txt-dim:#7e94a3;--txt-faint:#4d6373;--accent:#f25c2a;--accent-dim:#a8431f;--signal:#36b3a8;--warn:#e0a93b;--violet:#6E54C8;--blue:#3E78B8;--red:#C0413F;--amber:#C98A28;--cyan:#1E9C9C;--gray:#8A8F94;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--maxw:1180px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.6;letter-spacing:.01em;-webkit-font-smoothing:antialiased;min-height:100vh;background-image:linear-gradient(rgba(29,46,59,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(29,46,59,.25) 1px,transparent 1px);background-size:48px 48px}a{color:inherit;text-decoration:none}.grain{position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}.statusbar{border-bottom:1px solid var(--line);background:rgba(7,16,24,.82);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}.statusbar .wrap{display:flex;justify-content:space-between;align-items:center;height:54px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-dim)}.brand{display:flex;align-items:baseline;gap:12px;color:var(--txt)}.brand .name{font-weight:600;letter-spacing:.06em;font-size:13px;color:var(--txt)}.brand .mark{color:var(--accent);font-weight:500;letter-spacing:.18em;font-size:11px}.brand .mark::before{content:"·";margin-right:12px;color:var(--txt-faint)}.nav{display:flex;gap:28px;align-items:center}.nav a{color:var(--txt-dim);transition:color .2s;position:relative;padding:4px 0}.nav a:hover,.nav a.active{color:var(--accent)}.nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--accent)}.nav .live{color:var(--signal);display:flex;align-items:center;gap:7px}.dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);animation:pulse 2.4s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}section{padding:72px 0;border-bottom:1px solid var(--line)}.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}.sec-num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em;font-weight:600}.sec-title{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt-dim);font-weight:500}.sec-line{flex:1;height:1px;background:var(--line)}.code-tag{font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;margin-bottom:26px;display:flex;align-items:center;gap:14px}.code-tag::after{content:"";flex:1;max-width:120px;height:1px;background:var(--accent-dim)}h1{font-family:var(--mono);font-weight:600;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.015em;color:var(--txt)}h1 .em{color:var(--accent)}.lede{font-size:22px;font-weight:300;line-height:1.55;color:var(--txt);max-width:860px}.lede .em{color:var(--accent);font-weight:400}.hero{padding:96px 0 72px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}.hero::before{content:"";position:absolute;top:0;right:-10%;width:50%;height:100%;background:radial-gradient(ellipse at top right,rgba(242,92,42,.10),transparent 65%);pointer-events:none}.hero .subtitle{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--txt-dim);max-width:760px;line-height:1.5;margin-top:24px}.hero-meta{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}.hero-meta div span{display:block;color:var(--txt-faint);margin-bottom:5px;font-size:10px}.hero-meta div b{color:var(--txt);font-weight:500;font-size:13px}.backlink{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-dim);display:inline-flex;gap:8px;margin-bottom:30px;transition:color .2s}.backlink:hover{color:var(--accent)}.premise{border-left:2px solid var(--accent);padding:22px 28px;background:linear-gradient(90deg,rgba(242,92,42,.06),transparent);margin:36px 0;font-size:18px;font-weight:300;line-height:1.55;color:var(--txt)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.cell{background:var(--panel);padding:26px}.cell h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}.cell p{font-size:14px;color:var(--txt-dim);line-height:1.55}.sequence{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.seq-card{display:grid;grid-template-columns:180px 1fr 280px;gap:28px;background:var(--panel);padding:28px;align-items:center;transition:background .25s}.seq-card:hover{background:var(--panel2)}.seq-card img{width:100%;background:#050b10;border:1px solid var(--line)}.seq-code{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}.seq-title{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--txt);line-height:1.1}.seq-desc{font-size:15px;color:var(--txt-dim);line-height:1.5}.download{background:var(--panel);border:1px solid var(--line);border-top:2px solid var(--accent);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}.download .t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}.download .d{font-size:16px;color:var(--txt);max-width:660px}.download a.btn{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:14px 26px;font-weight:600;white-space:nowrap;transition:opacity .2s}.download a.btn:hover{opacity:.85}footer{padding:48px 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-faint)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}footer a:hover{color:var(--accent)}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}@media(max-width:760px){.grid2,.seq-card{grid-template-columns:1fr}.nav{gap:16px}.nav .hide-sm{display:none}.wrap{padding:0 20px}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="statusbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="name">B&middot;ARIANEJAD</span><span class="mark">MALINYX</span></a>
+  <nav class="nav">
+    <a href="index.html">Index</a>
+    <a href="work.html" class="active">Work</a>
+    <a href="field-notes.html">Field Notes</a>
+    <a href="index.html#contact">Contact</a>
+    <span class="live hide-sm"><span class="dot"></span>Investigation Complete</span>
+  </nav>
+</div></div>
+<header class="hero"><div class="wrap reveal">
+  <a class="backlink" href="work.html">&larr; All Work</a>
+  <div class="code-tag">ZEWM_EXCMON / Enterprise Systems / Forensic Investigation</div>
+  <h1>The failure was not<br>a <span class="em">missed alert</span>.</h1>
+  <p class="subtitle">A forensic systems investigation reconstructing how a cold-chain logistics failure emerged from fragmented governance, unresolved ownership, stale corrective action, blocked escalation, undocumented workarounds, and institutional drift.</p>
+  <div class="hero-meta">
+    <div><span>Type</span><b>Forensic Systems Investigation</b></div>
+    <div><span>System</span><b>Cold-chain logistics / exception monitoring</b></div>
+    <div><span>Status</span><b style="color:var(--signal)">Portfolio Package Complete</b></div>
+    <div><span>Year</span><b>2026</b></div>
+  </div>
+</div></header>
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Thesis</span><span class="sec-line"></span></div>
+  <p class="lede">It was an <span class="em">inherited governance condition</span>.</p>
+  <div class="premise">ZEWM_EXCMON is not a software bug, UX redesign, or consulting project. It investigates how a critical cold-chain logistics incident became possible because institutional systems fragmented over time.</div>
+  <div class="grid2">
+    <div class="cell"><h4>Failure emerged from</h4><p>Governance drift, abandoned infrastructure, duplicated systems, undocumented workarounds, authority migration, and operational adaptation.</p></div>
+    <div class="cell"><h4>MALINYX position</h4><p>We do not design systems. We investigate them.</p></div>
+  </div>
+</div></section>
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Evidence Sequence</span><span class="sec-line"></span></div>
+  <div class="sequence">
+    <article class="seq-card"><img src="assets/zewm-excmon/01_REC041_Spatial_Reconstruction_FINAL.png" alt="REC-041 spatial reconstruction frame"><div><div class="seq-code">01 / Spatial Reconstruction</div><div class="seq-title">Where the failure lived</div></div><p class="seq-desc">A generated institutional evidence room locating the incident in space, hierarchy, and inactive infrastructure.</p></article>
+    <article class="seq-card"><img src="assets/zewm-excmon/02_Evidence_Table_Governance_Artifacts_FINAL.png" alt="Governance artifacts frame"><div><div class="seq-code">02 / Governance Artifacts</div><div class="seq-title">What the failure left behind</div></div><p class="seq-desc">Recovered artifact cards showing stale CAPA, owner gaps, dead monitoring, and blocked escalation.</p></article>
+    <article class="seq-card"><img src="assets/zewm-excmon/03_Monitor_Wall_Recurrence_Panel_FINAL.png" alt="Recurrence panel frame"><div><div class="seq-code">03 / Recurrence Panel</div><div class="seq-title">How the failure repeated</div></div><p class="seq-desc">Seven recorded temperature exceptions across forty-eight hours without stable institutional ownership.</p></article>
+    <article class="seq-card"><img src="assets/zewm-excmon/04_Failure_Chain_System_Map_FINAL.png" alt="System map frame"><div><div class="seq-code">04 / System Map</div><div class="seq-title">Why ownership collapsed</div></div><p class="seq-desc">A failure chain mapping signal visibility, sync uncertainty, CAPA staleness, authority gaps, and recurrence.</p></article>
+    <article class="seq-card"><img src="assets/zewm-excmon/05_Recruiter_Summary_Case_Study_v02.png" alt="Case study summary frame"><div><div class="seq-code">05 / Case Study Summary</div><div class="seq-title">Why the investigation matters</div></div><p class="seq-desc">A recruiter-facing summary connecting the investigation to systems design, research, and governance-heavy product work.</p></article>
+    <article class="seq-card"><img src="assets/zewm-excmon/06_Website_Portfolio_Landing_Section.png" alt="Website landing section frame"><div><div class="seq-code">06 / Website Landing Blueprint</div><div class="seq-title">How it enters the MALINYX site</div></div><p class="seq-desc">A web-section blueprint for presenting the investigation as a navigable case-study sequence.</p></article>
+  </div>
+</div></section>
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Locked Portfolio Package</span><span class="sec-line"></span></div>
+  <div class="download">
+    <div><div class="t">ZEWM_EXCMON / PDF Package</div><div class="d">Six A4 evidence frames: spatial reconstruction, governance artifacts, recurrence panel, system map, case-study summary, and website landing blueprint.</div></div>
+    <a class="btn" href="assets/zewm-excmon/ZEWM_EXCMON_Portfolio_Package.pdf">Open PDF →</a>
+  </div>
+</div></section>
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">MALINYX Position</span><span class="sec-line"></span></div>
+  <p class="lede">ZEWM_EXCMON turns institutional ambiguity into <span class="em">visible evidence</span>.</p>
+</div></section>
+<footer><div class="wrap">
+  <a href="index.html">BAHAREH ARIANEJAD · MALINYX STUDIO</a>
+  <span>ZEWM_EXCMON · Forensic Systems Investigation</span>
+  <span>© 2026</span>
+</div></footer>
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

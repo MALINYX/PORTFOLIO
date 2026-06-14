@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Notes — MALINYX</title>
+<meta name="description" content="MALINYX Field Notes — research fragments from forensic systems, industrial design, mechanisms, materials, and visual evidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- MALINYX shell: shared structure + STUDIO (warm) mode -->
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/mode-studio.css">
+
+<style>
+/* field-notes.html — PAGE-SPECIFIC ONLY.
+   Local semantic source-tag colors (violet/blue/red/amber/cyan/gray) are
+   scoped to note cards only — they tag the source project, not page mood. */
+:root{
+  --violet:#6E54C8; --blue:#3E78B8; --red:#C0413F;
+  --amber:#C98A28; --cyan:#1E9C9C; --gray:#8A8F94;
+}
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:-10%;width:50%;height:100%;background:radial-gradient(ellipse at top right,color-mix(in srgb,var(--accent) 9%,transparent),transparent 65%);pointer-events:none}
+.hero .subtitle{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--txt-dim);max-width:760px;line-height:1.5;margin-top:24px}
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.note-card{background:var(--panel);padding:30px 28px;min-height:260px;display:flex;flex-direction:column;position:relative;transition:background .25s}
+.note-card:hover{background:var(--panel2)}
+.note-card::before{content:"";position:absolute;top:0;left:0;width:2px;height:100%;background:var(--c)}
+.note-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-faint);display:flex;justify-content:space-between;gap:14px}
+.note-label .type{color:var(--c);font-weight:600}
+.note-card h2{font-family:var(--mono);font-size:23px;line-height:1.12;font-weight:600;letter-spacing:-.01em;color:var(--txt);margin:24px 0 16px}
+.note-card p{font-size:14px;color:var(--txt-dim);line-height:1.55}
+.note-card .src{margin-top:auto;padding-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-faint)}
+.note-card .src b{color:var(--txt-dim);font-weight:600}
+@media(max-width:900px){.notes-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.notes-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="statusbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="name">B&middot;ARIANEJAD</span><span class="mark">MALINYX</span></a>
+  <nav class="nav">
+    <a href="index.html">Index</a>
+    <a href="work.html">Work</a>
+    <a href="field-notes.html" class="active">Field Notes</a>
+    <a href="index.html#contact">Contact</a>
+    <span class="live hide-sm"><span class="dot"></span>Research Archive</span>
+  </nav>
+</div></div>
+<header class="hero"><div class="wrap reveal">
+  <div class="code-tag">MALINYX / Research Archive</div>
+  <h1>Fragments from systems<br>under <span class="em">pressure</span>.</h1>
+  <p class="subtitle">Small research fragments from forensic systems, industrial design, mechanisms, materials, and visual evidence.</p>
+  <p class="lede" style="margin-top:34px">Not every investigation becomes a full case study. Some remain as fragments: a failure pattern, a material decision, a mechanism study, a color rule, a trace of how a system behaves under pressure.</p>
+</div></header>
+<section class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Selected Notes / 12 Entries</span><span class="sec-line"></span></div>
+  <div class="notes-grid">
+    <article class="note-card" style="--c:var(--violet)">
+      <div class="note-label"><span>01</span><span class="type">FAILURE PATTERN</span></div>
+      <h2>Governance Drift</h2>
+      <p>A system does not fail only when components break. It fails when ownership, documentation, and responsibility drift apart over time.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--violet)">
+      <div class="note-label"><span>02</span><span class="type">FAILURE PATTERN</span></div>
+      <h2>Authority Migration</h2>
+      <p>Responsibility can move informally through a system before official documentation catches up.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--amber)">
+      <div class="note-label"><span>03</span><span class="type">FAILURE PATTERN</span></div>
+      <h2>Stale CAPA</h2>
+      <p>Corrective action that remains open becomes evidence of unresolved institutional ownership.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--gray)">
+      <div class="note-label"><span>04</span><span class="type">FAILURE PATTERN</span></div>
+      <h2>Dead Integration</h2>
+      <p>Inactive infrastructure can remain trusted long after it stops producing reliable operational truth.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--cyan)">
+      <div class="note-label"><span>05</span><span class="type">FAILURE PATTERN</span></div>
+      <h2>Undocumented Workaround</h2>
+      <p>Human adaptation often keeps systems moving while hiding the failure from official trace.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--violet)">
+      <div class="note-label"><span>06</span><span class="type">VISUAL SYSTEM</span></div>
+      <h2>Evidence Should Not Look Like a Dashboard</h2>
+      <p>Operational evidence becomes weaker when it is forced into decorative interface patterns.</p>
+      <div class="src">Source: <b>MALINYX</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--blue)">
+      <div class="note-label"><span>07</span><span class="type">MECHANISM NOTE</span></div>
+      <h2>Load Path Under Forward Lean</h2>
+      <p>A carry system should control the load’s moment arm when the body changes posture.</p>
+      <div class="src">Source: <b>ECS</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--blue)">
+      <div class="note-label"><span>08</span><span class="type">MECHANISM NOTE</span></div>
+      <h2>Anti-Rattle Preload</h2>
+      <p>A quick-release mechanism can feel precise when axial compression removes play before locking.</p>
+      <div class="src">Source: <b>LOCKPOINT</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--cyan)">
+      <div class="note-label"><span>09</span><span class="type">RESEARCH NOTE</span></div>
+      <h2>Side-Access Failure</h2>
+      <p>Creator bags often protect equipment well but slow down access during mode-switching.</p>
+      <div class="src">Source: <b>CLX-CT-01</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--amber)">
+      <div class="note-label"><span>10</span><span class="type">CMF NOTE</span></div>
+      <h2>Precision Field Neutral</h2>
+      <p>Field equipment can read as professional without borrowing tactical or power-tool styling.</p>
+      <div class="src">Source: <b>LOCKPOINT</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--violet)">
+      <div class="note-label"><span>11</span><span class="type">VISUAL SYSTEM</span></div>
+      <h2>Semantic Color Coding</h2>
+      <p>Color should encode system meaning, not decorate the page.</p>
+      <div class="src">Source: <b>ZEWM_EXCMON</b></div>
+    </article>
+    <article class="note-card" style="--c:var(--gray)">
+      <div class="note-label"><span>12</span><span class="type">PRODUCT PRINCIPLE</span></div>
+      <h2>Jewelry-First Wearable Tech</h2>
+      <p>Wearable technology becomes more acceptable when the object remains jewelry before it becomes a device.</p>
+      <div class="src">Source: <b>LUMNYX</b></div>
+    </article>
+  </div>
+</div></section>
+<footer><div class="wrap">
+  <span>BAHAREH ARIANEJAD · MALINYX STUDIO</span>
+  <span>MALINYX / FIELD NOTES</span>
+  <span>Research fragments, mechanism logic, and evidence patterns.</span>
+</div></footer>
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

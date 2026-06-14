@@ -1,0 +1,48 @@
+/* ============================================================
+   MALINYX · MODE 01 — PORTFOLIO / STUDIO (warm)
+   For: index, work, ecs, clx-ct-01, field-notes, contact.
+   Warm near-black editorial industrial ground. ONE orange
+   MALINYX accent, used sparingly. Semantic colors (green /
+   amber / teal) are permitted ONLY inside evidence badges,
+   verified/pending states, diagrams, metric strips and
+   technical callouts — never as page atmosphere.
+   ============================================================ */
+
+:root{
+  /* ground / surfaces — warm near-black */
+  --bg:#0b0d0c;
+  --panel:#12110f;
+  --panel2:#181512;
+  --line:rgba(232,220,190,.12);
+  --line-bright:rgba(232,220,190,.22);
+
+  /* text — warm off-white */
+  --txt:#e8e0d2;
+  --txt-dim:#a89f91;
+  --txt-faint:#6f675d;
+
+  /* the one MALINYX accent */
+  --accent:#f25c2a;
+  --accent-dim:#a8431f;
+
+  /* LOCAL semantic accents — for evidence/diagram/callout use ONLY,
+     never page background or large fills. Tuned slightly warm-neutral
+     so they sit on the warm ground without screaming. */
+  --signal:#36b3a8;        /* teal  — verified / operational (CLX badges) */
+  --green:#5bb26a;         /* green — verified / pass states */
+  --warn:#e0a93b;          /* amber — pending / caution (CLX badges) */
+  --datum:#5bb26a;
+
+  /* mode-specific grid — whisper-faint WARM tint.
+     Structured & technical, but never a cold dashboard. */
+  --grid-line:rgba(232,220,190,.025);  /* whisper-faint warm grid — reduced from .04 per Phase 1 review */
+  --grid-size:48px;
+
+  /* grain: warm grounds make grain read hotter — pull it back slightly */
+  --grain-opacity:.028;
+
+  /* typography */
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --maxw:1180px;
+}
