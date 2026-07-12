@@ -1,0 +1,48 @@
+WORK / PROJECTS LIST — UPDATE
+==============================================================
+Add this as the FIRST entry on /work (and the homepage "Selected Work"
+list), ahead of ECS. Matches the existing card pattern exactly
+(Title / description / type tag / year / arrow link).
+
+------------------------------------------------------------
+AHRK
+Adaptive Hotel Room Kit
+
+A retrofit product-spatial system that helps a compact hotel room shift
+between work, rest, luggage, dining, wellness, and housekeeping-reset
+states through one adaptive wall — without a full room redesign.
+
+Retrofit / Product-Spatial   2026   →
+Link: /ahrk
+------------------------------------------------------------
+
+FULL RECOMMENDED ORDER (per your instructions):
+1. AHRK — Adaptive Hotel Room Kit           (new, add now)
+2. ECS — Ergonomic Carry System              (existing)
+3. CLX-CT-01 — Creator-Tech Carry System     (existing)
+4. LOCKPOINT — Quick Release Field Mount     (not yet live — for when it exists)
+5. ZEWM_EXCMON — Systems Investigation       (existing)
+
+Note: LOCKPOINT does not currently exist as a live project page on
+malinyx.com (only ECS, CLX-CT-01, and ZEWM_EXCMON are live). Its position
+in the order is reserved for when that project page is built — nothing
+to change for it right now.
+
+------------------------------------------------------------
+HTML SNIPPET (matches the card markup pattern from the live /work page)
+------------------------------------------------------------
+<a href="/ahrk" class="work-card">
+  <h3>AHRK</h3>
+  <p class="card-subtitle">Retrofit wall system for compact, mode-dense hospitality rooms.</p>
+  <p class="card-desc">A retrofit product-spatial system that helps a compact hotel room shift between work, rest, luggage, dining, wellness, and housekeeping-reset states through one adaptive wall — without a full room redesign.</p>
+  <div class="card-meta">
+    <span class="card-type">Retrofit / Product-Spatial</span>
+    <span class="card-year">2026</span>
+    <span class="card-arrow">&rarr;</span>
+  </div>
+</a>
+
+Note: exact class names (.work-card, .card-subtitle, etc.) are my best
+match to the pattern observed on the live site's rendered content —
+verify/adjust against your actual site CSS classes when integrating,
+since I don't have direct access to your site's source files.
