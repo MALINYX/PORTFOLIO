@@ -6,5 +6,8 @@
   Cache-Control: public, max-age=86400
 /assets/img/*
   Cache-Control: public, max-age=86400
+/downloads/*
+  Cache-Control: public, max-age=300
+  X-Robots-Tag: noindex
 /dossier/*
   X-Robots-Tag: noindex
