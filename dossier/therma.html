@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en" class="no-js" data-reality="lab" data-native-reality="lab" data-project="therma" id="top">
+<head><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THERMA — MALINYX</title>
+<meta name="description" content="THERMA, a concept handheld hair-styling appliance: a parametric model built in staged decisions (proportion, bridge, bayonet interface, concentrator, CMF) and locked to mineral orange. No physical prototype; performance not established.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MALINYX">
+<meta property="og:title" content="THERMA — MALINYX">
+<meta property="og:description" content="THERMA, a concept handheld hair-styling appliance: a parametric model built in staged decisions (proportion, bridge, bayonet interface, concentrator, CMF) and locked to mineral orange. No physical prototype; performance not established.">
+<meta property="og:image" content="https://malinyx.com/dossier/og-home.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
+<script>
+(function () {
+  var d = document.documentElement, r = null, m = null;
+  try { r = localStorage.getItem('mx-reality'); m = localStorage.getItem('mx-motion'); } catch (e) {}
+  try { var q = new URLSearchParams(location.search); if (q.get('reality')) r = q.get('reality'); if (q.get('motion')) m = q.get('motion');
+    if (q.get('motion')) document.addEventListener('DOMContentLoaded', function () { [].forEach.call(document.querySelectorAll('img[loading="lazy"]'), function (i) { i.loading = 'eager'; }); }); /* QA: headless shots */
+    var so = q.get('solo'); if (so && /^[\w-]+$/.test(so)) { var st = document.createElement('style'); /* QA only: render one section at the top */
+      st.textContent = 'main > :not(#' + so + '):not(:has(#' + so + ')){display:none!important} .sheet > :not(.bar):not(main):not(.axis-toc){display:none!important}'; document.head.appendChild(st); } } catch (e) {}
+  if (r !== 'lab' && r !== 'investigation') r = d.getAttribute('data-native-reality') || 'lab';
+  d.setAttribute('data-reality', r);
+  m = (m === 'on' || m === 'off') ? m : 'auto';
+  d.setAttribute('data-motion', m);
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.classList.toggle('motion-ok', m === 'on' || (m === 'auto' && !reduce));
+  d.classList.remove('no-js'); d.classList.add('js');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/specimen.css">
+<link rel="icon" href="assets/shared/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<noscript><style>[data-view]{display:block!important}.reality,.tbtn[data-figure-toggle]{display:none!important}</style></noscript>
+
+<link rel="preload" as="image" href="assets/therma/therma-specimen-h1470.avif" type="image/avif" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/pages/therma.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<div class="backdrop" aria-hidden="true" style="--backdrop-field:#A6633B;--backdrop-field-inv:#000000">
+  <div data-view="lab"><picture>
+    <source media="(max-width:767px)" srcset="assets/therma/therma-backdrop-lab-m-900.avif" type="image/avif">
+    <source srcset="assets/therma/therma-backdrop-lab-1600.avif 1600w, assets/therma/therma-backdrop-lab-2560.avif 2560w" sizes="100vw" type="image/avif">
+    <img src="assets/therma/therma-backdrop-lab-1600.jpg" alt="" width="1600" height="900" fetchpriority="low" decoding="async">
+  </picture></div>
+  <div data-view="investigation" style="--bd-pos:38% 0"><picture>
+    <source media="(max-width:767px)" srcset="assets/therma/therma-backdrop-inv-m-900.avif" type="image/avif">
+    <source srcset="assets/therma/therma-backdrop-inv-1600.avif 1600w, assets/therma/therma-backdrop-inv-2560.avif 2560w" sizes="100vw" type="image/avif">
+    <img src="assets/therma/therma-backdrop-inv-1600.jpg" alt="" width="1600" height="900" fetchpriority="low" decoding="async">
+  </picture></div>
+</div>
+
+<div class="sheet">
+<header class="bar" role="banner">
+  <a class="brand" href="./" aria-label="MALINYX — home"><svg class="mark" viewBox="266 90 723 717" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="mk-ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EEE4"/><stop offset=".55" stop-color="#E8E0D2"/><stop offset="1" stop-color="#A89F91"/></linearGradient>
+  <linearGradient id="mk-ivory2" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#E8E0D2"/><stop offset=".52" stop-color="#A89F91"/><stop offset="1" stop-color="#6F675D"/></linearGradient>
+  <linearGradient id="mk-taupe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5E6975"/><stop offset=".45" stop-color="#12110F"/><stop offset="1" stop-color="#1D2630"/></linearGradient>
+  <linearGradient id="mk-bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7B2A16"/><stop offset=".35" stop-color="#F25C2A"/><stop offset=".7" stop-color="#B43C1D"/><stop offset="1" stop-color="#FF8A5F"/></linearGradient>
+  <radialGradient id="mk-sphere" cx="35%" cy="28%" r="75%"><stop stop-color="#99E0DA"/><stop offset=".5" stop-color="#36B3A8"/><stop offset="1" stop-color="#123E3B"/></radialGradient>
+  
+  
+ </defs><g class="mk-facets" stroke="#F25C2A" stroke-width="6" stroke-linejoin="miter"><g class="mk-g1"><path d="M276 174L438 210V797H276Z" fill="url(#mk-taupe)"/><path d="M807 412L979 174V797H807Z" fill="url(#mk-ivory2)"/><path d="M276 174C395 203 424 273 394 365C373 429 316 492 276 570Z" fill="url(#mk-taupe)"/><path d="M276 174C381 181 445 190 475 256C501 313 526 417 641 596L624 752L438 474C404 423 389 370 394 317C397 269 374 220 276 174Z" fill="url(#mk-ivory)"/><path d="M276 570C321 491 370 423 394 365V724C365 769 326 797 276 797Z" fill="url(#mk-ivory)"/></g><g class="mk-g2"><path d="M433 201C498 221 527 276 548 348C574 437 595 524 641 596L624 752L439 476C485 520 536 544 594 559Z" fill="url(#mk-bronze)" opacity=".92"/><path d="M394 317C435 354 482 426 533 509L624 718V752L438 474C405 424 388 372 394 317Z" fill="#2f2924" opacity=".82"/></g><g class="mk-g3"><path d="M624 752C681 650 720 552 761 446C799 347 865 256 979 174C912 216 840 241 788 290C718 355 677 469 641 596Z" fill="url(#mk-taupe)"/><path d="M624 752C681 646 722 524 780 416C825 334 891 276 979 174C909 224 849 246 799 297C725 372 684 500 641 596Z" fill="url(#mk-ivory)"/><path d="M641 596C694 490 731 385 799 297C858 221 912 216 979 174C916 264 845 313 795 398C729 510 690 649 624 752Z" fill="url(#mk-ivory2)" opacity=".72"/><path d="M624 752C679 647 720 527 769 429C809 350 870 347 907 392C939 432 945 501 945 576V797H807V448C807 404 789 370 759 365C716 358 685 421 641 596Z" fill="url(#mk-taupe)"/><path d="M807 797V448C807 404 789 370 759 365C818 352 868 365 904 411C939 455 945 514 945 576V797Z" fill="url(#mk-ivory2)"/><path d="M945 214L979 174V797H945Z" fill="url(#mk-ivory)"/></g></g><g class="mk-sph"><line x1="947" y1="97" x2="947" y2="835" stroke="#36B3A8" stroke-width="10"/><circle class="mk-ball" cx="947" cy="701" r="36" fill="url(#mk-sphere)"/></g></svg><span class="brand-text">MALINYX</span></a>
+  <button class="reality-btn" type="button" aria-pressed="false">
+    <svg class="glyph" viewBox="0 0 16 22" aria-hidden="true"><line class="axis" x1="11" y1="1" x2="11" y2="21"/><path class="arc" d="M2 19 A 10 10 0 0 1 11 3"/><circle class="sphere" cx="11" cy="17" r="3.2"/></svg>
+    <span class="long">Change reality</span><span class="reality-state" id="reality-state"><span class="inline-view" data-view="lab">Lab</span><span class="inline-view" data-view="investigation">Inv.</span></span>
+  </button>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="work" data-nav="work">Work</a></li>
+      <li><a href="field-notes" data-nav="field-notes">Field notes</a></li>
+      <li><a href="about" data-nav="about">About</a></li>
+    </ul>
+    <button class="menu-btn" type="button" data-open-menu aria-haspopup="dialog" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </nav>
+</header>
+<nav class="axis-toc" aria-label="Sections">
+  <a href="#s01" style="top:3%"><span>01 · Specimen</span></a><a href="#s02" style="top:12%"><span>02 · Question</span></a>
+  <a href="#s03" style="top:21%"><span>03 · Mechanism</span></a><a href="#s04" style="top:35%"><span>04 · Inside</span></a>
+  <a href="#s05" style="top:56%"><span>05 · Pigment</span></a><a href="#s06" style="top:70%"><span>06 · Decisions</span></a>
+  <a href="#s07" style="top:83%"><span>07 · Ledger</span></a><a href="#s08" style="top:91%"><span>08 · Provenance</span></a>
+  <a href="#s09" style="top:97%"><span>09 · Next</span></a>
+  <i class="ball" aria-hidden="true"></i>
+</nav>
+<main id="content">
+
+
+<div class="case-title" id="s00" style="--lead:#A6633B; --glyph-ink:#F4EEE4">
+  <div><span class="k">Code</span><span class="v code">THERMA</span></div>
+  <div><span class="k">Title</span><span class="v">Handheld hair-styling appliance · concept</span></div>
+  <div><span class="k">Discipline</span><span class="v">Industrial / product design — form, interface, CMF</span></div>
+  <div><span class="k">Date</span><span class="v">18–21 Sep 2026</span></div>
+  <div><span class="k">Status</span><span class="v"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· concept, CMF locked A2_REFINED</span></span></span>
+       <div class="claimbar" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i></i><i></i><i></i></div>
+       <span class="sr-only">Highest claim: designed. Physical evidence: none. No physical prototype.</span></div>
+  <div class="glyph-tile" aria-hidden="true"><svg viewBox="0 0 40 40"><g class="gl-move rot30 th-glyph"><circle class="gl" cx="20" cy="20" r="11"/><rect class="gl-f" x="18" y="5" width="4" height="5"/><rect class="gl-f" x="18" y="5" width="4" height="5" transform="rotate(120 20 20)"/><rect class="gl-f" x="18" y="5" width="4" height="5" transform="rotate(240 20 20)"/></g><circle class="gl" cx="20" cy="20" r="5"/></svg></div>
+</div>
+
+
+<section class="case-hero" id="s01" aria-labelledby="h1">
+  <div class="ch-text">
+    <p class="label state-tag"><span class="inline-view" data-view="lab">[ LAB · AS DESIGNED ]</span><span class="inline-view" data-view="investigation">[ INVESTIGATION · AS EVIDENCED ]</span> <a class="legend-plus" href="about#legend" aria-label="How to read this sheet">[+]</a></p>
+    <p class="marker th-sheetno">01 · Specimen · sheet 03</p>
+    
+    <h1 id="h1">Every dimension a variable. One mineral orange.</h1>
+    <p class="lead">
+      <span class="inline-view" data-view="lab">A self-initiated concept for a compact hair-styling appliance, built as a parametric model in staged decisions — proportion, bridge, bayonet interface, concentrator, CMF — and locked to mineral orange, warm grey and satin aluminium.</span>
+      <span class="inline-view" data-view="investigation">Concept only. No physical prototype exists; flow, temperature, power, noise, mass and safety are not established. What this sheet measures is the digital model — and only the digital model.</span>
+    </p>
+  </div>
+
+  <figure class="ch-fig" aria-labelledby="hero-cap">
+    
+    <div data-view="lab">
+      <div class="stage" data-plot data-loop data-loupe="assets/therma/therma-specimen-h1960.avif" style="--ar:2100/1960">
+        <div class="spec bob" style="--x:38.333%;--y:0%;--w:23.333%;--h:100%">
+          <picture>
+            <source srcset="assets/therma/therma-specimen-h980.avif 245w, assets/therma/therma-specimen-h1470.avif 368w, assets/therma/therma-specimen-h1960.avif 490w" sizes="(max-width:767px) 30vw, 160px" type="image/avif">
+            <img src="assets/therma/therma-specimen-h1470.png" width="368" height="1470" alt="THERMA concept render: a handheld hair-styling appliance standing upright — warm-grey handle, satin-aluminium bayonet collar and a mineral-orange airflow concentrator." fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+        <div class="shadow" style="--sx:50%;--sy:97.5%;--sw:22%;--sh:3%"></div>
+        <svg class="overlay" viewBox="386 278 2100 1960" aria-hidden="true">
+          <polyline class="leader keep" style="--i:0" points="1445,556 1180,556 1100,476"/>
+          <polyline class="leader keep" style="--i:1" points="1430,875 1700,875 1800,775"/>
+          <polyline class="leader" style="--i:2" points="1487,1056 1730,1056 1830,1156"/>
+          <polyline class="leader" style="--i:3" points="1390,1445 1150,1445 1070,1525"/>
+        </svg>
+        <i class="anc" data-anchor="t1" style="--ax:50.43%;--ay:14.18%;--i:0">1</i>
+        <i class="anc" data-anchor="t2" style="--ax:49.71%;--ay:30.46%;--i:1">2</i>
+        <i class="anc" data-anchor="t3" style="--ax:52.43%;--ay:39.69%;--i:2">3</i>
+        <i class="anc" data-anchor="t4" style="--ax:47.81%;--ay:59.54%;--i:3">4</i>
+        <p class="callout" data-a="t1" data-align="right" data-loupe-at tabindex="0" style="--cx:34.0%;--cy:10.1%;--i:0"><span class="n">1</span>Mineral orange #A6633B · attachment shell · CMF A2_REFINED, locked 21 Sep 2026<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+        <p class="callout" data-a="t2" data-align="left" style="--cx:67.33%;--cy:25.36%;--i:1"><span class="n">2</span>3-lug bayonet at 120° · 30° lock · 0.50 mm draw-down<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· modelled, never built</span></span></span></p>
+        <p class="callout" data-a="t3" data-align="left" style="--cx:68.76%;--cy:44.8%;--i:2"><span class="n">3</span>B2.2 fork · 8.4 mm legs · 0.70 mm shadow gap<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· owner-approved exterior</span></span></span></p>
+        <p class="callout" data-a="t4" data-align="right" data-loupe-at tabindex="0" style="--cx:32.57%;--cy:63.62%;--i:3"><span class="n">4</span>Handle 40 × 36 × 155 mm · collar Ø47<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD dimension</span></span></span></p>
+      </div>
+      <ol class="callout-list" aria-label="Callouts">
+        <li><span class="num">1</span><span>Mineral orange #A6633B · attachment shell · CMF A2_REFINED, locked 21 Sep 2026<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+        <li><span class="num">2</span><span>3-lug bayonet at 120° · 30° lock · 0.50 mm draw-down<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· modelled, never built</span></span></span></span></li>
+        <li><span class="num">3</span><span>B2.2 fork · 8.4 mm legs · 0.70 mm shadow gap<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· owner-approved exterior</span></span></span></span></li>
+        <li><span class="num">4</span><span>Handle 40 × 36 × 155 mm · collar Ø47<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD dimension</span></span></span></span></li>
+      </ol>
+    </div>
+
+    
+    <div data-view="investigation">
+      <div class="stage" data-plot style="--ar:1">
+        <div class="spec" data-zmap="177.5,-110.5" data-ztail="-77.5" style="--x:35%;--y:2.5%;--w:30%;--h:96%">
+          <picture>
+            <source srcset="assets/therma/therma-elevation-lines.avif" type="image/avif">
+            <img src="assets/therma/therma-elevation-lines.png" width="450" height="1440" alt="THERMA orthographic side elevation as line drawing: concentrator, collar, handle and cable boot, with datum lines at the tip, collar face, collar seat, origin and tail." loading="eager" fetchpriority="low" decoding="async">
+          </picture>
+        </div>
+        <svg class="overlay" viewBox="-150 -185 300 300" aria-hidden="true">
+          <line class="dw-chain draw" style="--di:0" x1="0" y1="-182" x2="0" y2="112"/>
+          <line class="dw-datum draw" style="--di:1" x1="-146" y1="-169.5" x2="14" y2="-169.5"/>
+          <line class="dw-datum draw" style="--di:2" x1="-146" y1="-87.5" x2="-24" y2="-87.5"/>
+          <line class="dw-datum draw" style="--di:3" x1="-146" y1="-77.5" x2="-24" y2="-77.5"/>
+          <line class="dw-datum draw" style="--di:4" x1="-146" y1="0" x2="-17" y2="0"/>
+          <line class="dw-datum draw" style="--di:5" x1="-146" y1="77.5" x2="-14" y2="77.5"/>
+          <path class="dw-dim draw" style="--di:6" d="M-34 -169.5 V -87.5 M-38 -169.5 H-30 M-38 -87.5 H-30"/>
+          <path class="dw-dim draw" style="--di:7" d="M-34 -77.5 V 77.5 M-38 -77.5 H-30 M-38 77.5 H-30"/>
+          <polyline class="leader keep" style="--i:0" points="10.6,-125 45.6,-160 52,-160"/>
+          <polyline class="leader" style="--i:1" points="16.3,-110 52,-110"/>
+          <polyline class="leader keep" style="--i:2" points="23.4,-82.5 52,-53.9 52,-38"/>
+          <polyline class="leader" style="--i:3" points="18,0 52,34"/>
+        </svg>
+        <span class="datum-label" style="--cx:.6%;--cy:3.6%"><span class="z">Z +169.5</span><span class="dn"> · tip</span></span>
+        <span class="datum-label" style="--cx:.6%;--cy:31.9%"><span class="z">Z +87.5</span><span class="dn"> · collar face</span></span>
+        <span class="datum-label" style="--cx:.6%;--cy:39.2%"><span class="z">Z +77.5</span><span class="dn"> · collar seat</span></span>
+        <span class="datum-label" style="--cx:.6%;--cy:60.1%"><span class="z">Z 0.0</span><span class="dn"> · origin</span></span>
+        <span class="datum-label" style="--cx:.6%;--cy:85.9%"><span class="z">Z −77.5</span><span class="dn"> · tail</span></span>
+        <span class="dim-label right" style="--cx:37.6%;--cy:19.3%">82.0<br>C2 · locked</span>
+        <span class="dim-label right" style="--cx:37.6%;--cy:59%">155.0<br>handle</span>
+        <i class="anc" data-anchor="e1" style="--ax:53.53%;--ay:20%;--i:0">1</i>
+        <i class="anc" data-anchor="e2" style="--ax:55.43%;--ay:25%;--i:1">2</i>
+        <i class="anc" data-anchor="e3" style="--ax:57.8%;--ay:34.17%;--i:2">3</i>
+        <i class="anc" data-anchor="e4" style="--ax:56%;--ay:61.67%;--i:3">4</i>
+        <p class="callout" data-a="e1" data-align="left" style="--cx:67.33%;--cy:8.33%;--i:0"><span class="n">1</span>No physical prototype · flow, heat, power, noise, mass: unset<span class="chips"><span class="claim" data-level="NOT_CLAIMED">Not claimed</span></span></p>
+        <p class="callout" data-a="e2" data-align="left" style="--cx:67.33%;--cy:25%;--i:1"><span class="n">2</span>Min shell-to-duct clearance +0.251 mm, analytic · geometric only<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+        <p class="callout" data-a="e3" data-align="left" style="--cx:67.33%;--cy:49%;--i:2"><span class="n">3</span>Interface frozen 20 Sep 2026 after 3 iterations · never built or tested<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+        <p class="callout" data-a="e4" data-align="left" style="--cx:67.33%;--cy:73%;--i:3"><span class="n">4</span>0.0 mm vertex deviation across 21 parts vs the frozen branch<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD self-check</span></span></span></p>
+      </div>
+      <ol class="callout-list" aria-label="Callouts">
+        <li><span class="num">1</span><span>No physical prototype · flow, heat, power, noise, mass: unset<span class="chips"><span class="claim" data-level="NOT_CLAIMED">Not claimed</span></span></span></li>
+        <li><span class="num">2</span><span>Min shell-to-duct clearance +0.251 mm (analytic) · geometric only, no thermal claim<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+        <li><span class="num">3</span><span>Interface frozen 20 Sep 2026 after 3 iterations · never built or tested<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+        <li><span class="num">4</span><span>0.0 mm vertex deviation across 21 parts vs the frozen branch<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD self-check</span></span></span></span></li>
+      </ol>
+    </div>
+
+    <figcaption class="prov" id="hero-cap">
+      <span class="inline-view" data-view="lab">Specimen 01 · THERMA · art render, Blender Cycles, AgX · rendered from the locked CMF model · not a photograph of a product</span>
+      <span class="inline-view" data-view="investigation">Orthographic side elevation, edge-extracted from the ortho model render — not a measured drawing · overlay units = mm · displayed not to scale</span>
+      <button class="tbtn" type="button" data-figure-toggle>Show drawing</button>
+    </figcaption>
+    <p class="micro th-disclaimer">Concept. No physical prototype. Flow, temperature, power, noise and safety are not established.</p>
+  </figure>
+
+  <aside class="ch-info" aria-label="Specimen 01">
+    <div class="win"><div class="win-in">
+      <div class="win-bar"><span class="win-title">Specimen 01 / 08 · THERMA</span></div>
+      <div class="win-body"><div><div class="pad">
+        <p class="label">Role · collaborators</p>
+        <p class="small th-role">Self-initiated. Form, interface architecture and CMF by Bahareh Arianejad, built as a parametric Blender model with a headless build-and-render pipeline. The 2500 px art-render set was produced in a separate AI-assisted workspace from the locked CMF file.</p>
+        
+        <div class="claimbar" style="margin-top:12px" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i></i><i></i><i></i></div>
+        <div class="claimbar-legend" aria-hidden="true"><span>Conc.</span><span>Des.</span><span>Spec.</span><span>Proto.</span><span>Valid.</span></div>
+        <p class="micro claimbar-scope">Highest claim: designed · physical evidence: none</p>
+        <div data-view="lab" class="swatches" style="margin-top:12px" role="img" aria-label="Keyboard: mineral orange, warm grey, graphite, signal amber, satin aluminium"><i style="--c:#A6633B"></i><i style="--c:#C7C2BA"></i><i style="--c:#575659"></i><i style="--c:#E6852E"></i><i style="--c:#D1D0CE"></i></div>
+        <div data-view="investigation" style="margin-top:12px"><picture><source srcset="assets/therma/micro-exploded-480.avif" type="image/avif"><img src="assets/therma/micro-exploded-480.jpg" width="480" height="720" alt="Grey-clay micro-exploded view of the frozen bayonet interface stack." loading="lazy" style="width:96px;border:1px solid var(--line)"></picture></div>
+      </div></div></div>
+    </div></div>
+  </aside>
+
+  <div class="ch-list">
+    <ol class="tlist" aria-labelledby="onsheet-h">
+      <li class="head" id="onsheet-h" style="display:block;border:0;padding:0">[ On this sheet ]</li>
+      <li><span class="no">02</span><a class="lbl" href="#s02">Question</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+      <li><span class="no">03</span><a class="lbl" href="#s03">Mechanism · lock states</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+      <li><span class="no">04</span><a class="lbl" href="#s04">Inside · Z-stack, sections</a><span class="hatch"><span class="track"><i style="--n:3;--of:3"></i></span><span class="count">3 min</span></span></li>
+      <li><span class="no">05</span><a class="lbl" href="#s05">Pigment &amp; material</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+      <li><span class="no">06</span><a class="lbl" href="#s06">Decisions · lineage</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+      <li><span class="no">07</span><a class="lbl" href="#s07">Claim ledger</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+      <li><span class="no">08</span><a class="lbl" href="#s08">Provenance</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+    </ol>
+  </div>
+
+  
+  <div class="ch-side th-keys">
+    <p class="label" id="keys-h">[ Keyboard · A2_REFINED ]</p>
+    <ol class="th-keyrow" aria-labelledby="keys-h">
+      <li style="--c:#A6633B;--k:0"><i aria-hidden="true"></i><span><b>Mineral orange</b> <span class="hx">#A6633B</span><span class="sr">Authored · attachment shell · rough. 0.42</span></span></li>
+      <li style="--c:#C7C2BA;--k:1"><i aria-hidden="true"></i><span><b>Warm grey</b> <span class="hx">#C7C2BA</span><span class="sr">Authored · handle body</span></span></li>
+      <li style="--c:#575659;--k:2"><i aria-hidden="true"></i><span><b>Graphite</b> <span class="hx">#575659</span><span class="sr">Authored · grip</span></span></li>
+      <li style="--c:#E6852E;--k:3"><i aria-hidden="true"></i><span><b>Signal amber</b> <span class="hx">#E6852E</span><span class="sr">Authored · signal arcs</span></span></li>
+      <li style="--c:#D1D0CE;--k:4"><i aria-hidden="true"></i><span><b>Satin aluminium</b> <span class="hx">#D1D0CE</span><span class="sr">Authored · fork, rough. 0.38</span></span></li>
+    </ol>
+    <p class="micro th-keys-note">Locked 21 Sep 2026 · no pure black, no pure white</p>
+  </div>
+
+  <dl class="record two ch-record" aria-label="Specimen record">
+    <dt>Code</dt><dd>THERMA (project codename)</dd>
+    <dt>Discipline</dt><dd>Industrial / product design — form, interface, CMF</dd>
+    <dt>Date</dt><dd>18–21 Sep 2026</dd>
+    <dt>Status</dt><dd>Concept · CMF locked A2_REFINED</dd>
+    <dt>Physical evidence</dt><dd>None — no physical prototype</dd>
+    <dt>Image</dt><dd><span class="inline-view" data-view="lab">Art render · Blender Cycles, AgX</span><span class="inline-view" data-view="investigation">Line drawing edge-extracted from the orthographic model render</span></dd>
+    <dt>Sheet</dt><dd>03 / 11</dd>
+  </dl>
+</section>
+<div id="ledger-inv-slot"></div>
+
+
+<section class="sheet-section" id="s02" aria-labelledby="s02-h">
+  <div class="sec-mark"><p class="marker">02 · Question</p><h2 id="s02-h" class="h2">Can every decision change only what it is about?</h2></div>
+  <div class="cols th-q">
+    <div class="question span-6">
+      
+      <p>THERMA began as a proportion study: a 40 × 36 × 155 mm handle where every key dimension is a named variable and the corner radii are live bevel weights, not modelled geometry. v02 corrected the proportions. Five bridge variants explored a structural member emerging from under the collar, and the B2.2 fork was approved. A three-lug bayonet followed and was frozen after three iterations; then the 82 mm concentrator, its S2 shoulder, and a CMF study locked to A2_REFINED. Each stage re-verified the frozen body and changed nothing else.</p>
+    </div>
+    <figure class="th-q-plate span-6">
+      <div class="th-art">
+        <picture>
+          <source srcset="assets/therma/art-floating-640.avif 640w, assets/therma/art-floating-1200.avif 1200w" sizes="(max-width:1023px) 92vw, 46vw" type="image/avif">
+          <img src="assets/therma/art-floating-640.jpg" width="640" height="512" alt="THERMA art render: the whole product floating on a diagonal against near-black — mineral-orange concentrator, satin-aluminium collar, warm-grey handle with its control-spine slot and graphite grip." loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <aside class="pull th-pull" aria-label="Pull fact">
+        <p class="big"><span class="tabular">0.0</span> mm</p>
+        <p class="label lbl">Max world-space vertex deviation · 21 parts · every CMF direction vs the frozen branch</p>
+        <p class="micro th-pull-2">Art-set re-check: 255 source objects · 65 materials · 0 discrepancies</p>
+        <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD self-check, not a product test</span></span></div>
+      </aside>
+      <figcaption class="prov">Art render ART04 · Blender Cycles, 1024 samples, AgX · cropped from 2500 × 2500</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s03" aria-labelledby="s03-h">
+  <div class="sec-mark"><p class="marker">03 · Mechanism</p><h2 id="s03-h" class="h2">Three lugs, thirty degrees, one draw-in.</h2>
+    <p class="legend"><span><i style="--c:var(--line)"></i>Visible</span><span><i class="dash" style="--c:var(--line-2)"></i>Hidden</span><span><i style="--c:var(--ink-datum)"></i>Datum</span><span><i style="--c:var(--ink-dim)"></i>Dimension</span><span><i style="--c:var(--ink-load)"></i>Lock arc</span></p></div>
+
+  <div class="inst inst-wrap th-lock" data-instrument data-start="0">
+    <script type="application/json">[
+      {"id":"A","readout":"STATE A · OPEN · +15.0 MM · 0° · SEAL 1.52 MM FREE","valuetext":"State A, open: attachment 15 millimetres above the seat, 0 degrees, seal free at 1.52 millimetres","vars":{"--travel":"15","--angle":"0","--seal":"1.52","--ty":"6","--lockin":"0"}},
+      {"id":"B","readout":"STATE B · INSERTED, UNLOCKED · 0.0 MM · 0° · SEAL 1.52 MM","valuetext":"State B, inserted and unlocked: 0 millimetres, 0 degrees, seal 1.52 millimetres","vars":{"--travel":"0","--angle":"0","--seal":"1.52","--ty":"62","--lockin":"0"}},
+      {"id":"C","readout":"STATE C · LOCKED · −0.4 MM · +30° · SEAL 1.27 MM","valuetext":"State C, locked: drawn in 0.4 millimetres, rotated 30 degrees, seal compressed to 1.27 millimetres, 16 percent squeeze","vars":{"--travel":"-0.4","--angle":"30","--seal":"1.27","--ty":"70","--lockin":"1"}}
+    ]</script>
+
+    <figure class="inst-fig th-lock-fig" aria-label="Lock-state instrument: render, side schematic and unwrapped bayonet track">
+      <div class="lk-frames">
+        <picture class="lk-a"><source srcset="assets/therma/lock-a.avif" type="image/avif"><img src="assets/therma/lock-a.jpg" width="650" height="750" alt="Grey-clay render, state A: the attachment lifted 15 mm above the collar, lugs and entry slots visible." loading="lazy" decoding="async"></picture>
+        <picture class="lk-b"><source srcset="assets/therma/lock-b.avif" type="image/avif"><img src="assets/therma/lock-b.jpg" width="650" height="750" alt="Grey-clay render, state B: the attachment seated on the collar, unlocked; the light signal arc shows in the side window." loading="lazy" decoding="async"></picture>
+        <picture class="lk-c"><source srcset="assets/therma/lock-c.avif" type="image/avif"><img src="assets/therma/lock-c.jpg" width="650" height="750" alt="Grey-clay render, state C: the attachment rotated 30° and drawn in; the signal arc has swung clear and the window reads dark." loading="lazy" decoding="async"></picture>
+        <span class="lk-tag" aria-hidden="true"><span data-s="A">A · Open</span><span data-s="B">B · Inserted</span><span data-s="C">C · Locked</span></span>
+      </div>
+
+      <div class="lk-side">
+        <p class="lk-h">Side schematic · mm</p>
+        <svg viewBox="-64 -127 116 73" role="img" aria-label="Side schematic: Ø47 × 10 collar on the handle and the Ø47 × 12 attachment envelope above it, offset by the state's travel; a ×8 detail shows the 0.4 mm draw-in.">
+          <defs>
+            <clipPath id="lk-detclip"><circle cx="37" cy="-69" r="8.6"/></clipPath>
+            <clipPath id="lk-winclip"><rect x="-5.7" y="-85.3" width="11.4" height="2.4"/></clipPath>
+          </defs>
+          <path class="lk-body" d="M-20 -77.5 H20 V-61 L13 -59.4 L5 -61.8 L-4 -59.2 L-12 -61.6 L-20 -60 Z"/>
+          <rect class="lk-collar" x="-23.5" y="-87.5" width="47" height="10"/>
+          <line class="dw-hidden" x1="-21" y1="-87.5" x2="-21" y2="-77.5"/><line class="dw-hidden" x1="21" y1="-87.5" x2="21" y2="-77.5"/>
+          <rect class="lk-win" x="-5.7" y="-85.3" width="11.4" height="2.4"/>
+          <g clip-path="url(#lk-winclip)"><rect class="lk-win-arc" x="-5.7" y="-85.3" width="11.4" height="2.4"/></g>
+          <rect class="lk-win-frame" x="-5.7" y="-85.3" width="11.4" height="2.4"/>
+          <g class="lk-att">
+            <path class="lk-cone" d="M-21.5 -99.5 L-17.6 -107.5 H17.6 L21.5 -99.5 Z"/>
+            <rect class="lk-land" x="-23.5" y="-99.5" width="47" height="12"/>
+            <path class="lk-break" d="M-17.6 -107.5 l2.2 -1.8 l2.2 1.8 l2.2 -1.8 M11 -107.5 l2.2 -1.8 l2.2 1.8 l2.2 -1.8"/>
+            <text class="lk-t lbl" x="-26.5" y="-92" text-anchor="end">ATTACHMENT</text>
+          </g>
+          <line class="dw-datum" x1="-64" y1="-87.5" x2="52" y2="-87.5"/>
+          <text class="lk-t datum" x="-63" y="-88.8">Z +87.5</text>
+          <line class="lk-dimline" x1="30" y1="-102.5" x2="30" y2="-87.5"/>
+          <line class="dw-dim" x1="27.5" y1="-87.5" x2="32.5" y2="-87.5"/>
+          <text class="lk-t dim" x="32.5" y="-96" data-s="A">+15.0</text>
+          <text class="lk-t dim" x="32.5" y="-89.4" data-s="B">0.0</text>
+          <text class="lk-t dim" x="32.5" y="-89.4" data-s="C">−0.4</text>
+          <line class="dw-thin" x1="23.5" y1="-87.5" x2="31.6" y2="-76.2"/>
+          <circle class="lk-det-ring" cx="37" cy="-69" r="8.6"/>
+          <g clip-path="url(#lk-detclip)">
+            <line class="dw-datum" x1="28" y1="-72.2" x2="46" y2="-72.2"/>
+            <rect class="lk-det-att" x="28" y="-86.2" width="18" height="14"/>
+          </g>
+          <text class="lk-t micro" x="37" y="-55.4" text-anchor="middle">×8</text>
+          <text class="lk-t lbl" x="-26.5" y="-80.6" text-anchor="end">COLLAR</text>
+          <text class="lk-t lbl" x="-23" y="-63" text-anchor="end">HANDLE</text>
+        </svg>
+        <p class="lk-cap">Collar Ø47 × 10 · attachment envelope Ø47 × 12 · travel drawn 1:1 · seat detail drawn ×8 (0.4 mm → 3.2)</p>
+      </div>
+
+      <div class="lk-plan">
+        <p class="lk-h">Plan · orbit protractor</p>
+        <div class="lk-pro">
+        <svg class="protractor" viewBox="-32 -36 64 64" role="img" aria-label="Orbit protractor: three lugs at 120 degrees inside three entry slots; the lock arc runs from 0 to 30 degrees, ticks every 5 degrees.">
+          <circle class="lk-sector" r="14" pathLength="360"/>
+          <circle class="lk-ring" r="23.5"/>
+          <circle class="dw-thin" r="17.2"/>
+          
+          <g class="lk-flange">
+            <path d="M 9.86 -20.22 A 22.5 22.5 0 0 1 22.45 1.57"/>
+            <path d="M 9.86 -20.22 A 22.5 22.5 0 0 1 22.45 1.57" transform="rotate(120)"/>
+            <path d="M 9.86 -20.22 A 22.5 22.5 0 0 1 22.45 1.57" transform="rotate(240)"/>
+          </g>
+          
+          <g class="lk-lugs">
+            <path d="M -7.44 -18.40 A 19.85 19.85 0 0 1 7.44 -18.40"/>
+            <path d="M -7.44 -18.40 A 19.85 19.85 0 0 1 7.44 -18.40" transform="rotate(120)"/>
+            <path d="M -7.44 -18.40 A 19.85 19.85 0 0 1 7.44 -18.40" transform="rotate(240)"/>
+            <line class="lk-lug-idx" x1="0" y1="-16" x2="0" y2="-23.5"/>
+          </g>
+          
+          <path class="arc" d="M 0 -27 A 27 27 0 0 1 13.5 -23.38"/>
+          <g class="lk-ticks"><line class="tick" x1="0.00" y1="-26.00" x2="0.00" y2="-30.00"/><line class="tick" x1="2.27" y1="-25.90" x2="2.44" y2="-27.89"/><line class="tick" x1="4.51" y1="-25.61" x2="4.86" y2="-27.57"/><line class="tick" x1="6.73" y1="-25.11" x2="7.25" y2="-27.05"/><line class="tick" x1="8.89" y1="-24.43" x2="9.58" y2="-26.31"/><line class="tick" x1="10.99" y1="-23.56" x2="11.83" y2="-25.38"/><line class="tick" x1="13.00" y1="-22.52" x2="15.00" y2="-25.98"/></g>
+          <text class="lk-t ang" x="0" y="-31.8">0°</text>
+          <text class="lk-t ang" x="16.4" y="-28">30°</text>
+        </svg>
+        <p class="lk-cap">3 lugs · 44° · at 120° · entry slots 52° · lock arc 0–30°, ticks every 5°</p>
+        </div>
+
+      </div>
+
+      <div class="lk-sealbox">
+        <p class="lk-h">Seal Ø30.4 · section thickness</p>
+        <div class="sb" aria-hidden="true"><span class="sb-free"></span><span class="sb-now"></span></div>
+        <p class="lk-sealv"><span data-s="A">1.52 mm · free</span><span data-s="B">1.52 mm · free</span><span data-s="C">1.27 mm · 16 % squeeze</span></p>
+        <p class="lk-cap">Free 1.52 mm (dashed) · locked 1.27 mm · seal scaled 0.836 in Z about its own seat</p>
+      </div>
+      <div class="lk-track">
+        <p class="lk-h">Bayonet track, unwrapped · angle to scale, depth schematic</p>
+        <svg viewBox="0 0 400 108" role="img" aria-label="Unwrapped bayonet track: the lug enters an axial slot, then runs 30 degrees along a helical draw-down track over a 0.35 mm detent to the terminal stop.">
+          <path class="lk-slot" d="M34 0 H46 V56 L340 64 H352 V76 H338 L334 72.6 L330 75.7 L34 68 Z"/>
+          <path class="lk-path" d="M40 0 V62 L340 70"/>
+          <line class="dw-thin" x1="40" y1="94" x2="340" y2="94"/>
+          <path class="lk-axis" d="M40 89 V99 M90 91 V97 M140 91 V97 M190 91 V97 M240 91 V97 M290 91 V97 M340 89 V99"/>
+          <text class="lk-t ang" x="40" y="107" text-anchor="middle">0°</text><text class="lk-t ang" x="340" y="107" text-anchor="middle">30°</text>
+          <text class="lk-t micro" x="54" y="14">ENTRY · AXIAL · +15 MM ABOVE</text>
+          <text class="lk-t micro" x="150" y="52">HELICAL DRAW-DOWN 0.50 MM</text>
+          <text class="lk-t micro" x="322" y="86" text-anchor="end">DETENT 0.35 MM</text>
+          <text class="lk-t micro" x="357" y="73">STOP</text>
+          <circle class="lk-dot" cx="40" cy="0" r="4.6"/>
+        </svg>
+      </div>
+    </figure>
+
+    <div class="inst-panel th-lock-panel">
+      <div class="inst-controls seg" role="group" aria-label="Lock state">
+        <button type="button" data-step>A · Open</button><button type="button" data-step>B · Inserted</button><button type="button" data-step>C · Locked</button>
+      </div>
+      <input type="range" min="0" max="2" step="1" value="0" aria-label="Lock state, A open to C locked" list="lk-stops">
+      <datalist id="lk-stops"><option value="0"></option><option value="1"></option><option value="2"></option></datalist>
+      <p class="inst-readout th-readout" aria-live="polite">STATE A · OPEN · +15.0 MM · 0° · SEAL 1.52 MM FREE</p>
+      <table class="lk-legend">
+        <caption class="sr-only">Lock states — transforms of one attachment on one handle</caption>
+        <thead><tr><th scope="col">State</th><th scope="col">Offset</th><th scope="col">Rot.</th><th scope="col">Seal</th><th scope="col">Window</th></tr></thead>
+        <tbody>
+          <tr data-s="A"><th scope="row">A · Open</th><td>+15.0 mm</td><td>0°</td><td>1.52 free</td><td>Amber arc</td></tr>
+          <tr data-s="B"><th scope="row">B · Inserted</th><td>0.0 mm</td><td>0°</td><td>1.52</td><td>Amber arc</td></tr>
+          <tr data-s="C"><th scope="row">C · Locked</th><td>−0.4 mm</td><td>+30°</td><td>1.27 <span class="muted">(Z × 0.836)</span></td><td>Arc clear</td></tr>
+        </tbody>
+      </table>
+      <ul class="lk-facts">
+        <li>Lug engagement <b>2.30 mm</b> · helical draw-down <b>0.50 mm</b> · detent <b>0.35 mm</b></li>
+        <li>Airflow <b>Ø28.0</b> clear through the interface</li>
+        <li>Contact pins <b>Ø1.5</b>, recessed <b>1.2 mm</b> under a <b>0.5 mm</b> wall</li>
+        <li>Signal windows <b>28° × 2.4 mm</b>: the amber arcs sit behind them while unlocked and swing 30° clear when locked</li>
+      </ul>
+      <div class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· modelled and self-checked, never built or tested</span></span></div>
+      <p class="inst-note">Transforms of the frozen CAD model (interface frozen 20 Sep 2026) — specified intent, never built or tested. No geometry changes between states. Renders: grey clay, one camera at azimuth 78°, the angle at which the side signal window reads. Schematics drawn for this sheet from model values.</p>
+      <button class="tbtn" type="button" data-play>Play once</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s04" aria-labelledby="s04-h">
+  <div class="sec-mark"><p class="marker">04 · Inside</p><h2 id="s04-h" class="h2">Datums, a Z-stack and a 0.251 mm gap.</h2>
+    <p class="legend"><span><i style="--c:var(--ink-datum)"></i>Datum</span><span><i style="--c:var(--ink-dim)"></i>Dimension</span><span><i class="dash" style="--c:var(--line-2)"></i>Hidden / illustrative</span><span><i style="--c:var(--line)"></i>Leader</span></p></div>
+
+  <div class="plates th-plates">
+    
+    <figure class="plate-fig th-ortho">
+      <div class="frame">
+        <div class="stage" data-plot style="--ar:2/3">
+          <div class="spec" style="--x:43.47%;--y:2.517%;--w:32.995%;--h:94.98%">
+            <picture>
+              <source srcset="assets/therma/side-ortho-760.avif 176w, assets/therma/side-ortho-1520.avif 352w" sizes="(max-width:767px) 30vw, 180px" type="image/avif">
+              <img src="assets/therma/side-ortho-760.jpg" width="176" height="760" alt="Orthographic side render of the locked CMF: mineral-orange concentrator with its three conical segments and outlet shroud, warm-grey base land, satin-aluminium collar with the signal window, warm-grey handle with graphite grip, black cable boot." loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <svg class="overlay" viewBox="-120 -185 200 300" aria-hidden="true">
+            <line class="dw-chain draw" style="--di:0" x1="0" y1="-182" x2="0" y2="112"/>
+            <line class="dw-datum draw" style="--di:1" x1="-118" y1="-169.5" x2="8" y2="-169.5"/>
+            <line class="dw-datum draw" style="--di:2" x1="-118" y1="-142" x2="-7" y2="-142"/>
+            <line class="dw-datum draw" style="--di:3" x1="-118" y1="-87.5" x2="-24" y2="-87.5"/>
+            <line class="dw-datum draw" style="--di:4" x1="-118" y1="-77.5" x2="-24" y2="-77.5"/>
+            <line class="dw-datum draw" style="--di:5" x1="-118" y1="0" x2="-17" y2="0"/>
+            <line class="dw-datum draw" style="--di:6" x1="-118" y1="77.5" x2="-17" y2="77.5"/>
+            <path class="dw-dim draw" style="--di:7" d="M38 -169.5 V -87.5 M34 -169.5 H42 M34 -87.5 H42"/>
+            <path class="dw-dim draw" style="--di:8" d="M38 -87.5 V -77.5 M34 -77.5 H42"/>
+            <path class="dw-dim draw" style="--di:9" d="M38 -77.5 V 77.5 M34 77.5 H42"/>
+            <path class="dw-dim draw" style="--di:10" d="M-23.5 -73 H23.5 M-23.5 -79 V-70 M23.5 -79 V-70"/>
+            <path class="dw-dim draw" style="--di:11" d="M24 -169.5 H40 M26 -87.5 H40 M24 -77.5 H34 M22 77.5 H34" />
+          </svg>
+          <span class="datum-label" style="--cx:1%;--cy:5.17%"><span class="z">Z +169.5</span> · tip</span>
+          <span class="datum-label" style="--cx:1%;--cy:14.33%"><span class="z">Z +142.0</span> · shroud</span>
+          <span class="datum-label" style="--cx:1%;--cy:32.5%"><span class="z">Z +87.5</span> · collar face</span>
+          <span class="datum-label" style="--cx:1%;--cy:35.83%"><span class="z">Z +77.5</span> · collar seat</span>
+          <span class="datum-label" style="--cx:1%;--cy:61.67%"><span class="z">Z 0.0</span> · origin</span>
+          <span class="datum-label" style="--cx:1%;--cy:87.5%"><span class="z">Z −77.5</span> · tail</span>
+          <span class="dim-label" style="--cx:81.5%;--cy:18.5%">82.0<br>C2</span>
+          <span class="dim-label" style="--cx:81.5%;--cy:33.1%">10.0</span>
+          <span class="dim-label" style="--cx:81.5%;--cy:57%">155.0<br>handle</span>
+          <span class="dim-label th-dim-dia" style="--cx:60%;--cy:38.6%">Ø47.0</span>
+        </div>
+      </div>
+      <figcaption><span class="t">A · Orthographic side, locked CMF · Z datum ladder</span><span class="p">Validation render, Blender Cycles, orthographic camera · datums registered to the render at four model stations (tip, shroud split, collar seat, tail; ±1 px at 6.668 px/mm) · values are CAD dimensions</span><span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD dimensions</span></span></span></figcaption>
+    </figure>
+
+    
+    <figure class="plate-fig th-zstack">
+      <div class="frame zs-frame">
+        <div class="zs-grid">
+          <div class="zs-render">
+            <picture>
+              <source srcset="assets/therma/micro-exploded-600.avif 600w, assets/therma/micro-exploded-1200.avif 1200w" sizes="(max-width:1023px) 44vw, 260px" type="image/avif">
+              <img src="assets/therma/micro-exploded-600.jpg" width="600" height="900" alt="Grey-clay micro-exploded render of the frozen interface: attachment mating boss at the top, then separated rings of the interface stack, then the collar on the handle." loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="zs-chart explode">
+            <svg viewBox="0 0 470 460" role="img" aria-labelledby="zs-title">
+              <title id="zs-title">Interface Z-stack chart: each part drawn at its true Z range between Z 77.5 and 87.5; the duct continues down to Z 52.00.</title>
+              
+              <line class="dw-visible" x1="78" y1="20" x2="78" y2="414"/>
+              <g class="zs-ruler">
+                <line x1="72" y1="47" x2="78" y2="47"/><line x1="74" y1="81" x2="78" y2="81"/><line x1="72" y1="115" x2="78" y2="115"/><line x1="74" y1="149" x2="78" y2="149"/><line x1="72" y1="183" x2="78" y2="183"/><line x1="74" y1="217" x2="78" y2="217"/><line x1="72" y1="251" x2="78" y2="251"/><line x1="74" y1="285" x2="78" y2="285"/><line x1="72" y1="319" x2="78" y2="319"/><line x1="74" y1="353" x2="78" y2="353"/><line x1="72" y1="387" x2="78" y2="387"/>
+              </g>
+              <g class="zs-rl"><text x="66" y="51">87</text><text x="66" y="119">85</text><text x="66" y="187">83</text><text x="66" y="255">81</text><text x="66" y="323">79</text><text x="66" y="391">77</text></g>
+              
+              <line class="dw-datum" x1="40" y1="30" x2="462" y2="30"/>
+              <line class="dw-datum" x1="40" y1="370" x2="462" y2="370"/>
+              <text class="zs-dl" x="84" y="25">Z 87.5 · COLLAR FACE</text>
+              <text class="zs-dl" x="84" y="365">Z 77.5 · COLLAR SEAT</text>
+              
+              <g class="zs-lane explode-part" style="--dx:0"><line class="zs-pt" x1="100" y1="269.7" x2="128" y2="269.7"/><circle class="zs-ptd" cx="114" cy="269.7" r="3"/><text class="zs-n" x="114" y="258">1</text></g>
+              <g class="zs-lane explode-part" style="--dx:52"><rect class="zs-bar" x="106" y="81" width="16" height="98.6"/><text class="zs-n" x="114" y="73">2</text></g>
+              <g class="zs-lane explode-part" style="--dx:104"><rect class="zs-bar" x="106" y="179.6" width="16" height="81.6"/><text class="zs-n" x="114" y="171">3</text></g>
+              <g class="zs-lane explode-part" style="--dx:156"><rect class="zs-bar seal" x="106" y="274.8" width="16" height="51.7"/><text class="zs-n" x="114" y="266">4</text></g>
+              <g class="zs-lane explode-part" style="--dx:208"><line class="zs-pt" x1="100" y1="346.2" x2="128" y2="346.2"/><circle class="zs-ptd" cx="114" cy="346.2" r="3"/><text class="zs-n" x="114" y="335">5</text></g>
+              <g class="zs-lane explode-part" style="--dx:260"><rect class="zs-bar" x="106" y="298.6" width="16" height="64.6"/><text class="zs-n" x="114" y="290">6</text></g>
+              <g class="zs-lane explode-part" style="--dx:312"><path class="zs-duct" d="M106 363.2 H122 V420 l-4 6 l8 6 l-4 6 V452 H106 V438 l-4 -6 l8 -6 l-4 -6 Z"/><text class="zs-n" x="114" y="355">7</text></g>
+            </svg>
+          </div>
+        </div>
+        <ol class="zs-legend">
+          <li><span class="zn">1</span><span>Attachment shoulder</span><span class="zv">Z 80.45</span></li>
+          <li><span class="zn">2</span><span>Bayonet flange</span><span class="zv">83.10–86.00</span></li>
+          <li><span class="zn">3</span><span>Track</span><span class="zv">80.70–83.10</span></li>
+          <li><span class="zn">4</span><span>Seal Ø30.4</span><span class="zv">78.78–80.30</span></li>
+          <li><span class="zn">5</span><span>Signal ring body</span><span class="zv">Z 78.20</span></li>
+          <li><span class="zn">6</span><span>Carrier · OD 40.2</span><span class="zv">77.70–79.60</span></li>
+          <li><span class="zn">7</span><span>Airflow duct Ø28.0</span><span class="zv">→ Z 52.00</span></li>
+        </ol>
+      </div>
+      <figcaption><span class="t">B · Interface Z-stack, front to back</span><span class="p">Left: micro-exploded grey-clay render of the frozen interface (Blender Cycles) — the explode is a display offset. Right: the stack values from the interface build, drawn at true Z (1 mm = 34 chart units); on scroll the lanes separate sideways so overlapping ranges read apart. Z never moves.</span><span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· modelled, never built</span></span></span></figcaption>
+    </figure>
+
+    
+    <figure class="plate-fig wide th-axial">
+      <div class="frame">
+        <div class="stage" data-plot style="--ar:1900/700">
+          <div class="spec" style="--x:0%;--y:0%;--w:100%;--h:80%">
+            <picture>
+              <source srcset="assets/therma/axial-section-950.avif 950w, assets/therma/axial-section-1900.avif 1900w" sizes="(max-width:1279px) 94vw, 1180px" type="image/avif">
+              <img src="assets/therma/axial-section-950.jpg" width="950" height="280" alt="Axial half-section of the S2 concentrator, clay render: the 2.6 mm outer shell runs diagonally down to the outlet; beneath it a dark void, then the 2.0 mm duct wall, which ends where the void closes; further on, the shroud sits on the shell across a thin seam." loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <svg class="overlay" viewBox="0 0 1900 700" aria-hidden="true">
+            
+            <line class="dw-dim draw" style="--di:0" x1="108" y1="610" x2="1680" y2="610"/>
+            <path class="dw-dim draw" style="--di:1" d="M108 596 V624 M258 600 V620 M666 596 V624 M1129 596 V624 M1680 596 V624"/>
+            <path class="dw-thin draw" style="--di:2" d="M208 604 V610 M308 604 V610 M408 604 V610 M508 604 V610 M608 604 V610 M708 604 V610 M808 604 V610 M909 604 V610 M1009 604 V610 M1109 604 V610 M1209 604 V610 M1309 604 V610 M1409 604 V610 M1509 604 V610 M1609 604 V610"/>
+            <path class="dw-thin draw" style="--di:3" d="M108 560 V596 M666 395 V596 M1129 545 V596 M1680 520 V596" stroke-dasharray="4 4"/>
+            <polyline class="leader keep" style="--i:0" points="400,262 632,30 678,30"/>
+            <polyline class="leader keep" style="--i:1" points="664,346 820,190 960,190"/>
+            <polyline class="leader" style="--i:2" points="260,113 260,30 296,30"/>
+            <polyline class="leader" style="--i:3" points="1131,470 1131,330 1177,330"/>
+          </svg>
+          <i class="anc" data-anchor="x1" style="--ax:21.05%;--ay:37.43%;--i:0">1</i>
+          <i class="anc" data-anchor="x2" style="--ax:34.95%;--ay:49.43%;--i:1">2</i>
+          <i class="anc" data-anchor="x3" style="--ax:13.68%;--ay:16.14%;--i:2">3</i>
+          <i class="anc" data-anchor="x4" style="--ax:59.53%;--ay:67.14%;--i:3">4</i>
+          <p class="callout" data-a="x1" data-align="left" style="--cx:35.68%;--cy:4.29%;--i:0;--cw:22ch"><span class="n">1</span>Thermal break · void between the 2.6 mm shell and the 2.0 mm duct wall<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· geometric only</span></span></span></p>
+          <p class="callout" data-a="x2" data-align="left" style="--cx:50.53%;--cy:27.14%;--i:1;--cw:34ch"><span class="n">2</span>Min shell-to-duct clearance +0.251 mm analytic · duct ends at Z 118.90<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· geometric only</span></span></span></p>
+          <p class="callout" data-a="x3" data-align="left" style="--cx:15.58%;--cy:4.29%;--i:2;--cw:16ch"><span class="n">3</span>S2 shoulder · Z 91.0–98.5<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+          <p class="callout" data-a="x4" data-align="left" style="--cx:61.95%;--cy:47.14%;--i:3;--cw:28ch"><span class="n">4</span>Shell → shroud seam 0.200 mm at Z 142.0 · not coincident<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+          <span class="dim-label th-zr" style="--cx:5.68%;--cy:91%">Z 91.0</span>
+          <span class="dim-label th-zr th-zr-m" style="--cx:13.58%;--cy:91%">98.5</span>
+          <span class="dim-label th-zr" style="--cx:35.05%;--cy:91%">118.9</span>
+          <span class="dim-label th-zr" style="--cx:59.42%;--cy:91%">142.0</span>
+          <span class="dim-label th-zr" style="--cx:88.42%;--cy:91%">169.5 tip</span>
+          <span class="dim-label th-zr-cap" style="--cx:5.68%;--cy:96%">Z, mm · ruler registered at 4 model stations, ±2 px at 20.02 px/mm · ticks every 5 mm</span>
+        </div>
+      </div>
+      <ol class="callout-list" aria-label="Axial section callouts">
+        <li><span class="num">1</span><span>Thermal break · void between the 2.6 mm shell and the 2.0 mm duct wall<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· geometric only</span></span></span></span></li>
+        <li><span class="num">2</span><span>Min shell-to-duct clearance +0.251 mm analytic / +0.2542 mm ray-cast · duct ends at Z 118.90, where the wall budget ends<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· geometric only, no thermal claim</span></span></span></span></li>
+        <li><span class="num">3</span><span>S2 shoulder · Z 91.0–98.5 · 2.8 mm land, 3.4 mm eased facet<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+        <li><span class="num">4</span><span>Shell → shroud seam 0.200 mm at Z 142.0 · not coincident<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+      </ol>
+      <figcaption><span class="t">C · Concentrator axial half-section, S2 · the thermal-break band</span><span class="p">Clay section render, Blender Cycles, orthographic · an earlier build ran the duct out through the shell over 35 % of its run (C2); it was found and fixed by deriving the duct end from the wall budget. The clearance is geometric — no thermal performance is claimed.</span><span class="th-band"><span class="claim" data-level="DESIGNED">+0.251 mm analytic · geometric only</span></span></figcaption>
+    </figure>
+
+    
+    <figure class="plate-fig th-morph">
+      <div class="frame">
+        <svg class="morph-svg" viewBox="-30 -24 60 44" role="img" aria-labelledby="morph-t">
+          <title id="morph-t">Internal path: a Ø28 circle at the inlet becomes a 26.0 × 6.0 slot at the outlet. Outer envelope 32.0 × 11.0 and outlet face 29.40 × 9.10 shown dashed.</title>
+          <line class="dw-chain" x1="-28" y1="0" x2="28" y2="0"/><line class="dw-chain" x1="0" y1="-22" x2="0" y2="18"/>
+          <rect class="dw-hidden" x="-16" y="-5.5" width="32" height="11" rx="1.5"/>
+          <rect class="dw-hidden" x="-14.7" y="-4.55" width="29.4" height="9.1" rx="3.4"/>
+          <circle class="mo-end" r="14"/>
+          <rect class="mo-mid" x="-13.75" y="-11" width="27.5" height="22" rx="8.5"/>
+          <rect class="mo-mid" x="-13.4" y="-7.8" width="26.8" height="15.6" rx="5"/>
+          <rect class="mo-mid" x="-13.15" y="-5" width="26.3" height="10" rx="2.8"/>
+          <rect class="mo-end slot" x="-13" y="-3" width="26" height="6" rx="1.8"/>
+          <rect class="mo-live" x="-14" y="-14" width="28" height="28" rx="14"/>
+          <path class="dw-dim" d="M-13 15 H13 M-13 13.5 V16.5 M13 13.5 V16.5"/>
+          <path class="dw-dim" d="M19 -3 V3 M17.5 -3 H20.5 M17.5 3 H20.5"/>
+          <path class="dw-dim" d="M-9.9 -9.9 L-19 -19 H-27"/>
+          <text class="mo-t" x="-27" y="-19.8">Ø28.0 INLET</text>
+          <text class="mo-t" x="-4.5" y="19.4">26.0</text>
+          <text class="mo-t" x="21.2" y="1.1">6.0</text>
+          <text class="mo-t mute" x="15.2" y="-6.6">32.0 × 11.0</text>
+          <text class="mo-t mute" x="15.2" y="-9.4">ENVELOPE</text>
+        </svg>
+      </div>
+      <figcaption><span class="t">D · Internal path, Ø28 circle → 26.0 × 6.0 slot</span><span class="p">Endpoints are model dimensions; the in-between outlines and the slot's corner form are drawn for illustration. Outer envelope 32.0 × 11.0 and outlet face 29.40 × 9.10 r3.40 dashed. Drawing made for this sheet — not a render.</span><span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· endpoints only</span></span></span></figcaption>
+    </figure>
+
+    
+    <figure class="plate-fig th-nozzle">
+      <div class="frame">
+        <div class="stage" data-plot style="--ar:1700/1000">
+          <div class="spec" style="--x:0%;--y:0%;--w:100%;--h:100%">
+            <picture>
+              <source srcset="assets/therma/nozzle-section-850.avif 850w, assets/therma/nozzle-section-1700.avif 1700w" sizes="(max-width:1023px) 94vw, 580px" type="image/avif">
+              <img src="assets/therma/nozzle-section-850.jpg" width="850" height="500" alt="Nozzle section, clay render: the shell's last cone on the left, a thin vertical seam, then the straight outlet shroud with its walls running to the open outlet face on the right." loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <svg class="overlay" viewBox="0 0 1700 1000" aria-hidden="true">
+            <polyline class="leader keep" style="--i:0" points="305,500 305,90 360,90"/>
+            <polyline class="leader keep" style="--i:1" points="1462,500 1560,500 1560,860"/>
+            <polyline class="leader" style="--i:2" points="1430,336 1430,80 1380,80"/>
+          </svg>
+          <i class="anc" data-anchor="n1" style="--ax:17.94%;--ay:50%;--i:0">1</i>
+          <i class="anc" data-anchor="n2" style="--ax:86%;--ay:50%;--i:1">2</i>
+          <i class="anc" data-anchor="n3" style="--ax:84.12%;--ay:33.6%;--i:2">3</i>
+          <p class="callout" data-a="n1" data-align="left" style="--cx:21.18%;--cy:9%;--i:0;--cw:24ch"><span class="n">1</span>Seam 0.200 mm · shell → shroud<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+          <p class="callout" data-a="n2" data-align="right" style="--cx:91.76%;--cy:86%;--i:1;--cw:30ch"><span class="n">2</span>Outlet opening 26.0 × 6.0 · face 29.40 × 9.10 r3.40<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+          <p class="callout" data-a="n3" data-align="right" style="--cx:81.18%;--cy:8%;--i:2;--cw:32ch"><span class="n">3</span>Min shroud wall 1.55 mm · ≥ 1.50 floor<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+        </div>
+      </div>
+      <ol class="callout-list" aria-label="Nozzle section callouts">
+        <li><span class="num">1</span><span>Seam 0.200 mm · shell → shroud<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+        <li><span class="num">2</span><span>Outlet opening 26.0 × 6.0 · face 29.40 × 9.10 r3.40<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+        <li><span class="num">3</span><span>Min shroud wall 1.55 mm · ≥ 1.50 floor<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+      </ol>
+      <figcaption><span class="t">E · Nozzle section, S2</span><span class="p">Clay section render, Blender Cycles · the shroud has its own profile: root taper, long precision taper, controlled rectangular outlet face.</span></figcaption>
+    </figure>
+  </div>
+  <p class="micro th-disclaimer">Concept. No physical prototype. Flow, temperature, power, noise and safety are not established.</p>
+</section>
+
+
+<section class="sheet-section" id="s05" aria-labelledby="s05-h">
+  <div class="sec-mark"><p class="marker">05 · Pigment &amp; material</p><h2 id="s05-h" class="h2">Signal technical, locked 21 Sep 2026.</h2>
+    <p class="small muted th-sec-cap">Thirteen role-based materials on 21 objects. Authored values come from the CMF build; rendered readings are sampled from the delivered images. Rejected directions stay struck, not deleted.</p></div>
+
+  <div class="albers-row th-albers">
+    <div class="albers" style="--c:#A6633B"><div class="inner"><p class="nm">Mineral orange</p><p class="hx">#A6633B</p><p class="src">Authored sRGB 0.650/0.390/0.230 · roughness 0.42 · attachment shell</p></div></div>
+    <div class="albers" style="--c:#C7C2BA"><div class="inner"><p class="nm">Warm grey</p><p class="hx">#C7C2BA</p><p class="src">Authored · handle body</p></div></div>
+    <div class="albers" style="--c:#575659"><div class="inner"><p class="nm">Graphite</p><p class="hx">#575659</p><p class="src">Authored · grip</p></div></div>
+    <div class="albers" style="--c:#E6852E"><div class="inner"><p class="nm">Signal amber</p><p class="hx">#E6852E</p><p class="src">Authored · signal arcs · emission #FF9E38</p></div></div>
+    <div class="albers" style="--c:#D1D0CE"><div class="inner"><p class="nm">Satin aluminium</p><p class="hx">#D1D0CE</p><p class="src">Authored · roughness 0.38 structural / 0.355 interface</p></div></div>
+  </div>
+
+  <div class="th-cmf inst" data-instrument data-start="6">
+    <script type="application/json">[
+      {"id":"A","readout":"A · SIGNAL TECHNICAL · BROAD STUDY · CARRIED FORWARD","valuetext":"Direction A, signal technical, carried forward to the micro-study"},
+      {"id":"B","readout":"B · MONOLITH PRECISION · EXPLORED · REJECTED","valuetext":"Direction B, monolith precision, explored and rejected"},
+      {"id":"C","readout":"C · MINERAL DOMESTIC · EXPLORED · REJECTED","valuetext":"Direction C, mineral domestic, explored and rejected"},
+      {"id":"A1","readout":"A1 · CURRENT · = A AS RENDERED · EXPLORED, REPLACED BY A2","valuetext":"A1 current, the A values unchanged; explored and replaced by A2"},
+      {"id":"A2","readout":"A2 · REFINED · SHELL 0.650/0.390/0.230 · ALUMINIUM TO SATIN","valuetext":"A2 refined: mineral orange shell, satin aluminium"},
+      {"id":"A3","readout":"A3 · GRAPHITE BASE · ONE MATERIAL DIFFERS · SET ASIDE","valuetext":"A3 graphite base, differs from A2 by one material, set aside"},
+      {"id":"F","readout":"LOCKED · A2_REFINED · BASE LAND L* 63.20 → 59.09","valuetext":"Locked: A2 refined with the base land darkened from L star 63.20 to 59.09"}
+    ]</script>
+    <figure class="cmf-fig" aria-label="CMF directions on one shared camera">
+      <div class="cmf-stack" data-twin="assets/therma/cmf-final-900.avif" data-twin-alt="assets/therma/cmf-a-900.avif">
+        <picture class="cf" data-s="A"><source srcset="assets/therma/cmf-a-450.avif 450w, assets/therma/cmf-a-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-a-450.jpg" width="450" height="900" alt="CMF direction A, signal technical: orange concentrator, white-grey body, graphite grip, bright aluminium." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="B"><source srcset="assets/therma/cmf-b-450.avif 450w, assets/therma/cmf-b-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-b-450.jpg" width="450" height="900" alt="CMF direction B, monolith precision (rejected): dark body and attachment with aluminium accents." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="C"><source srcset="assets/therma/cmf-c-450.avif 450w, assets/therma/cmf-c-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-c-450.jpg" width="450" height="900" alt="CMF direction C, mineral domestic (rejected): bone body, rose-clay attachment, champagne metal." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="A1"><source srcset="assets/therma/cmf-a-450.avif 450w, assets/therma/cmf-a-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-a-450.jpg" width="450" height="900" alt="A1 current: identical to direction A." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="A2"><source srcset="assets/therma/cmf-a2-450.avif 450w, assets/therma/cmf-a2-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-a2-450.jpg" width="450" height="900" alt="A2 refined: deeper mineral-orange shell and satin aluminium." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="A3"><source srcset="assets/therma/cmf-a3-450.avif 450w, assets/therma/cmf-a3-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-a3-450.jpg" width="450" height="900" alt="A3 graphite base (set aside): as A2 but with a graphite attachment base land." loading="lazy" decoding="async"></picture>
+        <picture class="cf" data-s="F"><source srcset="assets/therma/cmf-final-450.avif 450w, assets/therma/cmf-final-900.avif 900w" sizes="(max-width:767px) 70vw, 330px" type="image/avif"><img src="assets/therma/cmf-final-450.jpg" width="450" height="900" alt="Locked CMF A2_REFINED: mineral-orange concentrator, darkened warm-grey base land, satin-aluminium collar, warm-grey handle, graphite grip." loading="lazy" decoding="async"></picture>
+        <span class="cf-stamp" aria-hidden="true"><span data-s="A1">Explored · replaced by A2</span><span data-s="B">Explored · rejected</span><span data-s="C">Explored · rejected</span><span data-s="A3">Explored · set aside</span><span data-s="F">Selected · locked</span></span>
+      </div>
+      <figcaption class="prov">CMF study renders · Blender Cycles · one camera, lighting and exposure across every direction, never compensated per direction<span class="cf-twin-note"> · hover: a TWIN loupe shows the same pixels in the locked CMF (or in A, when the locked one is shown)</span></figcaption>
+    </figure>
+    <div class="cmf-panel">
+      <div class="seg cmf-seg" role="group" aria-label="Broad CMF study">
+        <span class="seg-l">Broad study</span><button type="button" data-step>A · Signal</button><button type="button" data-step class="rej">B · Monolith</button><button type="button" data-step class="rej">C · Mineral</button>
+      </div>
+      <div class="seg cmf-seg" role="group" aria-label="A micro-study and lock">
+        <span class="seg-l">A micro-study</span><button type="button" data-step class="rej">A1</button><button type="button" data-step>A2</button><button type="button" data-step class="rej">A3</button><button type="button" data-step>Locked</button>
+      </div>
+      <input type="range" min="0" max="6" step="1" value="6" aria-label="CMF direction">
+      <p class="inst-readout cmf-readout" aria-live="polite">LOCKED · A2_REFINED · BASE LAND L* 63.20 → 59.09</p>
+
+      <ul class="cmf-notes">
+        <li><b>A1 current</b> — the A_SIGNAL values, unchanged.</li>
+        <li><b>A2 refined</b> — shell 0.650/0.390/0.230 at roughness 0.42, a mineral orange rather than safety orange; nozzle at 0.35; aluminium kept its colour, roughness 0.34 → 0.38 structural and 0.29 → 0.355 interface, from polished to satin.</li>
+        <li><b>A3 graphite base</b> — identical to A2 except one material, the attachment base land.</li>
+        <li><b>Locked</b> — A2 with the base land darkened in linear RGB (hue ratios unchanged); every other material a byte-identical copy.</li>
+      </ul>
+      <div class="cmf-lstar" role="group" aria-label="Attachment base land, CIE L star from 63.20 to 59.09, 6.50 percent darker; roughness 0.520 to 0.460">
+        <p class="label">Base land · CIE L*</p>
+        <div class="ls-scale"><i class="ls-a" style="--l:63.2"><b>A2</b></i><i class="ls-b" style="--l:59.09"><b>Locked</b></i></div>
+        <p class="ls-v"><span class="tabular">63.20</span> <span class="muted">→</span> <b class="tabular" data-count-from="63.20" data-count-to="59.09" data-dec="2">59.09</b> <span class="muted">· −6.50 % · roughness 0.520 → 0.460</span></p>
+        <div class="ptags"><p class="ptag"><span class="sw" style="--c:#9D9891"></span><span class="txt">A2 base land · <span class="hex">#9D9891</span> · authored sRGB 0.615/0.598/0.570</span></p><p class="ptag"><span class="sw" style="--c:#928E87"></span><span class="txt">Locked base land · <span class="hex">#928E87</span> · authored sRGB 0.572/0.556/0.530</span></p></div>
+      </div>
+
+      <div class="cmf-rej">
+        <p class="label">Explored · rejected · kept hidden in the file, not deleted</p>
+        <div class="ptags">
+          <p class="ptag rejected"><span class="sw" style="--c:#383533"></span><span class="txt">B Monolith · body · <span class="hex">#383533</span> · authored</span></p>
+          <p class="ptag rejected"><span class="sw" style="--c:#171717"></span><span class="txt">B Monolith · grip · <span class="hex">#171717</span> · authored</span></p>
+          <p class="ptag rejected"><span class="sw" style="--c:#DCD6CA"></span><span class="txt">C Mineral · bone body · <span class="hex">#DCD6CA</span> · authored</span></p>
+          <p class="ptag rejected"><span class="sw" style="--c:#AD735C"></span><span class="txt">C Mineral · rose-clay shell · <span class="hex">#AD735C</span> · authored</span></p>
+          <p class="ptag rejected"><span class="sw" style="--c:#D7CAB3"></span><span class="txt">C Mineral · champagne metal · <span class="hex">#D7CAB3</span> · authored</span></p>
+          <p class="ptag rejected"><span class="sw" style="--c:#454547"></span><span class="txt">A3 · graphite base land · <span class="hex">#454547</span> · authored sRGB 0.272/0.270/0.278</span></p>
+        </div>
+      </div>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CMF direction locked</span></span></div>
+    </div>
+  </div>
+
+  <div class="th-light">
+    <div class="tl-head"><p class="marker">One pigment, four lights</p><p class="small muted">The authored number never changes. Light and AgX tone mapping do. Each reading is a 7 × 7 median on the delivered image at the stated point.</p></div>
+    <ol class="tl-row">
+      <li><span class="tl-sw" style="--c:#A6633B"></span><span class="tl-k">Authored</span><span class="tl-h">#A6633B</span><span class="tl-s">sRGB 0.650/0.390/0.230 · CMF build</span></li>
+      <li><span class="tl-sw" style="--c:#90624B"></span><span class="tl-k">≈ Validation render</span><span class="tl-h">#90624B</span><span class="tl-s">mid-grey studio · shell, px 700,300 of 1400 × 1800</span></li>
+      <li><span class="tl-sw" style="--c:#B86330"></span><span class="tl-k">≈ Art hero, lit</span><span class="tl-h">#B86330</span><span class="tl-s">ART01 · shell anchor, px 1445,556 of 2500</span></li>
+      <li><span class="tl-sw" style="--c:#693104"></span><span class="tl-k">≈ Dark campaign</span><span class="tl-h">#693104</span><span class="tl-s">ART06 · shell, px 1400,400 of 2500</span></li>
+    </ol>
+    <figure class="tl-art">
+      <div class="tl-pic"><picture><source srcset="assets/therma/art-campaign-480.avif 480w, assets/therma/art-campaign-960.avif 960w" sizes="(max-width:767px) 60vw, 240px" type="image/avif"><img src="assets/therma/art-campaign-480.jpg" width="480" height="800" alt="THERMA dark campaign art render: the product tilted and lit from above on black, its lower body falling into shadow." loading="lazy" decoding="async"></picture>
+      <i class="tl-anc" style="--ax:37.25%;--ay:15%" aria-hidden="true"></i></div>
+      <figcaption class="prov">ART06 · Blender Cycles, AgX · crop · sample point marked</figcaption>
+    </figure>
+  </div>
+
+  <div class="th-roles">
+    <p class="label">More of the 13 roles · authored</p>
+    <div class="ptags th-roles-grid">
+      <p class="ptag"><span class="sw" style="--c:#A05F38"></span><span class="txt">Nozzle · <span class="hex">#A05F38</span> · sRGB 0.628/0.372/0.218 · roughness 0.35</span></p>
+      <p class="ptag"><span class="sw" style="--c:#29292B"></span><span class="txt">Control spine · <span class="hex">#29292B</span></span></p>
+      <p class="ptag"><span class="sw" style="--c:#D5D4D2"></span><span class="txt">Interface aluminium · <span class="hex">#D5D4D2</span> · roughness 0.355</span></p>
+      <p class="ptag"><span class="sw" style="--c:#D9B86B"></span><span class="txt">Contact gold · <span class="hex">#D9B86B</span></span></p>
+      <p class="ptag"><span class="sw" style="--c:#1A1A1C"></span><span class="txt">Seal · <span class="hex">#1A1A1C</span></span></p>
+      <p class="ptag"><span class="sw" style="--c:#2B2B2E"></span><span class="txt">Cable · <span class="hex">#2B2B2E</span></span></p>
+    </div>
+    <p class="micro th-roles-note">No pure black (darkest 0.056) and no pure white (lightest 0.862). Aluminium is satin anodised "per the ISO 7599 production direction" — a finish direction, not a compliance claim.</p>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s06" aria-labelledby="s06-h">
+  <div class="sec-mark"><p class="marker">06 · Decisions</p><h2 id="s06-h" class="h2">Seven bodies, one camera, one fork.</h2>
+    <p class="small muted th-sec-cap">Cameras, lights, framing, material and aim are frozen across variants, so the renders overlay pixel for pixel — only the decision moves.</p></div>
+
+  <div class="th-lin inst" data-instrument data-start="6">
+    <script type="application/json">[
+      {"id":"v01","readout":"BASE v01 · 18 SEP · COLLAR DEPTH 15.0 · SPINE 114.5 · TRANSITION 13.5"},
+      {"id":"v02","readout":"BASE v02 · 19 SEP · COLLAR 15 → 10 · SPINE 114.5 → 100 · SMOOTHSTEP GRIP"},
+      {"id":"B1","readout":"B1 SHORT · 18 MM PENETRATION · 2 × 9.5 MM LEGS · GAP 0.25"},
+      {"id":"B2","readout":"B2 LONG · 30 MM · 2 × 8.0 MM LEGS · 6.0 MM FIELD · GAP 0.70"},
+      {"id":"B3","readout":"B3 SPLIT · 25 MM · 2 × 6.0 MM LEGS · 8.0 MM OPEN FIELD · GAP 0.35"},
+      {"id":"B21","readout":"B2.1 HYBRID · 30 MM · 2 × 8.2 MM · ROOTS CLIMB TO Ø47 · GAP 0.70"},
+      {"id":"B22","readout":"B2.2 FORK · 30 MM · 8.4 MM LEG · 17.6 MM RUN (−12 %) · CROTCH 4.4 → 7.0 · GAP 0.70 · SELECTED"}
+    ]</script>
+    <figure class="lin-fig">
+      <div class="lin-stack">
+        <picture class="lf" data-s="v01"><source srcset="assets/therma/lineage-v01-496.avif 496w, assets/therma/lineage-v01-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-v01-496.jpg" width="496" height="982" alt="Base v01, grey clay: deeper collar and longer front transition." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="v02"><source srcset="assets/therma/lineage-v02-496.avif 496w, assets/therma/lineage-v02-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-v02-496.jpg" width="496" height="982" alt="Base v02, grey clay: thinner 10 mm collar and corrected proportions." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="B1"><source srcset="assets/therma/lineage-b1-496.avif 496w, assets/therma/lineage-b1-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-b1-496.jpg" width="496" height="982" alt="Bridge B1 short, grey clay: two short legs under the collar." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="B2"><source srcset="assets/therma/lineage-b2-496.avif 496w, assets/therma/lineage-b2-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-b2-496.jpg" width="496" height="982" alt="Bridge B2 long, grey clay: two longer legs with a central field." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="B3"><source srcset="assets/therma/lineage-b3-496.avif 496w, assets/therma/lineage-b3-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-b3-496.jpg" width="496" height="982" alt="Bridge B3 split, grey clay: two narrow legs with an open field." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="B21"><source srcset="assets/therma/lineage-b21-496.avif 496w, assets/therma/lineage-b21-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-b21-496.jpg" width="496" height="982" alt="Bridge B2.1 hybrid, grey clay: leg roots climbing to the collar diameter." loading="lazy" decoding="async"></picture>
+        <picture class="lf" data-s="B22"><source srcset="assets/therma/lineage-b22-496.avif 496w, assets/therma/lineage-b22-990.avif 990w" sizes="(max-width:767px) 70vw, 300px" type="image/avif"><img src="assets/therma/lineage-b22-496.jpg" width="496" height="982" alt="Bridge B2.2 fork, grey clay: a Y-crotch joining the legs into one root under the collar." loading="lazy" decoding="async"></picture>
+        <span class="lin-stamp" aria-hidden="true"><span data-s="B22">Selected · owner-approved exterior</span></span>
+      </div>
+      <figcaption class="prov">Proportion and bridge studies · grey-clay renders, Blender Cycles · frozen cameras (3/4 front)</figcaption>
+    </figure>
+    <div class="lin-panel">
+      <ol class="lin-steps" aria-label="Lineage steps">
+        <li><button type="button" data-step><picture><source srcset="assets/therma/lineage-v01-thumb.avif" type="image/avif"><img src="assets/therma/lineage-v01-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>v01</span></button></li>
+        <li><button type="button" data-step><picture><source srcset="assets/therma/lineage-v02-thumb.avif" type="image/avif"><img src="assets/therma/lineage-v02-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>v02</span></button></li>
+        <li class="struck"><button type="button" data-step><picture><source srcset="assets/therma/lineage-b1-thumb.avif" type="image/avif"><img src="assets/therma/lineage-b1-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>B1</span></button></li>
+        <li class="struck"><button type="button" data-step><picture><source srcset="assets/therma/lineage-b2-thumb.avif" type="image/avif"><img src="assets/therma/lineage-b2-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>B2</span></button></li>
+        <li class="struck"><button type="button" data-step><picture><source srcset="assets/therma/lineage-b3-thumb.avif" type="image/avif"><img src="assets/therma/lineage-b3-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>B3</span></button></li>
+        <li class="struck"><button type="button" data-step><picture><source srcset="assets/therma/lineage-b21-thumb.avif" type="image/avif"><img src="assets/therma/lineage-b21-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>B2.1</span></button></li>
+        <li class="sel"><button type="button" data-step><picture><source srcset="assets/therma/lineage-b22-thumb.avif" type="image/avif"><img src="assets/therma/lineage-b22-thumb.jpg" width="240" height="240" alt="" loading="lazy"></picture><span>B2.2</span></button></li>
+      </ol>
+      <input type="range" min="0" max="6" step="1" value="6" aria-label="Lineage step, base v01 to bridge B2.2">
+      <p class="inst-readout lin-readout" aria-live="polite">B2.2 FORK · 30 MM · 8.4 MM LEG · 17.6 MM RUN (−12 %) · CROTCH 4.4 → 7.0 · GAP 0.70 · SELECTED</p>
+      <div class="tablewrap"><table class="lin-table">
+        <caption class="sr-only">Bridge variants compared — values from the build</caption>
+        <thead><tr><th scope="col">Step</th><th scope="col">Penetration</th><th scope="col">Legs</th><th scope="col">Central field</th><th scope="col">Shadow gap</th></tr></thead>
+        <tbody>
+          <tr data-s="v01"><th scope="row">v01</th><td colspan="4">Base · collar depth 15.0 · transition 13.5 · spine 114.5</td></tr>
+          <tr data-s="v02"><th scope="row">v02</th><td colspan="4">Base · collar depth 10.0 · transition 10.0 · spine 100.0 · strain relief Ø11.5 × 27</td></tr>
+          <tr data-s="B1"><th scope="row">B1 short</th><td>18 mm</td><td>2 × 9.5 mm</td><td>2.0 mm</td><td>0.25 mm</td></tr>
+          <tr data-s="B2"><th scope="row">B2 long</th><td>30 mm</td><td>2 × 8.0 mm</td><td>6.0 mm</td><td>0.70 mm</td></tr>
+          <tr data-s="B3"><th scope="row">B3 split</th><td>25 mm</td><td>2 × 6.0 mm</td><td>8.0 mm, open</td><td>0.35 mm</td></tr>
+          <tr data-s="B21"><th scope="row">B2.1 hybrid</th><td>30 mm</td><td>2 × 8.2 mm</td><td>4.0 mm</td><td>0.70 mm</td></tr>
+          <tr data-s="B22"><th scope="row">B2.2 fork</th><td>30 mm</td><td>8.4 mm working</td><td>crotch 4.4 → 7.0 mm</td><td>0.70 mm</td></tr>
+        </tbody>
+      </table></div>
+      <p class="lin-note">A bridge is a structural member emerging from under the collar and running rearward on the upper-front face, 0.6 mm proud in a 1.0 mm recess. B2.2 closes the inner edges into one joined root under the collar (a Y-crotch) and never exceeds the collar's Ø47. The body was re-verified at 40.000 × 36.000 × 155.000 under every variant.</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· B2.2 approved by the owner as the exterior</span></span></div>
+    </div>
+  </div>
+
+  <div class="th-opts">
+    <div class="opt-head"><h3 class="label">Attachment 01 length · C1 / C2 / C3</h3><p class="small muted">Only the transition length varies; outlet region 30.0, thermal 26.0, slot 26.0 × 6.0 in all three. Same camera.</p></div>
+    <div class="options th-len">
+      <article class="option struck"><div class="ofig"><picture><source srcset="assets/therma/length-c1-300.avif 300w, assets/therma/length-c1-600.avif 600w" sizes="160px" type="image/avif"><img src="assets/therma/length-c1-300.jpg" width="300" height="970" alt="C1 short, side view, grey clay: shorter concentrator." loading="lazy"></picture></div><p class="on">C1 short · 75.0 mm</p><p class="od">34 mm transition compresses the three conical segments into one blunt dome</p></article>
+      <article class="option"><span class="stamp">Selected</span><div class="ofig"><picture><source srcset="assets/therma/length-c2-300.avif 300w, assets/therma/length-c2-600.avif 600w" sizes="160px" type="image/avif"><img src="assets/therma/length-c2-300.jpg" width="300" height="970" alt="C2 balanced, side view, grey clay: the locked 82 mm concentrator." loading="lazy"></picture></div><p class="on">C2 balanced · 82.0 mm</p><p class="od">41 mm transition keeps the rate changes legible · head at 33 % of length · locked 20 Sep 2026</p></article>
+      <article class="option struck"><div class="ofig"><picture><source srcset="assets/therma/length-c3-300.avif 300w, assets/therma/length-c3-600.avif 600w" sizes="160px" type="image/avif"><img src="assets/therma/length-c3-300.jpg" width="300" height="970" alt="C3 long, side view, grey clay: longest concentrator." loading="lazy"></picture></div><p class="on">C3 long · 90.0 mm</p><p class="od">Cleanest taper, but head at 35 % of length · drifts toward a bottle silhouette</p></article>
+    </div>
+  </div>
+
+  <div class="th-opts">
+    <div class="opt-head"><h3 class="label">Shoulder · S1 / S2 / S3 on a 7.5 mm zone (Z 91.0–98.5)</h3><p class="small muted">Every profile row from Z 98.5 forward is carried over untouched; only the base land and first shoulder vary. Base close-ups, same camera.</p></div>
+    <div class="options th-sh">
+      <article class="option struck"><div class="ofig"><picture><source srcset="assets/therma/shoulder-s1-640.avif 640w, assets/therma/shoulder-s1-1280.avif 1280w" sizes="(max-width:767px) 90vw, 30vw" type="image/avif"><img src="assets/therma/shoulder-s1-640.jpg" width="640" height="500" alt="S1 crisp base close-up, grey clay: one straight facet with hard breaks." loading="lazy"></picture></div><p class="on">S1 crisp</p><p class="od">2.2 mm land · 3.0 mm facet · 2.3 mm plinth into the cone</p></article>
+      <article class="option"><span class="stamp">Selected · frozen</span><div class="ofig"><picture><source srcset="assets/therma/shoulder-s2-640.avif 640w, assets/therma/shoulder-s2-1280.avif 1280w" sizes="(max-width:767px) 90vw, 30vw" type="image/avif"><img src="assets/therma/shoulder-s2-640.jpg" width="640" height="500" alt="S2 balanced base close-up, grey clay: a facet with eased entry and exit." loading="lazy"></picture></div><p class="on">S2 balanced</p><p class="od">2.8 mm land · 3.4 mm eased facet · 1.3 mm run · frozen 21 Sep 2026</p></article>
+      <article class="option struck"><div class="ofig"><picture><source srcset="assets/therma/shoulder-s3-640.avif 640w, assets/therma/shoulder-s3-1280.avif 1280w" sizes="(max-width:767px) 90vw, 30vw" type="image/avif"><img src="assets/therma/shoulder-s3-640.jpg" width="640" height="500" alt="S3 soft base close-up, grey clay: a smoothstep radius." loading="lazy"></picture></div><p class="on">S3 soft</p><p class="od">3.4 mm land · 4.1 mm radius · 7-sample smoothstep</p></article>
+    </div>
+    <p class="micro th-opts-note">Set-aside options are struck through, not deleted: C1, C3, S1 and S3 remain buildable in the study files as the record of why.</p>
+  </div>
+</section>
+
+
+<div id="ledger-home-slot"></div>
+<section class="sheet-section" id="s07" aria-labelledby="s07-h">
+  <div class="sec-mark"><p class="marker">07 · Claim ledger</p><h2 id="s07-h" class="h2">What is claimed, at what level.</h2></div>
+  <div class="ledger-wrap">
+    <div class="tablewrap">
+      <table class="ledger">
+        <thead><tr><th scope="col">Claim</th><th scope="col">Value</th><th scope="col">Level</th><th scope="col">Qualifier / source</th></tr></thead>
+        <tbody>
+          <tr><td>Handle body envelope</td><td class="v">40.000 × 36.000 × 155.000 mm · collar OD 47.000</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>CAD model dimension, self-verified by the build on every run</td></tr>
+          <tr><td>Bounding box with bridge</td><td class="v">47 × 47 × 192 mm</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Verified unchanged under the B2.1 and B2.2 bridges</td></tr>
+          <tr><td>Exterior B2.2 fork</td><td class="v">30 mm penetration · 8.4 mm leg · 0.70 mm shadow gap</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Approved by the owner as the exterior</td></tr>
+          <tr><td>Bayonet interface</td><td class="v">3 lugs at 120° · 30° lock · 2.30 mm engagement · 0.50 mm draw-down · 0.35 mm detent</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>Modelled and self-checked; never built or tested · frozen 20 Sep 2026</td></tr>
+          <tr><td>Seal</td><td class="v">Ø30.4 · 1.52 → 1.27 mm (16 % squeeze)</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>State C scales the seal 0.836 in Z about its own seat</td></tr>
+          <tr><td>Lock states A / B / C</td><td class="v">+15 mm, 0° · 0 mm, 0° · −0.4 mm, +30°</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Transforms only; no geometry changes between states</td></tr>
+          <tr><td>Concentrator C2</td><td class="v">82.0 mm · Ø28 → 26.0 × 6.0 slot · envelope 32.0 × 11.0</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Locked 20 Sep 2026 · head at 33 % of length</td></tr>
+          <tr><td>Shell-to-duct clearance</td><td class="v">+0.251 mm analytic · +0.2542 mm ray-cast</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Geometric clearance only — no thermal performance</td></tr>
+          <tr><td>Shroud wall</td><td class="v">min 1.55 mm (≥ 1.50 floor)</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Build check</td></tr>
+          <tr><td>CMF locked</td><td class="v">A2_REFINED · 21 objects · 13 role materials · base L* 63.20 → 59.09</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Locked 21 Sep 2026</td></tr>
+          <tr><td>Aluminium finish</td><td class="v">Satin anodised, "per the ISO 7599 production direction"</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>A finish direction — not a compliance claim</td></tr>
+          <tr><td>Geometry integrity across CMF</td><td class="v">0.0 mm max vertex deviation · 21 parts</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· CAD self-check</span></span></td><td>Digital model integrity only, not product performance · art-set re-check 255 objects, 65 materials, 0 discrepancies</td></tr>
+          <tr><td>Art-render set</td><td class="v">6 square renders + transparent hero · 2500 px · Cycles 1024 samples · AgX</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Finished renders of the locked model</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="side">
+      <div><h3>Not claimed</h3>
+        <ul class="struck">
+          <li>A physical prototype</li>
+          <li>Airflow, heating or temperature rise</li>
+          <li>Power, noise, mass or duty cycle</li>
+          <li>Safety</li>
+          <li>Compliance — "ISO 7599" is a finish direction</li>
+          <li>Manufacture or an engineered / validated product</li>
+          <li>The name — THERMA is a codename; no trademark clearance</li>
+        </ul>
+      </div>
+      <div><h3>Open items</h3>
+        <ul class="open-items">
+          <li><span class="cloud">Attachment 02 <svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="dw-tbc" d="M6 15 a6 6 0 0 1 8-9 a6 6 0 0 1 12-2 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 2 a6 6 0 0 1 8 9 a6 6 0 0 1 -8 9 a6 6 0 0 1 -12 2 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 -2 a6 6 0 0 1 -8 -9 Z"/></svg></span><span class="oi-t">not started <span class="claim" data-level="TBC">TBC</span></span></li>
+          <li><span class="cloud">Performance requirements <svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="dw-tbc" d="M6 15 a6 6 0 0 1 8-9 a6 6 0 0 1 12-2 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 a6 6 0 0 1 12 2 a6 6 0 0 1 8 9 a6 6 0 0 1 -8 9 a6 6 0 0 1 -12 2 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 0 a6 6 0 0 1 -12 -2 a6 6 0 0 1 -8 -9 Z"/></svg></span><span class="oi-t">flow, temperature rise, power, noise, mass, duty cycle — unset <span class="claim" data-level="TBC">TBC</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s08" aria-labelledby="s08-h">
+  <div class="sec-mark"><p class="marker">08 · Provenance, credits, revisions</p><h2 id="s08-h" class="h2">Where every image comes from.</h2></div>
+  <div class="prov-grid">
+    <div class="a">
+      <ul class="prov-list">
+        <li><span>Hero, §02 plate, §05 campaign · ART01 / ART04 / ART06 · backdrops ART05 (lab) and ART03 (investigation)</span><span>Art render — Blender Cycles, 1024 samples, AgX · produced in a separate AI-assisted workspace from the locked CMF file</span></li>
+        <li><span>Investigation hero · side elevation</span><span>Line drawing edge-extracted from the orthographic model render — not a measured drawing</span></li>
+        <li><span>§03 lock states A / B / C · §04 micro-exploded stack</span><span>Grey-clay render, Blender Cycles · frozen interface</span></li>
+        <li><span>§04 ortho side · axial and nozzle sections</span><span>Validation / section render, Blender Cycles, orthographic</span></li>
+        <li><span>§05 CMF directions · §06 lineage, length, shoulder</span><span>Study renders, Blender Cycles · shared, frozen cameras</span></li>
+        <li><span>Schematics, protractor, track, Z-stack chart, section morph</span><span>Drawn for this sheet from model values — not renders</span></li>
+        <li><span>Tools</span><span>Blender (parametric, headless build and render) · Cycles · AgX</span></li>
+        <li><span>Collaborators · public PDFs</span><span>None · none</span></li>
+      </ul>
+    </div>
+    <div class="b">
+      <table class="revs">
+        <thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>18 Sep 2026</td><td>Base v01 · parametric proportion study</td></tr>
+          <tr><td>B</td><td>19 Sep 2026</td><td>v02 proportions + bridge variants B1 → B2.2</td></tr>
+          <tr><td>C</td><td>20 Sep 2026</td><td>Interface frozen · C2 82 mm locked</td></tr>
+          <tr><td>D</td><td>21 Sep 2026</td><td>S2 shoulder frozen · CMF locked A2_REFINED · art set</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s09" aria-label="Next specimen">
+  <a class="next-spec" href="monolith" data-morph style="--g0:#94897D">
+    <div class="ns-text"><p class="marker">09 · Next specimen</p><p class="h2">MONOLITH RF03-U1</p><p class="small muted">You already own the bottle. You buy it again anyway.</p><span class="btn"><span class="t">Open sheet 04</span><span class="a" aria-hidden="true"><span>→</span></span></span></div>
+    <div class="ns-ground"><picture><source srcset="assets/monolith/monolith-slide-525.avif" type="image/avif"><img src="assets/monolith/monolith-slide-525.jpg" width="526" height="1052" alt="" loading="lazy" decoding="async"></picture></div>
+  </a>
+</section>
+</main>
+<footer class="sheet-section foot" role="contentinfo">
+  <div class="titleblock">
+    <div><span class="k">Drawn</span><span class="v">B. Arianejad</span></div>
+    <div><span class="k">Studio</span><span class="v">MALINYX</span></div>
+    <div><span class="k">Sheet</span><span class="v">03 / 11</span></div>
+    <div><span class="k">Rev</span><span class="v">2026-10-02</span></div>
+    <div><span class="k">Contact</span><span class="v"><a href="mailto:info@malinyx.com">info@malinyx.com</a></span></div>
+    <div><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">in/bahareharianejad</a></span></div>
+    <div class="wide"><span class="k">Status</span><span class="v">Available for systems design, industrial / product work, and portfolio collaborations.</span></div>
+    <div><span class="k">Projection</span><span class="v"><a href="#top" aria-label="Back to top"><svg class="proj" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 6 L14 9 L14 15 L2 18 Z" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="8" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="4" fill="none" stroke="currentColor"/><path d="M0 12H40" stroke="currentColor" stroke-width=".6" stroke-dasharray="6 2 1 2"/></svg></a></span></div>
+    <div><span class="k">Motion</span><span class="v"><span class="seg" role="group" aria-label="Motion"><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></span></span></div>
+    <div><span class="k">Reality</span><span class="v"><button class="reality-btn" type="button" aria-pressed="false"><span>Change reality</span></button></span></div>
+    <div class="full"><span class="k">© 2026 Bahareh Arianejad · MALINYX Studio</span><span class="v">Every colour on this site is authored or sampled from the project it names. Every claim carries its level.</span></div>
+  </div>
+</footer>
+
+</div>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="win"><div class="win-in">
+    <div class="win-bar"><span class="win-title">MALINYX · INDEX <span class="idx">/03</span></span><button class="win-x" type="button" data-close-menu aria-label="Close menu">×</button></div>
+    <div class="win-body"><div><div class="pad">
+      <nav aria-label="Menu"><a href="./">Index</a><a href="work">Work</a><a href="field-notes">Field notes</a><a href="about">About</a></nav>
+      <div class="pills"><a class="pill" href="mailto:info@malinyx.com">info@malinyx.com</a><a class="pill" href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">LinkedIn</a></div>
+      <div class="seg" role="group" aria-label="Motion" style="margin-top:16px"><span class="seg-l">Motion</span><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></div>
+    </div></div></div>
+  </div></div>
+</dialog>
+
+<script src="assets/js/sheet.js" defer></script>
+<script src="assets/js/pages/therma.js" defer></script>
+<a href="/" style="position:fixed;left:16px;bottom:16px;z-index:9999;padding:10px 16px;border-radius:999px;background:#0e0a09;color:#f3ebe0;font:500 12px/1 system-ui,sans-serif;letter-spacing:.08em;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35)">← MALINYX · technical dossier</a></body>
+</html>

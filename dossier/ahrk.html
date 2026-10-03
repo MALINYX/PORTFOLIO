@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en" class="no-js" data-reality="lab" data-native-reality="lab" data-project="ahrk" id="top">
+<head><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AHRK — Adaptive Hotel Room Kit — MALINYX</title>
+<meta name="description" content="One adaptive wall, six room states: a retrofit kit for compact hotel rooms — a continuous spine for position and cable, hard anchors for load. Specified intent: targets, not built.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MALINYX">
+<meta property="og:title" content="AHRK — Adaptive Hotel Room Kit — MALINYX">
+<meta property="og:description" content="One adaptive wall, six room states: a retrofit kit for compact hotel rooms — a continuous spine for position and cable, hard anchors for load. Specified intent: targets, not built.">
+<meta property="og:image" content="https://malinyx.com/dossier/og-home.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
+<script>
+(function () {
+  var d = document.documentElement, r = null, m = null;
+  try { r = localStorage.getItem('mx-reality'); m = localStorage.getItem('mx-motion'); } catch (e) {}
+  try { var q = new URLSearchParams(location.search); if (q.get('reality')) r = q.get('reality'); if (q.get('motion')) m = q.get('motion');
+    if (q.get('motion')) document.addEventListener('DOMContentLoaded', function () { [].forEach.call(document.querySelectorAll('img[loading="lazy"]'), function (i) { i.loading = 'eager'; }); }); /* QA: headless shots */
+    var so = q.get('solo'); if (so && /^[\w-]+$/.test(so)) { var st = document.createElement('style'); /* QA only: render one section at the top */
+      st.textContent = 'main > :not(#' + so + '):not(:has(#' + so + ')){display:none!important} .sheet > :not(.bar):not(main):not(.axis-toc){display:none!important}'; document.head.appendChild(st); } } catch (e) {}
+  if (r !== 'lab' && r !== 'investigation') r = d.getAttribute('data-native-reality') || 'lab';
+  d.setAttribute('data-reality', r);
+  m = (m === 'on' || m === 'off') ? m : 'auto';
+  d.setAttribute('data-motion', m);
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.classList.toggle('motion-ok', m === 'on' || (m === 'auto' && !reduce));
+  d.classList.remove('no-js'); d.classList.add('js');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/specimen.css">
+<link rel="icon" href="assets/shared/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<noscript><style>[data-view]{display:block!important}.reality,.tbtn[data-figure-toggle]{display:none!important}</style></noscript>
+
+<link rel="preload" as="image" href="assets/ahrk/core-sample-1200.avif" type="image/avif" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/pages/ahrk.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="backdrop" aria-hidden="true" style="--backdrop-field:#C9A24A">
+  <div data-view="lab" style="background:#C9A24A"></div>
+  <div data-view="investigation" style="background:var(--table)"></div>
+</div>
+
+<div class="sheet">
+<header class="bar" role="banner">
+  <a class="brand" href="./" aria-label="MALINYX — home"><svg class="mark" viewBox="266 90 723 717" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="mk-ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EEE4"/><stop offset=".55" stop-color="#E8E0D2"/><stop offset="1" stop-color="#A89F91"/></linearGradient>
+  <linearGradient id="mk-ivory2" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#E8E0D2"/><stop offset=".52" stop-color="#A89F91"/><stop offset="1" stop-color="#6F675D"/></linearGradient>
+  <linearGradient id="mk-taupe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5E6975"/><stop offset=".45" stop-color="#12110F"/><stop offset="1" stop-color="#1D2630"/></linearGradient>
+  <linearGradient id="mk-bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7B2A16"/><stop offset=".35" stop-color="#F25C2A"/><stop offset=".7" stop-color="#B43C1D"/><stop offset="1" stop-color="#FF8A5F"/></linearGradient>
+  <radialGradient id="mk-sphere" cx="35%" cy="28%" r="75%"><stop stop-color="#99E0DA"/><stop offset=".5" stop-color="#36B3A8"/><stop offset="1" stop-color="#123E3B"/></radialGradient>
+  
+  
+ </defs><g class="mk-facets" stroke="#F25C2A" stroke-width="6" stroke-linejoin="miter"><g class="mk-g1"><path d="M276 174L438 210V797H276Z" fill="url(#mk-taupe)"/><path d="M807 412L979 174V797H807Z" fill="url(#mk-ivory2)"/><path d="M276 174C395 203 424 273 394 365C373 429 316 492 276 570Z" fill="url(#mk-taupe)"/><path d="M276 174C381 181 445 190 475 256C501 313 526 417 641 596L624 752L438 474C404 423 389 370 394 317C397 269 374 220 276 174Z" fill="url(#mk-ivory)"/><path d="M276 570C321 491 370 423 394 365V724C365 769 326 797 276 797Z" fill="url(#mk-ivory)"/></g><g class="mk-g2"><path d="M433 201C498 221 527 276 548 348C574 437 595 524 641 596L624 752L439 476C485 520 536 544 594 559Z" fill="url(#mk-bronze)" opacity=".92"/><path d="M394 317C435 354 482 426 533 509L624 718V752L438 474C405 424 388 372 394 317Z" fill="#2f2924" opacity=".82"/></g><g class="mk-g3"><path d="M624 752C681 650 720 552 761 446C799 347 865 256 979 174C912 216 840 241 788 290C718 355 677 469 641 596Z" fill="url(#mk-taupe)"/><path d="M624 752C681 646 722 524 780 416C825 334 891 276 979 174C909 224 849 246 799 297C725 372 684 500 641 596Z" fill="url(#mk-ivory)"/><path d="M641 596C694 490 731 385 799 297C858 221 912 216 979 174C916 264 845 313 795 398C729 510 690 649 624 752Z" fill="url(#mk-ivory2)" opacity=".72"/><path d="M624 752C679 647 720 527 769 429C809 350 870 347 907 392C939 432 945 501 945 576V797H807V448C807 404 789 370 759 365C716 358 685 421 641 596Z" fill="url(#mk-taupe)"/><path d="M807 797V448C807 404 789 370 759 365C818 352 868 365 904 411C939 455 945 514 945 576V797Z" fill="url(#mk-ivory2)"/><path d="M945 214L979 174V797H945Z" fill="url(#mk-ivory)"/></g></g><g class="mk-sph"><line x1="947" y1="97" x2="947" y2="835" stroke="#36B3A8" stroke-width="10"/><circle class="mk-ball" cx="947" cy="701" r="36" fill="url(#mk-sphere)"/></g></svg><span class="brand-text">MALINYX</span></a>
+  <button class="reality-btn" type="button" aria-pressed="false">
+    <svg class="glyph" viewBox="0 0 16 22" aria-hidden="true"><line class="axis" x1="11" y1="1" x2="11" y2="21"/><path class="arc" d="M2 19 A 10 10 0 0 1 11 3"/><circle class="sphere" cx="11" cy="17" r="3.2"/></svg>
+    <span class="long">Change reality</span><span class="reality-state" id="reality-state"><span class="inline-view" data-view="lab">Lab</span><span class="inline-view" data-view="investigation">Inv.</span></span>
+  </button>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="work" data-nav="work" aria-current="page">Work</a></li>
+      <li><a href="field-notes" data-nav="field-notes">Field notes</a></li>
+      <li><a href="about" data-nav="about">About</a></li>
+    </ul>
+    <button class="menu-btn" type="button" data-open-menu aria-haspopup="dialog" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </nav>
+</header>
+<nav class="axis-toc" aria-label="Sections">
+  <a href="#s01" style="top:3%"><span>01 · Specimen</span></a><a href="#s02" style="top:12%"><span>02 · Question</span></a>
+  <a href="#s03" style="top:19%"><span>03 · Mechanism</span></a><a href="#s04" style="top:33%"><span>04 · Inside</span></a>
+  <a href="#s05" style="top:62%"><span>05 · Pigment</span></a><a href="#s06" style="top:72%"><span>06 · Decisions</span></a>
+  <a href="#s07" style="top:83%"><span>07 · Ledger</span></a><a href="#s08" style="top:92%"><span>08 · Provenance</span></a>
+  <i class="ball" aria-hidden="true"></i>
+</nav>
+<main id="content">
+
+
+<div class="case-title" id="s00" style="--lead:#C9A24A; --glyph-ink:#12110F">
+  <div><span class="k">Code</span><span class="v code">AHRK</span></div>
+  <div><span class="k">Title</span><span class="v">Adaptive Hotel Room Kit</span></div>
+  <div><span class="k">Discipline</span><span class="v">Product-spatial retrofit · ID · interior · mechanical</span></div>
+  <div><span class="k">Date</span><span class="v">26 Jun – 12 Jul 2026</span></div>
+  <div><span class="k">Status</span><span class="v"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· targets, not built</span></span></span>
+       <div class="claimbar" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i class="on" data-c="SPECIFIED_INTENT"></i><i></i><i></i></div>
+       <span class="sr-only">Highest claim: specified intent. Physical evidence: none.</span></div>
+  <div class="glyph-tile" aria-hidden="true"><svg viewBox="0 0 40 40"><line class="gl" x1="10" y1="4" x2="10" y2="36"/><g class="gl-move ahrk-drop" style="transform-origin:25% 55%"><line class="gl" x1="10" y1="22" x2="10" y2="6" style="stroke-width:3"/></g><circle class="gl-f" cx="10" cy="22" r="2.4"/></svg></div>
+</div>
+
+
+<section class="case-hero" id="s01" aria-labelledby="h1">
+  <div class="ch-text">
+    <p class="label state-tag"><span class="inline-view" data-view="lab">[ LAB · AS DESIGNED ]</span><span class="inline-view" data-view="investigation">[ INVESTIGATION · AS EVIDENCED ]</span> <a class="legend-plus" href="about#legend" aria-label="How to read this sheet">[+]</a></p>
+    <h1 id="h1" class="h1-swap">One adaptive wall, six room states.</h1>
+    <p class="lead">A retrofit kit that turns one wall of a compact hotel room into a single adaptive system: a continuous spine carries position, light and cable; two hard anchors take the load. Six named modes, two physical families.</p>
+  </div>
+  <figure class="ch-fig" aria-labelledby="hero-cap">
+    <div data-view="lab">
+      <div class="stage ahrk-core" data-plot data-loop style="--ar:1">
+        <div class="spec plate bob" style="--x:7.746%;--y:16.197%;--w:84.507%;--h:63.38%">
+          <picture>
+            <source srcset="assets/ahrk/core-sample-600.avif 600w, assets/ahrk/core-sample-1200.avif 1200w" sizes="(max-width:767px) 92vw, 560px" type="image/avif">
+            <img src="assets/ahrk/core-sample-600.jpg" width="600" height="450" alt="AHRK blockout render, cropped to a 4:3 core sample of the adaptive wall in Work mode: a continuous anodised spine runs across the wall, the fold-down surface is open and lit in its recessed bay below it, and the luggage bench sits at the right with a case on it." fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+        <div class="shadow" style="--sx:50%;--sy:80.777%;--sw:78%;--sh:3.4%"></div>
+        <svg class="overlay" viewBox="490 -110 1420 1420" aria-hidden="true">
+          <polyline class="leader keep" style="--i:0" points="1240,311 1240,-60 1427,-60"/><polyline class="leader keep" style="--i:1" points="1090,512 1090,1080 973,1080"/><polyline class="leader" style="--i:2" points="1335,568 1335,1080 1427,1080"/><polyline class="leader" style="--i:3" points="1030,420 1030,-60 973,-60"/>
+        </svg>
+        <i class="anc" data-anchor="c1" style="--ax:52.817%;--ay:29.648%;--i:0;--pax:53.333%;--pay:21.222%">1</i><i class="anc" data-anchor="c2" style="--ax:42.254%;--ay:43.803%;--i:1;--pax:40.833%;--pay:43.556%">2</i><i class="anc" data-anchor="c3" style="--ax:59.507%;--ay:47.746%;--i:2;--pax:61.25%;--pay:49.778%">3</i><i class="anc" data-anchor="c4" style="--ax:38.028%;--ay:37.324%;--i:3;--pax:35.833%;--pay:33.333%">4</i>
+        <p class="callout" data-a="c1" data-align="left" style="--cx:65.986%;--cy:3.521%;--i:0"><span class="n">1</span>One continuous anodised-aluminium spine · moves / routes → spine<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p><p class="callout" data-a="c2" data-align="right" style="--cx:34.014%;--cy:83.803%;--i:1"><span class="n">2</span>Fold-down surface ≈450 mm projection · 720–750 mm AFFL<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· targets, not built</span></span></span></p><p class="callout" data-a="c3" data-align="left" style="--cx:65.986%;--cy:83.803%;--i:2"><span class="n">3</span>Luggage bench 80–120 kg static · floor-supported + wall tie<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p><p class="callout" data-a="c4" data-align="right" style="--cx:34.014%;--cy:3.521%;--i:3"><span class="n">4</span>Six modes → two physical families<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+      </div>
+      <ol class="callout-list" aria-label="Callouts"><li><span class="num">1</span><span>One continuous anodised-aluminium spine · moves / routes → spine<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li><li><span class="num">2</span><span>Fold-down surface ≈450 mm projection · 720–750 mm AFFL<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· targets, not built</span></span></span></span></li><li><span class="num">3</span><span>Luggage bench 80–120 kg static · floor-supported + wall tie<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li><li><span class="num">4</span><span>Six modes → two physical families<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li></ol>
+    </div>
+    <div data-view="investigation">
+      <div class="stage ahrk-sec" data-plot style="--ar:1">
+        <svg class="overlay" viewBox="-200 -1350 1090 1090" aria-hidden="true">
+          <defs><pattern id="ah-blk-hero" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)"><line class="hx-l" x1="0" y1="0" x2="0" y2="16" style="stroke-width:2.0"/></pattern><pattern id="ah-ply-hero" patternUnits="userSpaceOnUse" width="16" height="10"><line class="hx-ply" x1="0" y1="1" x2="16" y2="1" style="stroke-width:2.0"/></pattern><marker id="ah-arr-hero" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" class="mk-load"/></marker></defs>
+<rect class="hx-wall" x="-150" y="-1330" width="150" height="980" fill="url(#ah-blk-hero)"/>
+<rect class="hx-plyb" x="0" y="-1330" width="24" height="980" fill="url(#ah-ply-hero)"/>
+<rect class="hx-lin" x="24" y="-1330" width="10" height="980"/>
+<path class="dw-visible draw" style="--di:0" d="M-150 -1330 V-350 M0 -1330 V-350 M24 -1330 V-350 M34 -1330 V-350"/>
+<polyline class="dw-thin" points="-160,-1330 -143,-1320 -109,-1340 -75,-1320 -41,-1340 -7,-1320 27,-1340 44,-1330"/>
+<polyline class="dw-thin" points="-160,-350 -143,-340 -109,-360 -75,-340 -41,-360 -7,-340 27,-360 44,-350"/>
+<rect class="hx-wall" x="-150" y="-310" width="150" height="40" fill="url(#ah-blk-hero)"/>
+<rect class="hx-plyb" x="0" y="-310" width="24" height="40" fill="url(#ah-ply-hero)"/>
+<rect class="hx-lin" x="24" y="-310" width="10" height="40"/>
+<path class="dw-visible" d="M-150 -310 V-270 M0 -310 V-270 M24 -310 V-270 M34 -310 V-270"/>
+<polyline class="dw-thin" points="-160,-310 -143,-300 -109,-320 -75,-300 -41,-320 -7,-300 27,-320 44,-310"/>
+<rect class="hx-target" x="34" y="-750" width="486" height="30"/>
+<path class="hx-target-l" d="M34 -750 H520 M34 -720 H520"/>
+<rect class="hx-anchor" data-region="anchor" x="-120" y="-880" width="154" height="290"/>
+<line class="hx-bolt" data-bolt="T" x1="-110" y1="-845" x2="62" y2="-845"/>
+<rect class="hx-bolthead" data-bolt="T" x="62" y="-853" width="6" height="16"/>
+<line class="hx-bolt" data-bolt="C" x1="-110" y1="-625" x2="62" y2="-625"/>
+<rect class="hx-bolthead" data-bolt="C" x="62" y="-633" width="6" height="16"/>
+<rect class="hx-spine draw" style="--di:1" x="34" y="-1250" width="46" height="90" rx="6"/>
+<rect class="hx-cable" x="42" y="-1236" width="30" height="30" rx="4"/>
+<circle class="hx-cable-c" cx="51" cy="-1221" r="5"/><circle class="hx-cable-c b" cx="64" cy="-1221" r="5"/>
+<rect class="dw-hidden" x="34" y="-575" width="46" height="70" rx="4"/>
+<rect class="hx-bracket draw" data-region="bracket" style="--di:2" x="34" y="-880" width="28" height="290"/>
+<rect class="hx-phantom" x="38" y="-1145" width="36" height="446" rx="4"/>
+<path class="hx-swing" d="M56 -1145 A428 428 0 0 1 484 -717"/>
+<line class="hx-damper" x1="50" y1="-648" x2="172" y2="-699"/>
+<circle class="hx-damper-b" cx="50" cy="-648" r="5"/>
+<g transform="rotate(0 56 -717)"><rect class="hx-panel draw" data-region="surface" style="--di:3" x="38" y="-735" width="446" height="36" rx="5"/><circle class="hx-r6" cx="478" cy="-717" r="14"/></g>
+<circle class="hx-lock is-seated" cx="72" cy="-676" r="8"/>
+<circle class="hx-pivot" cx="56" cy="-717" r="10"/>
+<g><line class="hx-loadarrow" x1="200" y1="-800" x2="200" y2="-744" marker-end="url(#ah-arr-hero)"/><line class="hx-loadarrow" x1="300" y1="-800" x2="300" y2="-744" marker-end="url(#ah-arr-hero)"/><line class="hx-loadarrow" x1="400" y1="-800" x2="400" y2="-744" marker-end="url(#ah-arr-hero)"/></g>
+<path class="dw-load" d="M330 -717 H-130" marker-end="url(#ah-arr-hero)"/>
+<line class="dw-datum draw" style="--di:4" x1="-200" y1="-270" x2="540" y2="-270"/>
+<path class="dw-dim draw" style="--di:5" d="M-165 -270 V-312 M-165 -348 V-735 M-175 -270 H-155 M-175 -735 H-155"/>
+<polyline class="dw-dim" points="-165,-312 -157,-320 -173,-332 -165,-340 -165,-348"/>
+<path class="dw-tbc" d="M-140 -900 A12.8 12.8 0 0 1 -114.4 -900 A12.8 12.8 0 0 1 -88.8 -900 A12.8 12.8 0 0 1 -63.2 -900 A12.8 12.8 0 0 1 -37.6 -900 A12.8 12.8 0 0 1 -12 -900 A12.7 12.7 0 0 1 -12 -874.6 A12.7 12.7 0 0 1 -12 -849.2 A12.7 12.7 0 0 1 -12 -823.8 A12.7 12.7 0 0 1 -12 -798.5 A12.7 12.7 0 0 1 -12 -773.1 A12.7 12.7 0 0 1 -12 -747.7 A12.7 12.7 0 0 1 -12 -722.3 A12.7 12.7 0 0 1 -12 -696.9 A12.7 12.7 0 0 1 -12 -671.5 A12.7 12.7 0 0 1 -12 -646.2 A12.7 12.7 0 0 1 -12 -620.8 A12.7 12.7 0 0 1 -12 -595.4 A12.7 12.7 0 0 1 -12 -570 A12.8 12.8 0 0 1 -37.6 -570 A12.8 12.8 0 0 1 -63.2 -570 A12.8 12.8 0 0 1 -88.8 -570 A12.8 12.8 0 0 1 -114.4 -570 A12.8 12.8 0 0 1 -140 -570 A12.7 12.7 0 0 1 -140 -595.4 A12.7 12.7 0 0 1 -140 -620.8 A12.7 12.7 0 0 1 -140 -646.2 A12.7 12.7 0 0 1 -140 -671.5 A12.7 12.7 0 0 1 -140 -696.9 A12.7 12.7 0 0 1 -140 -722.3 A12.7 12.7 0 0 1 -140 -747.7 A12.7 12.7 0 0 1 -140 -773.1 A12.7 12.7 0 0 1 -140 -798.5 A12.7 12.7 0 0 1 -140 -823.8 A12.7 12.7 0 0 1 -140 -849.2 A12.7 12.7 0 0 1 -140 -874.6 A12.7 12.7 0 0 1 -140 -900Z"/>
+          <polyline class="leader keep" style="--i:0" points="62,-845 245,-845 550,-1150"/><polyline class="leader" style="--i:1" points="111,-673 497,-673 550,-620"/><polyline class="leader keep" style="--i:2" points="440,-735 440,-930 550,-930"/><polyline class="leader" style="--i:3" points="-60,-572 92,-420 550,-420"/>
+        </svg>
+        <span class="datum-label" style="--cx:23.853%;--cy:98.349%;--pcx:34.667%"><span class="z">FFL ±0</span> · floor datum</span><span class="dim-label ahrk-vert" style="--cx:1.284%;--cy:74.312%;--pcx:1.867%">720–750 AFFL · target</span><span class="dim-label ahrk-grey" style="--cx:26.789%;--cy:7.523%;--pcx:38.933%">Spine · position + cable · no surface load</span><span class="dim-label ahrk-grey" style="--cx:26.789%;--cy:14.128%;--pcx:38.933%">Phantom · surface closed · family 02</span><span class="dim-label ahrk-load ahrk-mid" style="--cx:45.872%;--cy:49.083%;--pcx:66.667%">20–30 kg on ≈450</span><span class="dim-label ahrk-tc" style="--cx:7.523%;--cy:46.33%;--pcx:10.933%">T</span><span class="dim-label ahrk-tc" style="--cx:7.523%;--cy:66.514%;--pcx:10.933%">C</span>
+        <i class="anc" data-anchor="c1" style="--ax:24.037%;--ay:46.33%;--i:0;--pax:34.933%;--pay:46.33%">1</i><i class="anc" data-anchor="c2" style="--ax:28.532%;--ay:62.11%;--i:1;--pax:41.467%;--pay:62.11%">2</i><i class="anc" data-anchor="c3" style="--ax:58.716%;--ay:56.422%;--i:2;--pax:85.333%;--pay:56.422%">3</i><i class="anc" data-anchor="c4" style="--ax:12.844%;--ay:71.376%;--i:3;--pax:18.667%;--pay:71.376%">4</i>
+        <p class="callout" data-a="c1" data-align="left" style="--cx:68.807%;--cy:18.349%;--i:0"><span class="n">1</span>30 kg at 450 mm ≈ 132 Nm into the anchor — spine bypassed<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· hand calculation, not tested</span></span></span></p><p class="callout" data-a="c2" data-align="left" style="--cx:68.807%;--cy:66.972%;--i:1"><span class="n">2</span>Over-centre positive lock + swappable damper cartridge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p><p class="callout" data-a="c3" data-align="left" style="--cx:68.807%;--cy:38.532%;--i:2"><span class="n">3</span>10,000 cycles ≈ 5 yr at ~5 cycles / day<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· design target, not achieved</span></span></span></p><p class="callout" data-a="c4" data-align="left" style="--cx:68.807%;--cy:85.321%;--i:3"><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct"><span class="n">4</span>Anchor strategy must be verified per wall condition</span></span><span class="chips"><span class="claim" data-level="TBC">TBC</span></span></p>
+      </div>
+      <ol class="callout-list" aria-label="Callouts"><li><span class="num">1</span><span>30 kg at 450 mm ≈ 132 Nm into the anchor — spine bypassed<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· hand calculation, not tested</span></span></span></span></li><li><span class="num">2</span><span>Over-centre positive lock + swappable damper cartridge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li><li><span class="num">3</span><span>10,000 cycles ≈ 5 yr at ~5 cycles / day<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· design target, not achieved</span></span></span></span></li><li><span class="num">4</span><span>Anchor strategy must be verified per wall condition<span class="chips"><span class="claim" data-level="TBC">TBC</span></span></span></li></ol>
+    </div>
+    <figcaption class="prov" id="hero-cap"><span class="inline-view" data-view="lab">Specimen 03 · AHRK · blockout render, Blender · cropped 4:3 from the locked hero render · tonal materials, not final CMF · not a photograph</span><span class="inline-view" data-view="investigation">Fold-down side section at the anchor node, redrawn for this sheet from the STEP-05 mechanism study · ≈450 projection drawn at its target value; the height is broken, not to scale; other proportions indicative · schematic, not CAD</span><button class="tbtn" type="button" data-figure-toggle>Show drawing</button></figcaption>
+    <p class="micro disclaimer">Specified intent. No prototype or physical mock-up exists. Loads, cycles and moments are targets or hand calculations, not test results.</p>
+  </figure>
+  <aside class="ch-info" aria-label="Specimen 03"><div class="win"><div class="win-in"><div class="win-bar"><span class="win-title">Specimen 03 / 08 · AHRK</span></div><div class="win-body"><div><div class="pad">
+    <p class="label">Adaptive hotel room kit · retrofit · 2026</p>
+    <div class="claimbar" style="margin-top:12px" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i class="on" data-c="SPECIFIED_INTENT"></i><i></i><i></i></div>
+    <div class="claimbar-legend" aria-hidden="true"><span>Concept</span><span>Designed</span><span>Spec.</span><span>Proto.</span><span>Valid.</span></div>
+    <p class="micro claimbar-scope">Highest claim: specified intent · targets, not built · physical evidence: none</p>
+    <p class="label" style="margin-top:14px">Role · collaboration</p>
+    <p class="small role">Bahareh Arianejad — lead, industrial design &amp; product-system logic.<br>Haleh Afshar — spatial design / interior architecture collaboration.</p>
+    <a class="tbtn" href="#s03" style="margin-top:14px;display:inline-block">→ 03 · Fold the surface</a>
+  </div></div></div></div></div></aside>
+  <div class="ch-list"><ol class="tlist"><li class="head" style="display:block;border:0;padding:0">[ On this sheet ]</li><li><span class="no">02</span><a class="lbl" href="#s02">Question</a><span class="hatch"><span class="track"><i style="--n:1;--of:6"></i></span><span class="count">1 min</span></span></li><li><span class="no">03</span><a class="lbl" href="#s03">Mechanism</a><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2 min</span></span></li><li><span class="no">04</span><a class="lbl" href="#s04">Inside</a><span class="hatch"><span class="track"><i style="--n:6;--of:6"></i></span><span class="count">6 min</span></span></li><li><span class="no">05</span><a class="lbl" href="#s05">Pigment</a><span class="hatch"><span class="track"><i style="--n:3;--of:6"></i></span><span class="count">3 min</span></span></li><li><span class="no">06</span><a class="lbl" href="#s06">Decisions</a><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2 min</span></span></li><li><span class="no">07</span><a class="lbl" href="#s07">Claim ledger</a><span class="hatch"><span class="track"><i style="--n:4;--of:6"></i></span><span class="count">4 min</span></span></li><li><span class="no">08</span><a class="lbl" href="#s08">Provenance</a><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2 min</span></span></li><li><span class="no">09</span><a class="lbl" href="#s09">Next specimen</a><span class="hatch"><span class="track"><i style="--n:1;--of:6"></i></span><span class="count">1 min</span></span></li></ol></div>
+  <aside class="ch-side" aria-label="Keyboard"><div class="win"><div class="win-in"><div class="win-bar"><span class="win-title">Keyboard · 5 pigments</span></div><div class="win-body"><div><div class="pad">
+    <div class="ptags"><p class="ptag"><span class="sw" style="--c:#C9A24A"></span><span class="txt">Medium load · pivot ochre · <span class="hex">#C9A24A</span> · authored · STEP-02</span></p><p class="ptag"><span class="sw" style="--c:#6B8AA3"></span><span class="txt">Low load · steel-blue · <span class="hex">#6B8AA3</span> · authored · STEP-02</span></p><p class="ptag"><span class="sw" style="--c:#F25C2A"></span><span class="txt">High load · anchor orange · <span class="hex">#F25C2A</span> · authored · STEP-02</span></p><p class="ptag"><span class="sw" style="--c:#5A8A6A"></span><span class="txt">18 mm ply backing · <span class="hex">#5A8A6A</span> · authored · STEP-05</span></p><p class="ptag"><span class="sw" style="--c:#998C75"></span><span class="txt">Champagne-grey anodised aluminium · <span class="hex">#998C75</span> · ≈ sampled · plate 07</span></p></div>
+    <p class="micro" style="margin-top:12px">Load class sets the colour: low, medium, high — the STEP-02 taxonomy.</p>
+  </div></div></div></div></div></aside>
+  <dl class="record two ch-record" aria-label="Specimen record">
+    <dt>Code</dt><dd>AHRK</dd>
+    <dt>Discipline</dt><dd>Product-spatial retrofit system — industrial design · interior architecture · mechanical</dd>
+    <dt>Date</dt><dd>26 Jun – 12 Jul 2026</dd>
+    <dt>Status</dt><dd>Specified intent · targets, not built</dd>
+    <dt>Physical evidence</dt><dd>None — no prototype, no mock-up</dd>
+    <dt>Image</dt><dd>Blockout render, Blender · schematic redraw</dd>
+    <dt>Collaboration</dt><dd>Haleh Afshar</dd>
+    <dt>Sheet</dt><dd>05 / 11</dd>
+  </dl>
+</section>
+<div id="ledger-inv-slot"></div>
+
+
+
+<section class="sheet-section" id="s02" aria-labelledby="s02-h">
+  <div class="sec-mark"><p class="marker">02 · Question</p><h2 id="s02-h" class="h2">Where does a compact room lose its flexibility?</h2></div>
+  <div class="cols">
+    <div class="question span-7"><p>Compact premium hotel rooms are asked to host arrival, work, dining, rest and wellness in one footprint. Their furniture is fixed in layout but loose in objects, so every housekeeping reset becomes a judgement call. Working from a real built room as a private reference, the project mapped where the room loses flexibility: the free long wall already carried a desk, a chair, a round table and an armchair, while luggage landed on the bed or in the entry pinch. The question became whether one wall could hold all of those states — and return every module to a single home line that staff can read at a glance.</p></div>
+    <aside class="pull span-4 start-9" aria-label="Pull fact">
+      <p class="big tabular">~4 → 1 + 1</p>
+      <p class="label lbl">Loose objects on the free wall → one wall system + one tuck-under stool</p>
+      <svg class="objcount" viewBox="0 0 300 92" role="img" aria-label="Four struck-through object outlines — desk, chair, round table, armchair — become one wall line with a fold-down surface and a stool.">
+        <g class="oc-gone">
+          <path d="M8 40 H58 M14 40 V72 M52 40 V72"/>
+          <path d="M72 36 V72 M72 52 H94 V72 M94 52 V72"/>
+          <ellipse cx="122" cy="40" rx="16" ry="5"/><path d="M122 45 V72 M112 72 H132"/>
+          <path d="M152 44 H184 V72 H152 Z M152 44 V32 M184 44 V32"/>
+          <line class="oc-x" x1="4" y1="80" x2="190" y2="26"/>
+        </g>
+        <path class="oc-arrow" d="M200 52 H226 M220 46 L226 52 L220 58"/>
+        <g class="oc-new"><line x1="240" y1="14" x2="240" y2="84"/><line class="oc-spine" x1="240" y1="24" x2="294" y2="24"/><rect x="240" y="44" width="52" height="5"/><path d="M258 62 H280 M262 62 V84 M276 62 V84"/></g>
+      </svg>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· countable</span></span></div>
+      <a class="pin" href="#plate-03"><span class="pin-img"><picture><source srcset="assets/ahrk/plate-03-1600.avif" type="image/avif"><img src="assets/ahrk/plate-03-1200.jpg" width="1600" height="1132" alt="" loading="lazy" decoding="async"></picture></span><span class="micro">Evidence · plate 03 · where the room loses flexibility (redrawn abstraction) ↓</span></a>
+    </aside>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s03" aria-labelledby="s03-h">
+  <div class="sec-mark"><p class="marker">03 · Mechanism</p><h2 id="s03-h" class="h2">Six named modes. Two physical states. One hinge that carries the load.</h2>
+    <p class="small muted sec-sub">Pick a mode: it snaps to its physical family, the wall crossfades, and the surface folds about its pivot. At 90° the lock seats and the load runs to the wall — never through the spine.</p></div>
+  <div class="inst inst-wrap ahrk-inst" id="fold-inst" data-mode="2" data-fold="90">
+   <div class="ai-col ai-col-l">
+    <figure class="ai-section">
+      <div class="stage ahrk-fold" data-plot style="--ar:780/970">
+          <svg class="overlay" viewBox="-140 -1300 780 970" aria-hidden="true">
+            <defs><pattern id="ah-blk-inst" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)"><line class="hx-l" x1="0" y1="0" x2="0" y2="12" style="stroke-width:1.5"/></pattern><pattern id="ah-ply-inst" patternUnits="userSpaceOnUse" width="12" height="7"><line class="hx-ply" x1="0" y1="1" x2="12" y2="1" style="stroke-width:1.5"/></pattern><marker id="ah-arr-inst" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" class="mk-load"/></marker></defs>
+<rect class="hx-wall" x="-150" y="-1290" width="150" height="945" fill="url(#ah-blk-inst)"/>
+<rect class="hx-plyb" x="0" y="-1290" width="24" height="945" fill="url(#ah-ply-inst)"/>
+<rect class="hx-lin" x="24" y="-1290" width="10" height="945"/>
+<path class="dw-visible draw" style="--di:0" d="M-150 -1290 V-345 M0 -1290 V-345 M24 -1290 V-345 M34 -1290 V-345"/>
+<polyline class="dw-thin" points="-160,-1290 -143,-1280 -109,-1300 -75,-1280 -41,-1300 -7,-1280 27,-1300 44,-1290"/>
+<polyline class="dw-thin" points="-160,-345 -143,-335 -109,-355 -75,-335 -41,-355 -7,-335 27,-355 44,-345"/>
+<rect class="hx-target" x="34" y="-750" width="566" height="30"/>
+<path class="hx-target-l" d="M34 -750 H600 M34 -720 H600"/>
+<rect class="hx-anchor" data-region="anchor" x="-120" y="-880" width="154" height="290"/>
+<rect class="hx-lit" data-region="wall" x="-150" y="-880" width="150" height="290"/>
+<rect class="hx-lit" data-region="ply" x="0" y="-880" width="24" height="290"/>
+<line class="hx-bolt" data-bolt="T" x1="-110" y1="-845" x2="62" y2="-845"/>
+<rect class="hx-bolthead" data-bolt="T" x="62" y="-853" width="6" height="16"/>
+<line class="hx-bolt" data-bolt="C" x1="-110" y1="-625" x2="62" y2="-625"/>
+<rect class="hx-bolthead" data-bolt="C" x="62" y="-633" width="6" height="16"/>
+<rect class="hx-spine draw" style="--di:1" x="34" y="-1250" width="46" height="90" rx="6"/>
+<rect class="hx-cable" x="42" y="-1236" width="30" height="30" rx="4"/>
+<circle class="hx-cable-c" cx="51" cy="-1221" r="5"/><circle class="hx-cable-c b" cx="64" cy="-1221" r="5"/>
+<rect class="dw-hidden" x="34" y="-575" width="46" height="70" rx="4"/>
+<rect class="hx-bracket draw" data-region="bracket" style="--di:2" x="34" y="-880" width="28" height="290"/>
+<rect class="hx-phantom" x="38" y="-1145" width="36" height="446" rx="4"/>
+<rect class="hx-phantom" x="38" y="-735" width="446" height="36" rx="4"/>
+<path id="fold-sector" class="hx-sector" d="M56 -1097 A380 380 0 0 1 436 -717 L392 -717 A336 336 0 0 0 56 -1053 Z"/>
+<path class="hx-proto" d="M56 -1097 A380 380 0 0 1 436 -717"/>
+<path class="hx-tick" d="M56 -1097 L56 -1119 M89.1 -1095.6 L90.2 -1107.5 M122 -1091.2 L124.1 -1103 M154.4 -1084.1 L157.5 -1095.6 M186 -1074.1 L190.1 -1085.4 M216.6 -1061.4 L221.7 -1072.3 M246 -1046.1 L252 -1056.5 M274 -1028.3 L280.8 -1038.1 M300.3 -1008.1 L308 -1017.3 M324.7 -985.7 L340.3 -1001.3 M347.1 -961.3 L356.3 -969 M367.3 -935 L377.1 -941.8 M385.1 -907 L395.5 -913 M400.4 -877.6 L411.3 -882.7 M413.1 -847 L424.4 -851.1 M423.1 -815.4 L434.6 -818.5 M430.2 -783 L442 -785.1 M434.6 -750.1 L446.5 -751.2 M436 -717 L458 -717"/>
+<line class="hx-damper" id="fold-damper" x1="50" y1="-648" x2="172" y2="-699"/>
+<circle class="hx-damper-b" cx="50" cy="-648" r="5"/>
+<g id="fold-panel" transform="rotate(0 56 -717)"><rect class="hx-panel draw" data-region="surface" style="--di:3" x="38" y="-735" width="446" height="36" rx="5"/><circle class="hx-r6" cx="478" cy="-717" r="14"/></g>
+<circle class="hx-lock" id="fold-lock" cx="72" cy="-676" r="8"/>
+<circle class="hx-pivot" cx="56" cy="-717" r="10"/>
+<g id="fold-couple" class="hx-couple"><line class="hx-carrow" x1="-40" y1="-867" x2="20" y2="-867" marker-end="url(#ah-arr-inst)"/><line class="hx-carrow" x1="20" y1="-603" x2="-40" y2="-603" marker-end="url(#ah-arr-inst)"/></g>
+<path id="fold-route" class="hx-route" d="M330 -717 H-130" pathLength="1"/>
+<path class="hx-route-static" d="M330 -717 H-130" marker-end="url(#ah-arr-inst)"/>
+<circle id="fold-dot" class="hx-dot" cx="330" cy="-717" r="9"/>
+          </svg>
+          <span class="dim-label ahrk-load" style="--cx:30.256%;--cy:17.113%">0° · closed</span><span class="dim-label ahrk-load" style="--cx:75.128%;--cy:65.567%">90° · open</span><span class="dim-label ahrk-grey" style="--cx:29.744%;--cy:8.866%">Spine · no working load</span><span class="dim-label ahrk-target ahrk-2l" style="--cx:30.769%;--cy:50%">720–750 AFFL<br>target</span><span class="dim-label ahrk-tc" style="--cx:1.026%;--cy:44.536%">T</span><span class="dim-label ahrk-tc" style="--cx:1.026%;--cy:71.959%">C</span><span class="dim-label ahrk-grey" style="--cx:28.974%;--cy:66.804%">Lock</span>
+        </div>
+      <figcaption class="prov">Side section at the anchor node, redrawn for this sheet from the STEP-05 mechanism study · ≈450 projection and ≥200 bracket spacing drawn at their target values; every other proportion indicative · schematic, not CAD</figcaption>
+    </figure>
+    <div class="ai-ctrl">
+      <div class="ai-dial"><span class="deg tabular" data-ai-deg>90°</span><span class="state" data-ai-state>Lock seated</span></div>
+      <label class="label" for="fold-range">Fold angle · 0° closed → 90° open</label>
+      <input id="fold-range" type="range" min="0" max="90" step="5" value="90" list="fold-stops" aria-valuetext="Fold 90 degrees, open, lock seated">
+      <datalist id="fold-stops"><option value="0" label="0° closed"></option><option value="90" label="90° open"></option></datalist>
+    </div>
+   </div>
+   <div class="ai-col ai-col-r">
+    <div class="ai-modes">
+      <p class="ai-count"><span class="a tabular">6</span><span class="t">named modes</span><span class="arr" aria-hidden="true">→</span><span class="b tabular" data-ai-count>2</span><span class="t">physical families</span></p>
+      <div class="trays" data-trays>
+        <div class="tray" data-family="open"><p class="tray-h"><span>Family 01</span> Surface open</p>
+          <div class="tray-chips">
+            <button type="button" class="mode-chip" data-mode="2" data-fam="open" aria-pressed="true"><span class="no">02</span><span class="nm">Work</span><span class="ds">task surface</span></button>
+            <button type="button" class="mode-chip" data-mode="4" data-fam="open" aria-pressed="false"><span class="no">04</span><span class="nm">Dining</span><span class="ds">short-use surface</span></button>
+          </div></div>
+        <div class="tray" data-family="closed"><p class="tray-h"><span>Family 02</span> Surface closed</p>
+          <div class="tray-chips">
+            <button type="button" class="mode-chip" data-mode="1" data-fam="closed" aria-pressed="false"><span class="no">01</span><span class="nm">Arrival</span><span class="ds">luggage landing</span></button>
+            <button type="button" class="mode-chip" data-mode="3" data-fam="closed" aria-pressed="false"><span class="no">03</span><span class="nm">Rest</span><span class="ds">visual calm</span></button>
+            <button type="button" class="mode-chip" data-mode="5" data-fam="closed" aria-pressed="false"><span class="no">05</span><span class="nm">Wellness</span><span class="ds">floor clear</span></button>
+            <button type="button" class="mode-chip" data-mode="6" data-fam="closed" aria-pressed="false"><span class="no">06</span><span class="nm">Reset</span><span class="ds">home line</span></button>
+          </div></div>
+      </div>
+    </div>
+    <figure class="ai-render">
+      <div class="xfade">
+        <picture><source srcset="assets/ahrk/mode-reset-960.avif 960w, assets/ahrk/mode-reset-1920.avif 1920w" sizes="(max-width:1023px) 92vw, 500px" type="image/avif"><img class="xf-reset" src="assets/ahrk/mode-reset-960.jpg" width="960" height="540" alt="Blockout render, frontal view of the adaptive wall with the surface closed: a flush warm-beige panel with a small light tile and a latch strip sits in the bay under the spine — the reset home line." loading="lazy" decoding="async"></picture>
+        <picture class="xf-top"><source srcset="assets/ahrk/mode-work-960.avif 960w, assets/ahrk/mode-work-1920.avif 1920w" sizes="(max-width:1023px) 92vw, 500px" type="image/avif"><img class="xf-work" src="assets/ahrk/mode-work-960.jpg" width="960" height="540" alt="The same camera with the surface open: a thin lit shelf in the recessed bay under the spine." loading="lazy" decoding="async"></picture>
+        <span class="xf-tag xf-tag-c">Surface closed</span><span class="xf-tag xf-tag-o">Surface open</span>
+      </div>
+      <figcaption class="prov">Two blockout renders, Blender · same camera · crossfade follows the fold angle · lighting presets are not modelled in the renders</figcaption>
+    </figure>
+    <div class="ai-panel">
+      <p class="inst-readout" aria-live="polite" data-ai-readout>Mode 02 · Work → family 01 · surface open · lock seated at 720–750 mm AFFL</p>
+      <ol class="ai-route" aria-label="Load path when open">
+        <li data-step="surface"><span class="num">1</span>Surface · 20–30 kg + lean</li><li data-step="bracket"><span class="num">2</span>Hinge bracket</li><li data-step="anchor"><span class="num">3</span>Hard anchor node</li><li data-step="ply"><span class="num">4</span>18 mm ply</li><li data-step="wall"><span class="num">5</span>Wall structure</li><li class="by"><span class="num">—</span>Spine · bypassed</li>
+      </ol>
+      <p class="ai-light" data-ai-light>Light preset · 3500–4000 K task light over the surface <span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></p>
+      <div class="ai-btns"><button class="tbtn" type="button" data-ai-play>Play once</button><button class="tbtn" type="button" data-ai-trace>Trace again</button><button class="tbtn" type="button" data-ai-snap>Snap again</button></div>
+      <p class="inst-note">Fold angle, lock height and load path are the specified-intent targets of the STEP-05 mechanism study — not built, not tested. Intermediate angles are illustrative. ≈132 Nm is a hand calculation (30 kg at 450 mm reach), not a measurement; a leaning user adds more.</p>
+    </div>
+   </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s04" aria-labelledby="s04-h">
+  <div class="sec-mark"><p class="marker">04 · Inside</p><h2 id="s04-h" class="h2">The matrix behind the modes, the rail behind the wall.</h2>
+    <p class="legend"><span><i style="--c:var(--line)"></i>Visible</span><span><i class="dash" style="--c:var(--line-2)"></i>Hidden / service</span><span><i style="--c:var(--ink-load)"></i>Load path · anchor</span><span><i style="--c:var(--ahrk-2)"></i>Cable · low load</span><span><i style="--c:var(--ahrk-1)"></i>Pivot · medium</span><span><i style="--c:var(--ink-datum)"></i>Datum</span><span><i style="--c:var(--ink-target)"></i>Target</span></p></div>
+
+  <div class="sub-h"><p class="label">[ 04.1 · Mode × module matrix ]</p><p class="micro">Six modes × five modules, each cell primary, support or parked · from the STEP-01 matrix, 26–27 Jun 2026 · <span class="claim" data-level="DESIGNED">Designed</span></p></div>
+  <div class="mx-wrap" data-mx>
+      <div class="mx-ctl"><div class="seg" role="group" aria-label="Step through the six modes"><span class="seg-l">Mode</span><button type="button" data-mx-step="1" aria-pressed="false">01<span class="sr-only"> Arrival</span></button><button type="button" data-mx-step="2" aria-pressed="true">02<span class="sr-only"> Work</span></button><button type="button" data-mx-step="3" aria-pressed="false">03<span class="sr-only"> Rest</span></button><button type="button" data-mx-step="4" aria-pressed="false">04<span class="sr-only"> Dining</span></button><button type="button" data-mx-step="5" aria-pressed="false">05<span class="sr-only"> Wellness</span></button><button type="button" data-mx-step="6" aria-pressed="false">06<span class="sr-only"> Housekeeping reset</span></button></div>
+        <p class="mx-legend" aria-hidden="true"><span><i class="P"></i>Primary</span><span><i class="S"></i>Support</span><span><i class="K"></i>Parked</span></p></div>
+      <div class="tablewrap"><table class="matrix" data-active="2">
+        <caption class="sr-only">Mode × module matrix: what each of the five modules does in each of the six modes, marked primary, support or parked.</caption>
+        <thead><tr><th scope="col">Mode</th><th scope="col"><span class="mh">Transform rail</span><span class="lc" data-lc="spine">Is the spine</span></th><th scope="col"><span class="mh">Fold-down surface</span><span class="lc" data-lc="high">High load</span></th><th scope="col"><span class="mh">Luggage dock / bench</span><span class="lc" data-lc="high">High load</span></th><th scope="col"><span class="mh">Lighting spine</span><span class="lc" data-lc="low">Low load</span></th><th scope="col"><span class="mh">Privacy / wellness panel</span><span class="lc" data-lc="med">Medium load</span></th></tr></thead>
+        <tbody><tr data-mode="1"><th scope="row"><span class="no">01</span> Arrival / luggage</th><td data-s="P" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Stages bench + panel at entry; carries night-path light. Backbone is the first thing engaged.</span></td><td data-s="K" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Folded flat against rail.</span></td><td data-s="P" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Receives suitcase off the floor immediately.</span></td><td data-s="S" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Low warm wayfinding / entry glow.</span></td><td data-s="S" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Slid to screen luggage zone from bed sightline.</span></td></tr><tr data-mode="2" class="is-active"><th scope="row"><span class="no">02</span> Work</th><td data-s="P" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Positions surface at desk height; routes power + cable.</span></td><td data-s="P" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Deployed as the work surface — the defining mechanism of this mode.</span></td><td data-s="K" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Holds bag; doubles as seat-adjacent stash.</span></td><td data-s="P" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Shifts to 3500–4000 K task light over surface.</span></td><td data-s="S" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Rotated as video-call backdrop / acoustic baffle.</span></td></tr><tr data-mode="3"><th scope="row"><span class="no">03</span> Rest</th><td data-s="S" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Holds modules in retracted state; carries night light.</span></td><td data-s="K" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Folded; clears floor + sightlines.</span></td><td data-s="K" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Static; bag stowed, not in path.</span></td><td data-s="P" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Drops to 2700 K low ambient + floor night path.</span></td><td data-s="S" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Positioned for blackout / privacy at window or door.</span></td></tr><tr data-mode="4"><th scope="row"><span class="no">04</span> Dining / coffee</th><td data-s="P" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Re-positions same surface to dining height / zone.</span></td><td data-s="P" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Deployed (same surface, different position) for tray / coffee.</span></td><td data-s="K" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Optional seat for casual dining.</span></td><td data-s="S" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Mid-warm pooled light over surface.</span></td><td data-s="K" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Not engaged.</span></td></tr><tr data-mode="5"><th scope="row"><span class="no">05</span> Wellness / stretching</th><td data-s="P" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Clears the zone — retracts surface, parks bench — to open floor.</span></td><td data-s="K" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Folded fully out of swept volume.</span></td><td data-s="K" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Parked</span><span class="rl">Pushed to wall to free floor.</span></td><td data-s="S" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Even diffuse calm light, no glare from floor.</span></td><td data-s="P" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Becomes the wellness corner — visual + acoustic enclosure.</span></td></tr><tr data-mode="6"><th scope="row"><span class="no">06</span> Housekeeping reset</th><td data-s="P" data-m="Transform rail"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Returns all modules to a single defined home state — the reset reference.</span></td><td data-s="S" data-m="Fold-down surface"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Folds to flush home position; wipe-down clear.</span></td><td data-s="P" data-m="Luggage dock / bench"><span class="st"><i aria-hidden="true"></i>Primary</span><span class="rl">Bench cleared + reset; defines the “room is ready” baseline.</span></td><td data-s="S" data-m="Lighting spine"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Bright neutral cleaning light, then reset to default.</span></td><td data-s="S" data-m="Privacy / wellness panel"><span class="st"><i aria-hidden="true"></i>Support</span><span class="rl">Returned to home anchor; fabric sleeve inspected.</span></td></tr></tbody>
+        <tfoot><tr><th scope="row">Primary · of 6</th><td data-m="Transform rail"><span class="hatch"><span class="track"><i style="--n:5;--of:6"></i></span><span class="count">5/6</span></span><span class="sup">support 1/6</span></td><td data-m="Fold-down surface"><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2/6</span></span><span class="sup">support 1/6</span></td><td data-m="Luggage dock / bench"><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2/6</span></span><span class="sup">support 0/6</span></td><td data-m="Lighting spine"><span class="hatch"><span class="track"><i style="--n:2;--of:6"></i></span><span class="count">2/6</span></span><span class="sup">support 4/6</span></td><td data-m="Privacy / wellness panel"><span class="hatch"><span class="track"><i style="--n:1;--of:6"></i></span><span class="count">1/6</span></span><span class="sup">support 4/6</span></td></tr></tfoot>
+      </table></div>
+    </div>
+  <p class="micro mx-note">The transform rail is primary in 5 of 6 modes and support in the sixth — “it is the system, not a module”. STEP-06 later gives the bench a dining-seat role (support), pending mock-up ergonomics.</p>
+
+  <div class="sub-h"><p class="label">[ 04.2 · Rail section at an anchor node ]</p><p class="micro">Eight parts · redrawn from the STEP-02 rail architecture study · schematic, proportions indicative, not CAD</p></div>
+  <div class="rail-row">
+    <figure class="rail-fig">
+      <div class="stage ahrk-rail" data-plot style="--ar:500/420">
+        <svg class="overlay" viewBox="0 0 500 420" aria-hidden="true"><defs><pattern id="ah-blk-rail" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="rotate(45)"><line class="hx-l" x1="0" y1="0" x2="0" y2="9" style="stroke-width:1"/></pattern></defs>
+          <rect class="hx-wall" x="30" y="30" width="90" height="360" fill="url(#ah-blk-rail)"/>
+          <rect class="dw-visible draw" style="--di:0" x="30" y="30" width="90" height="360"/>
+          <rect class="hx-bracket draw" style="--di:1" x="120" y="150" width="56" height="120"/>
+          <path class="hx-bolt" d="M70 180 H120 M70 240 H120"/>
+          <circle class="hx-boltc" cx="108" cy="180" r="4"/><circle class="hx-boltc" cx="108" cy="240" r="4"/>
+          <rect class="hx-rail draw" style="--di:2" x="176" y="90" width="70" height="240" rx="5"/>
+          <rect class="hx-cable" x="190" y="110" width="42" height="50" rx="3"/>
+          <circle class="hx-cable-c" cx="205" cy="135" r="5"/><circle class="hx-cable-c b" cx="218" cy="135" r="5"/>
+          <rect class="hx-slot" x="236" y="180" width="10" height="90" rx="2"/>
+          <rect class="hx-anchor" x="176" y="190" width="70" height="40"/>
+          <rect class="dw-hidden" x="176" y="280" width="70" height="44" rx="3"/>
+          <line class="dw-thin" x1="211" y1="288" x2="211" y2="316"/>
+          <rect class="hx-panel draw" style="--di:3" x="246" y="194" width="130" height="12" rx="3" transform="rotate(20 246 200)"/>
+          <circle class="hx-pivot" cx="246" cy="200" r="6"/><line class="leader thin" x1="75" y1="330" x2="75" y2="405"/><line class="leader thin" x1="148" y1="262" x2="148" y2="405"/><line class="leader thin" x1="211" y1="96" x2="211" y2="18"/><line class="leader thin" x1="228" y1="148" x2="300" y2="70"/><line class="leader thin" x1="241" y1="255" x2="300" y2="300"/><line class="leader thin" x1="176" y1="210" x2="148" y2="120"/><line class="leader thin" x1="330" y1="230" x2="420" y2="270"/><line class="leader thin" x1="211" y1="320" x2="260" y2="380"/></svg>
+        <i class="ptn" style="--ax:15%;--ay:96.429%">1</i><i class="ptn" style="--ax:29.6%;--ay:96.429%">2</i><i class="ptn" style="--ax:42.2%;--ay:4.286%">3</i><i class="ptn" style="--ax:60%;--ay:16.667%">4</i><i class="ptn" style="--ax:60%;--ay:71.429%">5</i><i class="ptn" style="--ax:29.6%;--ay:28.571%">6</i><i class="ptn" style="--ax:84%;--ay:64.286%">7</i><i class="ptn" style="--ax:52%;--ay:90.476%">8</i>
+      </div>
+      <figcaption class="prov">Section through the rail at an anchor node · redrawn with this site's inks · not a measured drawing</figcaption>
+    </figure>
+    <div class="rail-parts"><ol class="parts"><li><span class="num">1</span><span>Wall — masonry or stud + blocking (condition-dependent)</span></li><li><span class="num">2</span><span>Fixing bracket — transfers load from rail to wall</span></li><li><span class="num">3</span><span>Rail extrusion — the continuous spine profile</span></li><li><span class="num">4</span><span>Cable channel — integrated power + data run</span></li><li><span class="num">5</span><span>Accessory slot — front face for light, tray, hooks</span></li><li><span class="num">6</span><span>Hard anchor node — discrete structural fixing for high load</span></li><li><span class="num">7</span><span>Fold-down surface bracket — pivot on the anchor, registered to the rail</span></li><li><span class="num">8</span><span>Service access cover — removable for cable / LED swap</span></li></ol>
+      <p class="rail-rule"><span class="label">Division rule</span> If a module moves or routes → spine. If it holds weight or takes a moment → anchor. The fold-down surface does both: it references the spine for position and transfers load to an anchor. <span class="claim" data-level="DESIGNED">Designed</span></p></div>
+  </div>
+
+  <div class="sub-h" id="plates-h"><p class="label">[ 04.3 · Published plates 01–10 ]</p><p class="micro">The locked 10-frame portfolio set, shown whole and never re-titled · open any plate at full size</p></div>
+  <div class="plates ahrk-plates"><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/01_AHRK_Thesis_Problem.png" data-viewer="01" data-full="assets/ahrk/plate-01-2400.avif" aria-label="Plate 01: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-01-1600.avif" type="image/avif"><img src="assets/ahrk/plate-01-1200.jpg" width="1600" height="1132" alt="Plate 01, Thesis and Problem: the title Adaptive Hotel Room Kit, the thesis line, a project meta table, and a redrawn room plan with the adaptive-wall candidate marked as an orange line." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 01 / 10 · Thesis / problem</span><span class="p">“A hotel room should behave like a small spatial system, not a fixed furniture layout.” · locked portfolio frame, 9 Jul 2026 · shown whole. Room plan: redrawn spatial abstraction of reference topology only — no source dimensions.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/02_AHRK_Research_Evidence.png" data-viewer="02" data-full="assets/ahrk/plate-02-2400.avif" aria-label="Plate 02: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-02-1600.avif" type="image/avif"><img src="assets/ahrk/plate-02-1200.jpg" width="1600" height="1132" alt="Plate 02, Evidence Before Form: four boxes — spatial reference, guest behaviour and room modes, retrofit constraints, mechanism and module logic — with short lists." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 02 / 10 · Research / evidence</span><span class="p">“Evidence before form.” · locked portfolio frame, 9 Jul 2026 · shown whole. Lists the claims avoided: ROI, interviews, area-saving numbers, universal anchoring, full renovation, supplier certification.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" id="plate-03" href="assets/ahrk/03_AHRK_Spatial_Conflict_Map.png" data-viewer="03" data-full="assets/ahrk/plate-03-2400.avif" aria-label="Plate 03: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-03-1600.avif" type="image/avif"><img src="assets/ahrk/plate-03-1200.jpg" width="1600" height="1132" alt="Plate 03, Where the Room Loses Flexibility: a redrawn plan with seven orange conflict fields — luggage landing, open suitcase, work surface conflict, bed-edge circulation, entry and bath pinch, wellness clear-floor area, housekeeping reset path." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 03 / 10 · Spatial conflict map</span><span class="p">“Where the room loses flexibility.” · locked portfolio frame, 9 Jul 2026 · shown whole. Redrawn abstraction · seven conflict fields.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/04_AHRK_System_Overview.png" data-viewer="04" data-full="assets/ahrk/plate-04-2400.avif" aria-label="Plate 04: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-04-1600.avif" type="image/avif"><img src="assets/ahrk/plate-04-1200.jpg" width="1600" height="1132" alt="Plate 04, The Adaptive Wall System: a blockout elevation render framed in black with orange callouts for Zone A panel and light, Zone C luggage and reset, the primary spine datum and Zone B fold-down surface." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 04 / 10 · System overview</span><span class="p">“One spine, three zones, six room states.” · locked portfolio frame, 9 Jul 2026 · shown whole. Blockout render inset · not a photograph.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/05_AHRK_Two_Physical_Families.png" data-viewer="05" data-full="assets/ahrk/plate-05-2400.avif" aria-label="Plate 05: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-05-1600.avif" type="image/avif"><img src="assets/ahrk/plate-05-1200.jpg" width="1600" height="1132" alt="Plate 05, Six Modes / Two Physical Families: two cropped renders side by side, family 01 surface open (work, dining) and family 02 surface closed (arrival, rest, wellness, reset)." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 05 / 10 · Six modes / two physical families</span><span class="p">“The wall does not grow new mechanisms per mode.” · locked portfolio frame, 9 Jul 2026 · shown whole. Two cropped blockout renders, same camera.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/06_AHRK_Fold_Down_Mechanism.png" data-viewer="06" data-full="assets/ahrk/plate-06-2400.avif" aria-label="Plate 06: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-06-1600.avif" type="image/avif"><img src="assets/ahrk/plate-06-1200.jpg" width="1600" height="1132" alt="Plate 06, The Fold-Down Mechanism: a close blockout render of the surface with callouts for the primary spine, the wall-integrated hinge cassette, the load path and the fold-down surface." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 06 / 10 · Mechanism detail</span><span class="p">“A hinge cassette, not a floating shelf.” · locked portfolio frame, 9 Jul 2026 · shown whole. The render shows the slab; hinge, damper and anchor are not visible in it — the section in §03 shows them.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/07_AHRK_Material_Language.png" data-viewer="07" data-full="assets/ahrk/plate-07-2400.avif" aria-label="Plate 07: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-07-1600.avif" type="image/avif"><img src="assets/ahrk/plate-07-1200.jpg" width="1600" height="1132" alt="Plate 07, Material Language: seven swatch cards with a colour strip, name, application and reason for each material." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 07 / 10 · Material language</span><span class="p">“Restrained, warm, low-sheen.” · locked portfolio frame, 9 Jul 2026 · shown whole. Hexes in §05 are ≈ sampled from this plate.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/08_AHRK_Retrofit_Logic.png" data-viewer="08" data-full="assets/ahrk/plate-08-2400.avif" aria-label="Plate 08: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-08-1600.avif" type="image/avif"><img src="assets/ahrk/plate-08-1200.jpg" width="1600" height="1132" alt="Plate 08, Retrofit Without Replanning the Room: the redrawn plan with the adaptive wall inserted along the long wall, zones A, B and C, and the wet area and primary footprint marked unchanged." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 08 / 10 · Retrofit logic</span><span class="p">“Retrofit without replanning the room.” · locked portfolio frame, 9 Jul 2026 · shown whole. Anchor strategy to be verified per wall condition — not a certified or universal method.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/09_AHRK_Hero_Render.png" data-viewer="09" data-full="assets/ahrk/plate-09-2400.avif" aria-label="Plate 09: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-09-1600.avif" type="image/avif"><img src="assets/ahrk/plate-09-1200.jpg" width="1600" height="1132" alt="Plate 09, AHRK in Use: the hero blockout render in work mode with four small callouts — Zone A panel parked, task light, fold-down surface active, bench reset dock." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 09 / 10 · Hero render</span><span class="p">“AHRK in use — work mode, from the entry.” · locked portfolio frame, 9 Jul 2026 · shown whole. Blockout visualisation with tonal materials — not final CMF, not built work.</span></figcaption>
+      </figure><figure class="plate-fig ahrk-plate">
+        <a class="frame plate-link" href="assets/ahrk/10_AHRK_Operator_Value.png" data-viewer="10" data-full="assets/ahrk/plate-10-2400.avif" aria-label="Plate 10: open the full-size plate">
+          <picture><source srcset="assets/ahrk/plate-10-1600.avif" type="image/avif"><img src="assets/ahrk/plate-10-1200.jpg" width="1600" height="1132" alt="Plate 10, What This Buys the Operator: four rows comparing fixed furniture, modular furniture, full renovation and the AHRK adaptive wall by intervention level." loading="lazy" decoding="async"></picture>
+          <span class="open-tag" aria-hidden="true">Open ↗</span>
+        </a>
+        <figcaption><span class="t">Plate 10 / 10 · Operator value</span><span class="p">“What this buys the operator.” · locked portfolio frame, 9 Jul 2026 · shown whole. Framed as spatial efficiency and reset logic — not as ROI.</span></figcaption>
+      </figure></div>
+</section>
+
+
+<section class="sheet-section" id="s05" aria-labelledby="s05-h">
+  <div class="sec-mark"><p class="marker">05 · Pigment &amp; material</p><h2 id="s05-h" class="h2">Load class is the palette.</h2>
+    <p class="small muted sec-sub">The engineering taxonomy is the colour system: every module takes the pigment of the load it carries. Point at a load class to find its modules on the wall.</p></div>
+  <div class="pig-grid">
+    <figure class="elev-fig">
+      <div class="elev-frame"><svg class="elev" viewBox="0 0 1000 330" role="img" aria-labelledby="elev-t">
+          <title id="elev-t">Schematic elevation of the adaptive wall, window end to entry end: the spine runs across; modules are coloured by load class — lighting head and charging node low (steel-blue), privacy panel and coat hook medium (ochre), fold-down surface and bench high (orange) on hard anchors.</title>
+          <line class="el-floor" x1="10" y1="290" x2="990" y2="290"/>
+          <line class="el-spine" x1="30" y1="110" x2="970" y2="110"/>
+          <g data-lc="med"><rect class="el-mod" x="70" y="122" width="170" height="160" rx="3"/><line class="el-react" x1="155" y1="282" x2="155" y2="290"/><circle class="el-car" cx="110" cy="110" r="7"/><circle class="el-car" cx="200" cy="110" r="7"/></g>
+          <g data-lc="low"><rect class="el-mod" x="250" y="86" width="64" height="18" rx="3"/><path class="el-light" d="M262 104 L250 150 M302 104 L314 150"/></g>
+          <g data-lc="high"><rect class="el-anc" x="476" y="168" width="22" height="22"/><rect class="el-mod" x="390" y="186" width="200" height="14" rx="3"/><circle class="el-piv" cx="487" cy="193" r="5"/></g>
+          <g data-lc="low"><rect class="el-mod" x="616" y="118" width="20" height="26" rx="3"/></g>
+          <g data-lc="low"><rect class="el-mod" x="350" y="118" width="26" height="12" rx="2"/></g>
+          <g data-lc="med"><path class="el-mod el-hook" d="M760 112 V150 Q760 166 776 166"/></g>
+          <g data-lc="high"><rect class="el-anc" x="874" y="208" width="22" height="22"/><rect class="el-mod" x="700" y="230" width="230" height="16" rx="3"/><path class="el-react" d="M716 246 V290 M914 246 V290"/></g>
+          <path class="el-zone" d="M40 312 H330 M370 312 H640 M680 312 H960"/>
+        </svg>
+        <span class="ez" style="--x:4%">Zone A · panel + light · window end</span><span class="ez" style="--x:37%">Zone B · surface + anchor · mid</span><span class="ez" style="--x:68%">Zone C · bench + anchor / floor · entry end</span>
+      </div>
+      <figcaption class="prov">Schematic elevation from the STEP-02 load hierarchy and STEP-04 zone placement · positions schematic · no room dimensions</figcaption>
+      <div class="div-rule"><p><span class="k">Moves / routes</span><span class="arr" aria-hidden="true">→</span><span class="v">spine</span></p><p><span class="k">Holds weight · takes a moment</span><span class="arr" aria-hidden="true">→</span><span class="v">anchor</span></p><div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· division rule, STEP-02</span></span></div></div>
+    </figure>
+    <div class="albers-row lc-row"><div class="albers lc-card" data-lc="low" tabindex="0" style="--c:#6B8AA3"><div class="inner"><p class="nm">Low load · steel-blue</p><p class="hx">#6B8AA3</p><p class="use">Lighting head · charging node · tray · cable run — ride the spine</p><p class="src">Authored · STEP-02 load hierarchy</p></div></div><div class="albers lc-card" data-lc="med" tabindex="0" style="--c:#C9A24A"><div class="inner"><p class="nm">Medium load · pivot ochre</p><p class="hx">#C9A24A</p><p class="use">Privacy panel · coat hook · mirror — spine carrier + floor / anchor reaction</p><p class="src">Authored · STEP-02</p></div></div><div class="albers lc-card" data-lc="high" tabindex="0" style="--c:#F25C2A"><div class="inner"><p class="nm">High load · anchor orange</p><p class="hx">#F25C2A</p><p class="use">Fold-down surface (20–30 kg + lever arm) · bench (80–120 kg) — hard anchor required</p><p class="src">Authored · STEP-02</p></div></div><div class="albers lc-card" data-lc="ply" tabindex="0" style="--c:#5A8A6A"><div class="inner"><p class="nm">18 mm ply backing</p><p class="hx">#5A8A6A</p><p class="use">The anchor substrate behind the lining</p><p class="src">Authored · STEP-05 section</p></div></div></div>
+  </div>
+  <div class="sub-h"><p class="label">[ Material language · plate 07 ]</p><p class="micro">Restrained, warm, low-sheen · seven materials as published · hexes ≈ sampled from the plate, not measured finishes</p></div>
+  <ol class="cmf-row"><li class="cmf-chip" style="--c:#E5DDCE"><span class="sw"></span><span class="lab"><span class="nm">Warm off-white plaster</span><span class="hx">#E5DDCE</span><span class="use">Room context</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#9E9384"><span class="sw"></span><span class="lab"><span class="nm">Warm-grey backing field</span><span class="hx">#9E9384</span><span class="use">Service zone</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#998C75"><span class="sw"></span><span class="lab"><span class="nm">Champagne-grey anodised aluminium</span><span class="hx">#998C75</span><span class="use">Primary spine / hardware</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#CCAA7A"><span class="sw"></span><span class="lab"><span class="nm">Warm compact laminate</span><span class="hx">#CCAA7A</span><span class="use">Fold-down surface + bench top</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#56514C"><span class="sw"></span><span class="lab"><span class="nm">Soft graphite frame</span><span class="hx">#56514C</span><span class="use">Bench structure / secondary hardware</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#8C8477"><span class="sw"></span><span class="lab"><span class="nm">Muted PET felt</span><span class="hx">#8C8477</span><span class="use">Panel / acoustic-soft surface</span><span class="src">≈ sampled · plate 07</span></span></li><li class="cmf-chip" style="--c:#F4E5C6"><span class="sw"></span><span class="lab"><span class="nm">Warm opal diffuser</span><span class="hx">#F4E5C6</span><span class="use">Lighting element</span><span class="src">≈ sampled · plate 07</span></span></li></ol>
+  <div class="cols mat-notes">
+    <div class="span-6"><p class="label">Working swatches · STEP-07, 27 Jun 2026</p><div class="ptags" style="margin-top:10px"><p class="ptag"><span class="sw" style="--c:#9A9591"></span><span class="txt">Spine aluminium · <span class="hex">#9A9591</span> · authored · STEP-07</span></p><p class="ptag"><span class="sw" style="--c:#6E5641"></span><span class="txt">Veneer · <span class="hex">#6E5641</span> · authored · STEP-07</span></p><p class="ptag"><span class="sw" style="--c:#3C3A37"></span><span class="txt">Compact laminate · matte dark · <span class="hex">#3C3A37</span> · authored · STEP-07</span></p><p class="ptag"><span class="sw" style="--c:#4A4844"></span><span class="txt">Powder steel · <span class="hex">#4A4844</span> · authored · STEP-07</span></p><p class="ptag"><span class="sw" style="--c:#7D7A72"></span><span class="txt">Felt · <span class="hex">#7D7A72</span> · authored · STEP-07</span></p><p class="ptag"><span class="sw" style="--c:#D8D2C6"></span><span class="txt">Diffuser · <span class="hex">#D8D2C6</span> · authored · STEP-07</span></p></div>
+      <p class="micro" style="margin-top:10px">These differ from the locked plate 07: STEP-07 drew the base laminate matte dark; the published plate shows a warm compact laminate. The plate set is the later, locked record (9 Jul 2026).</p></div>
+    <div class="span-5 start-8 set-aside"><p class="label">Set aside · STEP-05 / 07</p><ul class="struck" style="margin-top:6px"><li>Glossy chrome</li><li>Fake-marble laminate</li><li>White plastic, clinical gloss</li><li>Print-veneer, visible cam-locks, raw ply edges</li><li>Exposed piano hinges, visible stays</li></ul>
+      <p class="micro" style="margin-top:10px">Not hospital, not IKEA-hack, not generic hotel. The single rule: low-sheen everything.</p></div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s06" aria-labelledby="s06-h">
+  <div class="sec-mark"><p class="marker">06 · Decisions</p><h2 id="s06-h" class="h2">What was set aside, and why.</h2></div>
+  <div class="decisions"><div class="dec-group"><p class="dec-h"><span class="label">Rail architecture</span><span class="micro">STEP-02 · 26–27 Jun 2026</span></p><div class="options"><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="og-frame" x="8" y="8" width="104" height="104"/><line class="og-rail heavy" x1="14" y1="34" x2="106" y2="34"/><path class="og-line" d="M36 34 V62 M88 34 V88"/><rect class="og-part" x="24" y="62" width="30" height="5"/><rect class="og-part" x="70" y="88" width="34" height="7"/><path class="og-load" d="M36 40 v10 M88 40 v10"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>A · Single continuous rail</p><p class="od">Structurally dishonest: forces bench + surface load onto the extrusion.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="og-frame" x="8" y="8" width="104" height="104"/><rect class="og-anc" x="30" y="56" width="8" height="8"/><rect class="og-anc" x="84" y="84" width="8" height="8"/><rect class="og-anc" x="60" y="26" width="8" height="8"/><rect class="og-part" x="24" y="64" width="30" height="5"/><rect class="og-part" x="70" y="92" width="34" height="7"/><circle class="og-line" cx="64" cy="42" r="5"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>B · Distributed local anchors</p><p class="od">Loses the system: modules read as separate fittings, not a family.</p></article><article class="option"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="og-frame" x="8" y="8" width="104" height="104"/><line class="og-rail" x1="14" y1="34" x2="106" y2="34"/><rect class="og-anc" x="32" y="52" width="9" height="9"/><rect class="og-anc" x="84" y="78" width="9" height="9"/><rect class="og-part" x="24" y="62" width="30" height="5"/><rect class="og-part" x="70" y="88" width="34" height="7"/><path class="og-line" d="M74 95 V104 M100 95 V104"/></svg></div><p class="on"><span class="sr-only">Selected. </span>C · Hybrid spine + anchor nodes</p><p class="od">Spine carries identity, routing and low load; discrete anchors take high load to structure.</p></article></div></div><div class="dec-group"><p class="dec-h"><span class="label">Fold-down mechanism</span><span class="micro">STEP-05</span></p><div class="options"><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-part" x="22" y="44" width="70" height="6"/><line class="og-stay" x1="22" y1="84" x2="62" y2="50"/><circle class="og-line" cx="22" cy="50" r="3"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>A · Drop-leaf hinge + locking stay</p><p class="od">Reads domestic / hospital; visible stay; rigidity depends on a thin stay.</p></article><article class="option"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-brk" x="22" y="40" width="8" height="34"/><rect class="og-part" x="26" y="44" width="70" height="6"/><line class="og-damp" x1="27" y1="68" x2="44" y2="51"/><circle class="og-piv" cx="28" cy="47" r="3.2"/></svg></div><p class="on"><span class="sr-only">Selected. </span>B · Concealed pivot bracket + damper stay</p><p class="od">Hidden hardware, damped both ways, bracket sized for the moment; separate over-centre lock.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-part" x="46" y="44" width="56" height="6"/><path class="og-line" d="M22 36 L50 44 M22 58 L50 50 M22 36 V58"/><path class="og-load" d="M50 62 h52 M50 58 v8 M102 58 v8"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>C · Side-arm parallelogram</p><p class="od">Arms project into the side clearance, visually busy; eats Zone B width.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="og-cass" x="6" y="36" width="48" height="22"/><line class="og-wall" x1="54" y1="8" x2="54" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-part" x="30" y="44" width="72" height="6"/><path class="og-line" d="M80 30 h20 m-4 -4 l4 4 -4 4"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>D · Sliding pull-out cassette</p><p class="od">Needs a ≥450-deep wall cassette; defeats the slim retrofit.</p></article></div></div><div class="dec-group"><p class="dec-h"><span class="label">Luggage bench</span><span class="micro">STEP-06</span></p><div class="options"><article class="option"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-part" x="30" y="64" width="70" height="7"/><path class="og-line" d="M36 71 V104 M94 71 V104"/><line class="og-tie" x1="22" y1="66" x2="30" y2="66"/><rect class="og-anc" x="18" y="62" width="8" height="8"/></svg></div><p class="on"><span class="sr-only">Selected. </span>A · Fixed floor-supported + wall tie</p><p class="od">Weight to the floor; the tie only stops tipping. Doubles as a seat.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><path class="og-line" d="M40 104 L86 66 M86 104 L40 66"/><path class="og-strap" d="M36 66 H90 M36 70 H90"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>B · Fold-up luggage rack</p><p class="od">Reads budget hotel; cannot be a seat; webbing sags.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-part" x="22" y="64" width="78" height="7"/><path class="og-line" d="M22 71 L44 86"/><rect class="og-anc" x="18" y="60" width="8" height="8"/><path class="og-load" d="M90 40 v18"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>C · Wall-hung bench on hard anchors</p><p class="od">80–120 kg cantilever into an uncertain retrofit substrate.</p></article><article class="option variant"><span class="stamp var">Variant</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-wall" x1="22" y1="8" x2="22" y2="112"/><line class="og-floor" x1="8" y1="104" x2="112" y2="104"/><rect class="og-cass" x="22" y="52" width="84" height="52"/><rect class="og-part" x="22" y="52" width="84" height="7"/></svg></div><p class="on"><span class="sr-only">Kept as a variant. </span>D · Bench in a shallow joinery carcass</p><p class="od">Kept as a premium variant, not the base: closer to fitted-furniture renovation.</p></article></div></div><div class="dec-group"><p class="dec-h"><span class="label">Mode and module count</span><span class="micro">STEP-01</span></p><div class="options"><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><g class="og-grid"><rect x="14" y="24" width="26" height="26"/><rect x="46" y="24" width="26" height="26"/><rect x="78" y="24" width="26" height="26"/><rect x="14" y="60" width="26" height="26"/><rect x="46" y="60" width="26" height="26"/><rect x="78" y="60" width="26" height="26"/></g></svg></div><p class="on"><span class="sr-only">Set aside. </span>Six distinct mechanisms</p><p class="od">Work and Dining drive nearly identical mechanics — “don’t fake a sixth mode”.</p></article><article class="option"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="og-part" x="14" y="30" width="92" height="22"/><rect class="og-frame2" x="14" y="66" width="92" height="22"/><text class="og-t" x="18" y="45">open</text><text class="og-t" x="18" y="81">closed</text></svg></div><p class="on"><span class="sr-only">Selected. </span>One surface, two presets</p><p class="od">Six named modes reduce honestly to two physical families.</p></article><article class="option struck"><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-rail" x1="10" y1="30" x2="110" y2="30"/><rect class="og-part" x="12" y="44" width="12" height="40"/><rect class="og-part" x="28" y="44" width="12" height="40"/><rect class="og-part" x="44" y="44" width="12" height="40"/><rect class="og-part" x="60" y="44" width="12" height="40"/><rect class="og-part" x="76" y="44" width="12" height="40"/><rect class="og-part" x="92" y="44" width="12" height="40"/></svg></div><p class="on"><span class="sr-only">Set aside. </span>A sixth module</p><p class="od">Coat hook, charging, tray, mirror would sprawl the family.</p></article><article class="option"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 120 120" aria-hidden="true"><line class="og-rail" x1="10" y1="30" x2="110" y2="30"/><rect class="og-part" x="14" y="44" width="14" height="40"/><rect class="og-part" x="34" y="44" width="14" height="40"/><rect class="og-part" x="54" y="44" width="14" height="40"/><rect class="og-part" x="74" y="44" width="14" height="40"/><rect class="og-part" x="94" y="44" width="14" height="40"/><path class="og-line" d="M18 30 v-8 M54 30 v-8 M92 30 v-8"/><circle class="og-line" cx="18" cy="18" r="3"/><circle class="og-line" cx="54" cy="18" r="3"/><circle class="og-line" cx="92" cy="18" r="3"/></svg></div><p class="on"><span class="sr-only">Selected. </span>Five modules + rail accessories</p><p class="od">Every gap resolves as a rail accessory — one rail standard, many attachments.</p></article></div></div></div>
+</section>
+
+
+<div id="ledger-home-slot"></div>
+<section class="sheet-section" id="s07" aria-labelledby="s07-h">
+  <div class="sec-mark"><p class="marker">07 · Claim ledger</p><h2 id="s07-h" class="h2">What is claimed, at what level.</h2></div>
+  <div class="ledger-wrap"><div class="tablewrap"><table class="ledger"><thead><tr><th scope="col">Claim</th><th scope="col">Value</th><th scope="col">Level</th><th scope="col">Qualifier</th></tr></thead><tbody><tr><td>Room modes</td><td class="v">Six: 01 Arrival / luggage · 02 Work · 03 Rest · 04 Dining / coffee · 05 Wellness / stretching · 06 Housekeeping reset</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td class="q">STEP-01 matrix</td></tr><tr><td>Physical families</td><td class="v">Two: surface open (Work, Dining) · surface closed (Arrival, Rest, Wellness, Reset)</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td class="q">Stated as the real geometry — not six mechanisms</td></tr><tr><td>Modules</td><td class="v">Five: transform rail, fold-down surface, luggage dock / bench, lighting spine, privacy / wellness panel</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td class="q">No sixth module; gaps become rail accessories</td></tr><tr><td>Rail architecture</td><td class="v">Option C hybrid: continuous anodised-aluminium spine at one datum height + local hard anchor nodes</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td class="q">A and B set aside (STEP-02)</td></tr><tr><td>Load classes</td><td class="v">Low rides the spine · medium: spine carrier + floor / anchor reaction · high: hard anchor required</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td class="q">Division rule: moves / routes → spine; holds weight → anchor</td></tr><tr><td>Fold-down surface</td><td class="v">≈450 mm projection · 720–750 mm AFFL · width 700–900 (≈800) · closed 35–60 (target ≤45) · bracket spacing ≥200 · edge R6 · 20–30 kg distributed</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· targets, not built</span></span></td><td class="q">STEP-05 dimensional targets</td></tr><tr><td>Overturning moment</td><td class="v">30 kg at 450 mm reach ≈ 132 Nm at the wall, resolved as a tension / compression couple into the anchor; spine bypassed</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· hand calculation, not tested</span></span></td><td class="q">A leaning user adds more; lean-case load still to be defined</td></tr><tr><td>Mechanism</td><td class="v">Concealed pivot bracket + damper stay + separate over-centre positive lock · soft-close both ways · damper as a swappable cartridge</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td class="q">Option B (STEP-05)</td></tr><tr><td>Cycle target</td><td class="v">10,000 cycles ≈ 5 yr at ~5 cycles / day</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· design target, not achieved</span></span></td><td class="q">Never tested; no prototype exists</td></tr><tr><td>Luggage bench</td><td class="v">Floor-supported + wall tie (tip / lateral only) · width ≈900 (800–1100) · depth 420–480 · height 460–480 · 80–120 kg static · ≥300 standoff from the entry pinch · ≥500 clear in front</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td class="q">Option A (STEP-06)</td></tr><tr><td>Object count</td><td class="v">~4 loose objects (desk, chair, round table, armchair) → 1 wall system + 1 tuck-under stool</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· countable</span></span></td><td class="q">From the private reference room</td></tr><tr><td>Zones</td><td class="v">A panel / light (window end) · B fold-down surface + anchor (mid) · C bench + anchor / floor (entry end) · nothing in the entry / bath pinch</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td class="q">Schematic; no room dimensions published</td></tr><tr><td>Lighting presets</td><td class="v">Rest 2700 K + floor night path · Work 3500–4000 K task · Dining mid-warm pooled · Reset bright neutral, then default · diffuser CRI ≥90 target</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td class="q">Not modelled in the renders</td></tr><tr><td>Material base</td><td class="v">Compact laminate + powder-coated steel + PET felt; veneer / carcass as premium variant · low-sheen everything</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· direction</span></span></td><td class="q">STEP-07; renders show tonal blockout, not final CMF</td></tr><tr><td>Standards</td><td class="v">Designed against the relevant standard families, to be verified at prototype</td><td><span class="claim" data-level="NOT_CLAIMED">No compliance claimed</span></td><td class="q">No certification of any kind</td></tr><tr><td>Physical evidence</td><td class="v">None — no prototype, no physical mock-up</td><td><span class="claim" data-level="NOT_CLAIMED">Not claimed</span></td><td class="q">“Physical mock-up for the motion feel” deferred</td></tr></tbody></table></div>
+    <div class="side">
+      <div><h3>Not claimed</h3><ul class="struck"><li>ROI, cost, revenue or time saved</li><li>Install time</li><li>Area (m²) or area-saving figures</li><li>User or operator research — none was done</li><li>Certification or standards compliance</li><li>“No structural work” — the wording is: designed to avoid major structural alteration</li><li>Six distinct mechanisms</li><li>Achieved durability — 10,000 cycles is a target</li><li>A prototype or physical mock-up</li><li>Final CMF in the renders</li></ul></div>
+      <div><h3>Open items</h3><ul class="open-items">
+        <li><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct">Anchor strategy per wall condition · ply-backing extent on the free wall</span></span> <span class="claim" data-level="TBC">TBC</span></li>
+        <li><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct">Lean-case design load above the static 30 kg</span></span> <span class="claim" data-level="TBC">TBC</span></li>
+        <li><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct">Damper spec · cycle rating + force for the arc</span></span> <span class="claim" data-level="TBC">TBC</span></li>
+        <li><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct">Bracket spacing achievable within ≤45 mm closed thickness</span></span> <span class="claim" data-level="TBC">TBC</span></li>
+        <li><span class="cloud"><svg viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M11 11 A9.1 9.1 0 0 1 29.2 11 A9.1 9.1 0 0 1 47.3 11 A9.1 9.1 0 0 1 65.5 11 A9.1 9.1 0 0 1 83.7 11 A9.1 9.1 0 0 1 101.8 11 A9.1 9.1 0 0 1 120 11 A9.1 9.1 0 0 1 138.2 11 A9.1 9.1 0 0 1 156.3 11 A9.1 9.1 0 0 1 174.5 11 A9.1 9.1 0 0 1 192.7 11 A9.1 9.1 0 0 1 210.8 11 A9.1 9.1 0 0 1 229 11 A9.7 9.7 0 0 1 229 30.3 A9.7 9.7 0 0 1 229 49.7 A9.7 9.7 0 0 1 229 69 A9.1 9.1 0 0 1 210.8 69 A9.1 9.1 0 0 1 192.7 69 A9.1 9.1 0 0 1 174.5 69 A9.1 9.1 0 0 1 156.3 69 A9.1 9.1 0 0 1 138.2 69 A9.1 9.1 0 0 1 120 69 A9.1 9.1 0 0 1 101.8 69 A9.1 9.1 0 0 1 83.7 69 A9.1 9.1 0 0 1 65.5 69 A9.1 9.1 0 0 1 47.3 69 A9.1 9.1 0 0 1 29.2 69 A9.1 9.1 0 0 1 11 69 A9.7 9.7 0 0 1 11 49.7 A9.7 9.7 0 0 1 11 30.3 A9.7 9.7 0 0 1 11 11Z"/></svg><span class="ct">Wall-tie substrate + off-centre load value · dining-seat ergonomics in mock-up</span></span> <span class="claim" data-level="TBC">TBC</span></li>
+      </ul></div>
+    </div></div>
+</section>
+
+
+<section class="sheet-section" id="s08" aria-labelledby="s08-h">
+  <div class="sec-mark"><p class="marker">08 · Provenance, credits, revisions</p><h2 id="s08-h" class="h2">Where every image comes from.</h2></div>
+  <div class="prov-grid"><div class="a">
+    <ul class="prov-list">
+      <li><span>Core-sample plate (§01, lab) · cropped 4:3 from the locked hero render</span><span>Blockout render · Blender</span></li>
+      <li><span>Surface open / closed (§03) · same camera</span><span>Blockout renders · Blender</span></li>
+      <li><span>Fold-down section (§01 investigation, §03)</span><span>Schematic redraw · STEP-05</span></li>
+      <li><span>Rail section at an anchor node (§04)</span><span>Schematic redraw · STEP-02</span></li>
+      <li><span>Mode × module matrix (§04)</span><span>From the STEP-01 table</span></li>
+      <li><span>Load-class elevation (§05)</span><span>Schematic · STEP-02 / 04</span></li>
+      <li><span>Plates 01–10 (§04) · locked set, shown whole</span><span>Portfolio frames · 9 Jul 2026</span></li>
+      <li><span>Plan plates 01, 03, 08</span><span>Redrawn abstraction · reference topology only</span></li>
+      <li><span>Swatches (§05)</span><span>Authored STEP-02 / 05 / 07 · ≈ sampled plate 07</span></li>
+    </ul>
+    <div class="credits">
+      <p class="label">Credits</p>
+      <p><b>Bahareh Arianejad</b> — lead, industrial design &amp; product-system logic · MALINYX Studio</p>
+      <p><b>Haleh Afshar</b> — spatial design / interior architecture collaboration</p>
+      <p class="micro" style="margin-top:10px">Renders are blockout-level visualisations with tonal materials — not photographs, not final CMF, not built work. The room reference is private and is not reproduced here: no names, linework, sheet numbers or dimensions from any source drawing.</p>
+    </div>
+  </div>
+  <div class="b">
+    <table class="revs"><thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead><tbody>
+      <tr><td>A</td><td>26–27 Jun 2026</td><td>STEP-01…10 logic and feasibility documents: matrix, rail, overlay, mechanism, bench, CMF</td></tr>
+      <tr><td>B</td><td>28 Jun 2026</td><td>CAD-01 blockout brief</td></tr>
+      <tr><td>C</td><td>2–8 Jul 2026</td><td>Clay / blockout renders</td></tr>
+      <tr><td>D</td><td>9 Jul 2026</td><td>10-frame portfolio set locked</td></tr>
+      <tr><td>E</td><td>12 Jul 2026</td><td>Website package and LinkedIn PDF</td></tr>
+      <tr><td>F</td><td>2 Oct 2026</td><td>This specimen sheet: section and rail redrawn with site inks; matrix rebuilt as a live table; plates shown whole</td></tr>
+    </tbody></table>
+  </div></div>
+</section>
+
+
+<section class="sheet-section" id="s09" aria-label="Next specimen">
+  <a class="next-spec" href="ecs" data-morph style="--g0:#AA8962"><div class="ns-text"><p class="marker">09 · Next specimen</p><p class="micro">Specimen 04 / 08 · sheet 06</p><p class="h2">ECS</p><p class="small muted">Carry that moves with the rider. Sheet 06 · prototype, cardboard-validated load path only.</p><span class="btn"><span class="t">Open sheet 06</span><span class="a" aria-hidden="true"><span>→</span></span></span></div><div class="ns-ground"><picture><source srcset="assets/ecs/ecs-still-800.avif" type="image/avif"><img src="assets/ecs/ecs-still-800.jpg" width="800" height="600" alt="" loading="lazy" decoding="async"></picture></div></a>
+</section>
+</main>
+<footer class="sheet-section foot" role="contentinfo">
+  <div class="titleblock">
+    <div><span class="k">Drawn</span><span class="v">B. Arianejad</span></div>
+    <div><span class="k">Studio</span><span class="v">MALINYX</span></div>
+    <div><span class="k">Sheet</span><span class="v">05 / 11</span></div>
+    <div><span class="k">Rev</span><span class="v">2026-10-02</span></div>
+    <div><span class="k">Contact</span><span class="v"><a href="mailto:info@malinyx.com">info@malinyx.com</a></span></div>
+    <div><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">in/bahareharianejad</a></span></div>
+    <div class="wide"><span class="k">Status</span><span class="v">Available for systems design, industrial / product work, and portfolio collaborations.</span></div>
+    <div><span class="k">Projection</span><span class="v"><a href="#top" aria-label="Back to top"><svg class="proj" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 6 L14 9 L14 15 L2 18 Z" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="8" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="4" fill="none" stroke="currentColor"/><path d="M0 12H40" stroke="currentColor" stroke-width=".6" stroke-dasharray="6 2 1 2"/></svg></a></span></div>
+    <div><span class="k">Motion</span><span class="v"><span class="seg" role="group" aria-label="Motion"><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></span></span></div>
+    <div><span class="k">Reality</span><span class="v"><button class="reality-btn" type="button" aria-pressed="false"><span>Change reality</span></button></span></div>
+    <div class="full"><span class="k">© 2026 Bahareh Arianejad · MALINYX Studio</span><span class="v">Every colour on this site is authored or sampled from the project it names. Every claim carries its level.</span></div>
+  </div>
+</footer>
+
+</div>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="win"><div class="win-in">
+    <div class="win-bar"><span class="win-title">MALINYX · INDEX <span class="idx">/05</span></span><button class="win-x" type="button" data-close-menu aria-label="Close menu">×</button></div>
+    <div class="win-body"><div><div class="pad">
+      <nav aria-label="Menu"><a href="./">Index</a><a href="work">Work</a><a href="field-notes">Field notes</a><a href="about">About</a></nav>
+      <div class="pills"><a class="pill" href="mailto:info@malinyx.com">info@malinyx.com</a><a class="pill" href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">LinkedIn</a></div>
+      <div class="seg" role="group" aria-label="Motion" style="margin-top:16px"><span class="seg-l">Motion</span><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></div>
+    </div></div></div>
+  </div></div>
+</dialog>
+
+<dialog class="plate-viewer" id="plate-viewer" aria-label="Plate viewer">
+  <div class="win"><div class="win-in">
+    <div class="win-bar"><span class="win-title" data-pv-title>Plate</span><button class="win-x" type="button" data-pv-close aria-label="Close plate viewer">×</button></div>
+    <div class="pv-body"><img data-pv-img src="data:," alt="" width="2400" height="1696"><p class="micro"><span data-pv-cap></span> <a class="tbtn" data-pv-png href="#">Original PNG ↗</a></p></div>
+  </div></div>
+</dialog>
+<script src="assets/js/sheet.js" defer></script>
+<script src="assets/js/pages/ahrk.js" defer></script>
+<a href="/" style="position:fixed;left:16px;bottom:16px;z-index:9999;padding:10px 16px;border-radius:999px;background:#0e0a09;color:#f3ebe0;font:500 12px/1 system-ui,sans-serif;letter-spacing:.08em;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35)">← MALINYX · technical dossier</a></body>
+</html>

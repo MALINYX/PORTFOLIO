@@ -1,228 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALINYX — Forensic Systems & Industrial Design</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- MALINYX shell: shared structure + STUDIO (warm) mode -->
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/mode-studio.css">
-
-<style>
-/* ============================================================
-   index.html — PAGE-SPECIFIC ONLY
-   Shell (body/grid/statusbar/footer/reveal/type/sections) now
-   lives in site.css; tokens in mode-studio.css. Keep only the
-   homepage hero + work-card rules here.
-   ============================================================ */
-
-/* ---- hero ---- */
-.hero{padding:120px 0 88px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:0;right:-10%;width:50%;height:100%;
-  background:radial-gradient(ellipse at top right,color-mix(in srgb,var(--accent) 9%,transparent),transparent 65%);
-  pointer-events:none}
-.hero .designer{font-family:var(--mono);font-size:13px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--txt-dim);margin-bottom:20px}
-.hero .designer b{color:var(--txt);font-weight:500}
-.hero .subtitle{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--txt-dim);
-  max-width:680px;line-height:1.5;margin-top:24px}
-.hero-meta{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;
-  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.hero-meta div span{display:block;color:var(--txt-faint);margin-bottom:5px;font-size:10px}
-.hero-meta div b{color:var(--txt);font-weight:500;font-size:13px}
-
-/* ---- work index cards ---- */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  background:var(--line);border:1px solid var(--line)}
-.work-card{background:var(--panel);padding:34px 30px;display:block;
-  transition:background .25s;position:relative;overflow:hidden}
-.work-card:hover{background:var(--panel2)}
-.work-card:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
-.work-card::before{content:"";position:absolute;top:0;left:0;width:2px;height:0;
-  background:var(--accent);transition:height .3s}
-.work-card:hover::before,.work-card:focus-visible::before{height:100%}
-.work-card .wc-code{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
-  color:var(--accent);text-transform:uppercase;margin-bottom:18px}
-.work-card .wc-title{font-family:var(--mono);font-size:24px;font-weight:600;
-  color:var(--txt);line-height:1.1;margin-bottom:12px;letter-spacing:-.01em}
-.work-card .wc-desc{font-size:14px;color:var(--txt-dim);line-height:1.5;margin-bottom:22px}
-.work-card .wc-meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--txt-faint);display:flex;gap:18px}
-.work-card .wc-arrow{position:absolute;bottom:30px;right:30px;color:var(--txt-faint);
-  font-family:var(--mono);transition:color .25s,transform .25s}
-.work-card:hover .wc-arrow{color:var(--accent);transform:translateX(4px)}
-
-/* 5 cards in a 2-col grid leaves one odd cell: let the last card span
-   both columns so the block stays flush instead of ending on a gap. */
-.work-card.wc-span{grid-column:1 / -1}
-
-@media(max-width:760px){
-  .work-grid{grid-template-columns:1fr}
-  .work-card.wc-span{grid-column:auto}
-}
-
-/* ---- ECS WIREFRAME VIEWER · cold inspection chamber inside warm hero ---- */
-.hero-grid{display:grid;grid-template-columns:1fr 0.92fr;gap:56px;align-items:center}
-.hh-media{position:relative;aspect-ratio:4/3;border:1px solid #1d2630;
-  background:radial-gradient(120% 120% at 50% 42%, #11171e 0%, #0a0f14 64%, #070b0f 100%);
-  overflow:hidden;cursor:grab;touch-action:none}
-.hh-media.dragging{cursor:grabbing}
-.hh-media canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hh-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity .6s ease}
-.hh-media.live .hh-fallback{opacity:0}
-.hh-ovl{position:absolute;inset:0;z-index:3;pointer-events:none}
-.hh-ovl .lab{position:absolute;left:15px;top:13px;font-family:var(--mono);font-size:10px;
-  letter-spacing:.16em;color:#9aa7b4;background:rgba(10,15,20,.5);padding:3px 8px}
-.hh-ovl .lab b{color:var(--accent);font-weight:500}
-.hh-ovl .tick{position:absolute;width:13px;height:13px;border:1px solid rgba(230,236,242,.22)}
-.hh-ovl .tl{left:11px;top:11px;border-right:none;border-bottom:none}
-.hh-ovl .tr{right:11px;top:11px;border-left:none;border-bottom:none}
-.hh-ovl .bl{left:11px;bottom:11px;border-right:none;border-top:none}
-.hh-ovl .br{right:11px;bottom:11px;border-left:none;border-top:none}
-.hh-ovl .hint{position:absolute;left:15px;bottom:14px;font-family:var(--mono);font-size:10px;
-  letter-spacing:.12em;color:#5e6975;text-transform:uppercase}
-.hh-ovl .seg{position:absolute;right:15px;bottom:14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#5e6975}
-.hh-media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 70px rgba(0,0,0,.5)}
-.hh-cap{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--txt-dim);margin-top:15px}
-.hh-subcap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--txt-faint);margin-top:6px}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
-@media(max-width:560px){
-  .hero{padding:48px 0 56px}
-  .hero h1{font-size:clamp(34px,11vw,46px)}
-  .hero .subtitle{margin-top:18px}
-  .hero-meta{gap:24px;margin-top:32px}
-  .hero-grid{gap:28px}
-  /* viewer appears sooner: copy block tightened above it */
-  .hero-copy .hero-meta{margin-top:26px}
-}
-
-</style>
-</head>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MALINYX — Objects, engineered · Bahareh Arianejad</title><meta name="description" content="Industrial design that survives engineering: watches, flacons, compacts, appliances, rooms and games by Bahareh Arianejad, MALINYX Studio."><link rel="canonical" href="https://malinyx.com/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MALINYX"><meta property="og:title" content="MALINYX — Objects, engineered · Bahareh Arianejad"><meta property="og:description" content="Industrial design that survives engineering: watches, flacons, compacts, appliances, rooms and games by Bahareh Arianejad, MALINYX Studio.">
+<meta property="og:url" content="https://malinyx.com/"><meta property="og:image" content="https://malinyx.com/og.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0a09"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/v2.css?v=2610032015"><script>(function(){try{var q=new URLSearchParams(location.search),d=document.documentElement;if(q.has('motion')){d.classList.add('qa');document.addEventListener('DOMContentLoaded',function(){[].forEach.call(document.querySelectorAll('img[loading="lazy"]'),function(i){i.loading='eager'})})}var so=q.get('solo');if(so&&/^[\w-]+$/.test(so)){var st=document.createElement('style');st.textContent='main > :not(#'+so+'):not(:has(#'+so+')){display:none!important}';document.head.appendChild(st)}}catch(e){}})();</script></head>
 <body>
-<div class="grain"></div>
-
-<div class="statusbar"><div class="wrap">
-  <a class="brand" href="index.html">
-    <span class="name">B·ARIANEJAD</span><span class="mark">MALINYX</span>
-  </a>
-  <nav class="nav">
-    <a href="index.html" class="active">Index</a>
-    <a href="work.html">Work</a>
-    <a href="field-notes.html">Field Notes</a>
-    <a href="#contact">Contact</a>
-    <span class="live hide-sm"><span class="dot"></span>Selected briefs</span>
-  </nav>
-</div></div>
-
-<header class="hero"><div class="wrap reveal">
- <div class="hero-grid">
-  <div class="hero-copy">
-    <div class="designer">MALINYX / <b>B. Arianejad</b></div>
-    <h1>Industrial design,<br>mechanism logic.</h1>
-    <p class="subtitle">A technical archive of products, tools, and systems developed through evidence, prototypes, material decisions, and operational constraints.</p>
-    <div class="hero-meta">
-      <div><span>Method</span><b>Research → Prototype → System</b></div>
-      <div><span>Featured</span><b>ECS-MT-02-R1</b></div>
-      <div><span>Status</span><b>Selected briefs</b></div>
-    </div>
-  </div>
-
-  <!-- ============ ECS WIREFRAME HERO (cold inspection chamber) ============ -->
-  <div class="hero-viewer">
-    <div class="hh-media" id="ecsViewer" data-model="assets/models/ECS.glb" data-still="assets/hero/ECS_HERO_STILL.jpg">
-      <img class="hh-fallback" src="assets/hero/ECS_HERO_STILL.jpg"
-           alt="ECS-MT-02-R1 — ergonomic carry system, edge-extracted technical inspection model">
-      <div class="hh-ovl">
-        <span class="lab"><b>ECS-MT-02-R1</b> / 360° TECHNICAL INSPECTION</span>
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <span class="hint">Drag to inspect geometry</span>
-        <span class="seg" id="ecsSeg">EDGES / 25° · — SEGMENTS</span>
-      </div>
-    </div>
-    <p class="hh-cap">ECS-MT-02-R1 / dynamic load-transfer study</p>
-    <p class="hh-subcap">edge-extracted inspection model · 360° rotatable</p>
-  </div>
-  <!-- ============ /ECS WIREFRAME HERO ============ -->
- </div>
-</div></header>
-
-<section class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Selected Work</span><span class="sec-line"></span></div>
-  <div class="work-grid">
-    <a class="work-card" href="ahrk.html">
-      <div class="wc-code">AHRK</div>
-      <div class="wc-title">Adaptive Hotel<br>Room Kit</div>
-      <div class="wc-desc">A retrofit product-spatial system for compact hotel rooms, using one adaptive wall layer to shift between work, rest, luggage, dining, wellness, and housekeeping reset modes.</div>
-      <div class="wc-meta"><span>Hospitality / Systems</span><span>2026</span></div>
-      <div class="wc-arrow">&rarr;</div>
-    </a>
-
-    <a class="work-card" href="ecs.html">
-      <div class="wc-code">ECS</div>
-      <div class="wc-title">Ergonomic<br>Carry System</div>
-      <div class="wc-desc">A validated-prototype wearable load-transfer system for urban e-bike commuters. A tension-shortening mechanism keeps the load's moment arm short precisely under forward lean.</div>
-      <div class="wc-meta"><span>Wearable / Systems</span><span>2026</span></div>
-      <div class="wc-arrow">&rarr;</div>
-    </a>
-
-    <a class="work-card" href="clx-ct-01.html">
-      <div class="wc-code">CLX-CT-01</div>
-      <div class="wc-title">Creator-Tech<br>Carry System</div>
-      <div class="wc-desc">A data-led industrial design project: a spine-centered creator workstation built from public review mining, teardown analysis, and traceable requirements. The object is the load path.</div>
-      <div class="wc-meta"><span>Industrial / Systems</span><span>2026</span></div>
-      <div class="wc-arrow">&rarr;</div>
-    </a>
-
-    <a class="work-card" href="zewm-excmon.html">
-      <div class="wc-code">ZEWM_EXCMON</div>
-      <div class="wc-title">Forensic Systems<br>Investigation</div>
-      <div class="wc-desc">A forensic investigation into cold-chain governance failure, reconstructing how repeated exception signals lost ownership across fragmented institutional systems.</div>
-      <div class="wc-meta"><span>Enterprise / Forensic</span><span>2026</span></div>
-      <div class="wc-arrow">&rarr;</div>
-    </a>
-
-    <a class="work-card wc-span" href="field-notes.html">
-      <div class="wc-code">FIELD NOTES</div>
-      <div class="wc-title">Research<br>Archive</div>
-      <div class="wc-desc">Small research fragments from forensic systems, industrial design, mechanisms, materials, and visual evidence.</div>
-      <div class="wc-meta"><span>Research / Archive</span><span>12 Entries</span></div>
-      <div class="wc-arrow">&rarr;</div>
-    </a>
-  </div>
-</div></section>
-
-<section class="reveal" id="contact"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Contact</span><span class="sec-line"></span></div>
-  <p class="lede">Available for <span class="em">systems design, industrial / product work, and portfolio collaborations</span>. Reach the studio directly.</p>
-  <div class="hero-meta" style="margin-top:36px">
-    <div><span>Email</span><b><a href="mailto:info@malinyx.com">info@malinyx.com</a></b></div>
-    <div><span>LinkedIn</span><b><a href="https://www.linkedin.com/in/bahareharianejad" target="_blank" rel="noopener">in/bahareharianejad</a></b></div>
-    <div><span>Studio</span><b>MALINYX</b></div>
-    <div><span>Status</span><b style="color:var(--signal)">Selected briefs</b></div>
-  </div>
-</div></section>
-
-<footer><div class="wrap">
-  <span>BAHAREH ARIANEJAD · MALINYX STUDIO</span>
-  <span><a href="https://www.linkedin.com/in/bahareharianejad" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:info@malinyx.com">info@malinyx.com</a></span>
-  <span>© 2026</span>
-</div></footer>
-
-<script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
-</script>
-<script type="importmap">
-{ "imports": {
-  "three": "./assets/js/vendor/three.module.js",
-  "three/addons/": "./assets/js/vendor/addons/"
-}}
-</script>
-<script type="module" src="assets/js/ecs-viewer.js"></script>
-</body>
-</html>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><a class="mark" href="/" aria-label="MALINYX — home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5A13 13 0 0 1 15.5 3.2" fill="none" stroke="currentColor" stroke-width="1.1"/><line x1="15.5" y1="1.5" x2="15.5" y2="22.5" stroke="currentColor" stroke-width="1.1"/><circle cx="15.5" cy="17" r="2.6" fill="currentColor"/></svg><span>MALINYX</span></a><nav aria-label="Primary"><a href="/work/">Work</a><a class="opt" href="/work/#archive">Archive</a><a href="/about/">About</a><a class="hire" href="/contact/">Hire me</a></nav></header>
+<main id="main">
+<section class="hero" id="top" data-bg="ink"><div class="sky " aria-hidden="true"><div class="sun"></div><div class="slats"><i style="--dur:17s;--del:-0s"></i><i style="--dur:24s;--del:-5s"></i><i style="--dur:19s;--del:-10s"></i><i style="--dur:26s;--del:-4s"></i><i style="--dur:21s;--del:-9s"></i><i style="--dur:28s;--del:-3s"></i><i style="--dur:23s;--del:-8s"></i><i style="--dur:18s;--del:-2s"></i><i style="--dur:25s;--del:-7s"></i></div><div class="grain"></div></div>
+<div class="hero-copy"><p class="kick mono">MALINYX Studio — Bahareh Arianejad · industrial design &amp; engineering</p>
+<h1><span class="w"><span style="--i:0">Objects,</span></span><br><span class="w"><span style="--i:1">engineered.</span></span></h1>
+<div class="sub"><p>Industrial design that survives engineering: watches, flacons, compacts, appliances, rooms and games — modelled to real tolerances, audited on the model, and shown in the materials they were meant to have.</p>
+<div class="ctas"><a class="btn solid" href="#collection">Turn the collection <span class="arr">↓</span></a><a class="btn" href="/contact/">Hire me <span class="arr">→</span></a></div></div></div><a class="orbit" href="#collection" aria-label="Scroll to the collection"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="orb" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#orb" textLength="286" lengthAdjust="spacing">Industrial design · Engineering · Motion · </textPath></text></svg><span aria-hidden="true">↓</span></a><div class="cue" aria-hidden="true"></div></section>
+<section class="sec intro" id="intro" data-bg="ink"><div class="wrap"><div class="eyebrow mono"><span>00 — MALINYX Studio</span><span>Art · engineering · motion</span></div>
+<h2 class="big" data-reveal>Beautiful first.<br><span class="grad">Then true to the millimetre.</span></h2>
+<dl class="stats" data-reveal><div><dt>Projects merged into one portfolio</dt><dd data-count="22">22</dd></div><div><dt>Originals re-engineered, 2020–24 → 2026</dt><dd data-count="5">5</dd></div><div><dt>Parts in one watch, modelled and audited</dt><dd data-count="182">182</dd></div><div><dt>Interferences found across those 182 parts</dt><dd>0</dd></div></dl></div></section>
+<section class="ring-sec" id="collection" data-bg="ink"><div class="ring-pin">
+<div class="ring-head"><h2>The collection</h2><p class="mono muted">Scroll or drag to turn · 12 of 22 projects</p></div>
+<div class="ring-stage" data-cursor="Drag"><div class="ring"><a class="item" href="/work/haxa/" draggable="false" style="--i:0;--room:#131210" data-name="HAXĀ" data-line="Watch — Persian Legacy, Timeless Mastery" data-seq="haxa_turn"><div class="face"><img src="/assets/seq/haxa_turn/s/000.jpg" alt="HAXĀ" draggable="false" decoding="async"></div><div class="cap"><b>HAXĀ</b><span class="mono">01</span></div></a><a class="item" href="/work/aban/" draggable="false" style="--i:1;--room:#060604" data-name="ABAN" data-line="Fragrance — The Divine Essence of Persia" data-seq="aban_flacon"><div class="face"><img src="/assets/seq/aban_flacon/s/000.jpg" alt="ABAN" draggable="false" decoding="async"></div><div class="cap"><b>ABAN</b><span class="mono">02</span></div></a><a class="item" href="/work/marcella/" draggable="false" style="--i:2;--room:#080705" data-name="MARCELLA" data-line="Whisky — Premium · aged in oak" data-seq="marcella_bottle"><div class="face"><img src="/assets/seq/marcella_bottle/s/000.jpg" alt="MARCELLA" draggable="false" decoding="async"></div><div class="cap"><b>MARCELLA</b><span class="mono">03</span></div></a><a class="item" href="/work/eclos-compact/" draggable="false" style="--i:3;--room:#72716e" data-name="ÉCLOS" data-line="Beauty · compact — Paris · refillable beauty" data-seq="eclos_turn"><div class="face"><img src="/assets/seq/eclos_turn/s/000.jpg" alt="ÉCLOS" draggable="false" decoding="async"></div><div class="cap"><b>ÉCLOS</b><span class="mono">04</span></div></a><a class="item" href="/work/ecs/" draggable="false" style="--i:4;--room:#b0aeaf" data-name="ECS" data-line="Ergonomic carry system — Carry that moves with the rider." data-seq="ecs_turn"><div class="face"><img src="/assets/seq/ecs_turn/s/000.jpg" alt="ECS" draggable="false" decoding="async"></div><div class="cap"><b>ECS</b><span class="mono">05</span></div></a><a class="item" href="/work/therma/" draggable="false" style="--i:5;--room:#e9e2d8" data-name="THERMA" data-line="Hair-styling appliance — Every dimension a variable. One mineral orange."><div class="face"><img class="contain" src="/assets/img/therma/therma-specimen-h1470-1f3d6-700.jpg" alt="THERMA" draggable="false" decoding="async"></div><div class="cap"><b>THERMA</b><span class="mono">06</span></div></a><a class="item" href="/work/monolith/" draggable="false" style="--i:6;--room:#141519" data-name="MONOLITH RF03-U1" data-line="Fragrance cartridge platform — You already own the bottle. You buy it again anyway."><div class="face"><img src="/assets/img/monolith/monolith-slide-525-a5991-700.jpg" alt="MONOLITH RF03-U1" draggable="false" decoding="async"></div><div class="cap"><b>MONOLITH RF03-U1</b><span class="mono">07</span></div></a><a class="item" href="/work/clx-ct-01/" draggable="false" style="--i:7;--room:#f4eee4" data-name="CLX-CT-01" data-line="Creator-tech carry system — Not a camera backpack."><div class="face"><img class="contain" src="/assets/img/clx-ct-01/card-lab.svg" alt="CLX-CT-01" draggable="false" decoding="async"></div><div class="cap"><b>CLX-CT-01</b><span class="mono">08</span></div></a><a class="item" href="/work/eclos-lipstick/" draggable="false" style="--i:8;--room:#eee2d2" data-name="ÉCLOS lipstick" data-line="Refillable lipstick — The case you keep. The cartridge you replace."><div class="face"><img class="contain" src="/assets/img/eclos-lipstick/eclos-open-560-86d3e-700.jpg" alt="ÉCLOS lipstick" draggable="false" decoding="async"></div><div class="cap"><b>ÉCLOS lipstick</b><span class="mono">09</span></div></a><a class="item" href="/work/eclos-refill/" draggable="false" style="--i:9;--room:#3a3a3a" data-name="ÉCLOS Refill Ritual" data-line="Bayonet-collar skincare dispenser — Turn 45°, lift, replace."><div class="face"><img src="/assets/img/eclos-refill/visual-31893-700.jpg" alt="ÉCLOS Refill Ritual" draggable="false" decoding="async"></div><div class="cap"><b>ÉCLOS Refill Ritual</b><span class="mono">10</span></div></a><a class="item" href="/work/ahrk/" draggable="false" style="--i:10;--room:#4b4a48" data-name="AHRK" data-line="Adaptive hotel room kit — One adaptive wall, six room states."><div class="face"><img src="/assets/img/ahrk/mode-work-960-7d386-700.jpg" alt="AHRK" draggable="false" decoding="async"></div><div class="cap"><b>AHRK</b><span class="mono">11</span></div></a><a class="item" href="/work/zewm-excmon/" draggable="false" style="--i:11;--room:#010104" data-name="ZEWM_EXCMON" data-line="Forensic systems investigation — The failure was not a missed alert."><div class="face"><img src="/assets/img/zewm-excmon/rec041-1600-bb94a-700.jpg" alt="ZEWM_EXCMON" draggable="false" decoding="async"></div><div class="cap"><b>ZEWM_EXCMON</b><span class="mono">12</span></div></a></div></div>
+<div class="ring-foot"><div class="now" aria-live="polite"><b></b><span></span></div><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><a class="btn go" href="/work/haxa/">Open the case <span class="arr">→</span></a></div></div></section>
+<section class="sec" id="signature" data-bg="ink"><div class="wrap"><div class="eyebrow mono"><span>01 — Signature objects</span><span>Originals 2020–24 · re-engineered 2026</span></div>
+<h2 class="big" data-reveal>Originals,<br>re-engineered.</h2><p class="lead" data-reveal>Objects I designed between 2020 and 2024, re-engineered in 2026 as audited models. Drag any of them to turn it.</p></div></section>
+<section class="room" id="r-haxa" data-bg="ink"><div class="wrap room-grid">
+<div class="stage-col"><div class="stage" id="st-haxa" data-seq="haxa_turn" data-cursor="Drag" style="--ar:1.0;--room:#131210" role="img" aria-label="HAXĀ — drag or use the arrow keys to turn it" tabindex="0"><img class="poster" src="/assets/seq/haxa_turn/l/000.jpg" alt="" decoding="async"><canvas aria-hidden="true"></canvas><img class="layer" data-k="k1" src="/assets/img/haxa/hero-oxblood-f7cb6-1200.jpg" alt="" decoding="async"><img class="layer" data-k="k2" src="/assets/img/haxa/hero-emerald-bc166-1200.jpg" alt="" decoding="async"><div class="wipe"></div><svg class="load" viewBox="0 0 28 28" aria-hidden="true"><circle class="bgc" cx="14" cy="14" r="12"/><circle class="fg" cx="14" cy="14" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg><div class="hint mono" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M1 6h20M5 2L1 6l4 4M17 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Drag to turn</div></div><div class="ctrl" data-switch="st-haxa" data-caption="st-haxa-cap" role="group" aria-label="Colourway"><button type="button" class="chip" aria-pressed="true" data-caption="Satin rose-gold case, brown lacquer dial, burgundy enamel, champagne figure." data-room="#131210" data-seq="haxa_turn"><span class="dot" style="--c:#c58a70"></span>Rose gold</button><button type="button" class="chip" aria-pressed="false" data-caption="Black DLC case, oxblood lacquer dial, onyx hexagons, red-white-green enamel wing." data-still="k1" data-room="#050505"><span class="dot" style="--c:#6b1f25"></span>Oxblood</button><button type="button" class="chip" aria-pressed="false" data-caption="Matte green case, emerald lacquer dial, ruby studs, crimson enamel figure." data-still="k2" data-room="#050505"><span class="dot" style="--c:#1f5a46"></span>Emerald</button></div><p class="note" id="st-haxa-cap" aria-live="polite">Satin rose-gold case, brown lacquer dial, burgundy enamel, champagne figure.</p></div>
+<div class="copy"><p class="kicker mono">01 · Watch · Original 2024 · rebuilt 2026</p><h2 class="name" style="--k:1.0">HAXĀ</h2><p class="tag">Persian Legacy, Timeless Mastery</p>
+<p class="lede">My original concept watch, rebuilt from its original Rhino model around a real automatic calibre. The case, bezel, dial art and bracelet are my original surfaces; everything inside them is new engineering, measured on the model.</p><dl class="facts" data-reveal><div><dt>Sellita SW300-1 automatic, modelled to its published envelope<span class="lvl">Spec · Sellita</span></dt><dd data-count="3.6" data-dec="2" data-suf=" mm">3.60 mm</dd></div><div><dt>Thickness, caseback to studs<span class="lvl">Measured on model</span></dt><dd data-count="10.25" data-dec="2" data-suf=" mm">10.25 mm</dd></div><div><dt>Parts modelled: 71 movement, 75 bracelet, 36 case, dial and hands<span class="lvl">Counted on model</span></dt><dd data-count="182">182</dd></div><div><dt>Interferences found across all 182 parts<span class="lvl">Audit on model</span></dt><dd>0</dd></div></dl><div class="dossier"><a class="btn solid" href="/work/haxa/" data-cursor="Open">Open the case <span class="arr">→</span></a></div></div></div></section><section class="scrub" id="sc-haxa" data-seq="haxa_explode" data-bg="paper" style="--len:330vh;--ar:0.66;--room:#c6c6c6"><div class="pin"><p class="label mono">HAXĀ · Take it apart · scroll</p><div class="cap"><p data-from="0.0" data-to="0.2" class="on"><span class="mono">Assembled</span>HAXĀ r2 — 10.25 mm from caseback to studs.</p><p data-from="0.2" data-to="0.46"><span class="mono">Lift</span>Sapphire, bezel and the dial&#x27;s 60-pillar colonnade come away.</p><p data-from="0.46" data-to="0.74"><span class="mono">Calibre</span>A Sellita SW300-1: 71 parts, modelled inside Sellita&#x27;s published envelope.</p><p data-from="0.74" data-to="1.01"><span class="mono">Every part</span>182 parts in all. The interference audit found none.</p></div><div class="frame"><img src="/assets/seq/haxa_explode/l/000.jpg" alt="" loading="lazy"><canvas role="img" aria-label="HAXĀ: take it apart, driven by scrolling"></canvas></div><div class="meter" aria-hidden="true"><i></i></div></div></section><section class="room" id="r-aban" data-bg="ink"><div class="wrap room-grid flip">
+<div class="stage-col"><div class="stage" id="st-aban" data-seq="aban_flacon" data-cursor="Drag" style="--ar:0.8;--room:#060604" role="img" aria-label="ABAN — drag or use the arrow keys to turn it" tabindex="0"><img class="poster" src="/assets/seq/aban_flacon/l/000.jpg" alt="" decoding="async"><canvas aria-hidden="true"></canvas><img class="layer contain" data-k="k1" src="/assets/img/aban/box-red-6c115-1200.jpg" alt="" decoding="async"><img class="layer contain" data-k="k2" src="/assets/img/aban/box-blue-8e631-1200.jpg" alt="" decoding="async"><img class="layer contain" data-k="k3" src="/assets/img/aban/box-gold-01c63-1200.jpg" alt="" decoding="async"><img class="layer contain" data-k="k4" src="/assets/img/aban/box-black-8889b-1200.jpg" alt="" decoding="async"><div class="wipe"></div><svg class="load" viewBox="0 0 28 28" aria-hidden="true"><circle class="bgc" cx="14" cy="14" r="12"/><circle class="fg" cx="14" cy="14" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg><div class="hint mono" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M1 6h20M5 2L1 6l4 4M17 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Drag to turn</div></div><div class="ctrl" data-switch="st-aban" data-caption="st-aban-cap" role="group" aria-label="Edition"><button type="button" class="chip" aria-pressed="true" data-caption="Ruby glass, gold swirl emblem, a jewelled crystal stopper with gold inlays — the original red edition." data-room="#060604" data-seq="aban_flacon">Flacon</button><button type="button" class="chip" aria-pressed="false" data-caption="Ruby glass in the plush red velvet coffret." data-still="k1" data-room="#090806"><span class="dot" style="--c:#9c2430"></span>Red &amp; gold</button><button type="button" class="chip" aria-pressed="false" data-caption="Sapphire-blue glass, blue velvet coffret, gold lining." data-still="k2" data-room="#090806"><span class="dot" style="--c:#2c5c9a"></span>Blue &amp; gold</button><button type="button" class="chip" aria-pressed="false" data-caption="Gold-metallised glass in a black leather case with a red interior." data-still="k3" data-room="#090806"><span class="dot" style="--c:#c79a3e"></span>Fully gold</button><button type="button" class="chip" aria-pressed="false" data-caption="Opaque black lacquered glass, black velvet coffret." data-still="k4" data-room="#090806"><span class="dot" style="--c:#262125"></span>Black &amp; gold</button></div><p class="note" id="st-aban-cap" aria-live="polite">Ruby glass, gold swirl emblem, a jewelled crystal stopper with gold inlays — the original red edition.</p></div>
+<div class="copy"><p class="kicker mono">02 · Fragrance · Original 2022 · rebuilt 2026</p><h2 class="name" style="--k:1.0">ABAN</h2><p class="tag">The Divine Essence of Persia</p>
+<p class="lede">My original flacon and coffret, rebuilt at real size from the original Rhino model: solid glass with measured walls, a ground neck for the jewelled stopper, a fill line, and a holder the bottle actually sits in.</p><dl class="facts" data-reveal><div><dt>Extrait fill · brimful 33.2 ml<span class="lvl">Measured on model</span></dt><dd data-count="30" data-suf=" ml">30 ml</dd></div><div><dt>Glass wall, measured minimum<span class="lvl">Measured on model</span></dt><dd data-count="2.1" data-dec="2" data-suf=" mm">2.10 mm</dd></div><div><dt>One scale to real size, set by the thinnest wall<span class="lvl">Design</span></dt><dd data-count="2.505" data-dec="3" data-pre="×">×2.505</dd></div><div><dt>Editions, one engineering<span class="lvl">Design</span></dt><dd data-count="4">4</dd></div></dl><div class="dossier"><a class="btn solid" href="/work/aban/" data-cursor="Open">Open the case <span class="arr">→</span></a></div></div></div></section><section class="room" id="r-marcella" data-bg="ink"><div class="wrap room-grid">
+<div class="stage-col"><div class="stage" id="st-marcella" data-seq="marcella_bottle" data-cursor="Drag" style="--ar:0.8;--room:#080705" role="img" aria-label="MARCELLA — drag or use the arrow keys to turn it" tabindex="0"><img class="poster" src="/assets/seq/marcella_bottle/l/000.jpg" alt="" decoding="async"><canvas aria-hidden="true"></canvas><div class="wipe"></div><svg class="load" viewBox="0 0 28 28" aria-hidden="true"><circle class="bgc" cx="14" cy="14" r="12"/><circle class="fg" cx="14" cy="14" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg><div class="hint mono" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M1 6h20M5 2L1 6l4 4M17 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Drag to turn</div></div><div class="ctrl" data-switch="st-marcella" data-caption="st-marcella-cap" role="group" aria-label="View"><button type="button" class="chip" aria-pressed="true" data-caption="Glass, gold wire and the carved walnut stopper." data-room="#080705" data-seq="marcella_bottle">Decanter</button><button type="button" class="chip" aria-pressed="false" data-caption="Walnut coffret with the gold MARCELLA lockup." data-seq="marcella_coffret" data-room="#080705">Coffret</button></div><p class="note" id="st-marcella-cap" aria-live="polite">Glass, gold wire and the carved walnut stopper.</p></div>
+<div class="copy"><p class="kicker mono">03 · Whisky · Original 2021 · rebuilt 2026</p><h2 class="name" style="--k:0.812">MARCELLA</h2><p class="tag">Premium · aged in oak</p>
+<p class="lede">My original decanter at the size I drew it, rebuilt from the original Rhino revolve: real glass walls, a standard fill, a stopper that seals, and a walnut coffret the bottle actually fits — with its gold lettering.</p><dl class="facts" data-reveal><div><dt>EU standard fill · 7 % headspace<span class="lvl">Measured on model</span></dt><dd data-count="1500" data-suf=" ml">1500 ml</dd></div><div><dt>Glass walls · 6.0 mm under the punt<span class="lvl">Measured on model</span></dt><dd data-count="3.0" data-dec="1" data-suf=" mm">3.0 mm</dd></div><div><dt>Synthetic-cork bar-top shank in a Ø25.9 bore<span class="lvl">Design</span></dt><dd data-count="26.9" data-dec="1" data-pre="Ø">Ø26.9</dd></div><div><dt>Coffret pocket clearance around the bottle<span class="lvl">Measured on model</span></dt><dd data-count="1.0" data-dec="2" data-suf=" mm">1.00 mm</dd></div></dl><div class="dossier"><a class="btn solid" href="/work/marcella/" data-cursor="Open">Open the case <span class="arr">→</span></a></div></div></div></section><section class="room" id="r-eclos-compact" data-bg="ink"><div class="wrap room-grid flip">
+<div class="stage-col"><div class="stage" id="st-eclos-compact" data-seq="eclos_turn" data-cursor="Drag" style="--ar:1.25;--room:#72716e" role="img" aria-label="ÉCLOS — drag or use the arrow keys to turn it" tabindex="0"><img class="poster" src="/assets/seq/eclos_turn/l/000.jpg" alt="" decoding="async"><canvas aria-hidden="true"></canvas><div class="wipe"></div><svg class="load" viewBox="0 0 28 28" aria-hidden="true"><circle class="bgc" cx="14" cy="14" r="12"/><circle class="fg" cx="14" cy="14" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg><div class="hint mono" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M1 6h20M5 2L1 6l4 4M17 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Drag to turn</div></div></div>
+<div class="copy"><p class="kicker mono">04 · Beauty · compact · Original 2024 · rebuilt 2026</p><h2 class="name" style="--k:1.0">ÉCLOS</h2><p class="tag">Paris · refillable beauty</p>
+<p class="lede">My original octagonal compact, rebuilt at true scale. The Art Deco lid, the embossed flowers and the engraved name are mine; the refills, hinge, mirror and closure are new, and each one is measured.</p><dl class="facts" data-reveal><div><dt>Closed height · 55.0 × 58.3 mm footprint<span class="lvl">Measured on model</span></dt><dd data-count="11.7" data-dec="1" data-suf=" mm">11.7 mm</dd></div><div><dt>Lid stop: first contact of the swept hinge<span class="lvl">Measured on model</span></dt><dd data-count="108.5" data-dec="1" data-suf="°">108.5°</dd></div><div><dt>Refill pans on magnets, 2.13 cm³ each<span class="lvl">Design</span></dt><dd data-count="2">2</dd></div><div><dt>Glass mirror, bonded in a recess<span class="lvl">Design</span></dt><dd data-count="40.4" data-dec="1" data-pre="Ø">Ø40.4</dd></div></dl><div class="dossier"><a class="btn solid" href="/work/eclos-compact/" data-cursor="Open">Open the case <span class="arr">→</span></a></div></div></div></section><section class="scrub" id="sc-eclos-compact" data-seq="eclos_open" data-bg="ink" style="--len:260vh;--ar:1.25;--room:#010101"><div class="pin"><p class="label mono">ÉCLOS · Open it · scroll</p><div class="cap"><p data-from="0.0" data-to="0.24" class="on"><span class="mono">Closed</span>11.7 mm high, held shut by a Ø3 magnet pair.</p><p data-from="0.24" data-to="0.52"><span class="mono">Hinge</span>A stainless pin through three knuckles.</p><p data-from="0.52" data-to="0.8"><span class="mono">Mirror</span>Ø40.4 glass, bonded in a recess.</p><p data-from="0.8" data-to="1.01"><span class="mono">Refill</span>Two pans on magnets. The hinge’s measured stop is 108.5°.</p></div><div class="frame"><img src="/assets/seq/eclos_open/l/000.jpg" alt="" loading="lazy"><canvas role="img" aria-label="ÉCLOS: open it, driven by scrolling"></canvas></div><div class="meter" aria-hidden="true"><i></i></div></div></section><section class="room" id="r-ecs" data-bg="ink"><div class="wrap room-grid">
+<div class="stage-col"><div class="stage" id="st-ecs" data-seq="ecs_turn" data-cursor="Drag" style="--ar:1.0;--room:#b0aeaf" role="img" aria-label="ECS — drag or use the arrow keys to turn it" tabindex="0"><img class="poster" src="/assets/seq/ecs_turn/l/000.jpg" alt="" decoding="async"><canvas aria-hidden="true"></canvas><img class="layer contain" data-k="k1" src="/assets/img/ecs/ecs-r3-mech-upright-db969-1200.jpg" alt="" decoding="async"><img class="layer contain" data-k="k2" src="/assets/img/ecs/ecs-r3-mech-riding-567b2-1200.jpg" alt="" decoding="async"><div class="wipe"></div><svg class="load" viewBox="0 0 28 28" aria-hidden="true"><circle class="bgc" cx="14" cy="14" r="12"/><circle class="fg" cx="14" cy="14" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg><div class="hint mono" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M1 6h20M5 2L1 6l4 4M17 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Drag to turn</div></div><div class="ctrl" data-switch="st-ecs" data-caption="st-ecs-cap" role="group" aria-label="View"><button type="button" class="chip" aria-pressed="true" data-caption="The r3 packshot of my original design. Drag to turn it." data-room="#b0aeaf" data-seq="ecs_turn">Packshot</button><button type="button" class="chip" aria-pressed="false" data-caption="On the wearer form, standing upright." data-still="k1" data-room="#9c9a9b">Upright</button><button type="button" class="chip" aria-pressed="false" data-caption="At a 35° riding lean the pivot turns 16.4° of its ±30°, and the load body slides 11.6 mm. Measured, against a conceptual 100–150 mm drop target." data-still="k2" data-room="#9c9a9b">Riding</button></div><p class="note" id="st-ecs-cap" aria-live="polite">The r3 packshot of my original design. Drag to turn it.</p></div>
+<div class="copy"><p class="kicker mono">05 · Ergonomic carry system · Original 2020 · rebuilt 2026</p><h2 class="name" style="--k:1.0">ECS</h2><p class="tag">Carry that moves with the rider.</p>
+<p class="lede">My original carry system for e-bike commuters, re-engineered in 2026: a load body of about 20.5 L outer volume on side rails and a spine pivot that let it move as the rider leans. The mechanism keeps its documented principle, tension-shortening, and is measured rather than tuned to its targets.</p><dl class="facts" data-reveal><div><dt>Load-body outer volume, measured on the r3 model (not usable capacity)<span class="lvl">Measured on model</span></dt><dd data-count="20.5" data-dec="1" data-suf=" L">20.5 L</dd></div><div><dt>Load-body slide at a 35° riding lean (9.9 mm vertical) · documented drop target 100–150 mm (conceptual)<span class="lvl">Measured on model</span></dt><dd data-count="11.6" data-dec="1" data-suf=" mm">11.6 mm</dd></div><div><dt>A6 tension strap length needed, within the sheet&#x27;s 80–260 mm<span class="lvl">Measured on model</span></dt><dd data-count="253.5" data-dec="1" data-suf=" mm">253.5 mm</dd></div><div><dt>Unintended interferences above the screen in the upright, riding and packshot poses (rigid 0.3 mm, soft parts 1–3 mm; designed contacts excluded)<span class="lvl">Screened on model</span></dt><dd>0</dd></div></dl><div class="dossier"><a class="btn solid" href="/work/ecs/" data-cursor="Open">Open the case <span class="arr">→</span></a></div></div></div></section>
+<div class="dawn" aria-hidden="true"></div>
+<section class="sec" id="products" data-bg="paper"><div class="wrap"><div class="eyebrow mono"><span>02 — Products &amp; mechanisms</span><span>2026</span></div><h2 class="big" data-reveal>Built from<br>the inside out.</h2><p class="lead" data-reveal>Industrial design from the inside out: interfaces, load paths, refill systems, CMF.</p><div class="grid-work"><a class="wcard " href="/work/therma/" data-tags="product" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#e9e2d8"><img class="contain" src="/assets/img/therma/therma-specimen-h1470-1f3d6-900.jpg" alt="THERMA — Hair-styling appliance" loading="lazy" decoding="async"><img class="alt" src="/assets/img/therma/therma-backdrop-lab-1600-55154-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Designed</span></div><div class="meta"><b>THERMA</b><span class="mono muted">2026</span></div><p>Hair-styling appliance — Every dimension a variable. One mineral orange.</p></div></a><a class="wcard " href="/work/monolith/" data-tags="product" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#141519"><img src="/assets/img/monolith/monolith-slide-525-a5991-900.jpg" alt="MONOLITH RF03-U1 — Fragrance cartridge platform" loading="lazy" decoding="async"><img class="alt" src="/assets/img/monolith/platform-wall-1300-1b772-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Specified intent</span></div><div class="meta"><b>MONOLITH RF03-U1</b><span class="mono muted">2026 — ongoing</span></div><p>Fragrance cartridge platform — You already own the bottle. You buy it again anyway.</p></div></a><a class="wcard " href="/work/clx-ct-01/" data-tags="product" data-cursor="Open"><div data-reveal style="--d:0.18s"><div class="pic" style="--room:#f4eee4"><img class="contain" src="/assets/img/clx-ct-01/card-lab.svg" alt="CLX-CT-01 — Creator-tech carry system" loading="lazy" decoding="async"><img class="alt" src="/assets/img/clx-ct-01/card-inv.svg" alt="" loading="lazy" decoding="async"><span class="badge mono">Designed</span></div><div class="meta"><b>CLX-CT-01</b><span class="mono muted">2026</span></div><p>Creator-tech carry system — Not a camera backpack.</p></div></a><a class="wcard " href="/work/eclos-lipstick/" data-tags="product" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#eee2d2"><img class="contain" src="/assets/img/eclos-lipstick/eclos-open-560-86d3e-900.jpg" alt="ÉCLOS lipstick — Refillable lipstick" loading="lazy" decoding="async"><img class="alt" src="/assets/img/eclos-lipstick/eclos-lipstick-exploded-master-d52a2-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>ÉCLOS lipstick</b><span class="mono muted">2026</span></div><p>Refillable lipstick — The case you keep. The cartridge you replace.</p></div></a><a class="wcard " href="/work/eclos-refill/" data-tags="product" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#3a3a3a"><img src="/assets/img/eclos-refill/visual-31893-900.jpg" alt="ÉCLOS Refill Ritual — Bayonet-collar skincare dispenser" loading="lazy" decoding="async"><img class="alt" src="/assets/img/eclos-refill/eclos-tech-assembled-7288b-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Designed</span></div><div class="meta"><b>ÉCLOS Refill Ritual</b><span class="mono muted">2026</span></div><p>Bayonet-collar skincare dispenser — Turn 45°, lift, replace.</p></div></a></div></div></section>
+<section class="sec" id="spaces" data-bg="paper"><div class="wrap"><div class="eyebrow mono"><span>03 — Spaces &amp; systems</span><span>2026</span></div><h2 class="big" data-reveal>Rooms that change.<br>Systems that fail.</h2><p class="lead" data-reveal>A hotel room that changes state, and a forensic reconstruction of a system that failed.</p><div class="grid-work"><a class="wcard half" href="/work/ahrk/" data-tags="space" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#4b4a48"><img src="/assets/img/ahrk/mode-work-960-7d386-900.jpg" alt="AHRK — Adaptive hotel room kit" loading="lazy" decoding="async"><img class="alt" src="/assets/img/ahrk/plate-09-1200-a448f-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Specified intent</span></div><div class="meta"><b>AHRK</b><span class="mono muted">2025</span></div><p>Adaptive hotel room kit — One adaptive wall, six room states.</p></div></a><a class="wcard half" href="/work/zewm-excmon/" data-tags="space" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#020105"><img src="/assets/img/zewm-excmon/rec041-1600-bb94a-900.jpg" alt="ZEWM_EXCMON — Forensic systems investigation" loading="lazy" decoding="async"><img class="alt" src="/assets/img/zewm-excmon/frame-01-1200-8a54c-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Designed</span></div><div class="meta"><b>ZEWM_EXCMON</b><span class="mono muted">2019</span></div><p>Forensic systems investigation — The failure was not a missed alert.</p></div></a></div></div></section>
+<section class="sec" id="play" data-bg="paper"><div class="wrap"><div class="eyebrow mono"><span>04 — Play &amp; digital</span><span>Prototypes</span></div><h2 class="big" data-reveal>Design for small hands,<br>and for patient ones.</h2><p class="lead" data-reveal>A cooperative game for a parent and a child, and a quiet companion game.</p><div class="grid-work"><a class="wcard wide" href="/work/tiny-together/" data-tags="play" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#6abf60"><img src="/assets/img/tiny-together/board-day-hi-1b959-900.jpg" alt="TINY TOGETHER — Cooperative parent–child game" loading="lazy" decoding="async"><img class="alt" src="/assets/img/tiny-together/iphone-m03-15-celebration-f9116-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">Concept</span></div><div class="meta"><b>TINY TOGETHER</b><span class="mono muted">2026</span></div><p>Cooperative parent–child game — The child holds one secret. The grown-up holds another.</p></div></a><a class="wcard " href="/work/pebby/" data-tags="play" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#f7f2e5"><img src="/assets/img/pebby/woodlandhome-59aad-900.jpg" alt="PEBBY — Companion game" loading="lazy" decoding="async"><img class="alt" src="/assets/img/pebby/immersivetrail-3824a-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>PEBBY</b><span class="mono muted">2023</span></div><p>Companion game — No punishment. No decay. No streaks.</p></div></a></div></div></section>
+<section class="sec" id="archive" data-bg="paper"><div class="wrap"><div class="eyebrow mono"><span>05 — Studies &amp; archive</span><span>Drag the rail</span></div><h2 class="big" data-reveal>Before, beside,<br>and for the joy of it.</h2><p class="lead" data-reveal>Earlier collections, AI-assisted visual studies, tools and side experiments — labelled for what they are.</p>
+<div class="rail" data-cursor="Drag"><a class="wcard " href="/work/tilbed/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#93694a"><img src="/assets/img/tilbed/p08-2-f1524-900.jpg" alt="TILBED — Lighting &amp; ceramics" loading="lazy" decoding="async"><img class="alt" src="/assets/img/tilbed/p08-3-4573d-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>TILBED</b><span class="mono muted">2024</span></div><p>Lighting &amp; ceramics — Art Deco geometry, Danish restraint.</p></div></a><a class="wcard " href="/work/eclos-paris/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#796951"><img src="/assets/img/eclos-paris/p12-1-15bc4-900.jpg" alt="ÉCLOS Paris — Refillable beauty packaging" loading="lazy" decoding="async"><img class="alt" src="/assets/img/eclos-paris/p13-1-bf165-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>ÉCLOS Paris</b><span class="mono muted">2023</span></div><p>Refillable beauty packaging — Beauty in full bloom.</p></div></a><a class="wcard " href="/work/eclos-leather/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.18s"><div class="pic" style="--room:#f8f2ee"><img src="/assets/img/eclos-leather/p07-1-2368c-900.jpg" alt="ÉCLOS Leather — Leather goods" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>ÉCLOS Leather</b><span class="mono muted">2024</span></div><p>Leather goods — Espresso, tan and gold.</p></div></a><a class="wcard " href="/work/ai-series/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic" style="--room:#ffffff"><img src="/assets/img/ai-series/p21-1-98ece-900.jpg" alt="EXO · BOTA · IGNIS — AI fashion series" loading="lazy" decoding="async"><img class="alt" src="/assets/img/ai-series/p21-2-1547c-900.jpg" alt="" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>EXO · BOTA · IGNIS</b><span class="mono muted">2022</span></div><p>AI fashion series — Three triptychs, three palettes.</p></div></a><a class="wcard " href="/work/catch-rider-feline/" data-tags="archive" data-seq="feline_cw" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic" style="--room:#1a2c20"><img src="/assets/img/catch-rider-feline/11-forest-flash-dynamic-490bb-900.jpg" alt="Catch Rider Feline — Footwear colourway study" loading="lazy" decoding="async"><span class="badge mono">AI imagery · labelled</span></div><div class="meta"><b>Catch Rider Feline</b><span class="mono muted">2026</span></div><p>Footwear colourway study — A composed exterior, a vivid interior revealed in motion.</p></div></a><a class="wcard " href="/work/ring/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.18s"><div class="pic typo" style="--t1:#2a1d0c;--t2:#5a3e18;--t3:#a07a3a;--t4:#d8b06a;--t5:#efd8a8;--t6:#f8eedc"><span class="tn">Relief ring</span><span class="badge mono">Study</span></div><div class="meta"><b>Relief ring</b><span class="mono muted">2025</span></div><p>Jewellery · bangle and rings — One relief language, four sizes.</p></div></a><a class="wcard " href="/work/cross-tool/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.00s"><div class="pic typo" style="--t1:#101820;--t2:#1d2630;--t3:#5e6975;--t4:#36b3a8;--t5:#9ad6cf;--t6:#e6f2f0"><span class="tn">Cross-Tool Palette</span><span class="badge mono">Exploratory tool</span></div><div class="meta"><b>Cross-Tool Palette</b><span class="mono muted">2026</span></div><p>Blender add-on — Type “loft”. Get Blender.</p></div></a><a class="wcard " href="/work/field-notes/" data-tags="archive" data-cursor="Open"><div data-reveal style="--d:0.09s"><div class="pic typo" style="--t1:#100d20;--t2:#251c4f;--t3:#3f3484;--t4:#6a5bbf;--t5:#b3abe6;--t6:#efecfb"><span class="tn">Field Notes</span><span class="badge mono">Principles</span></div><div class="meta"><b>Field Notes</b><span class="mono muted">2026</span></div><p>Research archive — Fragments from systems under pressure.</p></div></a></div></div></section>
+<section class="sec" id="method" data-bg="paper"><div class="wrap"><div class="eyebrow mono"><span>06 — Method</span><span>How every project here was made</span></div><h2 class="big" data-reveal>Evidence<br>before form.</h2>
+<ol class="steps" data-reveal><li><b>01</b><span>Investigate</span><p>Reviews, complaints, failures, constraints. Evidence before form.</p></li><li><b>02</b><span>Frame</span><p>Requirements with IDs, so every module can say why it exists.</p></li><li><b>03</b><span>Model</span><p>Parametric CAD in Rhino and SolidWorks — every key dimension a variable.</p></li><li><b>04</b><span>Audit</span><p>Walls, fits, clearances, interferences and volumes, measured on the model.</p></li><li><b>05</b><span>Show</span><p>Renders that keep the true materials, drawings that print, claims that carry their level.</p></li></ol>
+<ul class="caps" data-reveal><li><b>Industrial &amp; product design</b><p>From proportion studies to part lists: appliances, carry systems, refillable beauty.</p><small class="mono muted">THERMA · MONOLITH · ECS · CLX-CT-01 · ÉCLOS</small></li><li><b>Mechanism &amp; interface</b><p>Bayonets, hinges, docking interfaces, load paths — designed to be assembled and serviced.</p><small class="mono muted">THERMA · MONOLITH · ECS · ÉCLOS · AHRK</small></li><li><b>Luxury objects &amp; packaging</b><p>Watches, flacons, decanters and coffrets with real walls, fills and fits.</p><small class="mono muted">HAXĀ · ABAN · MARCELLA · ÉCLOS</small></li><li><b>CMF &amp; colour</b><p>Locked colour, material and finish files, with every rejected direction kept.</p><small class="mono muted">THERMA · ÉCLOS · AHRK · TILBED</small></li><li><b>Systems &amp; spaces</b><p>A room that changes state; a forensic reconstruction of a failure nobody owned.</p><small class="mono muted">AHRK · ZEWM_EXCMON</small></li><li><b>Visualisation &amp; interaction</b><p>Rhino and KeyShot renders, turntables, drawings, prototypes in SwiftUI and the web.</p><small class="mono muted">TINY TOGETHER · PEBBY · this site</small></li></ul></div></section>
+<div class="dusk" aria-hidden="true"></div>
+<section class="sec hire" id="hire" data-bg="ink"><span id="contact"></span><div class="wrap"><div class="eyebrow mono"><span>07 — Hire</span><span>Roles · commissions · collaborations</span></div>
+<h2 class="big" data-reveal>Let’s make something<br>that holds up.</h2><p class="lead" data-reveal>Industrial design, product engineering, luxury objects and packaging, CMF and visualisation. Send the product, the problem or the role — I reply with questions, not a template.</p>
+<p data-reveal style="margin-top:34px"><a class="contact-big" href="mailto:info@malinyx.com">info@malinyx.com</a></p>
+<div class="dossier" data-reveal><a class="btn solid" href="/contact/">How to brief me <span class="arr">→</span></a><a class="btn" href="https://www.linkedin.com/in/bahareharianejad" rel="me noopener">LinkedIn <span class="arr">↗</span></a><a class="btn" href="/about/">About</a></div></div></section>
+<div class="endsky" aria-hidden="true"><div class="sky low" aria-hidden="true"><div class="sun"></div><div class="slats"><i style="--dur:17s;--del:-0s"></i><i style="--dur:24s;--del:-5s"></i><i style="--dur:19s;--del:-10s"></i><i style="--dur:26s;--del:-4s"></i><i style="--dur:21s;--del:-9s"></i><i style="--dur:28s;--del:-3s"></i><i style="--dur:23s;--del:-8s"></i><i style="--dur:18s;--del:-2s"></i><i style="--dur:25s;--del:-7s"></i></div><div class="grain"></div></div></div>
+</main>
+<footer class="foot"><span>© 2026 MALINYX Studio · Bahareh Arianejad</span><span><a href="mailto:info@malinyx.com">info@malinyx.com</a> · <a href="https://www.linkedin.com/in/bahareharianejad" rel="me noopener">LinkedIn</a> · <a href="/dossier/">Technical dossiers</a></span><span>Rhino · KeyShot · AI imagery is labelled where it appears</span></footer>
+<div class="cursor" aria-hidden="true"></div>
+<div class="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button type="button" aria-label="Close">×</button><figure><img alt=""><p></p></figure></div>
+<script id="manifest" type="application/json">{"seq": {"haxa_turn": {"dir": "/assets/seq/haxa_turn", "n": 36, "ext": "jpg", "small": true, "ar": 1.0, "room": "#131210", "poster": "/assets/seq/haxa_turn/l/000.jpg"}, "haxa_explode": {"dir": "/assets/seq/haxa_explode", "n": 36, "ext": "jpg", "small": true, "ar": 0.66, "room": "#c6c6c6", "poster": "/assets/seq/haxa_explode/l/000.jpg"}, "aban_flacon": {"dir": "/assets/seq/aban_flacon", "n": 36, "ext": "jpg", "small": true, "ar": 0.8, "room": "#060604", "poster": "/assets/seq/aban_flacon/l/000.jpg"}, "marcella_bottle": {"dir": "/assets/seq/marcella_bottle", "n": 36, "ext": "jpg", "small": true, "ar": 0.8, "room": "#080705", "poster": "/assets/seq/marcella_bottle/l/000.jpg"}, "marcella_coffret": {"dir": "/assets/seq/marcella_coffret", "n": 36, "ext": "jpg", "small": true, "ar": 0.8, "room": "#080705", "poster": "/assets/seq/marcella_coffret/l/000.jpg"}, "eclos_turn": {"dir": "/assets/seq/eclos_turn", "n": 36, "ext": "jpg", "small": true, "ar": 1.25, "room": "#72716e", "poster": "/assets/seq/eclos_turn/l/000.jpg"}, "eclos_open": {"dir": "/assets/seq/eclos_open", "n": 30, "ext": "jpg", "small": true, "ar": 1.25, "room": "#010101", "poster": "/assets/seq/eclos_open/l/000.jpg"}, "ring_turn": {"dir": "/assets/seq/ring_turn", "n": 36, "ext": "jpg", "small": true, "ar": 1.0, "room": "#25221d", "poster": "/assets/seq/ring_turn/l/000.jpg"}, "feline_cw": {"dir": "/assets/seq/feline_cw", "n": 10, "ext": "jpg", "small": true, "ar": 1.493, "room": "#182b20", "poster": "/assets/seq/feline_cw/l/000.jpg"}, "ecs_turn": {"dir": "/assets/seq/ecs_turn", "n": 36, "ext": "jpg", "small": true, "ar": 1.0, "room": "#b0aeaf", "poster": "/assets/seq/ecs_turn/l/000.jpg"}}}</script>
+<script src="/assets/js/v2.js?v=2610032015" defer></script>
+</body></html>

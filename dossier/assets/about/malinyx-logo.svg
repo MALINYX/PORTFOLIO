@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+ <title id="title">MALINYX logo</title>
+ <desc id="desc">Architectural folded M monogram in ivory, taupe and bronze, with orbital geometry, MALINYX wordmark and the tagline We do not design systems. We investigate them.</desc>
+ <defs>
+  <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EEE4"/><stop offset=".55" stop-color="#E8E0D2"/><stop offset="1" stop-color="#A89F91"/></linearGradient>
+  <linearGradient id="ivory2" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#E8E0D2"/><stop offset=".52" stop-color="#A89F91"/><stop offset="1" stop-color="#6F675D"/></linearGradient>
+  <linearGradient id="taupe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5E6975"/><stop offset=".45" stop-color="#12110F"/><stop offset="1" stop-color="#1D2630"/></linearGradient>
+  <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7B2A16"/><stop offset=".35" stop-color="#F25C2A"/><stop offset=".7" stop-color="#B43C1D"/><stop offset="1" stop-color="#FF8A5F"/></linearGradient>
+  <radialGradient id="sphere" cx="35%" cy="28%" r="75%"><stop stop-color="#99E0DA"/><stop offset=".5" stop-color="#36B3A8"/><stop offset="1" stop-color="#123E3B"/></radialGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="150%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="11"/><feOffset dx="-5" dy="12" result="o"/><feColorMatrix in="o" values="0 0 0 0 .18 0 0 0 0 .14 0 0 0 0 .11 0 0 0 .28 0"/><feBlend in="SourceGraphic"/></filter>
+  <filter id="smallShadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="-3" dy="5" stdDeviation="5" flood-color="#46382c" flood-opacity=".35"/></filter>
+ </defs>
+
+ <!-- orbital construction lines -->
+ <g id="orbits" fill="none" stroke="#F25C2A" stroke-width="1.1" opacity=".72">
+  <path d="M276 797V174"/>
+  <path d="M277 174C463 282 530 507 625 752"/>
+  <path d="M434 222C615 57 855 128 947 318"/>
+  <path d="M979 174V835"/>
+  <path d="M733 327C909 313 1048 440 1048 589C1048 652 1019 711 969 751"/>
+ </g>
+
+ <!-- editable vector monogram -->
+ <g id="monogram" filter="url(#shadow)" stroke="#F25C2A" stroke-width="1.15" stroke-linejoin="miter">
+  <!-- rear structural faces -->
+  <path d="M276 174L438 210V797H276Z" fill="url(#taupe)"/>
+  <path d="M807 412L979 174V797H807Z" fill="url(#ivory2)"/>
+
+  <!-- left folded pillar -->
+  <path d="M276 174C395 203 424 273 394 365C373 429 316 492 276 570Z" fill="url(#taupe)"/>
+  <path d="M276 174C381 181 445 190 475 256C501 313 526 417 641 596L624 752L438 474C404 423 389 370 394 317C397 269 374 220 276 174Z" fill="url(#ivory)"/>
+  <path d="M276 570C321 491 370 423 394 365V724C365 769 326 797 276 797Z" fill="url(#ivory)"/>
+
+  <!-- center bronze fold and valley -->
+  <path d="M433 201C498 221 527 276 548 348C574 437 595 524 641 596L624 752L439 476C485 520 536 544 594 559Z" fill="url(#bronze)" opacity=".92"/>
+  <path d="M394 317C435 354 482 426 533 509L624 718V752L438 474C405 424 388 372 394 317Z" fill="#2f2924" opacity=".82"/>
+
+  <!-- right rising folded ribbon -->
+  <path d="M624 752C681 650 720 552 761 446C799 347 865 256 979 174C912 216 840 241 788 290C718 355 677 469 641 596Z" fill="url(#taupe)"/>
+  <path d="M624 752C681 646 722 524 780 416C825 334 891 276 979 174C909 224 849 246 799 297C725 372 684 500 641 596Z" fill="url(#ivory)"/>
+  <path d="M641 596C694 490 731 385 799 297C858 221 912 216 979 174C916 264 845 313 795 398C729 510 690 649 624 752Z" fill="url(#ivory2)" opacity=".72"/>
+
+  <!-- right arch/pillar -->
+  <path d="M624 752C679 647 720 527 769 429C809 350 870 347 907 392C939 432 945 501 945 576V797H807V448C807 404 789 370 759 365C716 358 685 421 641 596Z" fill="url(#taupe)"/>
+  <path d="M807 797V448C807 404 789 370 759 365C818 352 868 365 904 411C939 455 945 514 945 576V797Z" fill="url(#ivory2)"/>
+  <path d="M945 214L979 174V797H945Z" fill="url(#ivory)"/>
+ </g>
+
+ <!-- spheres and fine vertical axis -->
+ <g id="spheres">
+  <line x1="947" y1="97" x2="947" y2="835" stroke="#36B3A8" stroke-width="1.2"/>
+  <circle cx="947" cy="143" r="5.2" fill="url(#sphere)" stroke="#36B3A8" stroke-width=".8"/>
+  <circle cx="947" cy="701" r="27" fill="url(#sphere)" stroke="#36B3A8" stroke-width="1" filter="url(#smallShadow)"/>
+ </g>
+
+ <!-- custom geometric wordmark built as editable strokes -->
+ <g id="wordmark" transform="translate(170 880)" fill="none" stroke="#E8E0D2" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M0 85V0L50 52L100 0V85"/>
+  <path d="M165 85L218 0L271 85M187 51H250"/>
+  <path d="M341 0V85H402"/>
+  <path d="M469 0V85"/>
+  <path d="M557 85V0L634 77V0"/>
+  <path d="M704 0L746 48V85M788 0L746 48"/>
+  <path d="M861 0L933 85M933 0L861 85"/>
+ </g>
+
+ <g id="tagline" text-anchor="middle" fill="#A89F91" font-family="Avenir Next, Montserrat, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="400" letter-spacing="9">
+  <text x="627" y="1029">WE DO NOT DESIGN SYSTEMS.</text>
+  <text x="627" y="1068">WE INVESTIGATE THEM.</text>
+  <line x1="594" y1="1115" x2="660" y2="1115" stroke="#F25C2A" stroke-width="1.5"/>
+ </g>
+</svg>

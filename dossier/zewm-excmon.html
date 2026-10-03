@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en" class="no-js" data-reality="investigation" data-native-reality="investigation" data-project="zewm" id="top">
+<head><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZEWM_EXCMON — Forensic systems investigation — MALINYX</title>
+<meta name="description" content="ZEWM_EXCMON / REC-041 — a forensic systems investigation into how a cold-chain temperature exception lost its owner across fragmented institutional layers. Investigation narrative; data provenance not stated.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MALINYX">
+<meta property="og:title" content="ZEWM_EXCMON — Forensic systems investigation — MALINYX">
+<meta property="og:description" content="ZEWM_EXCMON / REC-041 — a forensic systems investigation into how a cold-chain temperature exception lost its owner across fragmented institutional layers. Investigation narrative; data provenance not stated.">
+<meta property="og:image" content="https://malinyx.com/dossier/og-home.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
+<script>
+(function () {
+  var d = document.documentElement, r = null, m = null;
+  try { r = localStorage.getItem('mx-reality'); m = localStorage.getItem('mx-motion'); } catch (e) {}
+  try { var q = new URLSearchParams(location.search); if (q.get('reality')) r = q.get('reality'); if (q.get('motion')) m = q.get('motion');
+    if (q.get('motion')) document.addEventListener('DOMContentLoaded', function () { [].forEach.call(document.querySelectorAll('img[loading="lazy"]'), function (i) { i.loading = 'eager'; }); }); /* QA: headless shots */
+    var so = q.get('solo'); if (so && /^[\w-]+$/.test(so)) { var st = document.createElement('style'); /* QA only: render one section at the top */
+      st.textContent = 'main > :not(#' + so + '):not(:has(#' + so + ')){display:none!important} .sheet > :not(.bar):not(main):not(.axis-toc){display:none!important}'; document.head.appendChild(st); } } catch (e) {}
+  if (r !== 'lab' && r !== 'investigation') r = d.getAttribute('data-native-reality') || 'lab';
+  d.setAttribute('data-reality', r);
+  m = (m === 'on' || m === 'off') ? m : 'auto';
+  d.setAttribute('data-motion', m);
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.classList.toggle('motion-ok', m === 'on' || (m === 'auto' && !reduce));
+  d.classList.remove('no-js'); d.classList.add('js');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/specimen.css">
+<link rel="icon" href="assets/shared/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<noscript><style>[data-view]{display:block!important}.reality,.tbtn[data-figure-toggle]{display:none!important}</style></noscript>
+
+<link rel="preload" as="image" href="assets/zewm-excmon/rec041-1600.avif" type="image/avif" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/pages/zewm-excmon.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="backdrop" aria-hidden="true" style="--backdrop-field:#6E54C8;--backdrop-field-inv:#040A0F">
+  <div data-view="lab" style="background:#6E54C8"></div>
+  <div data-view="investigation" style="background:var(--table)"></div>
+</div>
+
+<div class="sheet">
+<header class="bar" role="banner">
+  <a class="brand" href="./" aria-label="MALINYX — home"><svg class="mark" viewBox="266 90 723 717" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="mk-ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EEE4"/><stop offset=".55" stop-color="#E8E0D2"/><stop offset="1" stop-color="#A89F91"/></linearGradient>
+  <linearGradient id="mk-ivory2" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#E8E0D2"/><stop offset=".52" stop-color="#A89F91"/><stop offset="1" stop-color="#6F675D"/></linearGradient>
+  <linearGradient id="mk-taupe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5E6975"/><stop offset=".45" stop-color="#12110F"/><stop offset="1" stop-color="#1D2630"/></linearGradient>
+  <linearGradient id="mk-bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7B2A16"/><stop offset=".35" stop-color="#F25C2A"/><stop offset=".7" stop-color="#B43C1D"/><stop offset="1" stop-color="#FF8A5F"/></linearGradient>
+  <radialGradient id="mk-sphere" cx="35%" cy="28%" r="75%"><stop stop-color="#99E0DA"/><stop offset=".5" stop-color="#36B3A8"/><stop offset="1" stop-color="#123E3B"/></radialGradient>
+  
+  
+ </defs><g class="mk-facets" stroke="#F25C2A" stroke-width="6" stroke-linejoin="miter"><g class="mk-g1"><path d="M276 174L438 210V797H276Z" fill="url(#mk-taupe)"/><path d="M807 412L979 174V797H807Z" fill="url(#mk-ivory2)"/><path d="M276 174C395 203 424 273 394 365C373 429 316 492 276 570Z" fill="url(#mk-taupe)"/><path d="M276 174C381 181 445 190 475 256C501 313 526 417 641 596L624 752L438 474C404 423 389 370 394 317C397 269 374 220 276 174Z" fill="url(#mk-ivory)"/><path d="M276 570C321 491 370 423 394 365V724C365 769 326 797 276 797Z" fill="url(#mk-ivory)"/></g><g class="mk-g2"><path d="M433 201C498 221 527 276 548 348C574 437 595 524 641 596L624 752L439 476C485 520 536 544 594 559Z" fill="url(#mk-bronze)" opacity=".92"/><path d="M394 317C435 354 482 426 533 509L624 718V752L438 474C405 424 388 372 394 317Z" fill="#2f2924" opacity=".82"/></g><g class="mk-g3"><path d="M624 752C681 650 720 552 761 446C799 347 865 256 979 174C912 216 840 241 788 290C718 355 677 469 641 596Z" fill="url(#mk-taupe)"/><path d="M624 752C681 646 722 524 780 416C825 334 891 276 979 174C909 224 849 246 799 297C725 372 684 500 641 596Z" fill="url(#mk-ivory)"/><path d="M641 596C694 490 731 385 799 297C858 221 912 216 979 174C916 264 845 313 795 398C729 510 690 649 624 752Z" fill="url(#mk-ivory2)" opacity=".72"/><path d="M624 752C679 647 720 527 769 429C809 350 870 347 907 392C939 432 945 501 945 576V797H807V448C807 404 789 370 759 365C716 358 685 421 641 596Z" fill="url(#mk-taupe)"/><path d="M807 797V448C807 404 789 370 759 365C818 352 868 365 904 411C939 455 945 514 945 576V797Z" fill="url(#mk-ivory2)"/><path d="M945 214L979 174V797H945Z" fill="url(#mk-ivory)"/></g></g><g class="mk-sph"><line x1="947" y1="97" x2="947" y2="835" stroke="#36B3A8" stroke-width="10"/><circle class="mk-ball" cx="947" cy="701" r="36" fill="url(#mk-sphere)"/></g></svg><span class="brand-text">MALINYX</span></a>
+  <button class="reality-btn" type="button" aria-pressed="false">
+    <svg class="glyph" viewBox="0 0 16 22" aria-hidden="true"><line class="axis" x1="11" y1="1" x2="11" y2="21"/><path class="arc" d="M2 19 A 10 10 0 0 1 11 3"/><circle class="sphere" cx="11" cy="17" r="3.2"/></svg>
+    <span class="long">Change reality</span><span class="reality-state" id="reality-state"><span class="inline-view" data-view="lab">Lab</span><span class="inline-view" data-view="investigation">Inv.</span></span>
+  </button>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="work" data-nav="work" aria-current="page">Work</a></li>
+      <li><a href="field-notes" data-nav="field-notes">Field notes</a></li>
+      <li><a href="about" data-nav="about">About</a></li>
+    </ul>
+    <button class="menu-btn" type="button" data-open-menu aria-haspopup="dialog" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </nav>
+</header>
+<nav class="axis-toc" aria-label="Sections">
+  <a href="#s01" style="top:4%"><span>01 · Specimen</span></a><a href="#s02" style="top:13%"><span>02 · Question</span></a>
+  <a href="#s03" style="top:22%"><span>03 · Mechanism</span></a><a href="#s04" style="top:44%"><span>04 · Inside</span></a>
+  <a href="#s05" style="top:60%"><span>05 · Pigment</span></a><a href="#s06" style="top:70%"><span>06 · Decisions</span></a>
+  <a href="#s07" style="top:79%"><span>07 · Ledger</span></a><a href="#s08" style="top:89%"><span>08 · Provenance</span></a>
+  <i class="ball" aria-hidden="true"></i>
+</nav>
+<main id="content">
+
+
+
+<div class="case-title" id="s00" style="--lead:#6E54C8; --glyph-ink:#F4EEE4">
+  <div><span class="k">Code</span><span class="v code">ZEWM_EXCMON</span></div>
+  <div><span class="k">Title</span><span class="v">Forensic systems investigation · record REC-041</span></div>
+  <div><span class="k">Discipline</span><span class="v">Systems investigation · evidence &amp; information design · spatial reconstruction</span></div>
+  <div><span class="k">Date</span><span class="v">Package files 11–12 Jun 2026 · <span class="claim" data-level="TBC">Project year TBC</span></span></div>
+  <div><span class="k">Status</span><span class="v"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· investigation package</span></span></span>
+       <div class="claimbar" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i></i><i></i><i></i></div>
+       <span class="sr-only">Highest claim: designed, an investigation package. Physical evidence: none.</span></div>
+  <div class="glyph-tile" aria-hidden="true"><svg viewBox="0 5 48 25"><line class="gl" x1="2" y1="24" x2="46" y2="24"/>
+    <g class="zw-glyph" stroke="#F4EEE4" stroke-width=".8">
+      <rect x="2.4" y="21.7" width="4.6" height="4.6" fill="#3E78B8"/>
+      <path d="M8.0 21.7h4.6L8.0 26.3z" fill="#3E78B8"/><path d="M12.6 21.7v4.6H8.0z" fill="#8A8F94"/><rect x="8.0" y="21.7" width="4.6" height="4.6" fill="none"/>
+      <rect x="13.6" y="21.7" width="4.6" height="4.6" fill="#C98A28"/>
+      <rect x="19.2" y="21.7" width="4.6" height="4.6" fill="#6E54C8"/>
+      <rect x="24.8" y="21.7" width="4.6" height="4.6" fill="#C0413F"/>
+      <rect x="30.4" y="21.7" width="4.6" height="4.6" fill="#1E9C9C"/>
+      <path d="M36.0 21.7h4.6L36.0 26.3z" fill="#C0413F"/><path d="M40.6 21.7v4.6H36.0z" fill="#6E54C8"/><rect x="36.0" y="21.7" width="4.6" height="4.6" fill="none"/>
+      <rect x="41.6" y="21.7" width="4.6" height="4.6" fill="#6E54C8"/>
+      </g>
+    <path class="gl" d="M43.9 21 C 43.9 8, 4.7 8, 4.7 21" style="stroke-dasharray:2 2"/></svg></div>
+</div>
+
+
+<section class="case-hero" id="s01" aria-labelledby="h1">
+  <div class="ch-text">
+    <p class="label state-tag"><span class="inline-view" data-view="lab">[ LAB · AS DESIGNED ]</span><span class="inline-view" data-view="investigation">[ INVESTIGATION · AS EVIDENCED ]</span> <a class="legend-plus" href="about#legend" aria-label="How to read this sheet">[+]</a></p>
+    <h1 id="h1">The failure was not a missed alert.</h1>
+    <p class="lead"><strong class="zw-sub">It was an inherited governance condition.</strong> A forensic systems investigation into how a reefer temperature exception, REC-041, lost its owner across fragmented institutional layers — told in six A4 evidence frames.</p>
+  </div>
+
+  <figure class="ch-fig" aria-labelledby="hero-cap">
+    
+    <div data-view="lab">
+      <div class="stage iso-stage" id="iso-stage" data-plot style="--ar:2480/2800" role="img" aria-label="Isometric schematic of the REC-041 evidence chamber, 14 by 11 by 3.2 metres: a monitor wall on the back wall carrying a violet plaque with an amber breach line on its top edge, three red SLA rails at ceiling height, a 4 by 2 metre table with six governance plates and five evidence placards, three strip lights, and the 33 millimetre camera at the front left aimed at the plaque.">
+
+<svg class="overlay iso" viewBox="-1240 -1400 2480 2800" aria-hidden="true">
+<polygon class="iso-wall draw-f" style="--g:0;--di:0" points="-1082.5,75 129.9,-625 129.9,-945 -1082.5,-245"/>
+<polygon class="iso-wall iso-wall-r draw-f" style="--g:0;--di:0" points="129.9,-625 1082.5,-75 1082.5,-395 129.9,-945"/>
+<polygon class="iso-floor draw-f" style="--g:0;--di:0" points="-129.9,625 1082.5,-75 129.9,-625 -1082.5,75"/>
+<path class="iso-grid draw-f" style="--g:0" d="M-43.3 575L-995.9 25M43.3 525L-909.3 -25M129.9 475L-822.7 -75M216.5 425L-736.1 -125M303.1 375L-649.5 -175M389.7 325L-562.9 -225M476.3 275L-476.3 -275M562.9 225L-389.7 -325M649.5 175L-303.1 -375M736.1 125L-216.5 -425M822.7 75L-129.9 -475M909.3 25L-43.3 -525M995.9 -25L43.3 -575M-216.5 575L995.9 -125M-303.1 525L909.3 -175M-389.7 475L822.7 -225M-476.3 425L736.1 -275M-562.9 375L649.5 -325M-649.5 325L562.9 -375M-736.1 275L476.3 -425M-822.7 225L389.7 -475M-909.3 175L303.1 -525M-995.9 125L216.5 -575"/>
+<line class="dw-visible draw" style="--g:0;--di:0" x1="-129.9" y1="625" x2="1082.5" y2="-75"/>
+<line class="dw-visible draw" style="--g:0;--di:1" x1="1082.5" y1="-75" x2="129.9" y2="-625"/>
+<line class="dw-visible draw" style="--g:0;--di:2" x1="129.9" y1="-625" x2="-1082.5" y2="75"/>
+<line class="dw-visible draw" style="--g:0;--di:3" x1="-1082.5" y1="75" x2="-129.9" y2="625"/>
+<line class="dw-visible draw" style="--g:0;--di:4" x1="-1082.5" y1="75" x2="-1082.5" y2="-245"/>
+<line class="dw-visible draw" style="--g:0;--di:5" x1="129.9" y1="-625" x2="129.9" y2="-945"/>
+<line class="dw-visible draw" style="--g:0;--di:6" x1="1082.5" y1="-75" x2="1082.5" y2="-395"/>
+<line class="dw-visible draw" style="--g:0;--di:7" x1="-1082.5" y1="-245" x2="129.9" y2="-945"/>
+<line class="dw-visible draw" style="--g:0;--di:8" x1="129.9" y1="-945" x2="1082.5" y2="-395"/>
+<line class="dw-hidden draw-f" style="--g:0;--di:9" x1="-129.9" y1="625" x2="-129.9" y2="305"/>
+<line class="dw-hidden draw-f" style="--g:0;--di:10" x1="-129.9" y1="305" x2="1082.5" y2="-395"/>
+<line class="dw-hidden draw-f" style="--g:0;--di:11" x1="-129.9" y1="305" x2="-1082.5" y2="-245"/>
+<polygon class="iso-screen draw-f" style="--g:1;--di:0" points="-685.9,-241 -235.6,-501 -235.6,-681 -685.9,-421"/>
+<polygon class="dw-visible draw" style="--g:1" points="-685.9,-241 -235.6,-501 -235.6,-681 -685.9,-421"/>
+<line class="dw-thin draw" style="--g:1;--di:1" x1="-661.6" y1="-437" x2="-661.6" y2="-465"/>
+<line class="dw-thin draw" style="--g:1;--di:1" x1="-263.3" y1="-667" x2="-263.3" y2="-695"/>
+<polygon class="iso-reveal draw-f" style="--g:2;--di:0" points="-576.8,-314 -329.1,-457 -329.1,-599 -576.8,-456"/>
+<polygon class="iso-plaque draw-f" style="--g:2;--di:0" points="-560.3,-329.5 -335.2,-459.5 -335.2,-577.5 -560.3,-447.5"/>
+<polygon class="iso-inset draw-f" style="--g:2;--di:0" points="-553.8,-339.8 -340.8,-462.7 -340.8,-566.8 -553.8,-443.8"/>
+<line class="iso-txt draw" style="--g:2;--di:2" x1="-547.3" y1="-430" x2="-493.6" y2="-461"/>
+<line class="iso-txt draw" style="--g:2;--di:3" x1="-547.3" y1="-415" x2="-452.1" y2="-470"/>
+<line class="iso-txt draw" style="--g:2;--di:4" x1="-547.3" y1="-400" x2="-465.1" y2="-447.5"/>
+<line class="iso-txt draw" style="--g:2;--di:5" x1="-547.3" y1="-385" x2="-478" y2="-425"/>
+<line class="iso-txt draw" style="--g:2;--di:6" x1="-547.3" y1="-370" x2="-459" y2="-421"/>
+<line class="iso-txt draw" style="--g:2;--di:7" x1="-547.3" y1="-355" x2="-472.8" y2="-398"/>
+<line class="iso-breach draw" style="--g:2;--di:9" x1="-559.5" y1="-447" x2="-334.3" y2="-577"/>
+<polygon class="iso-leg draw-f" style="--g:3;--di:0" points="-73.6,107.5 -194.9,37.5 -194.9,-32.5 -73.6,37.5"/>
+<polygon class="dw-thin draw" style="--g:3" points="-73.6,107.5 -194.9,37.5 -194.9,-32.5 -73.6,37.5"/>
+<polygon class="iso-leg draw-f" style="--g:3;--di:0" points="194.9,-47.5 73.6,-117.5 73.6,-187.5 194.9,-117.5"/>
+<polygon class="dw-thin draw" style="--g:3" points="194.9,-47.5 73.6,-117.5 73.6,-187.5 194.9,-117.5"/>
+<polygon class="iso-tside draw-f" style="--g:3;--di:0" points="-86.6,77.5 259.8,-122.5 259.8,-130 -86.6,70"/>
+<polygon class="iso-tside draw-f" style="--g:3;--di:0" points="259.8,-122.5 86.6,-222.5 86.6,-230 259.8,-130"/>
+<polygon class="iso-ttop draw-f" style="--g:3;--di:0" points="-86.6,70 259.8,-130 86.6,-230 -259.8,-30"/>
+<polygon class="dw-visible draw" style="--g:3;--di:1" points="-86.6,70 259.8,-130 86.6,-230 -259.8,-30"/>
+<polyline class="dw-visible draw" style="--g:3;--di:2" points="-86.6,70 -86.6,77.5 259.8,-122.5 86.6,-222.5 86.6,-230"/>
+<line class="dw-thin draw" style="--g:3;--di:3" x1="259.8" y1="-122.5" x2="259.8" y2="-130"/>
+<line class="dw-thin draw" style="--g:3;--di:4" x1="-95.3" y1="35" x2="199.2" y2="-135"/>
+<line class="iso-rail draw" style="--g:4;--di:0" x1="138.6" y1="162" x2="-762.1" y2="-358"/>
+<line class="iso-rail draw" style="--g:4;--di:1" x1="762.1" y1="-198" x2="-138.6" y2="-718"/>
+<line class="iso-rail draw" style="--g:4;--di:2" x1="-776" y1="-385" x2="-152.4" y2="-745"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:0" points="-78.8,55.5 -33.8,29.5 -33.8,1.5 -78.8,27.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:0" points="-78.8,55.5 -33.8,29.5 -33.8,1.5 -78.8,27.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:0" x1="-71" y1="32" x2="-45" y2="17"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:1" points="-25.1,24.5 19.9,-1.5 19.9,-29.5 -25.1,-3.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:1" points="-25.1,24.5 19.9,-1.5 19.9,-29.5 -25.1,-3.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:1" x1="-17.3" y1="1" x2="8.7" y2="-14"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:2" points="28.6,-6.5 73.6,-32.5 73.6,-60.5 28.6,-34.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:2" points="28.6,-6.5 73.6,-32.5 73.6,-60.5 28.6,-34.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:2" x1="36.4" y1="-30" x2="62.4" y2="-45"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:3" points="82.3,-37.5 127.3,-63.5 127.3,-91.5 82.3,-65.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:3" points="82.3,-37.5 127.3,-63.5 127.3,-91.5 82.3,-65.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:3" x1="90.1" y1="-61" x2="116" y2="-76"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:4" points="136,-68.5 181,-94.5 181,-122.5 136,-96.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:4" points="136,-68.5 181,-94.5 181,-122.5 136,-96.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:4" x1="143.8" y1="-92" x2="169.7" y2="-107"/>
+<polygon class="iso-gplate draw-f" style="--g:5;--di:5" points="189.7,-99.5 234.7,-125.5 234.7,-153.5 189.7,-127.5"/>
+<polygon class="dw-visible draw" style="--g:5;--di:5" points="189.7,-99.5 234.7,-125.5 234.7,-153.5 189.7,-127.5"/>
+<line class="iso-gtxt draw" style="--g:5;--di:5" x1="197.5" y1="-123" x2="223.4" y2="-138"/>
+<polygon class="iso-placard draw-f" style="--g:6;--di:0" points="-10.3,-43.3 39.7,-50.3 39.7,-65.8 -10.3,-58.8"/>
+<polygon class="dw-thin draw" style="--g:6;--di:0" points="-10.3,-43.3 39.7,-50.3 39.7,-65.8 -10.3,-58.8"/>
+<polygon class="iso-placard draw-f" style="--g:6;--di:1" points="-44.9,-48.3 5.1,-55.3 5.1,-70.8 -44.9,-63.8"/>
+<polygon class="dw-thin draw" style="--g:6;--di:1" points="-44.9,-48.3 5.1,-55.3 5.1,-70.8 -44.9,-63.8"/>
+<polygon class="iso-placard draw-f" style="--g:6;--di:2" points="-79.6,-53.3 -29.5,-60.3 -29.5,-75.8 -79.6,-68.8"/>
+<polygon class="dw-thin draw" style="--g:6;--di:2" points="-79.6,-53.3 -29.5,-60.3 -29.5,-75.8 -79.6,-68.8"/>
+<polygon class="iso-placard draw-f" style="--g:6;--di:3" points="-113.3,-57.8 -63.3,-64.8 -63.3,-80.3 -113.3,-73.3"/>
+<polygon class="dw-thin draw" style="--g:6;--di:3" points="-113.3,-57.8 -63.3,-64.8 -63.3,-80.3 -113.3,-73.3"/>
+<polygon class="iso-placard draw-f" style="--g:6;--di:4" points="-147.1,-62.3 -97.1,-69.3 -97.1,-84.8 -147.1,-77.8"/>
+<polygon class="dw-thin draw" style="--g:6;--di:4" points="-147.1,-62.3 -97.1,-69.3 -97.1,-84.8 -147.1,-77.8"/>
+<polygon class="iso-light draw-f" style="--g:7;--di:0" points="-490.2,-463 -282.3,-583 -289.3,-587 -497.1,-467"/>
+<polygon class="iso-light draw-f" style="--g:7;--di:1" points="289.3,-13 497.1,-133 490.2,-137 282.3,-17"/>
+<polygon class="iso-light draw-f" style="--g:7;--di:2" points="-74.5,-193 81.4,-283 74.5,-287 -81.4,-197"/>
+<polygon class="iso-frustum-f draw-f" style="--g:8" points="41.9,-136.7 41,-2.7 -220.1,75.2 -219.2,-58.8"/>
+<line class="iso-frustum draw" style="--g:8;--di:0" x1="34.6" y1="110" x2="41.9" y2="-136.7"/>
+<line class="iso-frustum draw" style="--g:8;--di:1" x1="34.6" y1="110" x2="41" y2="-2.7"/>
+<line class="iso-frustum draw" style="--g:8;--di:2" x1="34.6" y1="110" x2="-220.1" y2="75.2"/>
+<line class="iso-frustum draw" style="--g:8;--di:3" x1="34.6" y1="110" x2="-219.2" y2="-58.8"/>
+<polygon class="iso-frustum draw" style="--g:8;--di:4" points="41.9,-136.7 41,-2.7 -220.1,75.2 -219.2,-58.8"/>
+<line class="dw-chain draw-f iso-sight" style="--g:8;--di:5" x1="34.6" y1="110" x2="-447.7" y2="-438.5"/>
+<line class="dw-hidden draw-f iso-drop" style="--g:8;--di:6" x1="34.6" y1="110" x2="34.6" y2="280"/>
+<path class="dw-thin draw-f" style="--g:8" d="M18.6 280H50.6M34.6 271V289"/>
+<rect class="iso-cam draw-f" style="--g:8" x="25.6" y="101" width="18" height="18"/>
+<circle class="iso-aim draw-f" style="--g:8" cx="-447.7" cy="-438.5" r="7"/>
+<line class="dw-dim draw" style="--g:9;--di:0" x1="-129.9" y1="625" x2="-52" y2="670"/>
+<line class="dw-dim draw" style="--g:9;--di:0" x1="1082.5" y1="-75" x2="1160.5" y2="-30"/>
+<line class="dw-dim draw" style="--g:9;--di:0" x1="-52" y1="670" x2="1160.5" y2="-30"/>
+<path class="dw-dim draw" style="--g:9;--di:0" d="M-66 684L-38 656"/>
+<path class="dw-dim draw" style="--g:9;--di:0" d="M1146.5 -16L1174.5 -44"/>
+<line class="dw-dim draw" style="--g:9;--di:1" x1="-129.9" y1="625" x2="-207.8" y2="670"/>
+<line class="dw-dim draw" style="--g:9;--di:1" x1="-1082.5" y1="75" x2="-1160.5" y2="120"/>
+<line class="dw-dim draw" style="--g:9;--di:1" x1="-207.8" y1="670" x2="-1160.5" y2="120"/>
+<path class="dw-dim draw" style="--g:9;--di:1" d="M-221.8 684L-193.8 656"/>
+<path class="dw-dim draw" style="--g:9;--di:1" d="M-1174.5 134L-1146.5 106"/>
+<line class="dw-dim draw" style="--g:9;--di:2" x1="1082.5" y1="-75" x2="1160.5" y2="-30"/>
+<line class="dw-dim draw" style="--g:9;--di:2" x1="1082.5" y1="-395" x2="1160.5" y2="-350"/>
+<line class="dw-dim draw" style="--g:9;--di:2" x1="1160.5" y1="-30" x2="1160.5" y2="-350"/>
+<path class="dw-dim draw" style="--g:9;--di:2" d="M1146.5 -16L1174.5 -44"/>
+<path class="dw-dim draw" style="--g:9;--di:2" d="M1146.5 -336L1174.5 -364"/>
+<polyline class="leader keep" style="--i:0" points="-446.9,-512 -446.9,-1250 -486.9,-1290"/>
+<polyline class="leader keep" style="--i:1" points="446.9,-380 446.9,-1250 486.9,-1290"/>
+<polyline class="leader" style="--i:2" points="105.7,-70 445.7,270 445.7,860"/>
+<polyline class="leader" style="--i:3" points="34.6,110 -395.4,540 -395.4,860"/>
+</svg>
+<span class="dim-label zw-dim" style="--cx:73.57%;--cy:62.05%;--rot:-30deg">14.0 m</span>
+<span class="dim-label zw-dim" style="--cx:21.19%;--cy:64.73%;--rot:30deg">11.0 m</span>
+<span class="dim-label zw-dim" style="--cx:98.02%;--cy:43.84%;--rot:-90deg">3.2 m</span>
+<i class="anc" data-anchor="l1" style="--ax:31.98%;--ay:31.71%;--i:0">1</i>
+<i class="anc" data-anchor="l2" style="--ax:68.02%;--ay:36.43%;--i:1">2</i>
+<i class="anc" data-anchor="l3" style="--ax:54.26%;--ay:47.49%;--i:2">3</i>
+<i class="anc" data-anchor="l4" style="--ax:51.40%;--ay:53.93%;--i:3">4</i>
+<p class="callout" data-a="l1" data-align="right" style="--cx:30.37%;--cy:3.92%;--i:0;--cw:29cqi"><span class="n">1</span>Plaque 2.60 × 1.18 m · violet #8B5CF6 · amber breach line #F0A43A along its top edge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+<p class="callout" data-a="l2" data-align="left" style="--cx:69.63%;--cy:3.92%;--i:1;--cw:29cqi"><span class="n">2</span>SLA rails · red #D94B4B · sides 10.4 m at z 2.78 · back 7.2 m at z 2.97<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+<p class="callout" data-a="l3" data-align="left" style="--cx:67.97%;--cy:80.72%;--i:2;--cw:29cqi"><span class="n">3</span>Table 4.0 × 2.0 m, top z 0.80 · six governance plates 0.52 × 0.28 m at its front edge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+<p class="callout" data-a="l4" data-align="right" style="--cx:34.06%;--cy:80.72%;--i:3;--cw:29cqi"><span class="n">4</span>Camera 33 mm at (−2.6, −3.0, 1.70) aimed at the plaque · frustum assumes the default 36 mm sensor<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+
+      </div>
+      <ol class="iso-steps" aria-label="Generator build order">
+        <li style="--g:0"><b>01</b> Shell</li><li style="--g:1"><b>02</b> Monitor wall</li><li style="--g:2"><b>03</b> Plaque + breach line</li><li style="--g:3"><b>04</b> Table</li><li style="--g:4"><b>05</b> SLA rails</li><li style="--g:5"><b>06</b> Governance plates</li><li style="--g:6"><b>07</b> Evidence placards</li><li style="--g:7"><b>08</b> Lights</li><li style="--g:8"><b>09</b> Camera</li>
+      </ol>
+      <ol class="callout-list" aria-label="Callouts">
+
+
+<li><span class="num">1</span><span>Plaque 2.60 × 1.18 m · violet #8B5CF6 · amber breach line #F0A43A along its top edge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+<li><span class="num">2</span><span>SLA rails · red #D94B4B · sides 10.4 m at z 2.78 · back 7.2 m at z 2.97<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+<li><span class="num">3</span><span>Table 4.0 × 2.0 m, top z 0.80 · six governance plates 0.52 × 0.28 m at its front edge<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+<li><span class="num">4</span><span>Camera 33 mm at (−2.6, −3.0, 1.70) aimed at the plaque · frustum assumes the default 36 mm sensor<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+
+      </ol>
+    </div>
+
+    
+    <div data-view="investigation">
+      <div class="stage rec-stage" data-plot style="--ar:1600/1866">
+        <div class="spec" style="--x:0%;--y:23.580%;--w:100%;--h:57.128%">
+          <picture>
+            <source srcset="assets/zewm-excmon/rec041-1600.avif 1600w, assets/zewm-excmon/rec041-2400.avif 2400w" sizes="(max-width:767px) 100vw, (max-width:1279px) 680px, 46vw" type="image/avif">
+            <img src="assets/zewm-excmon/rec041-1600.jpg" width="1600" height="1066" alt="REC-041 concept render: a dark evidence chamber seen from the front left. A blue-grey monitor wall holds a pale violet-framed plaque with six lines of evidence text, a red rail runs above it, and a steel table with dark evidence placards sits in the lower right." fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+        <svg class="overlay" viewBox="0 -440 1600 1866" aria-hidden="true">
+          <polyline class="leader keep" style="--i:0" points="600,590 600,1060 560,1100"/>
+          <polyline class="leader keep" style="--i:1" points="560,245 560,-350 500,-410"/>
+          <polyline class="leader" style="--i:2" points="1480,981 1480,1040 1420,1100"/>
+        </svg>
+        <i class="anc" data-anchor="r1" style="--ax:37.5%;--ay:55.20%;--i:0">1</i>
+        <i class="anc" data-anchor="r2" style="--ax:35%;--ay:36.71%;--i:1">2</i>
+        <i class="anc" data-anchor="r3" style="--ax:92.5%;--ay:76.15%;--i:2">3</i>
+        <p class="callout" data-a="r1" data-align="right" style="--cx:35%;--cy:82.53%;--i:0;--cw:32cqi"><span class="n">1</span>Plaque 2.60 × 1.18 m · violet #8B5CF6 · emission 3.0 → 3.7 in v02<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></p>
+        <p class="callout" data-a="r2" data-align="right" style="--cx:31.25%;--cy:1.61%;--i:1;--cw:29cqi"><span class="n">2</span>Back SLA rail · #D94B4B · emission 3.0 → 0.70 in v02, so the red stays red under Filmic<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></p>
+        <p class="callout" data-a="r3" data-align="right" style="--cx:88.75%;--cy:82.53%;--i:2;--cw:32cqi"><span class="n">3</span>v02 adds five evidence placards on the table, yawed −0.55 rad to face the camera<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></p>
+        <p class="callout zw-free" data-align="left" style="--cx:40%;--cy:1.61%;--i:3;--cw:32cqi"><span class="n">4</span>Camera 33 mm at 1.70 m eye height · a static reconstruction, still image only<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+      </div>
+      <ol class="callout-list" aria-label="Callouts">
+        <li><span class="num">1</span><span>Plaque 2.60 × 1.18 m · violet #8B5CF6 · emission 3.0 → 3.7 in v02<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></span></li>
+        <li><span class="num">2</span><span>Back SLA rail · #D94B4B · emission 3.0 → 0.70 in v02, so the red stays red under Filmic<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></span></li>
+        <li><span class="num">3</span><span>v02 adds five evidence placards on the table, yawed −0.55 rad to face the camera<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></span></span></li>
+        <li><span class="num">4</span><span>Camera 33 mm at 1.70 m eye height · a static reconstruction, still image only<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+      </ol>
+    </div>
+
+    <figcaption class="prov" id="hero-cap">
+      <span class="inline-view" data-view="lab">Specimen 05 · REC-041 chamber · schematic from generator constants — not a render · 30° isometric</span>
+      <span class="inline-view" data-view="investigation">Specimen 05 · REC-041 v02 · concept render — Blender Cycles, 3840 × 2160, cropped 3:2 · a static visualisation, not a measured scene</span>
+      <button class="tbtn" type="button" data-figure-toggle data-label-lab="Show render" data-label-inv="Show schematic">Show schematic</button>
+      <button class="tbtn zw-rebuild" type="button" data-rebuild hidden>Rebuild</button>
+    </figcaption>
+    <p class="micro disclaimer">Investigation narrative; data provenance not stated. No document says whether REC-041 comes from a real incident.</p>
+  </figure>
+
+  <aside class="ch-info" aria-label="Specimen 05">
+    <div class="win"><div class="win-in">
+      <div class="win-bar"><span class="win-title">Specimen 05 / 08 · ZEWM_EXCMON</span></div>
+      <div class="win-body"><div><div class="pad">
+        <p class="label">Forensic systems investigation · enterprise cold-chain logistics</p>
+        <div class="claimbar" style="margin-top:12px" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i></i><i></i><i></i></div>
+        <div class="claimbar-legend" aria-hidden="true"><span>Concept</span><span>Designed</span><span>Spec.</span><span>Proto.</span><span>Valid.</span></div>
+        <p class="micro claimbar-scope">Highest claim: designed · investigation package · physical evidence: none</p>
+        <p class="label" style="margin-top:14px">Role · self-described, frame 05</p>
+        <p class="small">Systems investigation framing, forensic information architecture, evidence taxonomy, spatial reconstruction direction, governance-chain mapping, portfolio art direction.</p>
+        <p class="micro" style="margin-top:8px">Collaborators: none credited in the package</p>
+        <div class="swatches zw-key-sw" style="margin-top:12px" role="img" aria-label="Semantic key: systems blue, failure red, warning amber, governance violet, human adaptation cyan, archive grey"><i style="--c:#3E78B8"></i><i style="--c:#C0413F"></i><i style="--c:#C98A28"></i><i style="--c:#6E54C8"></i><i style="--c:#1E9C9C"></i><i style="--c:#8A8F94"></i></div>
+        <a class="tbtn" href="assets/zewm-excmon/ZEWM_EXCMON_Portfolio_Package.pdf" style="margin-top:14px;display:inline-block">→ Package PDF · 6 pages</a>
+      </div></div></div>
+    </div></div>
+  </aside>
+
+  <div class="ch-list"><ol class="tlist" aria-labelledby="ots-h"><li class="head" id="ots-h" style="display:block;border:0;padding:0">[ On this sheet ]</li>
+
+    <li><span class="no">02</span><a class="lbl" href="#s02">Question</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+    <li><span class="no">03</span><a class="lbl" href="#s03">Mechanism</a><span class="hatch"><span class="track"><i style="--n:3;--of:3"></i></span><span class="count">3 min</span></span></li>
+    <li><span class="no">04</span><a class="lbl" href="#s04">Inside</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">05</span><a class="lbl" href="#s05">Pigment &amp; material</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">06</span><a class="lbl" href="#s06">Decisions</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+    <li><span class="no">07</span><a class="lbl" href="#s07">Claim ledger</a><span class="hatch"><span class="track"><i style="--n:2;--of:3"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">08</span><a class="lbl" href="#s08">Provenance</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+    <li><span class="no">09</span><a class="lbl" href="#s09">Next specimen</a><span class="hatch"><span class="track"><i style="--n:1;--of:3"></i></span><span class="count">1 min</span></span></li>
+
+  </ol></div>
+
+  <dl class="record two ch-record" aria-label="Specimen record">
+    <dt>Code</dt><dd>ZEWM_EXCMON · REC-041</dd>
+    <dt>Discipline</dt><dd>Forensic systems investigation</dd>
+    <dt>Date</dt><dd>Files 11–12 Jun 2026 · year TBC</dd>
+    <dt>Status</dt><dd>Designed · investigation package</dd>
+    <dt>Physical evidence</dt><dd>None — a digital investigation package</dd>
+    <dt>Image</dt><dd><span class="inline-view" data-view="lab">Schematic from generator constants</span><span class="inline-view" data-view="investigation">Concept render · Blender Cycles</span></dd>
+    <dt>Sheet</dt><dd>07 / 11</dd>
+  </dl>
+</section>
+<div id="ledger-inv-slot"></div>
+
+
+<section class="sheet-section" id="s02" aria-labelledby="s02-h">
+  <div class="sec-mark"><p class="marker">02 · Question</p><h2 id="s02-h" class="h2">Seven exceptions. Nobody owned them.</h2></div>
+  <div class="cols">
+    <div class="question span-7"><p>Why did a reefer temperature excursion keep recurring — seven incidents in 48 hours — without anyone owning it? The investigation argues the cause was not a missed alert or a software bug. Corrective action CAPA-2241 had been open for 11 days. The owner field was unassigned. A monitoring dependency, REEFER-MON-VQ1, was dead; sync age was unknown; escalation was blocked; Shift B-2 ran an undocumented workaround. The method has four steps — incident reconstruction, evidence clustering into a six-category taxonomy, a recurrence map and a failure-chain map — held together by one semantic colour code, so each colour carries one meaning.</p></div>
+    <aside class="pull span-4 start-9" aria-label="Pull fact">
+      <p class="big"><span>7</span> <span class="zw-slash">/</span> 48 h</p>
+      <span class="zw-ticks" role="img" aria-label="Seven incident rows in printed order: breach, governance, failure, warning, systems, human adaptation, recurrence"><i style="--c:#C0413F"></i><i style="--c:#6E54C8"></i><i style="--c:#C0413F"></i><i style="--c:#C98A28"></i><i style="--c:#3E78B8"></i><i style="--c:#1E9C9C"></i><i style="--c:#6E54C8"></i></span>
+      <p class="label lbl">Temperature exceptions INC-01 → INC-07 in one 48-hour window</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· investigation narrative</span></span></div>
+      <p class="micro" style="margin-top:8px">Data provenance not stated</p>
+    </aside>
+  </div>
+</section>
+
+
+<section class="sheet-section zw-mech" id="s03" aria-labelledby="s03-h">
+  <div class="sec-mark"><p class="marker">03 · Mechanism</p><h2 id="s03-h" class="h2">Eight nodes, five layers, no stable owner.</h2>
+    <p class="small muted zw-mech-note">Rebuilt live from the frames' own colour tokens. Every figure in this section: investigation narrative; data provenance not stated.</p></div>
+
+  <div class="zw-iso" id="zw-iso" data-iso="all">
+
+  
+  <div class="inst inst-wrap zw-chain-inst" data-instrument data-start="7">
+    <script type="application/json">[
+      {"id":"n1","readout":"Node 01 / 08 · Monitor signal · system layer — repeated temp excursion detected","valuetext":"Node 1 of 8: monitor signal, system layer. Repeated temp excursion detected."},
+      {"id":"n2","readout":"Node 02 / 08 · Sync uncertainty · system layer — data freshness could not be verified","valuetext":"Node 2 of 8: sync uncertainty, system layer. Data freshness could not be verified."},
+      {"id":"n3","readout":"Node 03 / 08 · CAPA stale · process layer — corrective action remained open","valuetext":"Node 3 of 8: CAPA stale, process layer. Corrective action remained open."},
+      {"id":"n4","readout":"Node 04 / 08 · Owner unassigned · authority layer — authority field unresolved","valuetext":"Node 4 of 8: owner unassigned, authority layer. Authority field unresolved."},
+      {"id":"n5","readout":"Node 05 / 08 · Escalation blocked · process layer — exception path failed before response","valuetext":"Node 5 of 8: escalation blocked, process layer. Exception path failed before response."},
+      {"id":"n6","readout":"Node 06 / 08 · Shift B-2 workaround · human layer — unofficial human adaptation recorded","valuetext":"Node 6 of 8: Shift B-2 workaround, human layer. Unofficial human adaptation recorded."},
+      {"id":"n7","readout":"Node 07 / 08 · Root unverified · governance layer — institutional cause remained unconfirmed","valuetext":"Node 7 of 8: root unverified, governance layer. Institutional cause remained unconfirmed."},
+      {"id":"n8","readout":"Node 08 / 08 · Governance recurrence · governance layer — failure pattern repeated across ownership gaps","valuetext":"Node 8 of 8: governance recurrence, governance layer. Failure pattern repeated across ownership gaps."}
+    ]</script>
+    <figure class="inst-fig zw-chain-fig" aria-labelledby="chain-cap">
+      <p class="zw-figlab"><span>System-chain map · exception ownership path</span><span class="zw-axis-l">Signal origin → institutional recurrence</span></p>
+      <div class="chain is-loop" data-chain>
+        <svg class="chain-loop" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true"><path d="M937.5 58 C 937.5 4, 62.5 4, 62.5 58"/></svg>
+        <span class="chain-rail" aria-hidden="true"><i></i></span>
+        <ol class="chain-nodes">
+          <li class="node" data-n="0" data-sem="blue" style="--c:#3E78B8"><span class="sq" data-sem="blue"></span><span class="idx">01</span><span class="code">Monitor signal</span><span class="desc">Repeated temp excursion detected</span><span class="layer"><i></i>System</span></li>
+          <li class="node" data-n="1" data-sem="blue gray" style="--c:#8A8F94"><span class="sq split"><i data-sem="blue" style="--c:#3E78B8"></i><i data-sem="gray" style="--c:#8A8F94"></i></span><span class="idx">02</span><span class="code">Sync uncertainty</span><span class="desc">Data freshness could not be verified</span><span class="layer"><i></i>System</span></li>
+          <li class="node" data-n="2" data-sem="amber" style="--c:#C98A28"><span class="sq" data-sem="amber"></span><span class="idx">03</span><span class="code">CAPA stale</span><span class="desc">Corrective action remained open</span><span class="layer"><i></i>Process</span></li>
+          <li class="node" data-n="3" data-sem="violet" style="--c:#6E54C8"><span class="sq" data-sem="violet"></span><span class="idx">04</span><span class="code">Owner unassigned</span><span class="desc">Authority field unresolved</span><span class="layer"><i></i>Authority</span></li>
+          <li class="node" data-n="4" data-sem="red" style="--c:#C0413F"><span class="sq" data-sem="red"></span><span class="idx">05</span><span class="code">Escalation blocked</span><span class="desc">Exception path failed before response</span><span class="layer"><i></i>Process</span></li>
+          <li class="node" data-n="5" data-sem="cyan" style="--c:#1E9C9C"><span class="sq" data-sem="cyan"></span><span class="idx">06</span><span class="code">Shift B-2 workaround</span><span class="desc">Unofficial human adaptation recorded</span><span class="layer"><i></i>Human</span></li>
+          <li class="node" data-n="6" data-sem="red violet" style="--c:#6E54C8"><span class="sq split"><i data-sem="red" style="--c:#C0413F"></i><i data-sem="violet" style="--c:#6E54C8"></i></span><span class="idx">07</span><span class="code">Root unverified</span><span class="desc">Institutional cause remained unconfirmed</span><span class="layer"><i></i>Governance</span></li>
+          <li class="node" data-n="7" data-sem="violet" style="--c:#6E54C8"><span class="sq" data-sem="violet"></span><span class="idx">08</span><span class="code">Governance recurrence</span><span class="desc">Failure pattern repeated across ownership gaps</span><span class="layer"><i></i>Governance</span></li>
+        </ol>
+      </div>
+      <figcaption class="zw-cap" id="chain-cap">Rebuilt from Frame 04 · node labels, layer tags and split colours as printed · investigation narrative; data provenance not stated</figcaption>
+    </figure>
+    <div class="inst-panel">
+      <p class="label">[ Trace the chain ]</p>
+      <div class="inst-controls seg zw-steps" role="group" aria-label="Chain nodes">
+        <button type="button" data-step aria-pressed="false">01</button><button type="button" data-step aria-pressed="false">02</button><button type="button" data-step aria-pressed="false">03</button><button type="button" data-step aria-pressed="false">04</button><button type="button" data-step aria-pressed="false">05</button><button type="button" data-step aria-pressed="false">06</button><button type="button" data-step aria-pressed="false">07</button><button type="button" data-step aria-pressed="true">08</button>
+      </div>
+      <input type="range" min="0" max="7" step="1" value="7" aria-label="Failure-chain node, 1 to 8" aria-valuetext="Node 8 of 8: governance recurrence, governance layer">
+      <p class="inst-readout" aria-live="polite">Node 08 / 08 · Governance recurrence · governance layer — failure pattern repeated across ownership gaps</p>
+      <p class="inst-note">The trace follows the order printed on Frame 04. It is a narrative chain, not a timed or measured sequence. The dashed return arc to node 01 is this sheet's reading of “recurrence”; Frame 04 does not draw it. Investigation narrative; data provenance not stated.</p>
+      <button class="tbtn" type="button" data-play>Play once</button>
+    </div>
+  </div>
+
+  <blockquote class="zw-thesis"><p>It failed because responsibility moved faster than documentation.</p><cite>Frame 04 · thesis line · designed copy</cite></blockquote>
+
+  
+  <div class="zw-keybar">
+    <p class="label">[ Isolate one meaning ]</p>
+    <div class="seg zw-keys" role="group" aria-label="Isolate one semantic colour across the chain, the recurrence wall and the evidence table">
+      <button type="button" data-iso-set="all" aria-pressed="true">All</button>
+      <button type="button" data-iso-set="blue" aria-pressed="false" style="--c:#3E78B8"><i></i>Systems</button>
+      <button type="button" data-iso-set="red" aria-pressed="false" style="--c:#C0413F"><i></i>Failure</button>
+      <button type="button" data-iso-set="amber" aria-pressed="false" style="--c:#C98A28"><i></i>Warning</button>
+      <button type="button" data-iso-set="violet" aria-pressed="false" style="--c:#6E54C8"><i></i>Governance</button>
+      <button type="button" data-iso-set="cyan" aria-pressed="false" style="--c:#1E9C9C"><i></i>Human adaptation</button>
+      <button type="button" data-iso-set="gray" aria-pressed="false" style="--c:#8A8F94"><i></i>Archive</button>
+    </div>
+    <p class="inst-readout zw-iso-out" aria-live="polite">All six meanings shown · 8 chain nodes · 7 wall rows · 6 artifacts</p>
+  </div>
+
+  <div class="zw-evidence">
+    
+    <figure class="zw-wall-fig" aria-labelledby="wall-cap">
+      <div class="zw-plate">
+        <div class="zw-wall-head">
+          <p class="zw-figlab"><span>Recurrence wall · temp excursion × 7 / 48 h</span></p>
+          <div class="rpn" role="img" aria-label="Risk priority number rose from 312 to 334, risk increasing after detection. Two documented values; nothing in between is stated.">
+            <p class="rpn-v"><span class="k">RPN</span> <b>312</b> <span class="ar">→</span> <b>334</b></p>
+            <svg class="rpn-line" viewBox="0 0 300 34" aria-hidden="true">
+              <line class="rpn-axis" x1="6" y1="20" x2="294" y2="20"/>
+              <g class="rpn-ticks"><line x1="6" y1="16" x2="6" y2="24"/><line x1="63.6" y1="17" x2="63.6" y2="23"/><line x1="121.2" y1="17" x2="121.2" y2="23"/><line x1="178.8" y1="17" x2="178.8" y2="23"/><line x1="236.4" y1="17" x2="236.4" y2="23"/><line x1="294" y1="16" x2="294" y2="24"/></g>
+              <text x="6" y="34">300</text><text x="150" y="34" text-anchor="middle">325</text><text x="294" y="34" text-anchor="end">350</text>
+              <line class="rpn-span" x1="75.12" y1="20" x2="201.84" y2="20" pathLength="1"/>
+              <rect class="rpn-a" x="71.6" y="16.5" width="7" height="7"/><rect class="rpn-b" x="198.3" y="16.5" width="7" height="7"/>
+            </svg>
+            <p class="micro">Risk increasing after detection · two printed values, nothing in between</p>
+          </div>
+        </div>
+        <div class="wall" data-wall>
+          <span class="win48" aria-hidden="true"><span>48 h window</span></span>
+          <ol class="wall-rows">
+            <li class="row" data-sem="red" style="--c:#C0413F;--i:0"><span class="cbar"></span><span class="rc">INC-01 / Temp excursion / Ack delayed</span><span class="rs"><b>State</b> breach detected, delayed acknowledgement</span><span class="rt"><i></i>Breach</span></li>
+            <li class="row" data-sem="violet" style="--c:#6E54C8;--i:1"><span class="cbar"></span><span class="rc">INC-02 / Temp excursion / Owner pending</span><span class="rs"><b>State</b> ownership field unresolved</span><span class="rt"><i></i>Governance</span></li>
+            <li class="row" data-sem="red" style="--c:#C0413F;--i:2"><span class="cbar"></span><span class="rc">INC-03 / Temp excursion / Escalation misrouted</span><span class="rs"><b>State</b> exception path failed</span><span class="rt"><i></i>Failure</span></li>
+            <li class="row" data-sem="amber" style="--c:#C98A28;--i:3"><span class="cbar"></span><span class="rc">INC-04 / Temp excursion / CAPA linked</span><span class="rs"><b>State</b> corrective action attached but unresolved</span><span class="rt"><i></i>Warning</span></li>
+            <li class="row" data-sem="blue" style="--c:#3E78B8;--i:4"><span class="cbar"></span><span class="rc">INC-05 / Temp excursion / Sync age unknown</span><span class="rs"><b>State</b> data freshness could not be verified</span><span class="rt"><i></i>Systems</span></li>
+            <li class="row" data-sem="cyan" style="--c:#1E9C9C;--i:5"><span class="cbar"></span><span class="rc">INC-06 / Temp excursion / Shift B-2 workaround</span><span class="rs"><b>State</b> unofficial human adaptation recorded</span><span class="rt"><i></i>Human adaptation</span></li>
+            <li class="row" data-sem="violet" style="--c:#6E54C8;--i:6"><span class="cbar"></span><span class="rc">INC-07 / Temp excursion / Root unverified</span><span class="rs"><b>State</b> institutional cause remained unconfirmed</span><span class="rt"><i></i>Recurrence</span></li>
+          </ol>
+        </div>
+      </div>
+      <figcaption class="zw-cap" id="wall-cap">Rebuilt from Frame 03 · rows in printed order; the package gives no incident times, so rows are spaced evenly, not timed · investigation narrative; data provenance not stated</figcaption>
+    </figure>
+
+    
+    <figure class="zw-table-fig" aria-labelledby="table-cap">
+      <div class="zw-plate">
+        <p class="zw-figlab"><span>Evidence table · recovered artifacts</span></p>
+        <ol class="artifacts">
+          <li class="art" data-sem="amber" style="--c:#C98A28"><span class="cbar"></span><span class="ai"><span>01 / 06</span><span class="at"><i></i>Warning</span></span><span class="ac">CAPA-2241 stale 11D</span><span class="ad">Corrective action opened, not closed.</span></li>
+          <li class="art" data-sem="violet" style="--c:#6E54C8"><span class="cbar"></span><span class="ai"><span>02 / 06</span><span class="at"><i></i>Governance</span></span><span class="ac">Owner: unassigned</span><span class="ad">Authority migrated without documented handoff.</span></li>
+          <li class="art" data-sem="gray" style="--c:#8A8F94"><span class="cbar"></span><span class="ai"><span>03 / 06</span><span class="at"><i></i>Archive</span></span><span class="ac">REEFER-MON-VQ1 dead</span><span class="ad">Monitoring dependency inactive at time of recurrence.</span></li>
+          <li class="art" data-sem="red" style="--c:#C0413F"><span class="cbar"></span><span class="ai"><span>04 / 06</span><span class="at"><i></i>Failure</span></span><span class="ac">Escalation blocked</span><span class="ad">Exception path failed before institutional response.</span></li>
+          <li class="art" data-sem="blue" style="--c:#3E78B8"><span class="cbar"></span><span class="ai"><span>05 / 06</span><span class="at"><i></i>Systems</span></span><span class="ac">Sync age: unknown</span><span class="ad">Data freshness could not be verified.</span></li>
+          <li class="art" data-sem="cyan" style="--c:#1E9C9C"><span class="cbar"></span><span class="ai"><span>06 / 06</span><span class="at"><i></i>Human adaptation</span></span><span class="ac">Audit gap / Shift B-2</span><span class="ad">Human workaround layer not captured in official trace.</span></li>
+        </ol>
+      </div>
+      <figcaption class="zw-cap" id="table-cap">Rebuilt from Frame 02 · the same six labels are modelled as steel plates in the REC-041 scene · investigation narrative; data provenance not stated</figcaption>
+    </figure>
+  </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s04" aria-labelledby="s04-h">
+  <div class="sec-mark"><p class="marker">04 · Inside</p><h2 id="s04-h" class="h2">Six A4 frames, shown whole.</h2>
+    <p class="legend" aria-label="Semantic key used in every frame"><span><i class="sq" style="--c:#3E78B8"></i>Systems</span><span><i class="sq" style="--c:#C0413F"></i>Failure</span><span><i class="sq" style="--c:#C98A28"></i>Warning</span><span><i class="sq" style="--c:#6E54C8"></i>Governance</span><span><i class="sq" style="--c:#1E9C9C"></i>Human adaptation</span><span><i class="sq" style="--c:#8A8F94"></i>Archive</span></p></div>
+  <div class="plates zw-frames">
+
+    <figure class="plate-fig zw-frame" style="--i:0">
+      <a class="frame" href="assets/zewm-excmon/01_REC041_Spatial_Reconstruction_FINAL.png" aria-label="Frame 01, Spatial reconstruction: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-01-1600.avif 1600w, assets/zewm-excmon/frame-01-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-01-1200.jpg" width="1200" height="848" alt="Frame 01, REC-041 spatial reconstruction: the hero render in the centre of a bone A4 plate, a spatial legend on the left (violet panel, red SLA rail, evidence table, dark room), evidence signals on the right and the thesis line below." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 01 / 06 · Spatial reconstruction</span><span class="p">REC-041 evidence chamber — where the failure lived · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+    <figure class="plate-fig zw-frame" style="--i:1">
+      <a class="frame" href="assets/zewm-excmon/02_Evidence_Table_Governance_Artifacts_FINAL.png" aria-label="Frame 02, Governance artifacts: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-02-1600.avif 1600w, assets/zewm-excmon/frame-02-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-02-1200.jpg" width="1200" height="848" alt="Frame 02, evidence table: six artifact cards in a two-by-three grid, each with a coloured left bar and a category tag, beside a governance-pattern column." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 02 / 06 · Governance artifacts</span><span class="p">Physicalized CAPA / ownership — what the failure left behind · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+    <figure class="plate-fig zw-frame" style="--i:2">
+      <a class="frame" href="assets/zewm-excmon/03_Monitor_Wall_Recurrence_Panel_FINAL.png" aria-label="Frame 03, Recurrence panel: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-03-1600.avif 1600w, assets/zewm-excmon/frame-03-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-03-1200.jpg" width="1200" height="848" alt="Frame 03, recurrence panel: seven incident rows INC-01 to INC-07 with coloured bars and category tags, beside a recurrence interpretation column." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 03 / 06 · Recurrence panel</span><span class="p">7 incidents / 48h — how the failure repeated · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+    <figure class="plate-fig zw-frame" style="--i:3">
+      <a class="frame" href="assets/zewm-excmon/04_Failure_Chain_System_Map_FINAL.png" aria-label="Frame 04, System map: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-04-1600.avif 1600w, assets/zewm-excmon/frame-04-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-04-1200.jpg" width="1200" height="848" alt="Frame 04, system map: eight square nodes on a hairline from signal origin to institutional recurrence, a five-layer legend and a chain interpretation column." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 04 / 06 · System map</span><span class="p">Exception ownership path — why ownership collapsed · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+    <figure class="plate-fig zw-frame" style="--i:4">
+      <a class="frame" href="assets/zewm-excmon/05_Recruiter_Summary_Case_Study_v02.png" aria-label="Frame 05, Case study summary: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-05-1600.avif 1600w, assets/zewm-excmon/frame-05-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-05-1200.jpg" width="1200" height="848" alt="Frame 05, case study summary: three text columns covering project type, role and methods, and why it matters, with four frame links along the bottom." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 05 / 06 · Case study summary</span><span class="p">Recruiter-facing synthesis — why the investigation matters · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+    <figure class="plate-fig zw-frame" style="--i:5">
+      <a class="frame" href="assets/zewm-excmon/06_Website_Portfolio_Landing_Section.png" aria-label="Frame 06, Website landing blueprint: open the full-size PNG, 3508 × 2480">
+        <picture><source srcset="assets/zewm-excmon/frame-06-1600.avif 1600w, assets/zewm-excmon/frame-06-2400.avif 2400w" sizes="(max-width:1023px) 100vw, 44vw" type="image/avif"><img src="assets/zewm-excmon/frame-06-1200.jpg" width="1200" height="848" alt="Frame 06, website landing blueprint: a sticky left thesis column with the scroll order and three buttons, beside five frame thumbnails on a vertical timeline." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Frame 06 / 06 · Website landing blueprint</span><span class="p">Portfolio landing-section composition · A4 landscape plate, 3508 × 2480 · shown whole, uncropped · opens the full PNG</span></figcaption>
+    </figure>
+
+  </div>
+  <div class="zw-pdf">
+    <div class="win"><div class="win-in">
+      <div class="win-bar"><span class="win-title">Portfolio package · PDF</span></div>
+      <div class="win-body"><div><div class="pad zw-pdf-pad">
+        <div>
+          <p class="zw-pdf-h">ZEWM_EXCMON · portfolio package</p>
+          <p class="small">Frames 01–06 in order, copied losslessly from the six locked frame PDFs — no re-encode, no resize, no added pages.</p>
+          <dl class="record zw-pdf-rec"><dt>Pages</dt><dd>6 · A4 landscape · 842 × 595 pt</dd><dt>Source</dt><dd>300 DPI plates</dd><dt>Size</dt><dd>≈ 3.57 MB</dd></dl>
+        </div>
+        <a class="btn" href="assets/zewm-excmon/ZEWM_EXCMON_Portfolio_Package.pdf"><span class="t">Open the PDF</span><span class="a" aria-hidden="true"><span>→</span></span></a>
+      </div></div></div>
+    </div></div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s05" aria-labelledby="s05-h">
+  <div class="sec-mark"><p class="marker">05 · Pigment &amp; material</p><h2 id="s05-h" class="h2">Each colour carries one meaning.</h2></div>
+  <p class="label zw-sub-h">[ Semantic key · frame CSS, exact ]</p>
+  <div class="albers-row zw-albers">
+    <div class="albers" style="--c:#3E78B8" data-sem="blue"><div class="inner"><p class="nm">Systems</p><p class="hx">#3E78B8</p><p class="src">Authored · frame CSS · monitor signal, sync state</p></div></div>
+    <div class="albers" style="--c:#C0413F" data-sem="red"><div class="inner"><p class="nm">Failure / breach</p><p class="hx">#C0413F</p><p class="src">Authored · frame CSS · escalation, breach</p></div></div>
+    <div class="albers" style="--c:#C98A28" data-sem="amber"><div class="inner"><p class="nm">Warning / CAPA</p><p class="hx">#C98A28</p><p class="src">Authored · frame CSS · also the thesis rule</p></div></div>
+    <div class="albers" style="--c:#6E54C8" data-sem="violet"><div class="inner"><p class="nm">Governance</p><p class="hx">#6E54C8</p><p class="src">Authored · frame CSS · authority, recurrence</p></div></div>
+    <div class="albers" style="--c:#1E9C9C" data-sem="cyan"><div class="inner"><p class="nm">Human adaptation</p><p class="hx">#1E9C9C</p><p class="src">Authored · frame CSS · workaround, shift</p></div></div>
+    <div class="albers" style="--c:#8A8F94" data-sem="gray"><div class="inner"><p class="nm">Archive</p><p class="hx">#8A8F94</p><p class="src">Authored · frame CSS · inactive infrastructure</p></div></div>
+  </div>
+  <div class="zw-ground">
+    <p class="ptag"><span class="sw" style="--c:#E7E4DD"></span><span class="txt">Bone · plate paper · <span class="hex">#E7E4DD</span> · authored · frame CSS</span></p>
+    <p class="ptag"><span class="sw" style="--c:#DEDAD0"></span><span class="txt">Card panel · <span class="hex">#DEDAD0</span> · authored · frame CSS (frame 01: #DFDBD2)</span></p>
+    <p class="ptag"><span class="sw" style="--c:#141A20"></span><span class="txt">Plate ink · <span class="hex">#141A20</span> · authored · frame CSS</span></p>
+    <p class="ptag"><span class="sw" style="--c:#071018"></span><span class="txt">Investigation ground · <span class="hex">#071018</span> / #0B1520 · authored · generator palette bg00 / bg01</span></p>
+  </div>
+
+  <p class="label zw-sub-h" style="margin-top:48px">[ Render source → what Filmic shows ]</p>
+  <div class="zw-pairs">
+    <div class="pair">
+      <p class="ptag"><span class="sw" style="--c:#8B5CF6"></span><span class="txt">Plaque violet · <span class="hex">#8B5CF6</span> · authored · generator palette</span></p>
+      <span class="pa" aria-hidden="true">→</span>
+      <p class="ptag"><span class="sw" style="--c:#E0C1F8"></span><span class="txt">Rendered lilac · <span class="hex">#E0C1F8</span> · ≈ sampled · v02 (v01 #D4B1F3)</span></p>
+    </div>
+    <div class="pair">
+      <p class="ptag"><span class="sw" style="--c:#D94B4B"></span><span class="txt">SLA rail red · <span class="hex">#D94B4B</span> · authored · generator palette</span></p>
+      <span class="pa" aria-hidden="true">→</span>
+      <div class="ptags">
+        <p class="ptag"><span class="sw" style="--c:#CA696E"></span><span class="txt">Rendered red · <span class="hex">#CA696E</span> · ≈ sampled · v02, strength 0.70</span></p>
+        <p class="ptag rejected"><span class="sw" style="--c:#EE9FA0"></span><span class="txt">Salmon · <span class="hex">#EE9FA0</span> · ≈ sampled · v01, strength 3.0 — rejected</span></p>
+      </div>
+    </div>
+    <div class="pair">
+      <p class="ptag"><span class="sw" style="--c:#F0A43A"></span><span class="txt">Breach amber · <span class="hex">#F0A43A</span> · authored · generator palette</span></p>
+      <span class="pa" aria-hidden="true">→</span>
+      <p class="ptag"><span class="sw" style="--c:#F5E491"></span><span class="txt">Rendered pale yellow · <span class="hex">#F5E491</span> · ≈ sampled · v02</span></p>
+    </div>
+    <div class="pair">
+      <p class="ptag"><span class="sw" style="--c:#101C29"></span><span class="txt">Monitor wall · <span class="hex">#101C29</span> · authored · bg02, emissive</span></p>
+      <span class="pa" aria-hidden="true">→</span>
+      <p class="ptag"><span class="sw" style="--c:#162233"></span><span class="txt">Rendered · <span class="hex">#162233</span> · ≈ sampled · about 71% of the frame is near-black</span></p>
+    </div>
+  </div>
+  <p class="small muted zw-pair-note">Filmic pushes bright saturated emissives toward white, so the rendered lilac and pale yellow are tone-mapping artefacts. Anything on this sheet that encodes meaning uses the source hex, never the sampled one.</p>
+</section>
+
+
+<section class="sheet-section" id="s06" aria-labelledby="s06-h">
+  <div class="sec-mark"><p class="marker">06 · Decisions</p><h2 id="s06-h" class="h2">Lower the emission. Keep the red.</h2></div>
+  <div class="options zw-options">
+    <article class="option struck">
+      <div class="ofig zw-ofig"><picture><source srcset="assets/zewm-excmon/rec041-v01-1600.avif" type="image/avif"><img src="assets/zewm-excmon/rec041-v01-800.jpg" width="800" height="534" alt="REC-041 v01 render: the same chamber, dimmer, with a salmon-pink rail and no placards on the table." loading="lazy" decoding="async"></picture></div>
+      <p class="on">A · v01 · preserved original hero</p>
+      <p class="od">Exposure 0.60 · light ×1.00 · plaque 3.0 · inset 0.50 · rail strength 3.0, which Filmic washed to salmon. Kept as the preserved original.</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></div>
+    </article>
+    <article class="option">
+      <span class="stamp">Selected</span>
+      <div class="ofig zw-ofig"><picture><source srcset="assets/zewm-excmon/rec041-1600.avif" type="image/avif"><img src="assets/zewm-excmon/rec041-800.jpg" width="800" height="534" alt="REC-041 v02 render: brighter chamber, red rail, a dark reveal plate behind the plaque and placards on the table." loading="lazy" decoding="async"></picture></div>
+      <p class="on">B · v02 · portfolio pass</p>
+      <p class="od">Same camera and composition. Exposure 0.85 · light ×1.22 · plaque 3.7 · inset 0.95 · rail 0.70 · adds a 2.86 × 1.42 m reveal plate and five placards.</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></div>
+    </article>
+  </div>
+
+  <div class="zw-ab">
+  <figure class="zw-wipe-fig">
+    <div class="zw-wipe" data-wipe style="--wipe:50%">
+      <picture class="w-a"><source srcset="assets/zewm-excmon/rec041-v01-1600.avif" type="image/avif"><img src="assets/zewm-excmon/rec041-v01-800.jpg" width="800" height="534" alt="REC-041 v01 render." loading="lazy" decoding="async"></picture>
+      <picture class="w-b"><source srcset="assets/zewm-excmon/rec041-1600.avif" type="image/avif"><img src="assets/zewm-excmon/rec041-1600.jpg" width="1600" height="1066" alt="REC-041 v02 render, same camera." loading="lazy" decoding="async"></picture>
+      <span class="w-line" aria-hidden="true"></span>
+      <span class="w-tag w-tag-a" aria-hidden="true">v01</span><span class="w-tag w-tag-b" aria-hidden="true">v02</span>
+    </div>
+    <figcaption class="prov">Concept render — Blender Cycles · v01 and v02 from one generator, same 33 mm camera, same 3:2 crop · left of the line v01, right v02</figcaption>
+  </figure>
+  <div class="zw-ab-side">
+    <div class="zw-wipe-ctl"><label class="label" for="wipe-r">[ v01 ← compare → v02 ]</label><input id="wipe-r" type="range" min="0" max="100" value="50" aria-valuetext="50% v01 on the left, v02 on the right"></div>
+    <table class="revs zw-deltas"><thead><tr><th scope="col">Parameter</th><th scope="col">v01</th><th scope="col">v02</th></tr></thead><tbody>
+      <tr><td>Exposure</td><td>0.60</td><td>0.85</td></tr>
+      <tr><td>Light multiplier</td><td>1.00</td><td>1.22</td></tr>
+      <tr><td>Plaque emission</td><td>3.0</td><td>3.7</td></tr>
+      <tr><td>Inset emission</td><td>0.50</td><td>0.95</td></tr>
+      <tr class="hot"><td>Rail emission</td><td>3.0</td><td>0.70</td></tr>
+      <tr><td>Reveal plate</td><td>—</td><td>2.86 × 1.42 m</td></tr>
+      <tr><td>Evidence placards</td><td>—</td><td>5</td></tr>
+    </tbody></table>
+    <p class="ptag zw-keep"><span class="sw" style="--c:#D94B4B"></span><span class="txt">Rail colour in both · <span class="hex">#D94B4B</span> · authored · unchanged — only the emission strength moved, so the semantic red never shifts</span></p>
+    <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameters read from the generator</span></span></div>
+  </div>
+</div>
+</section>
+
+
+<div id="ledger-home-slot"></div>
+<section class="sheet-section" id="s07" aria-labelledby="s07-h">
+  <div class="sec-mark"><p class="marker">07 · Claim ledger</p><h2 id="s07-h" class="h2">What is claimed, at what level.</h2></div>
+  <div class="ledger-wrap"><div class="tablewrap"><table class="ledger"><thead><tr><th scope="col">Claim</th><th scope="col">Value</th><th scope="col">Level</th><th scope="col">Qualifier</th></tr></thead><tbody>
+    <tr><td>Incident record</td><td class="v">REC-041 · reefer temp excursion</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Investigation narrative; data provenance not stated</td></tr>
+    <tr><td>Recurrence</td><td class="v">7 incidents / 48 h · INC-01 → INC-07</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Narrative; no incident times are given</td></tr>
+    <tr><td>Risk priority number</td><td class="v">RPN 312 → 334</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Narrative figure; no FMEA worksheet found</td></tr>
+    <tr><td>Corrective action</td><td class="v">CAPA-2241 · stale 11 days</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Narrative · “opened, not closed”</td></tr>
+    <tr><td>Root cause</td><td class="v">Unverified</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Narrative · no confirmed institutional cause</td></tr>
+    <tr><td>Failure chain</td><td class="v">8 nodes · 5 layers</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>As printed on Frame 04</td></tr>
+    <tr><td>Evidence taxonomy</td><td class="v">6 artifacts · 6 semantic colours</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>As printed on Frame 02</td></tr>
+    <tr><td>Package</td><td class="v">6 pages · A4 landscape 842 × 595 pt · ≈ 3.57 MB</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>As listed in the package README · file 3,752,001 bytes</td></tr>
+    <tr><td>Evidence chamber</td><td class="v">14.0 × 11.0 × 3.2 m</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>Generator constants; see the open item on as-rendered scale</td></tr>
+    <tr><td>Camera</td><td class="v">33 mm at (−2.6, −3.0, 1.70) m · aimed at (0, 5.17, 1.80)</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>Read from code</td></tr>
+    <tr><td>Render</td><td class="v">3840 × 2160 · Cycles 256 samples · OpenImageDenoise · Filmic · 16-bit · Metal GPU · motion blur off</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></td><td>Settings read from code; output size checked</td></tr>
+    <tr><td>v01 → v02</td><td class="v">Exposure 0.60 → 0.85 · light ×1.22 · plaque 3.0 → 3.7 · inset 0.50 → 0.95 · rail 3.0 → 0.70</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· render parameter</span></span></td><td>Both renders exist; deltas read from the generator's parameter set</td></tr>
+    <tr><td>Physical evidence</td><td class="v">None</td><td><span class="claim" data-level="NOT_CLAIMED">Not claimed</span></td><td>A digital investigation package</td></tr>
+  </tbody></table></div>
+    <div class="side">
+      <div><h3>Not claimed</h3><ul class="struck">
+        <li>Measured incident data</li>
+        <li>A real employer incident</li>
+        <li>An FMEA worksheet behind RPN 312 → 334</li>
+        <li>A measured or validated room — the chamber is a static visualisation</li>
+        <li>Animation or a walkthrough — still images only</li>
+      </ul></div>
+      <div><h3>Open items</h3><ul class="open-items">
+        <li><span class="claim" data-level="TBC">TBC</span> Project year: 2026 on the live site; a September 2026 redesign draft says 2024–2025. Owner to confirm.</li>
+        <li><span class="claim" data-level="TBC">TBC</span> Data provenance: no document says whether REC-041 is a real incident or a constructed scenario.</li>
+        <li><span class="claim" data-level="TBC">TBC</span> As-rendered scale: the generator builds every box from a 1 m cube scaled by half of each listed dimension, so the walls, floor, table, rails and plates come out at half their listed sizes (their positions are unchanged); the screen, plaque and reveal planes are full size. Read from code, not measured in the render. The schematic on this sheet draws the listed constants. Owner to confirm the intent.</li>
+        <li><span class="claim" data-level="TBC">TBC</span> Legends disagree: the code names amber the breach line, Frame 01 calls red the breach pressure and amber the evidence table; Frame 04 codes the governance layer red while its governance nodes are violet.</li>
+        <li><span class="claim" data-level="TBC">TBC</span> Render typeface: the generator's docstring says IBM Plex Mono; its font search lists Courier New first, so the in-render text is Courier New. The A4 plates use IBM Plex Mono.</li>
+      </ul></div>
+    </div></div>
+</section>
+
+
+<section class="sheet-section" id="s08" aria-labelledby="s08-h">
+  <div class="sec-mark"><p class="marker">08 · Provenance, credits, revisions</p><h2 id="s08-h" class="h2">Where every image comes from.</h2></div>
+  <div class="prov-grid"><div class="a"><ul class="prov-list">
+    <li><span>§01 Lab · isometric evidence chamber</span><span>Schematic from generator constants — not a render</span></li>
+    <li><span>§01 Investigation · REC-041 v02 hero</span><span>Concept render — Blender Cycles, cropped 3:2</span></li>
+    <li><span>§03 · chain, recurrence wall, evidence table</span><span>Rebuilt in HTML from the frames' CSS tokens</span></li>
+    <li><span>§04 · frames 01–06</span><span>A4 plates, HTML exported to PNG and PDF · shown whole</span></li>
+    <li><span>§06 · v01 and v02 heroes</span><span>Concept render — Blender Cycles, same camera and crop</span></li>
+    <li><span>Tools</span><span>Blender Cycles driven by a Python scene generator · HTML/CSS plates · IBM Plex Mono</span></li>
+    <li><span>Collaborators</span><span>None credited in the package</span></li>
+    <li><span>Public file</span><span><a class="prose-link" href="assets/zewm-excmon/ZEWM_EXCMON_Portfolio_Package.pdf">Portfolio package PDF · 6 pages</a></span></li>
+  </ul></div>
+  <div class="b"><table class="revs"><thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead><tbody>
+    <tr><td>01</td><td>11 Jun 2026</td><td>REC-041 v01 hero rendered — kept as the preserved original</td></tr>
+    <tr><td>02</td><td>11 Jun 2026</td><td>v02 portfolio pass rendered; Frame 01 built around it</td></tr>
+    <tr><td>03</td><td>12 Jun 2026</td><td>Frames 02–06 locked; six frames bound into the package PDF</td></tr>
+    <tr><td>04</td><td>2 Oct 2026</td><td>Sheet 07: isometric schematic, live chain / wall / table, frames as AVIF; live PNG and PDF links kept</td></tr>
+  </tbody></table><p class="micro" style="margin-top:10px">Dates 01–03 are file dates; the project year is still to be confirmed.</p></div></div>
+</section>
+
+
+<section class="sheet-section" id="s09" aria-label="Next specimen">
+  <a class="next-spec" href="clx-ct-01" data-morph style="--g0:#36B3A8"><div class="ns-text"><p class="marker">09 · Next specimen</p><p class="h2">Not a camera backpack.</p><p class="small muted">CLX-CT-01 · creator-tech carry system · designed, CAD blockout · evidence 40% verified</p><span class="btn"><span class="t">Open sheet 08</span><span class="a" aria-hidden="true"><span>→</span></span></span></div><div class="ns-ground"><svg class="clx-mini" viewBox="0 0 240 520" role="img" aria-label="Schematic side profile of the CLX-CT-01 tapered envelope with laptop tunnel, camera core and side hatch."><rect x="0" y="0" width="240" height="520" fill="#F4EEE4"/><path d="M40 20 L190 20 L220 500 L40 500 Z" fill="none" stroke="#12110F" stroke-width="2"/><line x1="40" y1="8" x2="40" y2="512" stroke="#2E6E3A" stroke-width="2" stroke-dasharray="10 4"/><rect x="52" y="60" width="26" height="380" fill="none" stroke="#2F6B68" stroke-width="2" stroke-dasharray="8 4"/><rect x="96" y="200" width="88" height="150" fill="#F25C2A"/><path d="M200 230 A 70 70 0 0 1 205 340" fill="none" stroke="#12110F" stroke-width="2"/><rect x="186" y="360" width="22" height="10" fill="#E0A93B"/><text x="20" y="300" font-family="IBM Plex Mono, monospace" font-size="14" fill="#2E6E3A" transform="rotate(-90 20 300)">BACK DATUM</text></svg></div></a>
+</section>
+</main>
+<footer class="sheet-section foot" role="contentinfo">
+  <div class="titleblock">
+    <div><span class="k">Drawn</span><span class="v">B. Arianejad</span></div>
+    <div><span class="k">Studio</span><span class="v">MALINYX</span></div>
+    <div><span class="k">Sheet</span><span class="v">07 / 11</span></div>
+    <div><span class="k">Rev</span><span class="v">2026-10-02</span></div>
+    <div><span class="k">Contact</span><span class="v"><a href="mailto:info@malinyx.com">info@malinyx.com</a></span></div>
+    <div><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">in/bahareharianejad</a></span></div>
+    <div class="wide"><span class="k">Status</span><span class="v">Available for systems design, industrial / product work, and portfolio collaborations.</span></div>
+    <div><span class="k">Projection</span><span class="v"><a href="#top" aria-label="Back to top"><svg class="proj" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 6 L14 9 L14 15 L2 18 Z" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="8" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="4" fill="none" stroke="currentColor"/><path d="M0 12H40" stroke="currentColor" stroke-width=".6" stroke-dasharray="6 2 1 2"/></svg></a></span></div>
+    <div><span class="k">Motion</span><span class="v"><span class="seg" role="group" aria-label="Motion"><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></span></span></div>
+    <div><span class="k">Reality</span><span class="v"><button class="reality-btn" type="button" aria-pressed="false"><span>Change reality</span></button></span></div>
+    <div class="full"><span class="k">© 2026 Bahareh Arianejad · MALINYX Studio</span><span class="v">Every colour on this site is authored or sampled from the project it names. Every claim carries its level.</span></div>
+  </div>
+</footer>
+
+</div>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="win"><div class="win-in">
+    <div class="win-bar"><span class="win-title">MALINYX · INDEX <span class="idx">/07</span></span><button class="win-x" type="button" data-close-menu aria-label="Close menu">×</button></div>
+    <div class="win-body"><div><div class="pad">
+      <nav aria-label="Menu"><a href="./">Index</a><a href="work">Work</a><a href="field-notes">Field notes</a><a href="about">About</a></nav>
+      <div class="pills"><a class="pill" href="mailto:info@malinyx.com">info@malinyx.com</a><a class="pill" href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">LinkedIn</a></div>
+      <div class="seg" role="group" aria-label="Motion" style="margin-top:16px"><span class="seg-l">Motion</span><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></div>
+    </div></div></div>
+  </div></div>
+</dialog>
+
+<script src="assets/js/sheet.js" defer></script>
+<script src="assets/js/pages/zewm-excmon.js" defer></script>
+<a href="/" style="position:fixed;left:16px;bottom:16px;z-index:9999;padding:10px 16px;border-radius:999px;background:#0e0a09;color:#f3ebe0;font:500 12px/1 system-ui,sans-serif;letter-spacing:.08em;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35)">← MALINYX · technical dossier</a></body>
+</html>

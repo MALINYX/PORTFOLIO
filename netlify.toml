@@ -1,4 +1,5 @@
 [build]
   publish = "."
 
-# Static HTML site. No forced clean URLs.
+# MALINYX V2: a static, pre-built site (generated in MALINYX-SITE-V2). No build command.
+# Redirects and headers: _redirects and _headers in this folder.
