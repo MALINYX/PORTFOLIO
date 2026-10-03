@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -8 82 192" width="328" height="768">
+<!-- ÉCLOS · schematic from proposed targets (no CAD exists): closed elevation with the 76.0 target and the TBC overrun, exploded five assemblies on one axis. For the INVESTIGATION card view. -->
+<path fill="none" stroke="#625A51" stroke-width=".7" stroke-dasharray="9 2 1.5 2" vector-effect="non-scaling-stroke" d="M0 -4V180M-34 40V132"/>
+<path fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-44.75 85V47Q-44.75 46 -43.75 46H-24.25Q-23.25 46 -23.25 47V85Z"/>
+<rect fill="#12110F" x="-44.75" y="85" width="21.5" height="1"/>
+<rect fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" x="-44.75" y="86" width="21.5" height="40"/>
+<path fill="none" stroke="#1F6D66" stroke-width=".7" vector-effect="non-scaling-stroke" d="M-35.403 89V123M-32.597 89V123M-38.114 89V123M-29.886 89V123M-40.544 89V123M-27.456 89V123M-42.529 89V123M-25.471 89V123M-43.932 89V123M-24.068 89V123"/>
+<path fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-10.75 39V1Q-10.75 0 -9.75 0H9.75Q10.75 0 10.75 1V39Z"/>
+<path fill="none" stroke="#625A51" stroke-width=".7" stroke-dasharray="4 2" vector-effect="non-scaling-stroke" d="M-10.05 39V0.7H10.05V39M-8.6 39V33H8.6V39"/>
+<path fill="#F4EEE4" stroke="#12110F" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-5.6 64V56.5L5.6 50V64"/>
+<rect fill="#F4EEE4" stroke="#12110F" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" x="-6.35" y="62" width="12.7" height="20"/>
+<rect fill="#F4EEE4" stroke="#12110F" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" x="-8.5" y="82" width="17" height="6"/>
+<path fill="#F4EEE4" stroke="#12110F" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-7.2 88V100H-4V97.5H-2V100H2V97.5H4V100H7.2V88Z"/>
+<rect fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" x="-10.75" y="109" width="21.5" height="40"/>
+<path fill="none" stroke="#1F6D66" stroke-width=".7" vector-effect="non-scaling-stroke" d="M-1.403 112V146M1.403 112V146M-4.114 112V146M4.114 112V146M-6.544 112V146M6.544 112V146M-8.529 112V146M8.529 112V146M-9.932 112V146M9.932 112V146"/>
+<path fill="none" stroke="#625A51" stroke-width=".7" stroke-dasharray="4 2" vector-effect="non-scaling-stroke" d="M-10.05 109V149M10.05 109V149"/>
+<path fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-9.8 165V157H-5V155H-3V157H3V155H5V157H9.8V165Z"/>
+<path fill="none" stroke="#625A51" stroke-width=".7" stroke-dasharray="4 2" vector-effect="non-scaling-stroke" d="M-6.6 157V165M6.6 157V165"/>
+<path fill="#F4EEE4" stroke="#1F6D66" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke" d="M-10.75 176V170H-4V168H4V170H10.75V176Z"/>
+<path fill="none" stroke="#855711" stroke-width=".8" vector-effect="non-scaling-stroke" d="M-52 46V122M-54 46H-50M-54 122H-50"/>
+<path fill="#E5C5BE" fill-opacity=".6" stroke="#9B4A35" stroke-width=".9" vector-effect="non-scaling-stroke" d="M-46.75 121A1.159 1.159 0 0 1 -44.432 121A1.159 1.159 0 0 1 -42.114 121A1.159 1.159 0 0 1 -39.795 121A1.159 1.159 0 0 1 -37.477 121A1.159 1.159 0 0 1 -35.159 121A1.159 1.159 0 0 1 -32.841 121A1.159 1.159 0 0 1 -30.523 121A1.159 1.159 0 0 1 -28.205 121A1.159 1.159 0 0 1 -25.886 121A1.159 1.159 0 0 1 -23.568 121A1.159 1.159 0 0 1 -21.25 121A1.25 1.25 0 0 1 -21.25 123.5A1.25 1.25 0 0 1 -21.25 126A1.25 1.25 0 0 1 -21.25 128.5A1.159 1.159 0 0 1 -23.568 128.5A1.159 1.159 0 0 1 -25.886 128.5A1.159 1.159 0 0 1 -28.205 128.5A1.159 1.159 0 0 1 -30.523 128.5A1.159 1.159 0 0 1 -32.841 128.5A1.159 1.159 0 0 1 -35.159 128.5A1.159 1.159 0 0 1 -37.477 128.5A1.159 1.159 0 0 1 -39.795 128.5A1.159 1.159 0 0 1 -42.114 128.5A1.159 1.159 0 0 1 -44.432 128.5A1.159 1.159 0 0 1 -46.75 128.5A1.25 1.25 0 0 1 -46.75 126A1.25 1.25 0 0 1 -46.75 123.5A1.25 1.25 0 0 1 -46.75 121Z"/>
+</svg>

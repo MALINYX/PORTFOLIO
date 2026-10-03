@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="U-DOCK cartridge compatibility mark">
+  <title>U-DOCK — MONOLITH RF03-U1 cartridge / body compatibility mark</title>
+  
+  <path d="M18 7.03 A18 18 0 1 0 30 7.03 L30 15 L18 15 Z"
+        fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="butt" stroke-linejoin="miter"/>
+  <circle cx="24" cy="24" r="4.2" fill="currentColor"/>
+</svg>

@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en" class="no-js" data-reality="lab" data-native-reality="lab" data-project="ecs" id="top">
+<head><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECS · Ergonomic Carry System — MALINYX</title>
+<meta name="description" content="ECS — a wearable load-transfer system for urban e-bike commuters. A tension-shortening harness designed to draw the load down and in under forward lean. Prototype: cardboard-validated load path only; production parts are design intent.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MALINYX">
+<meta property="og:title" content="ECS · Ergonomic Carry System — MALINYX">
+<meta property="og:description" content="ECS — a wearable load-transfer system for urban e-bike commuters. A tension-shortening harness designed to draw the load down and in under forward lean. Prototype: cardboard-validated load path only; production parts are design intent.">
+<meta property="og:image" content="https://malinyx.com/dossier/og-home.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
+<script>
+(function () {
+  var d = document.documentElement, r = null, m = null;
+  try { r = localStorage.getItem('mx-reality'); m = localStorage.getItem('mx-motion'); } catch (e) {}
+  try { var q = new URLSearchParams(location.search); if (q.get('reality')) r = q.get('reality'); if (q.get('motion')) m = q.get('motion');
+    if (q.get('motion')) document.addEventListener('DOMContentLoaded', function () { [].forEach.call(document.querySelectorAll('img[loading="lazy"]'), function (i) { i.loading = 'eager'; }); }); /* QA: headless shots */
+    var so = q.get('solo'); if (so && /^[\w-]+$/.test(so)) { var st = document.createElement('style'); /* QA only: render one section at the top */
+      st.textContent = 'main > :not(#' + so + '):not(:has(#' + so + ')){display:none!important} .sheet > :not(.bar):not(main):not(.axis-toc){display:none!important}'; document.head.appendChild(st); } } catch (e) {}
+  if (r !== 'lab' && r !== 'investigation') r = d.getAttribute('data-native-reality') || 'lab';
+  d.setAttribute('data-reality', r);
+  m = (m === 'on' || m === 'off') ? m : 'auto';
+  d.setAttribute('data-motion', m);
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.classList.toggle('motion-ok', m === 'on' || (m === 'auto' && !reduce));
+  d.classList.remove('no-js'); d.classList.add('js');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/specimen.css">
+<link rel="icon" href="assets/shared/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<noscript><style>[data-view]{display:block!important}.reality,.tbtn[data-figure-toggle]{display:none!important}</style></noscript>
+
+<link rel="preload" as="image" type="image/avif" imagesrcset="assets/ecs/ecs-still-800.avif 800w, assets/ecs/ecs-still-1600.avif 1600w" imagesizes="(max-width:767px) 90vw, 560px" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/pages/ecs.css">
+<script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="backdrop" aria-hidden="true" style="--backdrop-field:#AA8962">
+  <div data-view="lab" class="ecs-field"></div>
+  <div data-view="investigation" style="background:var(--table)"></div>
+</div>
+
+<div class="sheet">
+<header class="bar" role="banner">
+  <a class="brand" href="./" aria-label="MALINYX — home"><svg class="mark" viewBox="266 90 723 717" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="mk-ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EEE4"/><stop offset=".55" stop-color="#E8E0D2"/><stop offset="1" stop-color="#A89F91"/></linearGradient>
+  <linearGradient id="mk-ivory2" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#E8E0D2"/><stop offset=".52" stop-color="#A89F91"/><stop offset="1" stop-color="#6F675D"/></linearGradient>
+  <linearGradient id="mk-taupe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5E6975"/><stop offset=".45" stop-color="#12110F"/><stop offset="1" stop-color="#1D2630"/></linearGradient>
+  <linearGradient id="mk-bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7B2A16"/><stop offset=".35" stop-color="#F25C2A"/><stop offset=".7" stop-color="#B43C1D"/><stop offset="1" stop-color="#FF8A5F"/></linearGradient>
+  <radialGradient id="mk-sphere" cx="35%" cy="28%" r="75%"><stop stop-color="#99E0DA"/><stop offset=".5" stop-color="#36B3A8"/><stop offset="1" stop-color="#123E3B"/></radialGradient>
+  
+  
+ </defs><g class="mk-facets" stroke="#F25C2A" stroke-width="6" stroke-linejoin="miter"><g class="mk-g1"><path d="M276 174L438 210V797H276Z" fill="url(#mk-taupe)"/><path d="M807 412L979 174V797H807Z" fill="url(#mk-ivory2)"/><path d="M276 174C395 203 424 273 394 365C373 429 316 492 276 570Z" fill="url(#mk-taupe)"/><path d="M276 174C381 181 445 190 475 256C501 313 526 417 641 596L624 752L438 474C404 423 389 370 394 317C397 269 374 220 276 174Z" fill="url(#mk-ivory)"/><path d="M276 570C321 491 370 423 394 365V724C365 769 326 797 276 797Z" fill="url(#mk-ivory)"/></g><g class="mk-g2"><path d="M433 201C498 221 527 276 548 348C574 437 595 524 641 596L624 752L439 476C485 520 536 544 594 559Z" fill="url(#mk-bronze)" opacity=".92"/><path d="M394 317C435 354 482 426 533 509L624 718V752L438 474C405 424 388 372 394 317Z" fill="#2f2924" opacity=".82"/></g><g class="mk-g3"><path d="M624 752C681 650 720 552 761 446C799 347 865 256 979 174C912 216 840 241 788 290C718 355 677 469 641 596Z" fill="url(#mk-taupe)"/><path d="M624 752C681 646 722 524 780 416C825 334 891 276 979 174C909 224 849 246 799 297C725 372 684 500 641 596Z" fill="url(#mk-ivory)"/><path d="M641 596C694 490 731 385 799 297C858 221 912 216 979 174C916 264 845 313 795 398C729 510 690 649 624 752Z" fill="url(#mk-ivory2)" opacity=".72"/><path d="M624 752C679 647 720 527 769 429C809 350 870 347 907 392C939 432 945 501 945 576V797H807V448C807 404 789 370 759 365C716 358 685 421 641 596Z" fill="url(#mk-taupe)"/><path d="M807 797V448C807 404 789 370 759 365C818 352 868 365 904 411C939 455 945 514 945 576V797Z" fill="url(#mk-ivory2)"/><path d="M945 214L979 174V797H945Z" fill="url(#mk-ivory)"/></g></g><g class="mk-sph"><line x1="947" y1="97" x2="947" y2="835" stroke="#36B3A8" stroke-width="10"/><circle class="mk-ball" cx="947" cy="701" r="36" fill="url(#mk-sphere)"/></g></svg><span class="brand-text">MALINYX</span></a>
+  <button class="reality-btn" type="button" aria-pressed="false">
+    <svg class="glyph" viewBox="0 0 16 22" aria-hidden="true"><line class="axis" x1="11" y1="1" x2="11" y2="21"/><path class="arc" d="M2 19 A 10 10 0 0 1 11 3"/><circle class="sphere" cx="11" cy="17" r="3.2"/></svg>
+    <span class="long">Change reality</span><span class="reality-state" id="reality-state"><span class="inline-view" data-view="lab">Lab</span><span class="inline-view" data-view="investigation">Inv.</span></span>
+  </button>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="work" data-nav="work">Work</a></li>
+      <li><a href="field-notes" data-nav="field-notes">Field notes</a></li>
+      <li><a href="about" data-nav="about">About</a></li>
+    </ul>
+    <button class="menu-btn" type="button" data-open-menu aria-haspopup="dialog" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </nav>
+</header>
+<nav class="axis-toc" aria-label="Sections">
+  <a href="#s01" style="top:4%"><span>01 · Specimen</span></a><a href="#s02" style="top:13%"><span>02 · Question</span></a>
+  <a href="#s03" style="top:21%"><span>03 · Mechanism</span></a><a href="#s04" style="top:34%"><span>04 · Inside</span></a>
+  <a href="#s05" style="top:57%"><span>05 · Pigment</span></a><a href="#s06" style="top:69%"><span>06 · Decisions</span></a>
+  <a href="#s07" style="top:79%"><span>07 · Ledger</span></a><a href="#s08" style="top:91%"><span>08 · Provenance</span></a>
+  <i class="ball" aria-hidden="true"></i>
+</nav>
+<main id="content">
+
+
+
+<div class="case-title" id="s00" style="--lead:#AA8962; --glyph-ink:#12110F">
+  <div><span class="k">Code</span><span class="v code">ECS</span></div>
+  <div><span class="k">Title</span><span class="v">The Ergonomic Carry System</span></div>
+  <div><span class="k">Discipline</span><span class="v">Industrial design · wearable soft goods · load-path mechanism</span></div>
+  <div><span class="k">Date</span><span class="v"><span class="claim" data-level="TBC">Year TBC</span></span></div>
+  <div><span class="k">Status</span><span class="v"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard-validated load path only</span></span></span>
+       <div class="claimbar" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i class="on" data-c="SPECIFIED_INTENT"></i><i class="on" data-c="PROTOTYPE"></i><i></i></div>
+       <span class="sr-only">Highest claim: prototype, scoped to a cardboard mock-up whose load path was checked in cardboard. Not load rated. Production parts are design intent.</span></div>
+  <div class="glyph-tile" aria-hidden="true"><svg viewBox="0 0 40 40"><path class="gl" d="M20 6 L9 25 A 22 22 0 0 0 31 25 Z" style="stroke-dasharray:2 2"/><g class="gl-move swing" style="transform-origin:50% 15%"><line class="gl" x1="20" y1="6" x2="20" y2="32" style="stroke-width:3"/></g><circle class="gl-f" cx="20" cy="6" r="2.4"/></svg></div>
+</div>
+
+
+<section class="case-hero" id="s01" aria-labelledby="h1">
+  <div class="ch-text">
+    <p class="label state-tag"><span class="inline-view" data-view="lab">[ LAB · AS DESIGNED ]</span><span class="inline-view" data-view="investigation">[ INVESTIGATION · AS EVIDENCED ]</span> <a class="legend-plus" href="about#legend" aria-label="How to read this sheet">[+]</a></p>
+    <h1 id="h1" class="h1-swap">Carry that moves with the rider.</h1>
+    <p class="lead">A wearable load-transfer system for urban e-bike commuters. Under forward lean, a tension-shortening harness is designed to draw the load body down and in toward the spine, so the hip-to-COM moment arm gets shorter.</p>
+    <a class="btn" href="ECS-Documentation.pdf" rel="noopener"><span class="t">Documentation · PDF</span><span class="a" aria-hidden="true"><span>↓</span></span></a>
+  </div>
+
+  <figure class="ch-fig ecs-fig" aria-labelledby="ecs-cap">
+    <div class="stage ecs-stage" id="ecs-stage" data-plot data-loop style="--ar:4/3">
+      
+      <div class="ecs-poster ecs-poster--lab" data-view="lab">
+        <picture>
+          <source srcset="assets/ecs/ecs-still-800.avif 800w, assets/ecs/ecs-still-1600.avif 1600w" sizes="(max-width:767px) 90vw, 560px" type="image/avif">
+          <img src="assets/ecs/ecs-still-800.jpg" width="800" height="600" alt="ECS concept render: the pack in three-quarter front view — dark slate rounded shell, shoulder strap and hip-belt wing at left, one small orange pull tab." fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+      <div class="ecs-poster ecs-poster--inv" data-view="investigation">
+        <picture>
+          <source srcset="assets/ecs/ecs-edges-inv-800.avif 800w, assets/ecs/ecs-edges-inv-1280.avif 1280w" sizes="(max-width:767px) 100vw, 640px" type="image/avif">
+          <img src="assets/ecs/ecs-edges-inv-1280.png" width="1280" height="960" alt="ECS model as edge lines from the harness side: shoulder strap, upper anchor disc, the vertical rail slot, sternum buckle and hip-belt wing." loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <i class="ecs-shadow" aria-hidden="true"></i>
+      <div class="ecs-twin" data-twin data-model="assets/ecs/ECS.glb"
+           data-label="ECS model, live 3D view from the harness side. Drag, or use the left and right arrow keys, to rotate."
+           data-describedby="ecs-record"
+           data-anchors='[{"k":"rail","p":[0.5261,0.2858,-0.0439],"n":[1,0,0]},{"k":"belt","p":[0.6554,-0.6092,0.0856],"n":[0.996,0.002,0.088]}]'></div>
+
+      <svg class="overlay" viewBox="0 0 1000 750" preserveAspectRatio="none" aria-hidden="true">
+        <g data-view="lab">
+          <polyline class="leader keep twin-only" data-k="rail" data-c="236,196" style="--i:0" points="406,300 302,196 236,196"/>
+          <polyline class="leader-h twin-only is-off" data-k="rail" data-c="236,196" points="406,300 302,196 236,196"/>
+          <polyline class="leader keep" data-k="belt" data-c="236,500" style="--i:1" points="319,592 319,500 236,500"/>
+          <polyline class="leader-h twin-only is-off" data-k="belt" data-c="236,500" points="319,592 319,500 236,500"/>
+        </g>
+        <g data-view="investigation">
+          <polyline class="leader keep" data-k="rail" data-c="236,196" style="--i:0" points="406,300 302,196 236,196"/>
+          <polyline class="leader-h is-off" data-k="rail" data-c="236,196" points="406,300 302,196 236,196"/>
+          <polyline class="leader keep" data-k="belt" data-c="236,500" style="--i:1" points="345,605 240,500 236,500"/>
+          <polyline class="leader-h is-off" data-k="belt" data-c="236,500" points="345,605 240,500 236,500"/>
+        </g>
+      </svg>
+
+      <div class="co-set" data-view="lab">
+        <i class="anc twin-only" data-k="rail" data-anchor="l1" style="--ax:40.6%;--ay:40%;--i:0">1</i>
+        <i class="anc" data-k="belt" data-anchor="l2" style="--ax:31.9%;--ay:79%;--i:1">2</i>
+        <p class="callout" data-a="l1" data-align="right" style="--cx:23.6%;--cy:26.13%;--i:0"><span class="n">1</span>A2 rail / guide channel 142 × 25 × 8 mm · channel 6.0 × 4.0 · 6061-T6<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+        <p class="callout" data-a="l2" data-align="right" style="--cx:23.6%;--cy:66.67%;--i:1"><span class="n">2</span>A7 hip belt 100 mm wide · 760–1200 mm<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></p>
+        <p class="callout note" data-align="left" style="--cx:77%;--cy:12%;--i:2"><span class="n">3</span>Tension-shortening · selected from 6 path logics<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></p>
+        <p class="callout note" data-align="left" style="--cx:77%;--cy:56%;--i:3"><span class="n">4</span>Cardboard mock-up · load path checked in cardboard · not load rated<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard-validated load path only</span></span></span></p>
+      </div>
+      <div class="co-set" data-view="investigation">
+        <i class="anc" data-k="rail" data-anchor="e1" style="--ax:40.6%;--ay:40%;--i:0">1</i>
+        <i class="anc" data-k="belt" data-anchor="e2" style="--ax:34.5%;--ay:80.67%;--i:1">2</i>
+        <p class="callout" data-a="e1" data-align="right" style="--cx:23.6%;--cy:26.13%;--i:0"><span class="n">1</span>A2 rail: cardboard test object, slot cut and folded · not load rated · the aluminium rail is design intent<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard only</span></span></span></p>
+        <p class="callout" data-a="e2" data-align="right" style="--cx:23.6%;--cy:66.67%;--i:1"><span class="n">2</span>A7 hip belt: cardboard + EVA foam test object · production belt is design intent<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard only</span></span></span></p>
+        <p class="callout note" data-align="left" style="--cx:77%;--cy:12%;--i:2"><span class="n">3</span>~100–150 mm drop · ~60–100 mm inward · ~30–40% moment arm: conceptual targets, not measured<span class="chips"><span class="claim" data-level="CONCEPT">Concept <span class="scope">· target</span></span></span></p>
+        <p class="callout note" data-align="left" style="--cx:77%;--cy:56%;--i:3"><span class="n">4</span>Edges <span data-ecs-thr>25°</span> · <span class="tabular" data-ecs-count>—</span> segments, counted live from the model<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· digital model</span></span></span></p>
+      </div>
+    </div>
+    <div data-view="lab"><ol class="callout-list" aria-label="Callouts">
+      <li><span class="num">1</span><span>A2 rail / guide channel 142 × 25 × 8 mm · channel 6.0 × 4.0 · 6061-T6<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+      <li><span class="num">2</span><span>A7 hip belt 100 mm wide · 760–1200 mm<span class="chips"><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></span></li>
+      <li><span class="num">3</span><span>Tension-shortening · selected from 6 path logics<span class="chips"><span class="claim" data-level="DESIGNED">Designed</span></span></span></li>
+      <li><span class="num">4</span><span>Cardboard mock-up · load path checked in cardboard · not load rated<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard-validated load path only</span></span></span></span></li>
+    </ol></div>
+    <div data-view="investigation"><ol class="callout-list" aria-label="Callouts">
+      <li><span class="num">1</span><span>A2 rail: cardboard test object, slot cut and folded · not load rated · the aluminium rail is design intent<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard only</span></span></span></span></li>
+      <li><span class="num">2</span><span>A7 hip belt: cardboard + EVA foam test object · production belt is design intent<span class="chips"><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard only</span></span></span></span></li>
+      <li><span class="num">3</span><span>~100–150 mm drop · ~60–100 mm inward · ~30–40% moment arm: conceptual targets, not measured<span class="chips"><span class="claim" data-level="CONCEPT">Concept <span class="scope">· target</span></span></span></span></li>
+      <li><span class="num">4</span><span>Edges <span data-ecs-thr>25°</span> · <span class="tabular" data-ecs-count>—</span> segments, counted live from the model<span class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· digital model</span></span></span></span></li>
+    </ol></div>
+    <figcaption class="prov" id="ecs-cap">
+      <span class="inline-view" data-view="lab">Specimen 04 · ECS · live web model as matte clay #2B3239 (three.js) · poster: concept render — not a photograph, render tool not recorded · view az <span class="tabular" data-ecs-az>130</span>° · drag or ← → to rotate</span>
+      <span class="inline-view" data-view="investigation">Same model, camera and rotation as edge lines · EdgesGeometry <span data-ecs-thr>25°</span> · <span class="tabular" data-ecs-count>—</span> segments · view az <span class="tabular" data-ecs-az>130</span>° · fallback still captured from the same model, no caption</span>
+      <button class="tbtn" type="button" data-figure-toggle>Show drawing</button>
+    </figcaption>
+    <p class="micro disclaimer">Prototype means a cardboard fit / form / function mock-up whose load path was checked in cardboard. Not load rated. Production parts are design intent.</p>
+  </figure>
+
+  <aside class="ch-info" aria-label="Specimen 04">
+    <div class="win"><div class="win-in">
+      <div class="win-bar"><span class="win-title">Specimen 04 / 08 · ECS</span></div>
+      <div class="win-body"><div><div class="pad">
+        <p class="label">Wearable load-transfer system · urban e-bike commuters</p>
+        <div class="claimbar" style="margin-top:12px" aria-hidden="true"><i class="on" data-c="CONCEPT"></i><i class="on" data-c="DESIGNED"></i><i class="on" data-c="SPECIFIED_INTENT"></i><i class="on" data-c="PROTOTYPE"></i><i></i></div>
+        <div class="claimbar-legend" aria-hidden="true"><span>Concept</span><span>Designed</span><span>Spec.</span><span>Proto.</span><span>Valid.</span></div>
+        <p class="micro claimbar-scope">Highest claim: prototype · cardboard-validated load path only · validated: nothing</p>
+        <p class="small ecs-role">Portfolio author: Bahareh Arianejad. Component sheets are credited “ECS Design Team”, as printed. Fit reference for the mock-up: rider 170 cm / 61 kg.</p>
+        <div data-view="lab" class="ecs-info-media">
+          <div class="swatches" aria-label="Keyboard: kraft, production slate, pull tab, load-path orange"><i style="--c:#AA8962"></i><i style="--c:#2B3239"></i><i style="--c:#C1875F"></i><i style="--c:#D0702F"></i></div>
+          <p class="micro">Kraft → slate: cardboard in, production intent out</p>
+        </div>
+        <div data-view="investigation" class="ecs-info-media">
+          <p class="micro">Edges <span data-ecs-thr>25°</span> · <span class="tabular" data-ecs-count>—</span> segments · model 8,824 vertices / 17,848 faces</p>
+        </div>
+        <a class="tbtn" href="ECS-Documentation.pdf" rel="noopener" style="margin-top:14px;display:inline-block">↓ PDF · 34 pages</a>
+      </div></div></div>
+    </div></div>
+  </aside>
+
+  <div class="ch-list"><ol class="tlist" aria-labelledby="ots-h">
+    <li class="head" id="ots-h" style="display:block;border:0;padding:0">[ On this sheet ]</li>
+    <li><span class="no">02</span><a class="lbl" href="#s02">Question</a><span class="hatch"><span class="track"><i style="--n:1;--of:4"></i></span><span class="count">1 min</span></span></li>
+    <li><span class="no">03</span><a class="lbl" href="#s03">Mechanism · lean</a><span class="hatch"><span class="track"><i style="--n:2;--of:4"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">04</span><a class="lbl" href="#s04">Inside · A1–A10</a><span class="hatch"><span class="track"><i style="--n:4;--of:4"></i></span><span class="count">4 min</span></span></li>
+    <li><span class="no">05</span><a class="lbl" href="#s05">Pigment &amp; material</a><span class="hatch"><span class="track"><i style="--n:2;--of:4"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">06</span><a class="lbl" href="#s06">Decisions</a><span class="hatch"><span class="track"><i style="--n:1;--of:4"></i></span><span class="count">1 min</span></span></li>
+    <li><span class="no">07</span><a class="lbl" href="#s07">Claim ledger</a><span class="hatch"><span class="track"><i style="--n:2;--of:4"></i></span><span class="count">2 min</span></span></li>
+    <li><span class="no">08</span><a class="lbl" href="#s08">Provenance</a><span class="hatch"><span class="track"><i style="--n:1;--of:4"></i></span><span class="count">1 min</span></span></li>
+  </ol></div>
+
+  <dl class="record two ch-record" id="ecs-record" aria-label="Specimen record">
+    <dt>Code</dt><dd>ECS</dd>
+    <dt>Discipline</dt><dd>Industrial design · wearable soft goods · load-path mechanism</dd>
+    <dt>Date</dt><dd>Year TBC — sources disagree</dd>
+    <dt>Status</dt><dd>Prototype · cardboard-validated load path only</dd>
+    <dt>Physical evidence</dt><dd>Cardboard fit / form / function mock-up · not load rated</dd>
+    <dt>Image</dt><dd>Live web model (three.js) · concept render (poster; render tool not recorded)</dd>
+    <dt>Components</dt><dd>A1–A10 · each a cardboard test object + a production-intent sheet</dd>
+    <dt>Sheet</dt><dd>06 / 11</dd>
+  </dl>
+</section>
+<div id="ledger-inv-slot"></div>
+
+
+<section class="sheet-section" id="s02" aria-labelledby="s02-h">
+  <div class="sec-mark"><p class="marker">02 · Question</p><h2 id="s02-h" class="h2">Leaning forward works against you.</h2></div>
+  <div class="cols">
+    <div class="question span-7"><p>On a conventional backpack, a rider who leans forward on an e-bike swings the load’s centre of mass backward and outward. The hip-to-COM moment arm grows — and with it sway and fatigue — just when stability matters. ECS asks whether the load can follow the posture instead. Six constrained-motion path logics were compared and tension-shortening was selected: a differential strap runs over a hip-level low pivot (A4), and an inward tether (A5) is designed to draw the load body (A3) down and in along a guided rail (A2). The idea was mocked up in cardboard on a 170 cm / 61 kg rider reference, then translated, component by component, into production-intent sheets.</p></div>
+    <aside class="pull span-4 start-9">
+      <p class="big">6 path logics <span class="nw">→ 1</span></p>
+      <p class="label lbl">Six compared on p09 · tension-shortening detailed on p12</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed</span></div>
+      <p class="micro ecs-pull-note">Walking state: out of scope by decision. The mechanism rests neutral and works as a conventional pack.</p>
+    </aside>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s03" aria-labelledby="s03-h">
+  <div class="sec-mark"><p class="marker">03 · Mechanism</p><h2 id="s03-h" class="h2">A load path that shortens under lean.</h2></div>
+  <div class="inst inst-wrap ecs-lean" id="ecs-lean" data-t="0">
+    <figure class="inst-fig lean-fig" aria-labelledby="lean-cap">
+      <div class="lean-frame"><div class="lean-art">
+        <svg class="lean-svg" viewBox="150 70 480 360" role="img" aria-label="Side schematic of a rider leaning forward with the ECS harness: the load body travels down and in along the rail while the hip-to-COM moment arm shortens.">
+          <defs>
+            <marker id="lean-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" class="lean-arrowhead"/></marker>
+          </defs>
+          
+          <line class="dw-chain" x1="300" y1="78" x2="300" y2="426"/>
+          <line class="lean-datum" x1="164" y1="330" x2="470" y2="330"/>
+          
+          <g id="lean-thigh" transform="rotate(0 300 330)">
+            <line class="lean-limb" x1="300" y1="330" x2="300" y2="418"/><line class="lean-limb-i" x1="300" y1="330" x2="300" y2="418"/>
+          </g>
+          <path class="lean-pelvis" d="M282 304 C300 296 324 300 332 318 C338 336 326 352 306 354 C288 356 276 344 276 328 C276 318 278 310 282 304 Z"/>
+          <g class="strap" style="--c:var(--strap-belt)" data-strap="3"><path class="s-o" d="M248 346 Q300 358 352 330" pathLength="1"/><path class="s-c" d="M248 346 Q300 358 352 330" pathLength="1"/></g>
+          
+          <g class="lean-ghost" transform="translate(318 316) rotate(-28)">
+            <rect x="2" y="-142" width="70" height="168" rx="22"/>
+          </g>
+          
+          <g id="lean-torso" transform="translate(318 316) rotate(0)">
+            <path class="lean-skin" d="M-6 -172 C6 -160 4 -120 -2 -96 C-8 -66 -16 -36 -6 0 L-36 8 C-50 -10 -60 -40 -60 -70 C-60 -110 -66 -140 -38 -170 Z"/>
+            <path class="lean-skin" d="M-18 -168 L-20 -190 M-34 -170 L-36 -188"/>
+            <ellipse class="lean-skin" cx="-32" cy="-210" rx="19" ry="22"/>
+            <path class="lean-skin" d="M-49 -214 L-57 -205 L-49 -202"/>
+            <circle class="lean-eye" cx="-42" cy="-213" r="1.6"/>
+            <ellipse class="lean-rib" cx="-30" cy="-114" rx="25" ry="40"/>
+            <path class="lean-bone" d="M-10 6 C-24 -40 0 -110 -12 -168"/>
+            <path class="lean-vert" d="M-10 6 C-24 -40 0 -110 -12 -168"/>
+            <polyline class="lean-limb" points="-30,-156 -46,-96 -90,-76"/><polyline class="lean-limb-i" points="-30,-156 -46,-96 -90,-76"/>
+            
+            <rect class="lean-rail" x="0" y="-172" width="6" height="154"/>
+            <line class="lean-rail-c" x1="3" y1="-166" x2="3" y2="-24"/>
+            
+            <g id="lean-pack" transform="translate(0 0)">
+              <rect class="lean-pack" x="10" y="-176" width="70" height="168" rx="22"/>
+              <text class="lean-t" x="45" y="-130" text-anchor="middle">A3</text>
+            </g>
+            <g class="strap" style="--c:var(--strap-harness)" data-strap="0"><path class="s-o" d="M-58 -104 C-66 -160 -34 -190 3 -172" pathLength="1"/><path class="s-c" d="M-58 -104 C-66 -160 -34 -190 3 -172" pathLength="1"/></g>
+            <g class="strap" style="--c:var(--strap-tension)" data-strap="1"><path class="s-o" id="lean-y-o" d="M3 -172 C40 -196 72 -184 80 -150 L84 -40 Q80 -4 50 -2 L0 0" pathLength="1"/><path class="s-c" id="lean-y" d="M3 -172 C40 -196 72 -184 80 -150 L84 -40 Q80 -4 50 -2 L0 0" pathLength="1"/></g>
+            <g class="strap" style="--c:var(--strap-tether)" data-strap="2"><path class="s-o" id="lean-b-o" d="M10 -70 Q-6 -30 0 0" pathLength="1"/><path class="s-c" id="lean-b" d="M10 -70 Q-6 -30 0 0" pathLength="1"/></g>
+            <circle class="lean-anchor" cx="3" cy="-172" r="4"/>
+          </g>
+          
+          <circle class="lean-pivot" cx="318" cy="316" r="6"/><circle class="lean-pivot-c" cx="318" cy="316" r="1.6"/>
+          
+          <circle class="lean-hip" cx="300" cy="330" r="5"/><path class="lean-hip-x" d="M296.5 326.5 L303.5 333.5 M303.5 326.5 L296.5 333.5"/>
+          
+          <path class="lean-compath" d="M363 224 Q350 244 323.4 247.4" marker-end="url(#lean-arrow)"/>
+          <circle class="lean-com-ghost" cx="363" cy="224" r="6"/>
+          <circle class="lean-com-ghost dashed" cx="323.4" cy="247.4" r="6"/>
+          <line class="lean-lead" x1="369" y1="221" x2="404" y2="200"/>
+          <line class="lean-lead" x1="329" y1="249" x2="404" y2="272"/>
+          <line class="lean-arm" id="lean-arm" x1="300" y1="330" x2="363" y2="224"/>
+          <circle class="lean-com" id="lean-com" cx="363" cy="224" r="5.5"/>
+          
+          <g class="protractor" transform="translate(560 392)">
+            <path class="sector" id="lean-sector" d="M0 0 L0 -44 A44 44 0 0 1 0 -44 Z"/>
+            <path class="arc" d="M-22 -38.105 A44 44 0 0 1 22 -38.105"/>
+            <g class="ticks" id="lean-ticks"><line class="tick" x1="-18.00" y1="-31.18" x2="-22.00" y2="-38.11"/><line class="tick" x1="-16.48" y1="-35.35" x2="-18.60" y2="-39.88"/><line class="tick" x1="-13.34" y1="-36.65" x2="-15.05" y2="-41.35"/><line class="tick" x1="-9.32" y1="-34.77" x2="-11.39" y2="-42.50"/><line class="tick" x1="-6.77" y1="-38.41" x2="-7.64" y2="-43.33"/><line class="tick" x1="-3.40" y1="-38.85" x2="-3.83" y2="-43.83"/><line class="tick" x1="0.00" y1="-36.00" x2="0.00" y2="-44.00"/><line class="tick" x1="3.40" y1="-38.85" x2="3.83" y2="-43.83"/><line class="tick" x1="6.77" y1="-38.41" x2="7.64" y2="-43.33"/><line class="tick" x1="9.32" y1="-34.77" x2="11.39" y2="-42.50"/><line class="tick" x1="13.34" y1="-36.65" x2="15.05" y2="-41.35"/><line class="tick" x1="16.48" y1="-35.35" x2="18.60" y2="-39.88"/><line class="tick" x1="18.00" y1="-31.18" x2="22.00" y2="-38.11"/></g>
+            <line class="lean-needle" id="lean-needle" x1="0" y1="0" x2="0" y2="-48"/>
+            <circle class="lean-pivot" cx="0" cy="0" r="4"/>
+          </g>
+        </svg>
+        <span class="lean-l com" style="--x:52.5%;--y:36.1%">COM 01 · higher + out</span>
+        <span class="lean-l com" style="--x:52.5%;--y:56.1%">COM 02 · lower + in</span>
+        <span class="lean-l lean-l--arm right" id="lean-arm-l" style="--x:36.6%;--y:57.5%">Moment arm 01 · longer</span>
+        <span class="lean-l lean-l--hip" style="--x:2.9%;--y:72%">⊕ hip · fixed body reference</span>
+        <span class="lean-l lean-l--dial right" style="--x:99%;--y:96%">A4 low pivot · ±30°</span>
+        <span class="lean-l lean-l--a4" style="--x:37.5%;--y:66.4%">A4</span>
+        <span class="lean-l lean-l--tick" style="--x:91%;--y:76%">+30°</span>
+        <span class="lean-l lean-l--tick right" style="--x:80%;--y:76%">−30°</span>
+        </div>
+        <div class="lean-target">
+          <p class="lt-k">Target · documentation p09</p>
+          <p class="lt-v">TARGET: 100–150 MM DROP · 60–100 MM INWARD · ~30–40% MOMENT-ARM REDUCTION</p>
+          <span class="claim" data-level="CONCEPT">Concept <span class="scope">· target, not measured</span></span>
+        </div>
+      </div>
+      <figcaption class="lean-legend" id="lean-cap">
+        <span><i class="sl" style="--c:var(--strap-harness)"></i>Upper harness strap</span>
+        <span><i class="sl" style="--c:var(--strap-tension)"></i>Lower tension strap · differential</span>
+        <span><i class="sl" style="--c:var(--strap-tether)"></i>Inward tether · shortening</span>
+        <span><i class="sl" style="--c:var(--strap-belt)"></i>Stabilising hip belt</span>
+        <span><i class="sym">○</i>A1 anchor · <i class="sym">┆</i>A2 rail · <i class="sym">⊙</i>A4 pivot · <i class="sym">⊕</i>hip</span>
+        <span class="lean-prov">Schematic redrawn from documentation p09, p12, p13 · strap colours ≈ sampled from the p13 legend · not to scale</span>
+      </figcaption>
+    </figure>
+    <div class="inst-panel">
+      <div class="inst-controls seg" role="group" aria-label="Kinematic states">
+        <button type="button" data-lean-step="0" aria-pressed="true">01 Upright</button><button type="button" data-lean-step="0.5" aria-pressed="false">02 Transition</button><button type="button" data-lean-step="1" aria-pressed="false">03 Forward lean</button>
+      </div>
+      <label class="lean-range"><span class="label">Lean</span><input type="range" min="0" max="100" step="1" value="0" aria-label="Rider lean, upright to forward lean" aria-valuetext="State 01, upright"></label>
+      <p class="inst-readout" aria-live="polite">State 01 · upright / walking · COM 01 higher + out · moment arm 01 longer</p>
+      <ol class="lean-steps">
+        <li><b>01</b> Upright: the load body sits higher and farther from the spine.</li>
+        <li><b>02</b> Transition: the harness geometry shortens; the tension differential runs over the A4 low pivot.</li>
+        <li><b>03</b> Forward lean: the inward tether draws the load body down and in along the rail.</li>
+      </ol>
+      <p class="inst-note">Torso angle and load-body travel are drawn for illustration — nothing here is measured. The A4 dial shows the specified ±30° rotation range. The only numbers are the documentation’s conceptual targets.</p>
+      <div class="chips"><span class="claim" data-level="DESIGNED">Designed <span class="scope">· concept mechanism</span></span><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· mocked up in cardboard</span></span></div>
+      <button class="tbtn" type="button" data-lean-play>Play once</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s04" aria-labelledby="s04-h">
+  <div class="sec-mark"><p class="marker">04 · Inside</p><h2 id="s04-h" class="h2">Ten components. One load path.</h2>
+    <p class="legend"><span><i style="--c:var(--line)"></i>Part</span><span><i class="dash" style="--c:var(--line-2)"></i>Assembly path</span><span><i style="--c:var(--ink-load);border-top-width:2px"></i>Primary load path</span><span><i style="--c:var(--ink-dim)"></i>Dimension</span></p></div>
+
+  <div class="plates">
+    <figure class="plate-fig wide asm-plate" aria-labelledby="asm-cap">
+      <div class="frame asm-frame">
+        <div class="asm-grid">
+          <div class="asm-fig" id="asm" style="--explode:1">
+            <svg class="asm-svg" viewBox="150 0 480 720" role="img" aria-label="Redrawn system assembly A1 to A10, exploded along the primary load path from the shoulders to the hips, with the comfort and accessory parts set to the side.">
+              <defs><marker id="asm-ar" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="asm-arrowhead"/></marker></defs>
+              
+              <g class="asm-paths">
+                <line x1="540" y1="322" x2="398" y2="322"/>
+                <line x1="540" y1="116" x2="384" y2="266"/>
+                <line x1="603" y1="484" x2="434" y2="324"/>
+              </g>
+              
+              <g class="asm-part" data-part="A3" style="--k:0">
+                <rect class="p" x="250" y="200" width="160" height="244" rx="28"/>
+                <path class="p-d" d="M262 420 Q330 434 398 420"/>
+                <g class="tag" transform="translate(254 236)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A3</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A9" style="--k:2;--dx:210px;--dy:0px">
+                <rect class="p p-pad" x="264" y="216" width="132" height="212" rx="20"/>
+                <path class="p-q" d="M282 254 H378 M282 292 H378 M282 330 H378 M282 368 H378 M282 406 H378"/>
+                <g class="tag" transform="translate(288 236)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A9</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A2" style="--k:1;--dx:0px;--dy:-146px">
+                <rect class="p p-solid" x="321" y="228" width="18" height="110" rx="4"/>
+                <line class="p-slot" x1="330" y1="238" x2="330" y2="328"/>
+                <circle class="p-hole" cx="330" cy="234" r="2.4"/><circle class="p-hole" cx="330" cy="332" r="2.4"/>
+                <g class="tag" transform="translate(358 250)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A2</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A10" style="--k:9;--dx:180px;--dy:160px">
+                <rect class="p p-solid" x="412" y="296" width="22" height="56" rx="4"/>
+                <path class="p-slot" d="M418 310 H428 M418 322 H428 M418 334 H428"/>
+                <g class="tag" transform="translate(423 370)"><rect x="-16" y="-11" width="32" height="15"/><text x="0" y="0">A10</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A1" style="--k:6;--dx:0px;--dy:-166px">
+                <path class="p p-web" d="M330 206 C304 206 288 222 282 254"/>
+                <path class="p p-web" d="M330 206 C356 206 372 222 378 254"/>
+                <circle class="p" cx="330" cy="206" r="14"/><circle class="p-hole" cx="330" cy="206" r="3"/>
+                <g class="tag" transform="translate(406 214)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A1</text></g>
+                <text class="asm-end" x="342" y="180">Shoulders</text>
+              </g>
+              
+              <g class="asm-part" data-part="A8" style="--k:8;--dx:210px;--dy:-150px">
+                <rect class="p p-solid" x="284" y="262" width="92" height="8" rx="2"/>
+                <rect class="p" x="320" y="258" width="20" height="16" rx="2"/>
+                <g class="tag" transform="translate(398 266)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A8</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A4" style="--k:3;--dx:0px;--dy:34px">
+                <rect class="p p-solid" x="292" y="450" width="76" height="14" rx="7"/>
+                <circle class="p" cx="330" cy="457" r="9"/><circle class="p-hole" cx="330" cy="457" r="2.4"/>
+                <g class="tag" transform="translate(394 462)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A4</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A5" style="--k:4;--dx:0px;--dy:96px">
+                <path class="p p-web" d="M330 457 L308 422"/>
+                <circle class="p" cx="305" cy="417" r="6"/>
+                <g class="tag" transform="translate(272 432)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A5</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A6" style="--k:5;--dx:0px;--dy:118px">
+                <rect class="p p-solid" x="262" y="470" width="136" height="9" rx="2"/>
+                <rect class="p" x="276" y="466" width="8" height="17"/><rect class="p" x="376" y="466" width="8" height="17"/>
+                <g class="tag" transform="translate(424 480)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A6</text></g>
+              </g>
+              
+              <g class="asm-part" data-part="A7" style="--k:7;--dx:0px;--dy:136px">
+                <path class="p p-solid" d="M214 488 Q330 520 446 488 L446 512 Q330 544 214 512 Z"/>
+                <rect class="p" x="318" y="508" width="24" height="16" rx="2"/>
+                <g class="tag" transform="translate(470 500)"><rect x="-13" y="-11" width="26" height="15"/><text x="0" y="0">A7</text></g>
+                <text class="asm-end" x="342" y="574">Hips</text>
+              </g>
+              
+              <g class="asm-load">
+                <path id="asm-route" class="asm-route" d="M330 10 L330 40 L330 137 L330 392 L330 491 L310 520 L372 592 L330 652 L330 692"/>
+                <g class="asm-nodes">
+                  <circle data-node="0" data-k="6" data-x="330" data-y="176" data-dy="-166" cx="330" cy="10" r="6"/>
+                  <circle data-node="1" data-k="6" data-x="330" data-y="206" data-dy="-166" cx="330" cy="40" r="6"/>
+                  <circle data-node="2" data-k="1" data-x="330" data-y="283" data-dy="-146" cx="330" cy="137" r="6"/>
+                  <circle data-node="3" data-k="0" data-x="330" data-y="392" data-dy="0" cx="330" cy="392" r="6"/>
+                  <circle data-node="4" data-k="3" data-x="330" data-y="457" data-dy="34" cx="330" cy="491" r="6"/>
+                  <circle data-node="5" data-k="4" data-x="310" data-y="424" data-dy="96" cx="310" cy="520" r="6"/>
+                  <circle data-node="6" data-k="5" data-x="372" data-y="474" data-dy="118" cx="372" cy="592" r="6"/>
+                  <circle data-node="7" data-k="7" data-x="330" data-y="516" data-dy="136" cx="330" cy="652" r="6"/>
+                  <circle data-node="8" data-k="7" data-x="330" data-y="556" data-dy="136" cx="330" cy="692" r="6"/>
+                </g>
+                <circle class="asm-dot" id="asm-dot" cx="330" cy="10" r="5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="asm-side">
+            <p class="label">Assembly sequence · 9 steps</p>
+            <ol class="asm-steps" id="asm-steps">
+              <li data-k="1"><b>1</b>Install A2 (rail) onto A3 (load body) · stainless steel hardware</li>
+              <li data-k="2"><b>2</b>Install A9 (back panel pad) onto the rear face of A3</li>
+              <li data-k="3"><b>3</b>Install A4 (low pivot) onto the rail assembly at hip level</li>
+              <li data-k="4"><b>4</b>Route A5 (inward tether) through the guide path in A4 and A2</li>
+              <li data-k="5"><b>5</b>Install A6 (tension strap system) through A4 and align</li>
+              <li data-k="6"><b>6</b>Attach A1 (upper harness anchor) to the top of A2</li>
+              <li data-k="7"><b>7</b>Attach A7 (hip belt assembly) to the A4 pivot points</li>
+              <li data-k="8"><b>8</b>Attach A8 (sternum stabiliser) to the shoulder straps</li>
+              <li data-k="9"><b>9</b>Install A10 (accessory interface) at the desired mount point</li>
+            </ol>
+            <p class="label asm-lp-h">Primary load path</p>
+            <ol class="asm-lp" id="asm-lp" aria-label="Primary load path">
+              <li data-node="0">Shoulders</li><li data-node="1">A1</li><li data-node="2">A2</li><li data-node="3">A3</li><li data-node="4">A4</li><li data-node="5">A5</li><li data-node="6">A6</li><li data-node="7">A7</li><li data-node="8">Hips</li>
+            </ol>
+            <div class="asm-btns"><button class="tbtn" type="button" data-assemble>Show assembled</button><button class="tbtn" type="button" data-trace>Trace the load path</button></div>
+            <p class="inst-note">A8, A9 and A10 (comfort, stabilisation, accessory) are omitted from the documentation’s primary load-path diagram “for clarity”.</p>
+          </div>
+        </div>
+      </div>
+      <figcaption><span class="t">System assembly ECS-MT-03-R1 · exploded along the load path; with motion on, the parts seat in the documented order as you scroll</span><span class="p">Redrawn from documentation p31 as flat part glyphs — not the published product images · explode offsets illustrative · <span class="claim" data-level="DESIGNED">Designed</span></span></figcaption>
+    </figure>
+
+    <figure class="plate-fig parts-plate" aria-labelledby="parts-cap">
+      <div class="frame pad-frame">
+        <ol class="parts" aria-label="Components A1 to A10">
+          <li><span class="pc">A1</span><span class="pn">Upper harness anchor</span><span class="pf">Upper load transfer</span><span class="ps">142 × 142 × 13 mm · 32 g</span></li>
+          <li><span class="pc">A2</span><span class="pn">Rail / guide channel</span><span class="pf">Guided vertical motion</span><span class="ps">142 × 25 × 8 mm · 6061-T6 · 28 g</span></li>
+          <li><span class="pc">A3</span><span class="pn">Load body assembly</span><span class="pf">Structural load platform</span><span class="ps">HDPE panel 240 × 170 × 2.0 mm · 110 g</span></li>
+          <li><span class="pc">A4</span><span class="pn">Low pivot assembly</span><span class="pf">Articulation at hip level</span><span class="ps">Ø6.0 mm stainless pin · ±30° · 22 g</span></li>
+          <li><span class="pc">A5</span><span class="pn">Inward tether</span><span class="pf">Inward pull and control</span><span class="ps">260 mm · 18 g</span></li>
+          <li><span class="pc">A6</span><span class="pn">Tension strap system</span><span class="pf">System stabilisation</span><span class="ps">Adjustable 80–260 mm · 24 g</span></li>
+          <li><span class="pc">A7</span><span class="pn">Hip belt assembly</span><span class="pf">Transfers load to hips</span><span class="ps">100 mm wide · 760–1200 mm · 109 g</span></li>
+          <li><span class="pc">A8</span><span class="pn">Sternum stabiliser</span><span class="pf">Shoulder strap control</span><span class="ps">200–210 mm · 16 g</span></li>
+          <li><span class="pc">A9</span><span class="pn">Back panel comfort pad</span><span class="pf">Comfort and ventilation</span><span class="ps">—</span></li>
+          <li><span class="pc">A10</span><span class="pn">Accessory / attachment interface</span><span class="pf">Modular attachment point</span><span class="ps">90 × 50 mm · 28 g</span></li>
+        </ol>
+        <div class="hw">
+          <p class="label">Hardware per system</p>
+          <ol class="tlist hw-list">
+            <li><span class="no">M8</span><span class="lbl">Ladder lock 25 mm</span><span class="hatch"><span class="track"><i style="--n:6;--of:8"></i></span><span class="count">× 6</span></span></li>
+            <li><span class="no">M9</span><span class="lbl">GF nylon pivot pin / bracket</span><span class="hatch"><span class="track"><i style="--n:2;--of:8"></i></span><span class="count">× 2</span></span></li>
+            <li><span class="no">M10</span><span class="lbl">Acetal / POM washer</span><span class="hatch"><span class="track"><i style="--n:4;--of:8"></i></span><span class="count">× 4</span></span></li>
+            <li><span class="no">M11</span><span class="lbl">Side release 25 mm</span><span class="hatch"><span class="track"><i style="--n:3;--of:8"></i></span><span class="count">× 3</span></span></li>
+            <li><span class="no">M12</span><span class="lbl">Tri-glide 25 mm</span><span class="hatch"><span class="track"><i style="--n:8;--of:8"></i></span><span class="count">× 8</span></span></li>
+          </ol>
+        </div>
+      </div>
+      <figcaption id="parts-cap"><span class="t">Components A1–A10 · function and example specification</span><span class="p">From the component sheets and ECS-MT-03-R1 · <span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· production intent, not built</span></span></span></figcaption>
+    </figure>
+
+    <div class="plate-stack">
+    <figure class="plate-fig rail-plate" aria-labelledby="rail-cap">
+      <div class="frame pad-frame"><div class="rail-box">
+        <svg class="rail-svg" viewBox="0 0 560 330" role="img" aria-label="A2 rail drawn from its sheet dimensions: plan 142 by 25 millimetres with a 6.0 millimetre channel and two holes 126 millimetres apart; section 25 by 8 millimetres with a 6.0 by 4.0 millimetre channel.">
+          <defs><pattern id="rail-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="rail-hatch-l" x1="0" y1="0" x2="0" y2="7"/></pattern></defs>
+          
+          <g transform="translate(38 40)">
+            <rect class="dw-visible" x="0" y="0" width="482.8" height="85" rx="10"/>
+            <rect class="dw-visible" x="47.6" y="32.3" width="387.6" height="20.4" rx="10.2"/>
+            <circle class="dw-visible" cx="27.2" cy="42.5" r="7.65"/><circle class="dw-visible" cx="455.6" cy="42.5" r="7.65"/>
+            <line class="dw-chain" x1="-16" y1="42.5" x2="498.8" y2="42.5"/>
+            
+            <path class="dw-dim" d="M0 -8 V-24 M482.8 -8 V-24 M0 -18 H482.8"/>
+            <path class="dw-dim" d="M27.2 96 V116 M455.6 96 V116 M27.2 110 H455.6"/>
+            <path class="dw-dim" d="M492 0 H512 M492 85 H512 M506 0 V85"/>
+          </g>
+          
+          <g transform="translate(150 196)">
+            <path class="rail-sec" d="M0 0 H95 V40 H155 V0 H250 V80 H0 Z"/>
+            <line class="dw-chain" x1="125" y1="-14" x2="125" y2="94"/>
+            <path class="dw-dim" d="M0 92 V110 M250 92 V110 M0 104 H250"/>
+            <path class="dw-dim" d="M95 -6 V-22 M155 -6 V-22 M95 -16 H155"/>
+            <path class="dw-dim" d="M262 0 H282 M262 80 H282 M276 0 V80"/>
+            <path class="dw-dim" d="M-12 0 H-30 M-12 40 H-30 M-24 0 V40"/>
+          </g>
+        </svg>
+        <span class="dl" style="--x:49.9%;--y:4.4%">142.0</span>
+        <span class="dl" style="--x:49.9%;--y:45.5%">126.0 · 2 × Ø4.5</span>
+        <span class="dl" style="--x:97.1%;--y:25%">25.0</span>
+        <span class="dl" style="--x:49.1%;--y:54.5%">6.0</span>
+        <span class="dl" style="--x:49.1%;--y:91%">25.0</span>
+        <span class="dl" style="--x:79.6%;--y:71.5%">8.0</span>
+        <span class="dl right" style="--x:21%;--y:65.5%">4.0</span>
+        <span class="dl muted" style="--x:3%;--y:88%">Section A–A</span>
+        <span class="dl muted" style="--x:3%;--y:4.4%">Plan</span>
+      </div></div>
+      <figcaption id="rail-cap"><span class="t">A2 rail / guide channel · plan and section, mm</span><span class="p">Drawn from the A2 sheet dimensions · profile simplified · scale differs per view · 6061-T6, anodised black · <span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></figcaption>
+    </figure>
+
+    <figure class="plate-fig tol-plate" aria-labelledby="tol-cap">
+      <div class="frame pad-frame">
+        <ol class="tol" aria-label="Tolerance legend">
+          <li style="--t:.5"><span class="tk">General</span><span class="tb"><i></i></span><span class="tv">± 0.5 mm</span></li>
+          <li style="--t:.2"><span class="tk">Moulded parts</span><span class="tb"><i></i></span><span class="tv">± 0.2 mm</span></li>
+          <li style="--t:.1"><span class="tk">Machined parts</span><span class="tb"><i></i></span><span class="tv">± 0.1 mm</span></li>
+          <li style="--t:1"><span class="tk">Webbing length</span><span class="tb"><i></i></span><span class="tv">± 1 mm</span></li>
+          <li style="--t:1"><span class="tk">Stitching location</span><span class="tb"><i></i></span><span class="tv">± 1 mm</span></li>
+          <li style="--t:.5"><span class="tk">Pivot / hole position</span><span class="tb"><i></i></span><span class="tv">± 0.5 mm</span></li>
+          <li class="ang"><span class="tk">Angular</span><span class="tb"><svg viewBox="0 0 120 24" aria-hidden="true"><line class="dw-thin" x1="4" y1="20" x2="116" y2="20"/><path class="tol-wedge" d="M4 20 L116 18.045 L116 21.955 Z"/></svg></span><span class="tv">± 1.0°</span></li>
+        </ol>
+        <p class="micro tol-scale">Band height = the full ± range at 12 px per mm, either side of a nominal line · angular wedge drawn at its true angle</p>
+      </div>
+      <figcaption id="tol-cap"><span class="t">Tolerance legend · key / legend sheet ECS-MT-01-R1</span><span class="p">All dimensions in mm unless noted · <span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></span></figcaption>
+    </figure>
+
+    </div>
+    <figure class="plate-fig sheet-plate">
+      <a class="frame sheet-frame" href="ECS-Documentation.pdf#page=9" rel="noopener">
+        <picture><source srcset="assets/ecs/sheet-p09-1600.avif" type="image/avif"><img src="assets/ecs/sheet-p09-1000.jpg" width="1000" height="706" alt="Documentation page 9, shown whole: kinematic section comparing upright and forward-lean states with COM 01 and COM 02 and their moment arms, a target box, six kinematic path variants (tension-shortening is 06), additional explorations with “constrained path most effective” ticked, key anchors, design implications and unticked next steps." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Source sheet · documentation p09 · kinematic section and path variants</span><span class="p">Drawing as published, shown whole · its own note: “values are conceptual targets for visualization” · next steps (test with weight, measure COM travel) unticked</span></figcaption>
+    </figure>
+
+    <figure class="plate-fig sheet-plate">
+      <a class="frame sheet-frame" href="ECS-Documentation.pdf#page=13" rel="noopener">
+        <picture><source srcset="assets/ecs/sheet-p13-1600.avif" type="image/avif"><img src="assets/ecs/sheet-p13-1000.jpg" width="1000" height="706" alt="Documentation page 13, shown whole: strap routing diagram in front, side upright, side forward-lean and rear views, with the four-colour strap code and symbols for pivot, fixed anchor, rail path and adjustment." loading="lazy" decoding="async"></picture>
+      </a>
+      <figcaption><span class="t">Source sheet · documentation p13 · strap routing diagram</span><span class="p">Drawing as published, shown whole · source of the four strap colours used on this sheet</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s05" aria-labelledby="s05-h">
+  <div class="sec-mark"><p class="marker">05 · Pigment &amp; material</p><h2 id="s05-h" class="h2">Cardboard in. Production intent out.</h2></div>
+  <div class="albers-row ecs-albers">
+    <div class="albers" style="--c:#AA8962"><div class="inner"><p class="nm">Kraft · mock-up</p><p class="hx">#AA8962</p><p class="src">≈ Sampled · corrugated cardboard PC-1 · documentation p18</p></div></div>
+    <div class="albers" style="--c:#2B3239"><div class="inner"><p class="nm">Production slate</p><p class="hx">#2B3239</p><p class="src">≈ Sampled · shell · concept render · also the live clay</p></div></div>
+    <div class="albers" style="--c:#C1875F"><div class="inner"><p class="nm">Pull tab</p><p class="hx">#C1875F</p><p class="src">≈ Sampled · the one colour on the shell · concept render</p></div></div>
+    <div class="albers" style="--c:#D0702F"><div class="inner"><p class="nm">Load-path orange</p><p class="hx">#D0702F</p><p class="src">≈ Sampled · orange load path, mechanism study plate (withheld)</p></div></div>
+  </div>
+
+  <div class="cols ecs-mat">
+    <div class="span-5">
+      <p class="label">Strap code · semantic, not decorative</p>
+      <div class="ptags strap-tags">
+        <p class="ptag"><span class="sw" style="--c:#F28019"></span><span class="txt">Upper harness strap · <span class="hex">#F28019</span> · ≈ sampled · p13 legend</span></p>
+        <p class="ptag"><span class="sw" style="--c:#F4D016"></span><span class="txt">Lower tension strap, differential · <span class="hex">#F4D016</span> · ≈ sampled · p13 legend</span></p>
+        <p class="ptag"><span class="sw" style="--c:#1598CB"></span><span class="txt">Inward tether, shortening · <span class="hex">#1598CB</span> · ≈ sampled · p13 legend</span></p>
+        <p class="ptag"><span class="sw" style="--c:#149B51"></span><span class="txt">Stabilising hip belt · <span class="hex">#149B51</span> · ≈ sampled · p13 legend</span></p>
+      </div>
+      <p class="label" style="margin-top:28px">Set aside</p>
+      <div class="ptags">
+        <p class="ptag rejected"><span class="sw" style="--c:#071018"></span><span class="txt">Inspection-chamber navy · <span class="hex">#071018</span> · line #DCE5EB · the previous web viewer’s ground, replaced by this sheet’s own paper and ink</span></p>
+      </div>
+      <p class="label" style="margin-top:28px">Prototype keys</p>
+      <ul class="pkeys">
+        <li><span class="kc" style="--c:#AA8962">PC-1</span>Corrugated cardboard, 3–5 mm</li>
+        <li><span class="kc nf">PF-1</span>Foam sheet (EVA) · white in the p18 key</li>
+        <li><span class="kc nf">PH-1</span>Paper fastener · prototype hardware</li>
+      </ul>
+    </div>
+    <div class="span-7 tr-wrap">
+      <p class="label">Translation matrix ECS-MT-02-R1 · test object → designed object</p>
+      <div class="tablewrap">
+        <table class="tr">
+          <thead><tr><th scope="col">Part</th><th scope="col"><span class="th-sw" style="--c:#AA8962"></span>Cardboard test object</th><th scope="col"><span class="th-sw" style="--c:#2B3239"></span>Production intent</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A1</th><td>Corrugated cardboard 3–5 mm, layered · tape / hot glue</td><td>500D nylon + PU · bartack · ITW Nexus ladder lock 25 mm</td></tr>
+            <tr><th scope="row">A2</th><td>Corrugated cardboard, slot cut and folded</td><td>6061-T6 aluminium rail, anodised black · riveted / screw fixed</td></tr>
+            <tr><th scope="row">A3</th><td>Corrugated cardboard · EVA foam padding · tape / zip ties</td><td>500D nylon + PU shell · HDPE sheet · closed-cell foam + 3D spacer mesh</td></tr>
+            <tr><th scope="row">A4</th><td>Corrugated cardboard · split pin (paper fastener) · cardboard discs</td><td>GF nylon bracket · stainless pivot pin · acetal washers</td></tr>
+            <tr><th scope="row">A5</th><td>Cardboard strip · cardboard slot adjuster</td><td>25 mm nylon webbing · ladder lock 25 mm · bartack</td></tr>
+            <tr><th scope="row">A6</th><td>Cardboard strip · cardboard slot adjuster · tape</td><td>25 mm nylon webbing · ladder lock 25 mm · bartack</td></tr>
+            <tr><th scope="row">A7</th><td>Corrugated cardboard · EVA foam · side release, taped</td><td>500D nylon + PU · closed-cell foam + 3D spacer mesh · low-profile side release</td></tr>
+            <tr><th scope="row">A8</th><td>Cardboard strip · side release, taped · cardboard slot</td><td>25 mm nylon webbing · low-profile side release · ladder lock</td></tr>
+            <tr><th scope="row">A9</th><td>EVA foam sheet · tape</td><td>3D spacer mesh · closed-cell foam · 500D nylon + PU backing</td></tr>
+            <tr><th scope="row">A10</th><td>Cardboard tab · tape</td><td>25 mm nylon webbing · D-ring / cord pull / rivet</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="micro tr-note">Text from documentation p18–19. The product images on those pages are not shown: their provenance is not yet established. <span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· cardboard, fit / form / function</span></span> <span class="claim" data-level="SPECIFIED_INTENT">Specified intent <span class="scope">· production</span></span></p>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s06" aria-labelledby="s06-h">
+  <div class="sec-mark"><p class="marker">06 · Decisions</p><h2 id="s06-h" class="h2">Six path logics. One kept.</h2></div>
+  <div class="options ecs-options">
+    <article class="option struck"><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-path" d="M62 22 Q72 56 44 80" marker-end="url(#o-ar)"/></svg></div><p class="on">01 · Curved drop</p><p class="od">A curved rail drives the load down and in; smooth, continuous arc.</p></article>
+    <article class="option struck"><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-path" d="M49 24 V84" marker-end="url(#o-ar)"/></svg></div><p class="on">02 · Vertical slide</p><p class="od">A linear track for a direct vertical drop; simple, compact.</p></article>
+    <article class="option struck"><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-path" d="M60 20 A22 22 0 0 1 46 50 L46 84" marker-end="url(#o-ar)"/></svg></div><p class="on">03 · Rotation + drop</p><p class="od">Upper rotation reduces the moment arm; a lower drop completes inward compression.</p></article>
+    <article class="option struck"><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-path" d="M66 44 H40" marker-end="url(#o-ar)"/><path class="o-path" d="M52 26 V82" marker-end="url(#o-ar)"/></svg></div><p class="on">04 · Dual axis</p><p class="od">Inward translation plus downward movement; keeps close proximity through the lean.</p></article>
+    <article class="option struck"><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-rail" d="M58 18 L40 82 M66 22 L48 86"/><path class="o-path" d="M62 26 L46 76" marker-end="url(#o-ar)"/></svg></div><p class="on">05 · Rail-guided compression</p><p class="od">Parallel rails guide downward and inward; active compression at the end of travel.</p></article>
+    <article class="option selected"><span class="stamp">Selected</span><div class="ofig"><svg viewBox="0 0 80 100" aria-hidden="true"><path class="o-spine" d="M24 8 C14 40 30 64 20 92"/><rect class="o-pack" x="34" y="14" width="30" height="58" rx="10"/><path class="o-strap" d="M30 12 C48 4 64 14 66 40 L64 80 Q56 90 32 84"/><path class="o-tether" d="M36 56 Q28 72 32 84"/><circle class="o-piv" cx="32" cy="84" r="3.5"/><path class="o-path" d="M60 46 L46 62" marker-end="url(#o-ar)"/></svg></div><p class="on">06 · Tension-shortening</p><p class="od">Harness geometry shortens under lean; the load is drawn in by the tension differential.</p></article>
+  </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="o-ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" class="o-arrowhead"/></marker></defs></svg>
+  <div class="ecs-also">
+    <article class="also struck-soft"><p class="on">Pivot about shoulder</p><p class="od">Set aside: overhead, it increases the moment arm.</p></article>
+    <article class="also struck-soft"><p class="on">Hip-based pivot</p><p class="od">Set aside: better, but limited drop.</p></article>
+    <article class="also"><p class="on">Constrained path</p><p class="od">Ticked on p09 as the most effective exploration.</p><span class="claim" data-level="DESIGNED">Designed</span></article>
+    <article class="also scope"><p class="on">Walking state · out of scope</p><p class="od">By decision: the mechanism rests neutral and works as a conventional pack. Designed to production-ready, not built as a production unit.</p></article>
+  </div>
+  <p class="micro ecs-dec-prov">Glyphs redrawn after the p09 thumbnails · descriptions paraphrase the p09 notes · <span class="claim" data-level="DESIGNED">Designed <span class="scope">· comparison on paper</span></span></p>
+</section>
+
+
+<div id="ledger-home-slot"></div>
+<section class="sheet-section" id="s07" aria-labelledby="s07-h">
+  <div class="sec-mark"><p class="marker">07 · Claim ledger</p><h2 id="s07-h" class="h2">What is claimed, at what level.</h2></div>
+  <div class="ledger-wrap">
+    <div class="tablewrap"><table class="ledger">
+      <thead><tr><th scope="col">Claim</th><th scope="col">Value</th><th scope="col">Level</th><th scope="col">Qualifier</th></tr></thead>
+      <tbody>
+        <tr><td>Status</td><td class="v">Prototype · cardboard-validated load path only</td><td><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· scoped</span></span></td><td>The owner’s term. A cardboard fit / form / function mock-up exists; its own sheets say “not load rated”.</td></tr>
+        <tr><td>Mechanism</td><td class="v">Tension-shortening · A4 low pivot · A5 inward tether · A2 rail</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Concept mechanism, mocked up in cardboard.</td></tr>
+        <tr><td>Path logic</td><td class="v">1 selected of 6 compared</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Compared on p09; the selected path is detailed on p12.</td></tr>
+        <tr><td>Effect</td><td class="v">COM drop ~100–150 mm · inward ~60–100 mm · moment arm ~30–40% · COM path ~200 mm</td><td><span class="claim" data-level="CONCEPT">Concept <span class="scope">· target</span></span></td><td>“Values are conceptual targets for visualization” (p09). Not measured.</td></tr>
+        <tr><td>Components</td><td class="v">A1–A10</td><td><span class="claim" data-level="DESIGNED">Designed</span></td><td>Each has a cardboard test object and a production-intent sheet.</td></tr>
+        <tr><td>Component specs</td><td class="v">A1 142 × 142 × 13 mm, 32 g · A2 142 × 25 × 8 mm, channel 6.0 × 4.0, 6061-T6, 28 g · A3 HDPE 240 × 170 × 2.0 mm, 110 g · A4 Ø6.0 pin, ±30°, 22 g · A5 260 mm, 18 g · A6 80–260 mm, 24 g · A7 100 mm, 760–1200 mm, 109 g · A8 200–210 mm, 16 g · A10 90 × 50 mm, 28 g</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>Production-intent sheets. Nothing built at production level.</td></tr>
+        <tr><td>Materials</td><td class="v">500D nylon + PU · closed-cell foam · 3D spacer mesh · HDPE · 25 mm Type-7 webbing · 6061-T6 · GF nylon · acetal / POM · stainless pin and rivets</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>Production intent.</td></tr>
+        <tr><td>Tolerances</td><td class="v">±0.5 · ±0.2 · ±0.1 · ±1 · ±1 · ±0.5 mm · ±1.0°</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>General · moulded · machined · webbing · stitching · pivot / hole · angular.</td></tr>
+        <tr><td>Hardware per system</td><td class="v">M8 × 6 · M9 × 2 · M10 × 4 · M11 × 3 · M12 × 8</td><td><span class="claim" data-level="SPECIFIED_INTENT">Specified intent</span></td><td>ITW Nexus ladder locks, side releases and tri-glides; GF nylon pivot; acetal washers.</td></tr>
+        <tr><td>Rider reference</td><td class="v">170 cm / 61 kg / SM–M (36–38)</td><td><span class="claim" data-level="PROTOTYPE">Prototype <span class="scope">· fit reference</span></span></td><td>The body the cardboard mock-up was fitted to.</td></tr>
+        <tr><td>Documentation</td><td class="v">34 pages · six sections</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· document</span></span></td><td>Overview · reasoning &amp; validation · mechanism · components · assembly · reflection.</td></tr>
+        <tr><td>Web model</td><td class="v">ECS.glb · 8,824 vertices / 17,848 faces · edges counted live</td><td><span class="claim" data-level="DESIGNED">Designed <span class="scope">· digital model</span></span></td><td>Smooth sculpt used for the live view. Not a measured object.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="side">
+      <div><h3>Not claimed</h3><ul class="struck">
+        <li>“Validated prototype” without its scope</li>
+        <li>Load ratings (&gt;1.5–2.5 kN) as results</li>
+        <li>Salt-spray and temperature figures as results</li>
+        <li>Measured COM effect — drop, inward shift, moment arm</li>
+        <li>Walking-state behaviour — out of scope by decision</li>
+        <li>A production unit — designed to production-ready, not built</li>
+        <li>Load-rated parts — the cardboard parts are not load rated</li>
+      </ul></div>
+      <div><h3>Open items</h3><ul class="open-items">
+        <li>Year — drawings and site disagree <span class="claim" data-level="TBC">TBC</span></li>
+        <li>Carry load range — the documents disagree <span class="claim" data-level="TBC">TBC</span></li>
+        <li>Weighted test and COM-travel measurement — listed as next steps on p09, unticked <span class="claim" data-level="TBC">TBC</span></li>
+        <li>Product images on p06 and p18–19 — provenance not established; withheld <span class="claim" data-level="TBC">TBC</span></li>
+        <li>Rider photo (p10) and the mechanism study plate — withheld pending the owner’s consent and credit <span class="claim" data-level="TBC">TBC</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s08" aria-labelledby="s08-h">
+  <div class="sec-mark"><p class="marker">08 · Provenance, credits, revisions</p><h2 id="s08-h" class="h2">Where every image comes from.</h2></div>
+  <div class="prov-grid">
+    <div class="a"><ul class="prov-list">
+      <li><span>§01 Lab · ECS.glb rendered live in the browser as matte clay — a real-time render of the web model</span><span>three.js r160</span></li>
+      <li><span>§01 Lab poster · concept render of the pack — not a photograph; the render tool is not recorded</span><span>Render · tool TBC</span></li>
+      <li><span>§01 Investigation · the same model as edge lines; fallback still captured from it, no caption</span><span>Model capture</span></li>
+      <li><span>§03 · lean schematic redrawn from documentation p09, p12, p13 — positions illustrative</span><span>Redrawn</span></li>
+      <li><span>§04 · system assembly redrawn from ECS-MT-03-R1 (p31) as flat glyphs</span><span>Redrawn</span></li>
+      <li><span>§04 · A2 rail drawn from its sheet dimensions — profile simplified</span><span>From dimensions</span></li>
+      <li><span>§04 · documentation p09 and p13, shown whole, as published</span><span>Drawing</span></li>
+      <li><span>§05 · colours ≈ sampled from the render, p18, the p13 legend and the withheld mechanism study plate</span><span>Sampled</span></li>
+      <li><span>Documentation compiled in Canva · component sheets credited “ECS Design Team” · portfolio author Bahareh Arianejad</span><span>Credits</span></li>
+      <li><span>Withheld: p10 rider photo · mechanism study plate · product images on p06, p18–19</span><span>Gated</span></li>
+    </ul>
+    <a class="btn ecs-pdf" href="ECS-Documentation.pdf" rel="noopener"><span class="t">ECS-Documentation.pdf · 34 pages · 5.9 MB</span><span class="a" aria-hidden="true"><span>↓</span></span></a>
+    </div>
+    <div class="b"><table class="revs">
+      <thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead>
+      <tbody>
+        <tr><td>R1</td><td>—</td><td>Component sheets A1–A10, key / legend ECS-MT-01, translation matrix ECS-MT-02, system assembly ECS-MT-03 — revision as printed</td></tr>
+        <tr><td>—</td><td>—</td><td>34-page documentation compiled; its unscoped “validated” status is now scoped to the cardboard load-path check</td></tr>
+        <tr><td>A</td><td>2026-10-02</td><td>Case sheet rebuilt: eight deck images replaced by the live model and redrawn mechanism and assembly drawings; status scoped to “cardboard-validated load path only”</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+
+<section class="sheet-section" id="s09" aria-label="Next specimen">
+  <a class="next-spec" href="zewm-excmon" data-morph style="--g0:#6E54C8"><div class="ns-text"><p class="marker">09 · Next specimen</p><p class="h2">ZEWM_EXCMON</p><p class="small muted">The failure was not a missed alert. A forensic systems investigation.</p><span class="btn"><span class="t">Open sheet 07</span><span class="a" aria-hidden="true"><span>→</span></span></span></div><div class="ns-ground"><picture><source srcset="assets/zewm-excmon/rec041-800.avif" type="image/avif"><img src="assets/zewm-excmon/rec041-800.jpg" width="800" height="534" alt="" loading="lazy" decoding="async"></picture></div></a>
+</section>
+</main>
+<footer class="sheet-section foot" role="contentinfo">
+  <div class="titleblock">
+    <div><span class="k">Drawn</span><span class="v">B. Arianejad</span></div>
+    <div><span class="k">Studio</span><span class="v">MALINYX</span></div>
+    <div><span class="k">Sheet</span><span class="v">06 / 11</span></div>
+    <div><span class="k">Rev</span><span class="v">2026-10-02</span></div>
+    <div><span class="k">Contact</span><span class="v"><a href="mailto:info@malinyx.com">info@malinyx.com</a></span></div>
+    <div><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">in/bahareharianejad</a></span></div>
+    <div class="wide"><span class="k">Status</span><span class="v">Available for systems design, industrial / product work, and portfolio collaborations.</span></div>
+    <div><span class="k">Projection</span><span class="v"><a href="#top" aria-label="Back to top"><svg class="proj" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 6 L14 9 L14 15 L2 18 Z" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="8" fill="none" stroke="currentColor"/><circle cx="28" cy="12" r="4" fill="none" stroke="currentColor"/><path d="M0 12H40" stroke="currentColor" stroke-width=".6" stroke-dasharray="6 2 1 2"/></svg></a></span></div>
+    <div><span class="k">Motion</span><span class="v"><span class="seg" role="group" aria-label="Motion"><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></span></span></div>
+    <div><span class="k">Reality</span><span class="v"><button class="reality-btn" type="button" aria-pressed="false"><span>Change reality</span></button></span></div>
+    <div class="full"><span class="k">© 2026 Bahareh Arianejad · MALINYX Studio</span><span class="v">Every colour on this site is authored or sampled from the project it names. Every claim carries its level.</span></div>
+  </div>
+</footer>
+
+</div>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="win"><div class="win-in">
+    <div class="win-bar"><span class="win-title">MALINYX · INDEX <span class="idx">/06</span></span><button class="win-x" type="button" data-close-menu aria-label="Close menu">×</button></div>
+    <div class="win-body"><div><div class="pad">
+      <nav aria-label="Menu"><a href="./">Index</a><a href="work">Work</a><a href="field-notes">Field notes</a><a href="about">About</a></nav>
+      <div class="pills"><a class="pill" href="mailto:info@malinyx.com">info@malinyx.com</a><a class="pill" href="https://www.linkedin.com/in/bahareharianejad" rel="noopener">LinkedIn</a></div>
+      <div class="seg" role="group" aria-label="Motion" style="margin-top:16px"><span class="seg-l">Motion</span><button type="button" data-motion-set="auto" aria-pressed="true">Auto</button><button type="button" data-motion-set="on" aria-pressed="false">On</button><button type="button" data-motion-set="off" aria-pressed="false">Off</button></div>
+    </div></div></div>
+  </div></div>
+</dialog>
+
+<script src="assets/js/sheet.js" defer></script>
+<script src="assets/js/pages/ecs.js" defer></script>
+<script type="module" src="assets/js/pages/ecs-twin.js"></script>
+<a href="/" style="position:fixed;left:16px;bottom:16px;z-index:9999;padding:10px 16px;border-radius:999px;background:#0e0a09;color:#f3ebe0;font:500 12px/1 system-ui,sans-serif;letter-spacing:.08em;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35)">← MALINYX · technical dossier</a><a href="/work/ecs/" style="position:fixed;right:16px;bottom:16px;z-index:9999;padding:10px 16px;border-radius:999px;background:#a8653a;color:#fff;font:500 12px/1 system-ui,sans-serif;letter-spacing:.06em;text-decoration:none">Superseded by the 2026 rebuild →</a></body>
+</html>
