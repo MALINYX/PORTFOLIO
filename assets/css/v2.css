@@ -779,3 +779,84 @@ body:not(.paper) .fig figcaption{color:var(--ivory-m)}
 /* DRAW-01: a drawing with a phone variant takes that variant's proportions on phones */
 @media (max-width:700px){.fig .ph img{aspect-ratio:var(--am,var(--a))}}
 @media (max-width:700px){#challenge .fig[style*="--am"] .ph img,.dfig .fig[style*="--am"] .ph img{max-height:none}}
+
+/* ===================================================================================================
+   Direction (4 Oct 2026, DIRECTION.md): object first, then the system, then the evidence.
+   Level-3 components for registered pilots only: the system sequence, the lens, object / evidence.
+   =================================================================================================== */
+/* object-first hero: one line of record under the name; the full record sits in the status section */
+.hline{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:24px;color:rgba(246,239,230,.86);text-shadow:0 1px 14px rgba(14,10,9,.6)}
+.hline>span:not(.stg)::before{content:"·";margin-right:18px;color:var(--s5)}
+.hline .stg{color:rgba(246,239,230,.94);background:rgba(14,10,9,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+/* the system: without JS every visual, then every step, in reading order */
+.sys .sys-grid{margin-top:clamp(28px,5vh,56px)}
+.sys-stage{display:grid;gap:18px}
+.sys-vis{margin:0;position:relative;border-radius:18px;overflow:hidden;background:var(--room,#f4ece2)}
+.sys-vis img{width:100%;height:auto}
+.sysd{background:#f4ece2;padding:clamp(10px,1.6vw,22px)}
+.sysd svg{display:block;width:100%;height:auto}
+.sysd .dim,.sysd .lab{transition:opacity .5s var(--ease)}
+.sys-steps{display:grid;gap:26px;margin-top:30px}
+.sys-n{color:var(--fg-m)}
+.sys-step h3{font-weight:300;font-size:clamp(24px,2.3vw,34px);line-height:1.12;letter-spacing:-.01em;margin:8px 0 12px}
+.sys-step p:not(.sys-n){color:var(--fg-m);max-width:42ch;font-size:clamp(15px,1.1vw,17px)}
+.sys-ctrl{display:grid;gap:8px;margin-top:22px;max-width:380px}
+.sys-ctrl output{color:var(--fg)}
+.sys-ctrl input{width:100%;height:32px;accent-color:var(--s4);cursor:pointer}
+.sys-note{margin-top:clamp(24px,4vh,40px)}
+/* with JS: a sticky stage beside the steps; the step in the middle of the screen drives it */
+.sys-on .sys-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:start}
+.sys-on .sys-stage{display:block;position:sticky;top:clamp(76px,12vh,120px);height:min(76svh,820px)}
+.sys-on .sys-vis{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:scale(.985);
+  transition:opacity .7s var(--ease),transform 1s var(--ease),visibility 0s linear .7s}
+.sys-on .sys-vis.on{opacity:1;visibility:visible;transform:none;transition:opacity .7s var(--ease),transform 1s var(--ease),visibility 0s}
+.sys-on .sys-vis img{width:100%;height:100%;object-fit:contain}
+.sys-on .sysd svg{width:100%;height:100%}
+.sys-on .sys-steps{margin-top:0;gap:0}
+.sys-on .sys-step{min-height:74svh;display:flex;flex-direction:column;justify-content:center;opacity:.3;transition:opacity .6s var(--ease)}
+.sys-on .sys-step.on{opacity:1}
+.sys-on .sys-step:first-child{min-height:56svh;justify-content:flex-start;padding-top:8svh}
+.sys-on .sys-step:last-child{min-height:82svh}
+@media (max-width:900px){
+  .sys-on .sys-grid{grid-template-columns:1fr;gap:0}
+  .sys-on .sys-stage{top:60px;height:44svh;z-index:2;background:var(--ink);box-shadow:0 18px 26px -12px var(--ink)}
+  .sys-on .sys-step{min-height:62svh;justify-content:flex-start;padding-top:6svh}
+  .sys-on .sys-step:first-child{min-height:50svh}
+}
+/* object view: drawings carry part names only; the evidence view adds their dimensions and claims */
+body[data-mode="object"] .sysd .dim{opacity:0}
+
+/* the lens: the finished image over its registered technical layer */
+.lens{margin:0}
+.lens-f{position:relative;aspect-ratio:var(--ar);width:min(100%,calc(min(80vh,880px) * var(--ar)));margin-inline:auto;border-radius:18px;overflow:hidden;background:#5d5c5b;
+  touch-action:pan-y;-webkit-user-select:none;user-select:none;cursor:ew-resize}
+.lens-a,.lens-g{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.lens-b{position:absolute;inset:0;background:#f4ece2;clip-path:inset(0 calc(100% - var(--x,0%)) 0 0)}
+.lens-g{opacity:.13;filter:grayscale(1)}
+.lens-svg{position:absolute;inset:0;width:100%;height:100%}
+.lens-line{position:absolute;top:0;bottom:0;left:var(--x,0%);width:2px;margin-left:-1px;background:#f4ece2;box-shadow:0 0 0 1px rgba(43,32,27,.18);touch-action:none}
+.lens-h{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#f4ece2;color:#2b201b;box-shadow:0 8px 24px rgba(14,10,9,.35);touch-action:none}
+.lens-h::before,.lens-h::after{content:"";position:absolute;top:50%;width:7px;height:7px;margin-top:-4px;border:solid #2b201b;border-width:0 0 1.5px 1.5px}
+.lens-h::before{left:12px;transform:rotate(45deg)}.lens-h::after{right:12px;transform:rotate(-135deg)}
+.lens:not(.open) .lens-h{left:23px}
+.lens-ctl{display:flex;align-items:center;gap:12px;width:min(100%,440px);margin:16px auto 0;color:var(--fg-m)}
+.lens-ctl input{flex:1;min-width:0;height:32px;accent-color:var(--s2);cursor:pointer}
+.lens figcaption{margin:10px auto 0;max-width:62ch;font-size:13.5px;color:var(--fg-m);text-align:center}
+.eng-lens{align-items:start}
+.lens:has(.lens-r:focus-visible) .lens-h{outline:2px solid var(--focus);outline-offset:3px}
+
+/* object / evidence: one quiet switch, after the hero */
+.mode{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:55;display:flex;gap:2px;padding:4px;border-radius:999px;
+  background:rgba(14,10,9,.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(243,235,224,.18);box-shadow:0 12px 30px rgba(14,10,9,.3);
+  opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .5s var(--ease),transform .6s var(--ease),visibility 0s linear .5s}
+.mode.show{opacity:1;visibility:visible;transform:none;transition:opacity .5s var(--ease),transform .6s var(--ease),visibility 0s}
+.mode button{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 15px;border-radius:999px;color:rgba(243,235,224,.72);transition:background .3s,color .3s}
+.mode button[aria-pressed="true"]{background:var(--ivory);color:var(--ink)}
+@media (pointer:coarse){.mode button{min-height:42px}}
+
+/* the archived dossier: a quiet line after everything else */
+.arch-link{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:clamp(30px,5vh,46px);padding-top:16px;border-top:1px solid var(--line);color:var(--fg-m);font-size:14px}
+.arch-link a{color:var(--fg-m);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.arch-link a:hover,.arch-link a:focus-visible{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){.sys-on .sys-vis,.sys-on .sys-step,.mode,.sysd .dim{transition:none}}

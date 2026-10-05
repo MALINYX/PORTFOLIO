@@ -254,6 +254,61 @@ if (ip && FINE && !RM) { const pim = ip.querySelector("img"); let px = 0, py = 0
     a.addEventListener("pointerleave", () => { on = false; ip.classList.remove("on"); }); });
   addEventListener("pointermove", e => { px = e.clientX; py = e.clientY; if (on) ip.style.transform = `translate3d(${Math.min(px + 28, innerWidth - 240)}px,${Math.max(16, py - 140)}px,0)`; }, { passive: true }); }
 
+/* ---------- level 3 (DIRECTION.md §4–5): the system sequence, the lens, object / evidence ---------- */
+/* SVG layers move through their transform attribute (exact in user units, every browser); the drawing's own transform is kept after ours */
+const tf = (g, t) => { if (g._t0 === undefined) g._t0 = g.getAttribute("transform") || ""; g.setAttribute("transform", (t + " " + g._t0).trim()); };
+const tween = (from, to, ms, step, done) => { const t0 = performance.now(); let raf = 0;
+  const f = now => { const p = clamp((now - t0) / ms, 0, 1), e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; step(from + (to - from) * e); raf = p < 1 ? requestAnimationFrame(f) : 0; if (p >= 1 && done) done(); };
+  raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf); };
+$$(".sys").forEach(sec => {
+  const stage = sec.querySelector(".sys-stage"), steps = $$(".sys-step", sec), vis = $$(".sys-vis", stage), turns = $$("input[data-turn]", sec);
+  if (!stage || !steps.length) return;
+  /* drawings: a plan turns its .att about (cx, cy); a section draws .att down by `draw` and squeezes .seal about its fixed face */
+  const D = $$("svg.sysd-svg", stage).map(svg => { const d = svg.dataset, n = v => (v === undefined || v === "" ? null : +v);
+    return { att: $$(".att", svg), attd: $$(".att-d", svg), seal: $$(".seal", svg), seald: $$(".seal-d", svg),
+      rot: n(d.lockRot), cx: n(d.cx), cy: n(d.cy), draw: n(d.draw), drawd: n(d.drawD), sy: n(d.sealY), syd: n(d.sealYD), sk: n(d.sealK), sf: n(d.sealFrom) || 0 }; });
+  let k = 0, stop = null, cur = -1;
+  const apply = () => { D.forEach(o => {
+      if (o.rot != null) o.att.forEach(g => tf(g, `rotate(${(k * o.rot).toFixed(3)} ${o.cx} ${o.cy})`));
+      else if (o.draw != null) {
+        o.att.forEach(g => tf(g, `translate(0 ${((1 - k) * -o.draw).toFixed(3)})`)); if (o.drawd != null) o.attd.forEach(g => tf(g, `translate(0 ${((1 - k) * -o.drawd).toFixed(3)})`));
+        if (o.sk) { const kc = clamp((k - o.sf) / Math.max(.001, 1 - o.sf), 0, 1), sc = 1 + (1 / o.sk - 1) * (1 - kc);
+          if (o.sy != null) o.seal.forEach(g => tf(g, `translate(0 ${o.sy}) scale(1 ${sc.toFixed(4)}) translate(0 ${-o.sy})`));
+          if (o.syd != null) o.seald.forEach(g => tf(g, `translate(0 ${o.syd}) scale(1 ${sc.toFixed(4)}) translate(0 ${-o.syd})`)); } } });
+    turns.forEach(t => { const deg = +t.dataset.deg, v = Math.round(k * deg); if (+t.value !== v) t.value = v; const out = t.closest(".sys-ctrl")?.querySelector("output"); if (out) out.textContent = v + "°"; });
+    stage.classList.toggle("locked", k > .995); };
+  const go = to => { if (stop) stop(); if (RM || QA) { k = to; apply(); return; } stop = tween(k, to, 1500 * Math.abs(to - k) + 200, v => { k = v; apply(); }, () => { stop = null; }); };
+  turns.forEach(t => t.addEventListener("input", () => { if (stop) { stop(); stop = null; } k = +t.value / +t.dataset.deg; apply(); }));
+  const activate = i => { if (i === cur) return; cur = i; const st = steps[i];
+    steps.forEach((x, j) => x.classList.toggle("on", j === i)); stage.dataset.on = st.dataset.vis;
+    vis.forEach(v => v.classList.toggle("on", v.dataset.vis === st.dataset.vis));
+    if (st.dataset.state === "unlocked") go(0); else if (st.dataset.state === "locked") go(1); };
+  document.documentElement.classList.add("sys-on");   /* the pinned layout exists only when this script runs */
+  apply(); activate(0);
+  const sio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(steps.indexOf(en.target)); }), { rootMargin: "-48% 0px -48% 0px" });
+  steps.forEach(st => sio.observe(st));
+});
+/* the lens: pointer drag on the picture (touch: only along the line, so the page still scrolls), the range for keys and assistive tech */
+const LENSES = $$("[data-lens]").map(fig => { const f = fig.querySelector(".lens-f"), r = fig.querySelector(".lens-r"); let x = 0, drag = false, stop = null, hinted = false;
+  const set = v => { x = clamp(v, 0, 100); fig.style.setProperty("--x", x.toFixed(2) + "%"); if (+r.value !== Math.round(x)) r.value = Math.round(x); fig.classList.toggle("open", x > 0.5); };
+  const to = v => { if (stop) stop(); if (RM || QA) set(v); else stop = tween(x, v, 900, set, () => { stop = null; }); };
+  const at = e => { const b = f.getBoundingClientRect(); return (e.clientX - b.left) / b.width * 100; };
+  f.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse" && !e.target.closest(".lens-line")) return; drag = true; if (stop) { stop(); stop = null; } f.setPointerCapture(e.pointerId); set(at(e)); e.preventDefault(); });
+  f.addEventListener("pointermove", e => { if (drag) set(at(e)); });
+  const up = () => { drag = false; }; f.addEventListener("pointerup", up); f.addEventListener("pointercancel", up);
+  r.addEventListener("input", () => { if (stop) { stop(); stop = null; } set(+r.value); });
+  /* once, when it is first seen: open a third of the way, so the second layer announces itself */
+  new IntersectionObserver((es, ob) => es.forEach(en => { if (en.isIntersecting && !hinted) { hinted = true; ob.disconnect(); if (x === 0) to(34); } }), { threshold: .5 }).observe(fig);
+  set(0); return { to, get x() { return x; } }; });
+/* object / evidence: one switch for the page, shown once the hero has scrolled away */
+const mode = document.querySelector(".mode");
+if (mode) { const hero = document.querySelector(".case-hero"); mode.hidden = false; const say = document.getElementById("copy-status");
+  const setMode = m => { document.body.dataset.mode = m; $$("button", mode).forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === m)); LENSES.forEach(l => l.to(m === "evidence" ? 100 : 0));
+    if (say) say.textContent = m === "evidence" ? "Evidence view: drawings show their dimensions; every lens is open." : "Object view."; };
+  $$("button", mode).forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+  document.body.dataset.mode = "object";
+  if (hero) new IntersectionObserver(es => es.forEach(en => mode.classList.toggle("show", !en.isIntersecting)), { threshold: 0.05 }).observe(hero); else mode.classList.add("show"); }
+
 /* ---------- one rAF: hero parallax, scrubs, ring ---------- */
 const root = document.documentElement; let mx = 0, my = 0, tx = 0, ty = 0;
 addEventListener("pointermove", e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, { passive: true });
