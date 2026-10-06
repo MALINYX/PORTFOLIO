@@ -433,6 +433,14 @@ body.paper .steps li b{background-image:linear-gradient(90deg,var(--s3),var(--s2
 .sky.brand .slats{transform:rotate(calc(-36deg + var(--hp,0)*14deg)) translate3d(calc(var(--mx,0)*22px),calc(var(--my,0)*14px),0) scale(calc(1 + var(--hp,0)*.25))}
 .sky.brand .slats i{background:linear-gradient(90deg,rgba(255,255,255,.045),rgba(255,214,170,.016) 40%,rgba(255,120,70,.035));
   -webkit-backdrop-filter:blur(22px) saturate(1.5) brightness(1.18);backdrop-filter:blur(22px) saturate(1.5) brightness(1.18)}
+/* each ribbon catches the light where the pointer is (owner, 6 Oct 2026): v2.js sets --lg 0–1 (how close the pointer is) and --lt (px along the ribbon), fine pointers only */
+.sky.brand .slats i{position:relative;overflow:hidden}
+.sky.brand .slats i::before,.sky.brand .slats i::after{content:"";position:absolute;pointer-events:none;opacity:var(--lg,0)}
+.sky.brand .slats i::before{inset:0;border-radius:inherit;background:linear-gradient(90deg,rgba(255,238,215,.13),rgba(255,214,170,.04) 45%,rgba(255,150,95,.1));
+  box-shadow:inset 1.5px 0 0 rgba(255,242,224,.6),inset -1px 0 0 rgba(255,222,192,.22)}
+.sky.brand .slats i::after{left:-40%;right:-40%;top:50%;height:min(52vh,520px);translate:0 calc(-50% + var(--lt,0px));
+  background:radial-gradient(closest-side,rgba(255,240,222,.42),rgba(255,176,118,.16) 55%,transparent);mix-blend-mode:screen}
+@media (prefers-reduced-motion:reduce){.sky.brand .slats i::after{display:none}}
 .brand-hero .hero-copy h1{font-size:clamp(48px,8vw,146px)}
 .brand-hero .disc{margin-top:clamp(14px,2.2vh,22px);font-size:clamp(14px,1.35vw,20px);letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:rgba(246,239,230,.92);
   text-shadow:0 1px 18px rgba(14,10,9,.7);opacity:0;animation:fade 1.4s var(--ease) .9s forwards}

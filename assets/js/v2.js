@@ -314,6 +314,29 @@ if (mode) { const hero = document.querySelector(".case-hero"); mode.hidden = fal
   document.body.dataset.mode = "object";
   if (hero) new IntersectionObserver(es => es.forEach(en => mode.classList.toggle("show", !en.isIntersecting)), { threshold: 0.05 }).observe(hero); else mode.classList.add("show"); }
 
+/* ---------- home header: each glass ribbon catches the light where the pointer is (owner, 6 Oct 2026) ----------
+   --lg (0–1) = how close the pointer is to that ribbon, --lt = where along it (px from its centre). Fine pointers only; CSS draws the light. */
+const RIB = (() => {
+  const sky = document.querySelector(".sky.brand"); if (!sky || !FINE) return null;
+  const els = $$(".slats i", sky); if (!els.length) return null;
+  const g = els.map(() => 0), t = els.map(() => 0); let px = -1e4, py = -1e4, seen = true;
+  addEventListener("pointermove", e => { px = e.clientX; py = e.clientY; }, { passive: true });
+  document.documentElement.addEventListener("pointerleave", () => { px = py = -1e4; });
+  new IntersectionObserver(es => es.forEach(en => { seen = en.isIntersecting; })).observe(sky);
+  return { tick(hp) {
+    if (!seen) return;
+    const a = (-36 + hp * 14) * Math.PI / 180, ux = -Math.sin(a), uy = Math.cos(a);   // the ribbons' long axis on screen
+    const R = els.map(el => el.getBoundingClientRect()), W = els.map(el => el.offsetWidth || 90);   // read everything before writing
+    els.forEach((el, i) => {
+      const dx = px - (R[i].left + R[i].width / 2), dy = py - (R[i].top + R[i].height / 2);
+      const d = Math.abs(dx * uy - dy * ux), along = dx * ux + dy * uy;
+      g[i] += (Math.exp(-((d / (W[i] * 1.1)) ** 2)) - g[i]) * 0.14; t[i] += (along - t[i]) * 0.2;
+      el.style.setProperty("--lg", g[i] < 0.004 ? "0" : g[i].toFixed(3));
+      el.style.setProperty("--lt", clamp(t[i], -4000, 4000).toFixed(1) + "px");
+    });
+  } };
+})();
+
 /* ---------- one rAF: hero parallax, scrubs, ring ---------- */
 const root = document.documentElement; let mx = 0, my = 0, tx = 0, ty = 0;
 addEventListener("pointermove", e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, { passive: true });
@@ -321,6 +344,7 @@ function frame() {
   mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
   const hp = RM ? 0 : clamp(scrollY / innerHeight, 0, 1.2); root.style.setProperty("--hp", hp.toFixed(4));
   if (!RM) { root.style.setProperty("--mx", mx.toFixed(4)); root.style.setProperty("--my", my.toFixed(4)); }
+  if (RIB) RIB.tick(hp);
   for (const o of SCRUBS) { const r = o.sec.getBoundingClientRect(); const p = clamp(-r.top / (r.height - innerHeight), 0, 1); o.sec.style.setProperty("--p", p.toFixed(4));
     const idx = Math.round(p * (o.s.n - 1)); if (r.bottom > 0 && r.top < innerHeight && idx !== o.last) { const im = o.s.clampNearest(idx); if (im) { draw(o.cv, im); o.last = idx; } }
     o.caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.from && p < +c.dataset.to)); }
