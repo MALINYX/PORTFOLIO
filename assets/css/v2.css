@@ -432,7 +432,8 @@ body.paper .steps li b{background-image:linear-gradient(90deg,var(--s3),var(--s2
 @keyframes logoIn{from{opacity:0;scale:.96}to{opacity:.97;scale:1}}
 .sky.brand .slats{transform:rotate(calc(-36deg + var(--hp,0)*14deg)) translate3d(calc(var(--mx,0)*22px),calc(var(--my,0)*14px),0) scale(calc(1 + var(--hp,0)*.25))}
 .sky.brand .slats i{background:linear-gradient(90deg,rgba(255,255,255,.045),rgba(255,214,170,.016) 40%,rgba(255,120,70,.035));
-  -webkit-backdrop-filter:blur(22px) saturate(1.5) brightness(1.18);backdrop-filter:blur(22px) saturate(1.5) brightness(1.18)}
+  -webkit-backdrop-filter:blur(3px) saturate(1.15) brightness(1.06);backdrop-filter:blur(3px) saturate(1.15) brightness(1.06)}
+/* light frost (owner, 6 Oct 2026): at 22px the ribbons hid the logo; 3px keeps the glass bands while the monogram reads through */
 /* each ribbon catches the light where the pointer is (owner, 6 Oct 2026): v2.js sets --lg 0–1 (how close the pointer is) and --lt (px along the ribbon), fine pointers only */
 .sky.brand .slats i{position:relative;overflow:hidden}
 .sky.brand .slats i::before,.sky.brand .slats i::after{content:"";position:absolute;pointer-events:none;opacity:var(--lg,0)}

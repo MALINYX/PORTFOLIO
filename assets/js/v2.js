@@ -338,14 +338,18 @@ const RIB = (() => {
 })();
 
 /* ---------- one rAF: hero parallax, scrubs, ring ---------- */
-const root = document.documentElement; let mx = 0, my = 0, tx = 0, ty = 0;
-addEventListener("pointermove", e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, { passive: true });
+/* --hp/--mx/--my go only on the sections that hold a sky (hero, closing bands), and only when they change:
+   written on <html> every frame they re-styled the whole page, which made long pages (THERMA's drawings) stutter on phones (6 Oct 2026).
+   Pointer parallax is for fine pointers; on touch a tap would restart the easing for ~3 s. */
+const PX = [...new Set($$(".sky").map(s => s.closest(".hero, .case-hero") || s.parentElement))];
+let mx = 0, my = 0, tx = 0, ty = 0; const last = {};
+const put = (k, v) => { if (last[k] === v) return; last[k] = v; PX.forEach(el => el.style.setProperty(k, v)); };
+if (FINE) addEventListener("pointermove", e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, { passive: true });
 function frame() {
-  mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-  const hp = RM ? 0 : clamp(scrollY / innerHeight, 0, 1.2); root.style.setProperty("--hp", hp.toFixed(4));
-  if (!RM) { root.style.setProperty("--mx", mx.toFixed(4)); root.style.setProperty("--my", my.toFixed(4)); }
+  const hp = RM ? 0 : clamp(scrollY / innerHeight, 0, 1.2); put("--hp", hp.toFixed(4));
+  if (!RM && FINE) { mx += (tx - mx) * 0.05; my += (ty - my) * 0.05; put("--mx", mx.toFixed(4)); put("--my", my.toFixed(4)); }
   if (RIB) RIB.tick(hp);
-  for (const o of SCRUBS) { const r = o.sec.getBoundingClientRect(); const p = clamp(-r.top / (r.height - innerHeight), 0, 1); o.sec.style.setProperty("--p", p.toFixed(4));
+  for (const o of SCRUBS) { const r = o.sec.getBoundingClientRect(); const p = clamp(-r.top / (r.height - innerHeight), 0, 1); const ps = p.toFixed(4); if (ps !== o.ps) { o.ps = ps; o.sec.style.setProperty("--p", ps); }
     const idx = Math.round(p * (o.s.n - 1)); if (r.bottom > 0 && r.top < innerHeight && idx !== o.last) { const im = o.s.clampNearest(idx); if (im) { draw(o.cv, im); o.last = idx; } }
     o.caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.from && p < +c.dataset.to)); }
   for (const o of RINGS) { const r = o.sec.getBoundingClientRect();
