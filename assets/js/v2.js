@@ -279,13 +279,18 @@ $$(".sys").forEach(sec => {
     stage.classList.toggle("locked", k > .995); };
   const go = to => { if (stop) stop(); if (RM || QA) { k = to; apply(); return; } stop = tween(k, to, 1500 * Math.abs(to - k) + 200, v => { k = v; apply(); }, () => { stop = null; }); };
   turns.forEach(t => t.addEventListener("input", () => { if (stop) { stop(); stop = null; } k = +t.value / +t.dataset.deg; apply(); }));
-  const activate = i => { if (i === cur) return; cur = i; const st = steps[i];
+  const activate = i => { if (i === cur) return; const prev = cur >= 0 ? steps[cur].dataset.vis : null; cur = i; const st = steps[i];
     steps.forEach((x, j) => x.classList.toggle("on", j === i)); stage.dataset.on = st.dataset.vis;
     vis.forEach(v => v.classList.toggle("on", v.dataset.vis === st.dataset.vis));
-    if (st.dataset.state === "unlocked") go(0); else if (st.dataset.state === "locked") go(1); };
+    if (st.dataset.state === "unlocked") go(0);
+    else if (st.dataset.state === "locked") {   /* a drawing that arrives already locked plays its lock again, so the motion is seen */
+      if (prev && prev !== st.dataset.vis && !RM && !QA) { if (stop) { stop(); stop = null; } k = 0; apply(); }
+      go(1); } };
   document.documentElement.classList.add("sys-on");   /* the pinned layout exists only when this script runs */
   apply(); activate(0);
-  const sio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(steps.indexOf(en.target)); }), { rootMargin: "-48% 0px -48% 0px" });
+  /* the step crossing a thin band drives the stage: mid-screen beside it on desktop, below it where the stage is pinned on top (≤ 900 px) */
+  const band = matchMedia("(max-width: 900px)").matches ? "-72% 0px -26% 0px" : "-48% 0px -48% 0px";
+  const sio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(steps.indexOf(en.target)); }), { rootMargin: band });
   steps.forEach(st => sio.observe(st));
 });
 /* the lens: pointer drag on the picture (touch: only along the line, so the page still scrolls), the range for keys and assistive tech */
