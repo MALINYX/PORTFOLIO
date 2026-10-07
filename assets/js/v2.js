@@ -118,10 +118,13 @@ const RINGS = $$(".ring-sec").map(sec => {
 });
 
 /* ---------- reveals, counters, page colour ---------- */
-const io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return; en.target.classList.add("in"); io.unobserve(en.target);
-  const w = en.target.querySelector(".wipe"); if (w && !RM) setTimeout(() => { w.classList.remove("go"); void w.offsetWidth; w.classList.add("go"); }, 500);
-  $$("[data-count]", en.target).forEach(countUp); if (en.target.matches("[data-count]")) countUp(en.target); }), { threshold: 0.18 });
-$$("[data-reveal]").forEach(el => io.observe(el));
+const reveal = el => { el.classList.add("in");
+  const w = el.querySelector(".wipe"); if (w && !RM) setTimeout(() => { w.classList.remove("go"); void w.offsetWidth; w.classList.add("go"); }, 500);
+  $$("[data-count]", el).forEach(countUp); if (el.matches("[data-count]")) countUp(el); };
+const io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return; io.unobserve(en.target); reveal(en.target); }), { threshold: 0.18 });
+/* something taller than the screen (the home index) would wait for 18 % of itself — a blank strip when it is entered from below — so it reveals once any part reaches the upper 85 % */
+const ioTall = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return; ioTall.unobserve(en.target); reveal(en.target); }), { rootMargin: "0px 0px -15% 0px" });
+$$("[data-reveal]").forEach(el => (el.offsetHeight > innerHeight * 1.2 ? ioTall : io).observe(el));
 function countUp(el) { if (el._done) return; el._done = true; const to = parseFloat(el.dataset.count), dec = +el.dataset.dec || 0, pre = el.dataset.pre || "", suf = el.dataset.suf || "";
   if (RM || QA) { el.textContent = pre + to.toFixed(dec) + suf; return; } const t0 = performance.now(), D = 1600;
   const f = now => { const p = clamp((now - t0) / D, 0, 1), e = 1 - Math.pow(1 - p, 4); el.textContent = pre + (to * e).toFixed(dec) + suf; if (p < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); }
@@ -263,35 +266,63 @@ const tween = (from, to, ms, step, done) => { const t0 = performance.now(); let 
 $$(".sys").forEach(sec => {
   const stage = sec.querySelector(".sys-stage"), steps = $$(".sys-step", sec), vis = $$(".sys-vis", stage), turns = $$("input[data-turn]", sec);
   if (!stage || !steps.length) return;
+  const mq = matchMedia("(max-width: 900px)");
   /* drawings: a plan turns its .att about (cx, cy); a section draws .att down by `draw` and squeezes .seal about its fixed face */
   const D = $$("svg.sysd-svg", stage).map(svg => { const d = svg.dataset, n = v => (v === undefined || v === "" ? null : +v);
-    return { att: $$(".att", svg), attd: $$(".att-d", svg), seal: $$(".seal", svg), seald: $$(".seal-d", svg),
+    return { key: svg.closest(".sys-vis").dataset.vis, att: $$(".att", svg), attd: $$(".att-d", svg), seal: $$(".seal", svg), seald: $$(".seal-d", svg),
       rot: n(d.lockRot), cx: n(d.cx), cy: n(d.cy), draw: n(d.draw), drawd: n(d.drawD), sy: n(d.sealY), syd: n(d.sealYD), sk: n(d.sealK), sf: n(d.sealFrom) || 0 }; });
-  let k = 0, stop = null, cur = -1;
-  const apply = () => { D.forEach(o => {
+  /* each drawing keeps its own state, 0 unlocked … 1 locked, and each step's slider turns its own drawing:
+     on phones every drawing is on screen in the flow, so one step must never move another step's drawing */
+  const K = {}, stops = {}; D.forEach(o => { K[o.key] = 0; }); let cur = -1;
+  const apply = key => { const k = K[key];
+    D.forEach(o => { if (o.key !== key) return;
       if (o.rot != null) o.att.forEach(g => tf(g, `rotate(${(k * o.rot).toFixed(3)} ${o.cx} ${o.cy})`));
       else if (o.draw != null) {
         o.att.forEach(g => tf(g, `translate(0 ${((1 - k) * -o.draw).toFixed(3)})`)); if (o.drawd != null) o.attd.forEach(g => tf(g, `translate(0 ${((1 - k) * -o.drawd).toFixed(3)})`));
         if (o.sk) { const kc = clamp((k - o.sf) / Math.max(.001, 1 - o.sf), 0, 1), sc = 1 + (1 / o.sk - 1) * (1 - kc);
           if (o.sy != null) o.seal.forEach(g => tf(g, `translate(0 ${o.sy}) scale(1 ${sc.toFixed(4)}) translate(0 ${-o.sy})`));
           if (o.syd != null) o.seald.forEach(g => tf(g, `translate(0 ${o.syd}) scale(1 ${sc.toFixed(4)}) translate(0 ${-o.syd})`)); } } });
-    turns.forEach(t => { const deg = +t.dataset.deg, v = Math.round(k * deg); if (+t.value !== v) t.value = v; const out = t.closest(".sys-ctrl")?.querySelector("output"); if (out) out.textContent = v + "°"; });
-    stage.classList.toggle("locked", k > .995); };
-  const go = to => { if (stop) stop(); if (RM || QA) { k = to; apply(); return; } stop = tween(k, to, 1500 * Math.abs(to - k) + 200, v => { k = v; apply(); }, () => { stop = null; }); };
-  turns.forEach(t => t.addEventListener("input", () => { if (stop) { stop(); stop = null; } k = +t.value / +t.dataset.deg; apply(); }));
-  const activate = i => { if (i === cur) return; const prev = cur >= 0 ? steps[cur].dataset.vis : null; cur = i; const st = steps[i];
-    steps.forEach((x, j) => x.classList.toggle("on", j === i)); stage.dataset.on = st.dataset.vis;
-    vis.forEach(v => v.classList.toggle("on", v.dataset.vis === st.dataset.vis));
-    if (st.dataset.state === "unlocked") go(0);
-    else if (st.dataset.state === "locked") {   /* a drawing that arrives already locked plays its lock again, so the motion is seen */
-      if (prev && prev !== st.dataset.vis && !RM && !QA) { if (stop) { stop(); stop = null; } k = 0; apply(); }
-      go(1); } };
+    turns.forEach(t => { if (t.closest(".sys-step").dataset.vis !== key) return; const deg = +t.dataset.deg, v = Math.round(k * deg); if (+t.value !== v) t.value = v;
+      const out = t.closest(".sys-ctrl")?.querySelector("output"); if (out) out.textContent = v + "°"; });
+    if (cur >= 0 && steps[cur].dataset.vis === key) stage.classList.toggle("locked", k > .995); };
+  const halt = key => { if (stops[key]) { stops[key](); stops[key] = null; } };
+  const go = (key, to) => { halt(key); if (RM || QA) { K[key] = to; apply(key); return; }
+    stops[key] = tween(K[key], to, 1500 * Math.abs(to - K[key]) + 200, v => { K[key] = v; apply(key); }, () => { stops[key] = null; }); };
+  turns.forEach(t => t.addEventListener("input", () => { const key = t.closest(".sys-step").dataset.vis; if (!(key in K)) return; halt(key); K[key] = +t.value / +t.dataset.deg; apply(key); }));
+  const activate = i => { if (i === cur) return; const prev = cur >= 0 ? steps[cur].dataset.vis : null; cur = i; const st = steps[i], key = st.dataset.vis;
+    steps.forEach((x, j) => x.classList.toggle("on", j === i)); stage.dataset.on = key;
+    vis.forEach(v => v.classList.toggle("on", v.dataset.vis === key));
+    if (!(key in K)) return;
+    if (st.dataset.state === "unlocked") go(key, 0);
+    else if (st.dataset.state === "locked") {   /* on desktop a drawing that comes back already locked plays its lock again, so the motion is seen (on phones it is in view the whole time: no snap) */
+      if (prev && prev !== key && K[key] > .995 && !mq.matches && !RM && !QA) { halt(key); K[key] = 0; apply(key); }
+      go(key, 1); } };
   document.documentElement.classList.add("sys-on");   /* the pinned layout exists only when this script runs */
-  apply(); activate(0);
-  /* the step crossing a thin band drives the stage: mid-screen beside it on desktop, below it where the stage is pinned on top (≤ 900 px) */
-  const band = matchMedia("(max-width: 900px)").matches ? "-72% 0px -26% 0px" : "-48% 0px -48% 0px";
-  const sio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(steps.indexOf(en.target)); }), { rootMargin: band });
-  steps.forEach(st => sio.observe(st));
+  Object.keys(K).forEach(apply); activate(0);
+  /* desktop: a sticky stage beside the steps, driven by the step crossing mid-screen.
+     phones (≤ 900 px, owner 6 Oct 2026): no pinned stage — each visual moves into the first step that shows it, so a picture scrolls with its text.
+     The active step is the last one whose text has come up past 85 % of the screen, its picture above it; worked out from geometry
+     whenever a text crosses that line, so scrolling up, down or reloading mid-section always gives the same answer */
+  const pick = () => { const line = innerHeight * .85; let i = 0; steps.forEach((st, j) => { if (st.querySelector(".sys-card").getBoundingClientRect().top < line) i = j; });
+    /* a jump past a step (reload, link, fling) still leaves its drawing as that step left it (step 4's plan locked once you are at step 5);
+       a drawing not reached yet waits in its starting state */
+    const last = {}; Object.keys(K).forEach(key => { last[key] = 0; });
+    for (let j = 0; j < i; j++) { const st = steps[j]; if (st.dataset.vis in K && st.dataset.state in END) last[st.dataset.vis] = END[st.dataset.state]; }
+    Object.entries(last).forEach(([key, v]) => { if (key !== steps[i].dataset.vis && !stops[key] && K[key] !== v) { K[key] = v; apply(key); } });
+    activate(i); };
+  const END = { unlocked: 0, locked: 1 };
+  /* also on every scroll near the section, so a jump that lands with no text crossing the line is still picked up */
+  let near = false, queued = false;
+  new IntersectionObserver(es => { near = es[0].isIntersecting; if (near && mq.matches) pick(); }, { rootMargin: "100% 0px" }).observe(sec);
+  addEventListener("scroll", () => { if (!near || !mq.matches || queued) return; queued = true; requestAnimationFrame(() => { queued = false; pick(); }); }, { passive: true });
+  let obs = null;
+  const layout = () => { if (obs) obs.disconnect(); const phone = mq.matches;
+    if (phone) vis.forEach(v => { const st = steps.find(x => x.dataset.vis === v.dataset.vis); if (st) st.prepend(v); });
+    else vis.forEach(v => stage.appendChild(v));
+    steps.forEach(st => st.classList.toggle("sys-cont", phone && !st.querySelector(":scope > .sys-vis")));
+    if (phone) { obs = new IntersectionObserver(pick, { rootMargin: "0px 0px -15% 0px" }); steps.forEach(st => obs.observe(st.querySelector(".sys-card"))); }
+    else { obs = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(steps.indexOf(en.target)); }), { rootMargin: "-48% 0px -48% 0px" }); steps.forEach(st => obs.observe(st)); } };
+  layout(); mq.addEventListener("change", layout);
 });
 /* the lens: pointer drag on the picture (touch: only along the line, so the page still scrolls), the range for keys and assistive tech */
 const LENSES = $$("[data-lens]").map(fig => { const f = fig.querySelector(".lens-f"), r = fig.querySelector(".lens-r"); let x = 0, drag = false, stop = null, hinted = false;
