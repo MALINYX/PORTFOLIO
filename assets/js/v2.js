@@ -45,7 +45,8 @@ class Turntable {
     stage.addEventListener("pointermove", e => { if (!this.drag) return; const dx = e.clientX - this.drag.x; const per = stage.clientWidth / (this.s.n * 0.55);
       const now = performance.now(), dt = Math.max(1, now - this.drag.t); this.v = clamp(-(e.clientX - this.drag.lx) / per / dt * 16.7 * 60, -60, 60);
       this.drag.t = now; this.drag.lx = e.clientX; this.f = this.drag.f - dx / per; this.dirty = true; });
-    const up = () => { if (!this.drag) return; this.drag = null; clearTimeout(this.it); this.it = setTimeout(() => { this.idle = !RM; }, 4000); };
+    const up = () => { if (!this.drag) return; this.drag = null; if (RM) this.v = 0;   /* reduced motion: no spin after release */
+      clearTimeout(this.it); this.it = setTimeout(() => { this.idle = !RM; }, 4000); };
     stage.addEventListener("pointerup", up); stage.addEventListener("pointercancel", up);
     stage.tabIndex = 0; stage.addEventListener("keydown", e => { if (stage.classList.contains("still")) return;
       if (e.key === "ArrowLeft" || e.key === "ArrowRight") { this.f += e.key === "ArrowLeft" ? -1 : 1; this.idle = false; this.dirty = true; this.aria(); e.preventDefault(); } });
@@ -60,7 +61,8 @@ class Turntable {
       if (!this.drag) { if (Math.abs(this.v) > 0.05) { this.f += this.v * dt; this.v *= Math.pow(0.04, dt); this.dirty = true; }
         else if (this.idle && !RM) { this.f += 1.6 * dt; this.dirty = true; } }
       /* idle turning advances f every tick, but a new picture is needed only when the frame index changes */
-      if (this.dirty) { const k = ((Math.round(this.f) % this.s.n) + this.s.n) % this.s.n; if (k !== this.last) { const im = this.s.nearest(this.f); if (im) { draw(this.cv, im); this.last = this.s.ok[k] ? k : -1; } } this.dirty = false; }
+      if (this.dirty) { const k = ((Math.round(this.f) % this.s.n) + this.s.n) % this.s.n; if (k !== this.last) { const im = this.s.nearest(this.f); if (im) { draw(this.cv, im); this.last = this.s.ok[k] ? k : -1; } }
+        if (k !== this.ak) { this.ak = k; this.aria(); }   /* the slider value follows drags and idle turning, not only the arrow keys */ this.dirty = false; }
       this.raf = this.vis ? requestAnimationFrame(tick) : 0; };
     this.raf = requestAnimationFrame(tick); }
 }

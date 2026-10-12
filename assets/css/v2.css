@@ -137,6 +137,9 @@ h2.mid{font-weight:200;font-size:clamp(34px,4.6vw,72px);line-height:.95;letter-s
 .stage .hint{position:absolute;left:50%;bottom:16px;translate:-50% 0;display:flex;gap:10px;align-items:center;padding:8px 14px 8px 12px;border-radius:999px;
   background:rgba(20,14,12,.5);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ivory);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .stage .hint svg{width:22px;height:12px}
+.stage .hint{white-space:nowrap}.stage .hint .ht{display:none}
+@media (pointer:coarse){.stage .hint .hk{display:none}.stage .hint .ht{display:inline}}   /* phones: no arrow keys to mention */
+.case-hero > .sky,.next > .sky{bottom:-16vh}   /* the sky rises with scrolling (up to 14.4vh): taller than the hero, so no bare band opens at its foot */
 .stage.touched .hint,.stage.still .hint{opacity:0;transform:translateY(8px)}
 .stage.still{cursor:default}
 .stage .load{position:absolute;right:16px;top:16px;width:26px;height:26px;transition:opacity .6s}
@@ -775,7 +778,7 @@ body:not(.paper) .fig figcaption{color:var(--ivory-m)}
 /* FN-01: Field Notes pause control */
 .nc-ctrl [data-pause]{min-width:5.2em}
 /* SPEC-07: archive cards with an AI badge in the index */
-.index .ai{color:var(--s2)}
+.index .ai{position:absolute;right:6px;bottom:5px;font-size:9.5px;white-space:nowrap;color:var(--s2)}   /* was an unplaced 7th grid child: it wrapped under the number and doubled the row height */
 /* RELIMG-01: related cards are wide, so their frame is 4:3 and their images come from the 1400 px set */
 .rel .wcard .pic{aspect-ratio:4/3}
 /* PRINT-01: a case study prints as a readable document */
@@ -884,3 +887,16 @@ body[data-mode="object"] .sysd .dim{opacity:0}
 .arch-link a{color:var(--fg-m);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .arch-link a:hover,.arch-link a:focus-visible{color:var(--fg)}
 @media (prefers-reduced-motion:reduce){.sys-on .sys-vis,.sys-on .sys-step,.mode,.sysd .dim{transition:none}}
+
+/* ---- Typography, two families (13 Oct 2026, owner: "more classy, a combo of two fonts") ----
+   Cormorant Garamond sets the display lines; Inter Tight sets the text and the labels. IBM Plex Mono is retired: --mono now
+   points at the sans (labels become tracked capitals), and the drawings' Plex Mono text is mapped to the sans with tabular figures. */
+:root{--serif:"Cormorant Garamond",Cormorant,Garamond,"Times New Roman",serif;--mono:"Inter Tight",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+.hero h1,.display,h2.big,h2.mid,.ring-head h2,.ring-foot .now b,.name,.facts dd,.steps li b,.case-hero h1,.next h2,.contact-big,.wcard .pic.typo .tn,
+.notes-cycle .nc h3,.brand-hero .hero-copy h1,.fcard h3,.ring .item .face.typo .tn,.work-hero.compact h1,.gh,
+.ring .item .cap b,.wcard .meta b,.h3,.fnote h3,.index b,.dec h3,details.more summary,.sys-step h3,.caps li b{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;font-variant-numeric:lining-nums}
+.ring .item .cap b,.wcard .meta b,.h3,.fnote h3,.index b,.dec h3,details.more summary,.sys-step h3,.caps li b{font-weight:500;letter-spacing:-.005em}
+.hero h1,.case-hero h1,.name,.next h2,h2.big,.contact-big,.brand-hero .hero-copy h1,.work-hero.compact h1{line-height:.9}
+.hero h1 .w:last-of-type > span,h2 .grad{font-style:italic;font-weight:300}
+.mono,.lvl,.vocab thead th,.stg,.badge[data-stage],.itype,.hmeta dt,.spec thead th,.fig.svg .ph::after,.mode button{font-weight:500;letter-spacing:.14em}
+svg text[font-family*="Plex"],svg tspan[font-family*="Plex"]{font-family:var(--sans);font-variant-numeric:tabular-nums}

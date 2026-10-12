@@ -1,0 +1,43 @@
+# Bahareh Arianejad — MALINYX
+
+> Bahareh Arianejad is an industrial, product and packaging designer based in France and the founder of MALINYX Studio. Also written بهاره آریانژاد (Persian). MALINYX Studio is Bahareh Arianejad's design practice and malinyx.com is the studio's portfolio.
+
+- Role: Industrial · Product · Packaging Designer
+- Studio: MALINYX Studio (MALINYX)
+- Based in: France · Remote, hybrid, or on-site with relocation
+- Contact: info@malinyx.com · https://malinyx.com/contact/
+- Profile: https://malinyx.com/about/
+- Elsewhere: https://www.linkedin.com/in/bahareharianejad
+
+## Selected work
+
+- [THERMA](https://malinyx.com/work/therma/): Handheld hair-styling tool with a three-lug bayonet attachment system (Hair-styling tool, 2026)
+- [HAXĀ](https://malinyx.com/work/haxa/): Original watch re-engineered around a Swiss automatic calibre — 182 parts (Watch, Original 2024 · re-engineered 2026)
+- [MONOLITH RF03-U1](https://malinyx.com/work/monolith/): Refillable fragrance atomizer with a non-rotating cartridge dock (Fragrance cartridge platform, 2026 — ongoing)
+- [ÉCLOS](https://malinyx.com/work/eclos-compact/): Blush compact available in the Middle East & Turkey, re-engineered as a refillable (Beauty · compact, Original 2023 · re-engineered 2026)
+- [ABAN](https://malinyx.com/work/aban/): Original fragrance flacon and coffret, re-engineered as a 30 ml extrait (Fragrance, Original 2022 · re-engineered 2026)
+- [ECS](https://malinyx.com/work/ecs/): Wearable load-transfer carry system for e-bike commuters (Ergonomic carry system, Original 2020 · re-engineered 2026)
+
+## All projects
+
+- [MARCELLA](https://malinyx.com/work/marcella/): Original whisky decanter and walnut coffret, re-engineered for a 1.5 L fill (Whisky, Original 2021 · re-engineered 2026)
+- [CLX-CT-01](https://malinyx.com/work/clx-ct-01/): Creator carry system designed from review evidence to modules (Creator-tech carry system, 2026)
+- [ZEWM_EXCMON](https://malinyx.com/work/zewm-excmon/): Forensic investigation of a failure nobody owned (Forensic systems investigation, 2019)
+- [AURYN BLEND](https://malinyx.com/work/auryn/): Original faceted whisky decanter, re-engineered for a 70 cl fill (Whisky, Original 2024 · re-engineered 2026)
+- [ROSA ÉCLOSE](https://malinyx.com/work/rosa-eclose/): Perfume flacon, flower cap and coffret, modelled in Blender as three parts (Fragrance, 2026)
+- [ÉCLOS lipstick](https://malinyx.com/work/eclos-lipstick/): Refillable lipstick: a case you keep, a cartridge you replace (Refillable lipstick, 2026)
+- [ÉCLOS Refill Ritual](https://malinyx.com/work/eclos-refill/): Bayonet-collar refill mechanism for a countertop skincare vessel (Bayonet-collar skincare dispenser, 2026)
+- [AHRK](https://malinyx.com/work/ahrk/): Retrofit wall kit that switches a hotel room between six modes (Adaptive hotel room kit, 2025)
+- [TINY TOGETHER](https://malinyx.com/work/tiny-together/): Cooperative parent–child game: paper kit and iPhone & iPad prototype (Cooperative parent–child game, 2026)
+- [PEBBY](https://malinyx.com/work/pebby/): Peaceful iPhone companion game — no streaks, no punishment (Companion game, 2023)
+- [TILBED](https://malinyx.com/work/tilbed/): Art Deco luminaires for TILBED — made and sold, 500+ pieces (reported) (Lighting & ceramics, 2024)
+- [Printed bag series](https://malinyx.com/work/printed-bags/): 3D-printed bags modelled in Rhino, printed in parts and finished by hand (3D-printed bags, 2025)
+- [ÉCLOS Paris](https://malinyx.com/work/eclos-paris/): Refillable beauty packaging range and brand identity (Refillable beauty packaging, 2023)
+- [ÉCLOS Leather](https://malinyx.com/work/eclos-leather/): Leather goods and presentation boxes — produced and sold (Leather goods, 2024)
+- [EXO · BOTA · IGNIS](https://malinyx.com/work/ai-series/): Three AI art-direction triptychs: violet, teal and fire (AI fashion series, 2022)
+- [Catch Rider Feline](https://malinyx.com/work/catch-rider-feline/): Unofficial footwear colour and material study — ten pairs (Footwear colourway study, 2026)
+- [Relief ring](https://malinyx.com/work/ring/): A bangle and three rings in one relief language, as STL files for 3D printing (Jewellery · bangle and rings, 2025)
+- [Cross-Tool Palette](https://malinyx.com/work/cross-tool/): A Blender command palette that speaks Rhino and SolidWorks (Blender add-on, 2026 · v0.3.0)
+- [Field Notes](https://malinyx.com/work/field-notes/): Twelve research notes on systems, mechanisms and materials (Research archive, 2026)
+
+Every project page states its stage (production, prototype, CAD-developed concept…) and labels each image type, including AI imagery; how to read them: https://malinyx.com/about/#legend
