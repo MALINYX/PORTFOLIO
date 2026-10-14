@@ -114,6 +114,9 @@ h2.mid{font-weight:200;font-size:clamp(34px,4.6vw,72px);line-height:.95;letter-s
   box-shadow:0 50px 90px -60px rgba(0,0,0,.9),inset 0 0 0 1px rgba(243,235,224,.08);transition:filter .6s var(--ease),opacity .6s var(--ease);
   filter:brightness(calc(.35 + var(--front,0) * .65)) saturate(calc(.6 + var(--front,0) * .4));backface-visibility:hidden}
 .ring .item canvas,.ring .item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* each card paints a ~20 px preview of its picture at once (blurred by scaling), and the picture fades in over it (14 Oct 2026) */
+.ring .item .face{background:var(--lq,none) center/cover no-repeat,var(--room,#16110f)}.ring .item .face.lqc{background-size:contain,auto}
+.js .ring .item img{opacity:0;transition:opacity .5s var(--ease)}.js .ring .item img.ok{opacity:1}
 .ring .item .cap{position:absolute;left:16px;right:16px;bottom:14px;transform:translateZ(2px);display:flex;justify-content:space-between;align-items:baseline;gap:8px;
   opacity:calc(var(--front,0) * 1.2 - .2);color:var(--ivory);text-shadow:0 1px 14px rgba(0,0,0,.6)}
 .ring .item .cap b{font-weight:300;font-size:clamp(18px,1.8vw,26px);letter-spacing:-.02em}
@@ -900,3 +903,70 @@ body[data-mode="object"] .sysd .dim{opacity:0}
 .hero h1 .w:last-of-type > span,h2 .grad{font-style:italic;font-weight:300}
 .mono,.lvl,.vocab thead th,.stg,.badge[data-stage],.itype,.hmeta dt,.spec thead th,.fig.svg .ph::after,.mode button{font-weight:500;letter-spacing:.14em}
 svg text[font-family*="Plex"],svg tspan[font-family*="Plex"]{font-family:var(--sans);font-variant-numeric:tabular-nums}
+/* ---- AXON (owner, D-037, 14 Oct 2026): the ring dial (the one level-3 interaction registered for AXON), its stage and its
+   sections, in V2's own tokens. The MALINYX orange marks the dial's index only (set on the index's stroke in the markup). ---- */
+.axon-stage{position:relative;aspect-ratio:var(--ar);width:min(100%,calc(66svh * var(--ar)));max-width:100%;margin-inline:auto;border-radius:clamp(22px,2.4vw,36px);overflow:hidden;
+  background:#0b0d0c;--axon-fill:#1a1e20;--axon-line:#e8e0d2;touch-action:pan-y}
+.axon-stage picture,.axon-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease}
+.axon-stage.axon-live .axon-poster{opacity:0}
+.axon-host{position:absolute;inset:0}
+.axon-host canvas{width:100%;height:100%;opacity:0;transition:opacity .6s ease;cursor:grab}
+.axon-stage.axon-live .axon-host canvas{opacity:1}
+.axon-stage.is-dragging canvas{cursor:grabbing}
+.axon-host canvas:focus-visible{outline:2px solid var(--focus);outline-offset:-3px;border-radius:inherit}
+.axon-it{position:absolute;left:14px;bottom:12px;z-index:1}
+.case-hero .axon-dial,.case-hero .axon-video{width:min(100%,calc(66svh * var(--ar,1.414)));margin-inline:auto}
+.axon-dial{display:flex;align-items:center;gap:clamp(12px,2vw,28px);margin-top:12px;flex-wrap:wrap}
+.axon-knob{width:clamp(168px,15vw,200px);flex:none;border-radius:50%;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.axon-knob:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.axon-dial.is-turning .axon-knob{cursor:grabbing}
+.axon-knob svg{width:100%;height:auto;overflow:visible}
+.axon-knob .dr{fill:none;stroke:var(--line);stroke-width:1}
+.axon-knob .arc{fill:none;stroke:var(--fg-m);stroke-width:1.5}
+.axon-knob .tick{stroke:var(--fg);stroke-width:2}
+.axon-knob .tl{fill:var(--fg-m);font:500 11px var(--sans);letter-spacing:.12em}
+.axon-knob .ix{stroke-width:5;stroke-linecap:round}
+.axon-knob .hub{fill:var(--fg-m)}
+.axon-side{flex:1 1 200px;min-width:0}
+.axon-side .ctrl{margin-top:0}
+.axon-side .note{margin-top:12px}
+.axon-help{color:var(--fg-m);margin-top:8px;text-transform:none;letter-spacing:.02em;font-size:12px}
+.axon-video{display:none;margin-top:14px}
+.axon-video video{width:100%;height:auto;border-radius:clamp(14px,1.6vw,22px);background:#0b0d0c}
+.axon-video figcaption{font-size:13.5px;color:var(--fg-m);margin-top:8px}
+.axon-stage.axon-off ~ .axon-video,html:not(.js) .axon-video{display:block}
+.axon-dial.axon-off,html:not(.js) .axon-dial{display:none}
+.hstatus{margin-top:12px;color:var(--fg-m);text-transform:none;letter-spacing:.04em;font-size:13px}
+.axon-slot{border:1px dashed var(--fg-m);border-radius:18px;padding:clamp(22px,4vw,48px);min-height:180px;display:grid;align-content:center;justify-items:center;gap:8px;color:var(--fg-m);text-align:center}
+.axon-fig-chart{margin-top:clamp(24px,4vw,48px)}
+.axon-fig-chart figcaption{font-size:13.5px;color:var(--fg-m);margin-top:12px}
+.axon-fig-chart figcaption .lvl{margin-left:8px}
+.axon-chart{width:100%;height:auto}
+.axon-chart-m{display:none}
+@media (max-width:700px){.axon-chart-d{display:none}.axon-chart-m{display:block}}
+.axon-chart .hold{fill:var(--fg);fill-opacity:.045}
+.axon-chart .ax{stroke:var(--fg);stroke-width:1}
+.axon-chart .grid{stroke:var(--line);stroke-width:1}
+.axon-chart .det{stroke:var(--fg-m);stroke-width:1;stroke-dasharray:3 4}
+.axon-chart .curve{fill:none;stroke:var(--fg);stroke-width:2;stroke-linejoin:round}
+.axon-chart .dot{fill:var(--fg)}
+.axon-chart .lab{fill:var(--fg-m);font-family:var(--sans);font-variant-numeric:tabular-nums}
+.axon-chart .nm{fill:var(--fg);font-family:var(--serif)}
+.axon-ffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.6vw,36px);margin-top:clamp(24px,4vw,48px)}
+.axon-ff{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:18px;align-content:start}
+.axon-pf{display:grid;gap:6px}
+.axon-pf p:last-child{color:var(--fg-m)}
+.axon-num{font-family:var(--serif);font-size:clamp(32px,3.2vw,50px);line-height:1;letter-spacing:-.015em;font-variant-numeric:lining-nums}
+.axon-ff .lvl{justify-self:start}
+.axon-small{font-size:14px;color:var(--fg-m);max-width:65ch;margin-top:14px}
+.axon-ev .axon-notmet th{font-weight:500}
+.axon-next-h{margin-top:clamp(28px,4vw,48px)}
+.axon-vs{display:grid;gap:22px}
+.axon-v .lvl{margin-top:6px}
+#exploded .fig,#hold .fig{margin:0}
+/* AXON: the orange is the dial's index alone, so this page's own markers, focus rings and selection use the ink or ivory */
+body:has([data-axon]),body.paper:has([data-axon]){--focus:var(--fg)}
+body:has([data-axon]) details.more summary::before{color:var(--fg)}
+body:has([data-axon]) ::selection{background:var(--fg);color:var(--bg)}
+body:has([data-axon]) .case-hero .stg,body:has([data-axon]) #status .stg{--sc:var(--fg)}
+@media (max-width:640px){.axon-ev td[data-l]::before{content:attr(data-l) " · ";color:var(--fg-m);font-size:12px;letter-spacing:.04em}}

@@ -114,8 +114,19 @@ const RINGS = $$(".ring-sec").map(sec => {
     if (nowB) nowB.textContent = it.dataset.name; if (nowS) nowS.textContent = it.dataset.line; if (go) go.href = it.getAttribute("href");
     dots.forEach((d, j) => d.classList.toggle("on", j === i));
     if (o.say && live && o.to == null) { live.textContent = `${it.dataset.name}: ${it.dataset.line}`; o.say = false; }
-    clearInterval(o.spin); o.spin = null; const key = it.dataset.seq; const img = it.querySelector("img");
+    clearInterval(o.spin); o.spin = null; if (o.imgsDone) o.spinFor(i); };
+  /* the front card spins through its turntable frames (36 files): only once the card pictures are in, so they never wait behind them */
+  o.spinFor = i => { clearInterval(o.spin); o.spin = null; const it = items[i], key = it.dataset.seq, img = it.querySelector("img");
     if (key && M.seq[key] && img && !RM) { const s = seq(key, "s"); s.start(); let f = 0; o.spin = setInterval(() => { f = (f + 1) % s.n; const im = s.nearest(f); if (im) img.src = im.src; }, 90); } };
+  /* the card pictures: lazy loading starts too late inside a turning 3D ring (Safari especially), so all are requested as the ring
+     approaches, the ones nearest the front first; each fades in over its blurred inline preview (14 Oct 2026) */
+  const imgs = items.map(it => it.querySelector(".face img")).filter(Boolean); let left = imgs.length; o.imgsDone = !left;
+  const done = () => { if (o.imgsDone) return; o.imgsDone = true; if (o.active >= 0) o.spinFor(o.active); };
+  imgs.forEach(im => { const ok = () => { im.classList.add("ok"); if (--left <= 0) done(); };
+    if (im.complete && im.naturalWidth) ok(); else { im.addEventListener("load", ok, { once: true }); im.addEventListener("error", ok, { once: true }); } });
+  new IntersectionObserver((es, ob) => { if (!es.some(e => e.isIntersecting)) return; ob.disconnect();
+    items.map((it, i) => [Math.min(i, n - i), it.querySelector(".face img")]).filter(x => x[1]).sort((a, b) => a[0] - b[0]).forEach(([, im]) => { im.loading = "eager"; });
+    setTimeout(done, 6000); }, { rootMargin: "200% 0px" }).observe(sec);
   return o;
 });
 

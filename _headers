@@ -13,3 +13,7 @@
   X-Robots-Tag: noindex
 /dossier/*
   X-Robots-Tag: noindex
+/assets/obj/*
+  Cache-Control: public, max-age=86400
+/vendor/*
+  Cache-Control: public, max-age=604800
