@@ -20,6 +20,7 @@
 
 ## All projects
 
+- [AXON](https://malinyx.com/work/axon/): A desk lamp where one ring sets height, tilt and direction. (Desk lamp, 2017 concept · 2026 engineering)
 - [MARCELLA](https://malinyx.com/work/marcella/): Original whisky decanter and walnut coffret, re-engineered for a 1.5 L fill (Whisky, Original 2021 · re-engineered 2026)
 - [CLX-CT-01](https://malinyx.com/work/clx-ct-01/): Creator carry system designed from review evidence to modules (Creator-tech carry system, 2026)
 - [ZEWM_EXCMON](https://malinyx.com/work/zewm-excmon/): Forensic investigation of a failure nobody owned (Forensic systems investigation, 2019)
