@@ -41,7 +41,7 @@
 .axon-words footer{margin-top:16px;color:var(--fg-m)}
 .axon-origin .fig,.axon-study .fig{margin:0}
 /* the design study in Next (D-040): the starting point for the styling phase */
-.axon-study{margin-top:14px;max-width:1100px}
+.axon-study{margin-top:14px;max-width:820px}
 .axon-fig-chart{margin-top:clamp(24px,4vw,48px)}
 .axon-fig-chart figcaption{font-size:13.5px;color:var(--fg-m);margin-top:12px}
 .axon-fig-chart figcaption .lvl{margin-left:8px}
@@ -74,3 +74,31 @@ body:has([data-axon]) details.more summary::before{color:var(--fg)}
 body:has([data-axon]) ::selection{background:var(--fg);color:var(--bg)}
 body:has([data-axon]) .case-hero .stg,body:has([data-axon]) #status .stg{--sc:var(--fg)}
 @media (max-width:640px){.axon-ev td[data-l]::before{content:attr(data-l) " · ";color:var(--fg-m);font-size:12px;letter-spacing:.04em}}
+/* ---- AXON fully dark (owner, D-042; D-044: "keep it fully dark with bright text"), on screen only: print keeps the site's
+   own white sheet (v2.css PRINT-01). Only this page links this file, so no other page changes. The ground: ink from top to
+   bottom even if a block ever asks for paper (the scroll observer in v2.js writes the body's ground inline, hence !important),
+   the text ivory; the muted text, the captions and the viewer's lines a little brighter than the site's 64 %. ---- */
+@media screen{
+body:has([data-axon]),body.paper:has([data-axon]){--bg:var(--ink);--fg:var(--ivory);--fg-m:rgba(243,235,224,.78);--line:var(--line-l);
+  background-color:var(--ink)!important;color:var(--ivory)}
+body:has([data-axon]) .fig figcaption,body:has([data-axon]) .lb-count,body:has([data-axon]) .lb-type{color:var(--fg-m)}
+/* the hero's glow and the next project's sun stay (the site's sunset glass) but dark: each keeps its own hue at a fraction of
+   its light, whichever project comes next (the sun's own blur and saturation restated: filter is one property) */
+body:has([data-axon]) .case-hero .sky .sun{filter:blur(6px) saturate(1.05) brightness(.34)}
+body:has([data-axon]) .next .sky .sun{filter:blur(6px) saturate(1.05) brightness(.46)}
+body:has([data-axon]) .case-hero .axon-help{text-shadow:0 1px 12px rgba(14,10,9,.85),0 0 2px rgba(14,10,9,.6)}
+/* no ivory pills with dark text: the pressed pose, the solid button, the big cursor, the viewer's zoom and the skip link are
+   drawn in outline; focus rings ivory (the orange is the dial's index alone) */
+body:has([data-axon]) .case-hero .chip[aria-pressed="true"]{background:rgba(243,235,224,.14);color:var(--ivory);border-color:var(--ivory)}
+body:has([data-axon]) .btn.solid,body:has([data-axon]) .btn.solid:hover{background:rgba(243,235,224,.2);color:var(--ivory);border:1.5px solid var(--ivory)}
+body:has([data-axon]) .cursor.big{background:rgba(14,10,9,.8);color:var(--ivory);box-shadow:inset 0 0 0 1px rgba(243,235,224,.55)}
+body:has([data-axon]) .lb-zoom[aria-pressed="true"]{background:rgba(243,235,224,.14);color:var(--ivory)}
+body:has([data-axon]) .skip{background:rgba(14,10,9,.92);color:var(--ivory);box-shadow:inset 0 0 0 1px rgba(243,235,224,.55)}
+body:has([data-axon]) .wcard:focus-visible{outline-color:var(--focus)}
+/* the related cards keep their own pictures but do not flip to their light second picture on hover */
+body:has([data-axon]) #related .pic img.alt{display:none}
+}
+@media print{html:has([data-axon]){color-scheme:light}body:has([data-axon]) .fig figcaption{color:#444}}
+/* the desk stills (D-044): an ink frame while each loads (their top corners catch the window's light) */
+.axon-stills .fig .ph{background:#0b0d0c}
+.axon-stills figcaption{text-wrap:pretty}
